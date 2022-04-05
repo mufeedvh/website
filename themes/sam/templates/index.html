@@ -56,6 +56,19 @@
         <link rel="stylesheet" href="{{ get_url(path='fonts.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
 
+        <link rel="preload" href="fonts/cmu.serif-roman.ttf" as="font" type="font/truetype" crossorigin="anonymous">
+        <link rel="preload" href="fonts/Roboto-Light.ttf" as="font" type="font/truetype" crossorigin="anonymous">
+
+        {% if not section.description %}
+            {% if page.description %}
+                {% if page.title == "Contact" %}
+                <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+                {% endif %}
+            {% else %}
+            <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+            {% endif %}
+        {% endif %}
+
         <title>{% block htmltitle %}{{ config.title }} :: Home{% endblock htmltitle %}</title>
 
         {% if config.generate_rss %}
