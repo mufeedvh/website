@@ -3,6 +3,7 @@
     font-style: normal;
     font-weight: 400;
     src: local('CMU Serif Roman'), local('CMU Serif Roman'), url(fonts/cmu.serif-roman.ttf) format('truetype');
+    font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
     font-style: normal;
     font-weight: 400;
     src: local('Roboto Light'), local('Roboto Light'), url(fonts/Roboto-Light.ttf) format('truetype');
+    font-display: swap;
 }
 
 @font-face {
@@ -17,4 +19,5 @@
     font-style: normal;
     font-weight: 400;
     src: local('JetBrains Mono Light'), local('JetBrains Mono Light'), url(fonts/JetBrainsMono-Light.ttf) format('truetype');
+    font-display: swap;
 }
