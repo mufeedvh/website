@@ -1,0 +1,80 @@
++++
+title = "Projects"
+description = "Get to know about Mufeed VH's work, open-source projects, open-source contributions, CVEs, research, etc."
+
+[extra]
+no_header = true
++++
+
+**GitHub Profile:** <a href="https://github.com/mufeedvh" target="_blank"><span class="fa-brands fa-github"></span> github/mufeedvh</a>
+
+<table>
+    <tr>
+        <th>Project</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/binserve" target="_blank"><code>binserve</code></a></td>
+        <td style="padding: 30px;">A blazingly fast static web server with routing, templating, and security in a single binary you can set up with zero code.</td>
+    </tr>
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/moonwalk" target="_blank"><code>moonwalk</code></a></td>
+        <td style="padding: 30px;">Cover your tracks during Linux Exploitation / Penetration Testing by leaving zero traces on system logs and filesystem timestamps.</td>
+    </tr>
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/basecrack" target="_blank"><code>basecrack</code></a></td>
+        <td style="padding: 30px;">BaseCrack is a tool written in Python that can decode all alphanumeric base encoding schemes.</td>
+    </tr>
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/pdfrip" target="_blank"><code>pdfrip</code></a></td>
+        <td style="padding: 30px;">Fast PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks.</td>
+    </tr>    
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/gisture" target="_blank"><code>pdfrip</code></a></td>
+        <td style="padding: 30px;">A minimal and flexible blog generator based on GitHub Gists with SEO, Templating, Syntax Highlighting, and Metadata support out-of-the-box.</td>
+    </tr>      
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/regretti" target="_blank"><code>regretti</code></a></td>
+        <td style="padding: 30px;">A programming language where comments are the first-class citizen and ASCII art flowcharts are the controls. (Made for Lang Jam (jam0001) theme: first-class comments in 48 hours)</td>
+    </tr>  
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/okjson" target="_blank"><code>okjson</code></a></td>
+        <td style="padding: 30px;">A fast, simple, and pythonic JSON Schema Validation library.</td>
+    </tr>    
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/paydept" target="_blank"><code>paydept</code></a></td>
+        <td style="padding: 30px;">Shows every open-source dependency you use in your system that accept donations.</td>
+    </tr>   
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/seclip" target="_blank"><code>seclip</code></a></td>
+        <td style="padding: 30px;">A CLI utility to secretly copy secrets to clipboard.</td>
+    </tr>  
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/l33tmario" target="_blank"><code>l33tmario</code></a></td>
+        <td style="padding: 30px;">Mario the game but you rescue the princess by hacking.</td>
+    </tr> 
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/log4jail" target="_blank"><code>log4jail</code></a></td>
+        <td style="padding: 30px;">A fast firewall reverse proxy with TLS (HTTPS) and swarm support for preventing Log4J (Log4Shell aka CVE-2021-44228) attacks.</td>
+    </tr>     
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/CVE-2019-8449" target="_blank"><code>CVE-2019-8449</code></a></td>
+        <td style="padding: 30px;">CVE-2019-8449 Exploit for Jira v2.1 - v8.3.4.</td>
+    </tr>  
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/CynthiaOS/cynthia" target="_blank"><code>CynthiaOS</code></a></td>
+        <td style="padding: 30px;">The Cynthia Operating System. (WIP 🚧)</td>
+    </tr>                            
+</table>
+
+## CVEs I've found/reviewed/patched
+
+As most of these are on GitHub:
+
+- Patches: [GitHub Search](https://github.com/search?p=1&q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues)
+- Reviews: [GitHub Search](https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues)
+- Exploits: [CVE-2019-8449](https://github.com/mufeedvh/CVE-2019-8449)
+
+## Notable Security Hall of Fames
+
+Google, Mastercard, Okta, DELL, Ford, Zilliqa, EFF, Telefonica, etc.

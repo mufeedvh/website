@@ -1,0 +1,98 @@
+{% import "macros.html" as macros %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="referrer" content="no-referrer">
+
+        {% if section.description %}
+        <meta name="description" content="{{ section.description | safe }}">
+        <link rel=canonical href="{{ config.base_url | safe }}">
+        <meta property=og:locale content="en_GB">
+        <meta property=og:type content="website">
+        <meta property=og:title content="{{ section.title | safe }}">
+        <meta property=og:description content="{{ section.description | safe }}">
+        <meta property=og:url content="{{ config.base_url | safe }}">
+        <meta property=og:site_name content="{{ section.title | safe }}">
+        <meta name=twitter:description content="{{ section.description | safe }}">
+        <meta name=twitter:title content="{{ section.title | safe }}">
+        <meta name=twitter:site content="@mufeedvh">
+        <meta name=twitter:creator content="@mufeedvh">
+        {% endif %}
+
+        {% if page.description %}
+        <meta name="description" content="{{ page.description | safe }}">
+        <link rel=canonical href="{{ config.base_url | safe }}">
+        <meta property=og:locale content="en_GB">
+        <meta property=og:type content="website">
+        <meta property=og:title content="{{ page.title | safe }}">
+        <meta property=og:description content="{{ page.description | safe }}">
+        <meta property=og:url content="{{ config.base_url | safe }}">
+        <meta property=og:site_name content="{{ page.title | safe }}">
+        <meta name=twitter:description content="{{ page.description | safe }}">
+        <meta name=twitter:title content="{{ page.title | safe }}">
+        <meta name=twitter:site content="@mufeedvh">
+        <meta name=twitter:creator content="@mufeedvh">
+        {% else %}
+        <meta name="description" content="{{ config.description | safe }}">
+        <link rel=canonical href="{{ config.base_url | safe }}">
+        <meta property=og:locale content="en_GB">
+        <meta property=og:type content="website">
+        <meta property=og:title content="{{ config.title | safe }}">
+        <meta property=og:description content="{{ config.description | safe }}">
+        <meta property=og:url content="{{ config.base_url | safe }}">
+        <meta property=og:site_name content="{{ config.title | safe }}">
+        <meta name=twitter:description content="{{ config.description | safe }}">
+        <meta name=twitter:title content="{{ config.title | safe }}">
+        <meta name=twitter:site content="@mufeedvh">
+        <meta name=twitter:creator content="@mufeedvh">        
+        {% endif %}
+
+        <link rel="stylesheet" href="{{ get_url(path='fonts.css') }}">
+        <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css" integrity="sha512-OivR4OdSsE1onDm/i3J3Hpsm5GmOVvr9r49K3jJ0dnsxVzZgaOJ5MfxEAxCyGrzWozL9uJGKz6un3A7L+redIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <title>{% block htmltitle %}{{ config.title }} :: Home{% endblock htmltitle %}</title>
+
+        {% if config.generate_rss %}
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
+        {% endif %}
+    </head>
+    <body>
+        {% block body %}
+            <div class="section" id="splash">
+                {% if config.extra.sam_menu %}
+                    {% for link in config.extra.sam_menu %}
+                        <div class="big-link">
+                            <a href="{{ link.link }}">
+                                {{ link.text }}
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for current in section.subsections %}
+                        {% set current = get_section(path=current) %}
+                        <div class="big-link">
+                            <a href="{{ current.permalink }}">
+                                {{ macros::title_or_last(component=current) }}
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div>
+                    <a href="https://github.com/mufeedvh" target="_blank"><span class="fa-brands fa-github"></span></a>
+                    &nbsp
+                    <a href="https://twitter.com/mufeedvh" target="_blank"><span class="fa-brands fa-twitter"></span></a>
+                    <br><br>
+                    <p class="art-credits" style="display: none;">art by <a href="https://www.themuestudio.com/invitationtodaydream" target="_blank">mue</a>.</p>
+                </div>
+            </div>
+            <style>@media (min-width: 961px){body{background-image: url('invitationtodaydream.jpg'); background-position: 100% 50%; background-size: 50%; background-repeat: no-repeat;}.art-credits{display: block !important;}}</style>  
+        {% endblock body %}
+    </body>
+</html>
