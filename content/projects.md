@@ -15,7 +15,7 @@ no_header = true
     </tr>
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/binserve" target="_blank"><code>binserve</code></a></td>
-        <td style="padding: 30px;">A blazingly fast static web server with routing, templating, and security in a single binary you can set up with zero code.</td>
+        <td style="padding: 30px;">A fast static web server with routing, templating, and security in a single binary you can set up with zero code.</td>
     </tr>
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/moonwalk" target="_blank"><code>moonwalk</code></a></td>
@@ -27,7 +27,7 @@ no_header = true
     </tr>
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/pdfrip" target="_blank"><code>pdfrip</code></a></td>
-        <td style="padding: 30px;">Fast PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks.</td>
+        <td style="padding: 30px;">A multi-threaded PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks.</td>
     </tr>    
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/gisture" target="_blank"><code>pdfrip</code></a></td>
