@@ -30,7 +30,7 @@ no_header = true
         <td style="padding: 30px;">A multi-threaded PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks.</td>
     </tr>    
     <tr>
-        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/gisture" target="_blank"><code>pdfrip</code></a></td>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/gisture" target="_blank"><code>gisture</code></a></td>
         <td style="padding: 30px;">A minimal and flexible blog generator based on GitHub Gists with SEO, Templating, Syntax Highlighting, and Metadata support out-of-the-box.</td>
     </tr>      
     <tr>
