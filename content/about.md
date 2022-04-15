@@ -6,7 +6,7 @@ description = "Who is Mufeed VH? Read more about Mufeed VH on this about page."
 no_header = true
 +++
 
-My name's Mufeed, currently <span id="my_age"><noscript>19</noscript></span> years old from the "God's Own Country" -- Kerala, India.
+My name's Mufeed, currently <span id="my_age"><noscript>19</noscript></span> years old from Thrissur, Kerala.
 
 I have alternating interests but the only ones that stayed consistent are <strong>coding</strong> and <strong>art</strong> (which I haven't done in a while).
 
