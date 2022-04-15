@@ -30,7 +30,7 @@ I have an interest in [Programming language theory](https://en.wikipedia.org/wik
 
 I have done most work in the field of Systems Programming, Android Security, Web Security, Game Development, Cryptography, and Operating Systems.
 
-You can take a look at some of my open-source work on my [Projects](projects) page.
+You can take a look at some of my open-source work on my [Projects](https://www.mufeedvh.com/projects) page.
 
 That's about it.
 
