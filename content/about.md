@@ -26,7 +26,7 @@ Here's my GitHub if you wanna have a look at some code crimes: <a href="https://
 
 I mostly write code in Rust and Python, other than that, I dabble with C, C++, Go, JavaScript, Java, Kotlin, PHP, Zig, and Nim. (I like learning languages for fun even though I merely use a few)
 
-I have an interest in [Programming language theory](https://en.wikipedia.org/wiki/Programming_language_theory) especially in implementing parser generators and JIT engines. Talking about programming languages, I have written a bizarre programming language called [regretti](https://github.com/mufeedvh/regretti) as part of [Lang Jam](https://github.com/langjam/langjam) in 48 hours that takes ascii art flow charts as first-class citizen which won the competition and got [featured in the results video](https://www.youtube.com/watch?v=j7VAw8UfMeA&t=466s).
+I have an interest in [Programming language theory](https://en.wikipedia.org/wiki/Programming_language_theory) especially in implementing parser generators and JIT engines. Talking about programming languages, I have written a bizarre programming language called [regretti](https://github.com/mufeedvh/regretti) as part of [Lang Jam](https://github.com/langjam/langjam) in 48 hours that takes ascii art flow charts as first-class citizen which won the voter's choice and got [featured in the results video](https://www.youtube.com/watch?v=j7VAw8UfMeA&t=466s).
 
 I have done most work in the field of Systems Programming, Android Security, Web Security, Game Development, Cryptography, and Operating Systems.
 
