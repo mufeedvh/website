@@ -13,7 +13,7 @@
 {% block content %}
     {% if not page.extra.no_header %}
         {% if page.date %}
-            {{ macros::format_date(date=page.date) }}
+            <span class="metadata-elements">{{ macros::format_date(date=page.date) }}
         {% endif %}
         {% if config.extra.show_word_count and not page.extra.hide_word_count %}
             {% if page.date %}
@@ -30,6 +30,7 @@
                 {{ page.reading_time }} min
             {% endif %}
         {% endif %}
+    </span>
         {% if page.taxonomies.tags %}
             <div class="tag-container">
                 Tags ::&nbsp;
@@ -54,7 +55,8 @@
                 {% endfor %}
             </div>
         {% endif %}
-        <hr/>
+        <hr style="width: 100%">
+        <br>
     {% endif %}
     {{ page.content | safe }}
 {% endblock content %}
