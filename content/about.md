@@ -6,7 +6,7 @@ description = "Who is Mufeed VH? Read more about Mufeed VH on this about page."
 no_header = true
 +++
 
-My name's Mufeed, currently <span id="my_age"><noscript>19</noscript></span> years old from Thrissur, Kerala.
+My name's Mufeed, currently <span id="my_age"><noscript>20</noscript></span> years old from Thrissur, Kerala.
 
 I have alternating interests but the only ones that stayed consistent are <strong>coding</strong> and <strong>art</strong> (which I haven't done in a while).
 
@@ -36,4 +36,4 @@ That's about it.
 
 <style>:host,:root{--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:block;src:url('/fonts/fa-brands-400.woff2') format("woff2"),url('/fonts/fa-brands-400.ttf') format("truetype")}.fa-brands,.fab{font-family:"Font Awesome 6 Brands";font-weight:400}.fa-github:before{content:"\f09b"}.fa-github-alt:before{content:"\f113"}.fa-github-square:before{content:"\f092"}.fa-twitter:before{content:"\f099"}.fa-twitter-square:before{content:"\f081"}.fa-instagram:before{content:"\f16d"}.fa-instagram-square:before{content:"\e055"}.fa-youtube:before{content:"\f167"}.fa-youtube-square:before{content:"\f431"}</style>
 
-<script>function me_when(){var date_of_birth=(new Date()) - (new Date(2002, 6, 13)); date_of_birth /= (1000 * 60 * 60 * 24 * 365); document.getElementById('my_age').innerHTML='<span>' + Math.floor(date_of_birth) + '</span>.' + (date_of_birth % 1).toFixed(9).substr(2);}setInterval(me_when, 1)</script>
+<script>function me_when(){var date_of_birth=(new Date()) - (new Date(2002, 5, 13)); date_of_birth /= (1000 * 60 * 60 * 24 * 365); document.getElementById('my_age').innerHTML='<span>' + Math.floor(date_of_birth) + '</span>.' + (date_of_birth % 1).toFixed(9).substr(2);}setInterval(me_when, 1)</script>
