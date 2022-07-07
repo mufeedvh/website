@@ -38,7 +38,7 @@ That's about it.
 
 ## Recent Life Updates
 
-- Won gold medal at all India nationals for Cyber Security at [WorldSkills](https://en.wikipedia.org/wiki/WorldSkills), qualified for representing India at Korea in October of 2022.
+- Won gold medal at the all India nationals for Cyber Security at [WorldSkills](https://en.wikipedia.org/wiki/WorldSkills), qualified for representing India at Korea in October of 2022.
 - Started a [company](https://lyminal.space/).
 - Got interested in [AI Alignment](https://en.wikipedia.org/wiki/AI_alignment), have been reading up on that.
 
