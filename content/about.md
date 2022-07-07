@@ -8,9 +8,11 @@ no_header = true
 
 My name's Mufeed, currently <span id="my_age"><noscript>20</noscript></span> years old from Thrissur, Kerala.
 
+I am an avid self-learner and identify myself as an [autodidact](https://en.wikipedia.org/wiki/Autodidacticism), almost everything I know has been self-taught by the means of books and the Internet.
+
 I have alternating interests but the only ones that stayed consistent are <strong>coding</strong> and <strong>art</strong> (which I haven't done in a while).
 
-As a result, coding is now a fun hobby turned passion which I am grateful to say I make a living out of. Even though I am doing what I love as my career, it's honestly kinda boring in a job setting, especially when you just work on stuff that you're not interested in or when it feels like a chore. Due to these reasons, I have dropped all of that, taking on a completely risky route of starting a company on my own which has been a goal since I was a kid.
+As a result, coding is now a fun hobby turned passion which I am grateful to say I make a living out of. Even though I am doing what I love as my career, it's honestly kinda boring in a job setting, especially when you just work on stuff that you're not interested in or when it feels like a chore. Due to these reasons, I have dropped all of that, taking on a completely risky route of starting a company on my own which has been a goal of mine since I was a kid.
 
 The company is called [Lyminal](https://lyminal.space/), derived from the word [Liminal](https://en.wikipedia.org/wiki/Liminal) and my interest in the phenomenon "Liminal Space".
 
@@ -33,6 +35,19 @@ I have done most work in the field of Systems Programming, Android Security, Web
 You can take a look at some of my open-source work on my [Projects](https://www.mufeedvh.com/projects) page.
 
 That's about it.
+
+## Recent Life Updates
+
+- Won gold medal at all India nationals for Cyber Security at [WorldSkills](https://en.wikipedia.org/wiki/WorldSkills), qualified for representing India at Korea in October of 2022.
+- Started a [company](https://lyminal.space/).
+- Got interested in [AI Alignment](https://en.wikipedia.org/wiki/AI_alignment), have been reading up on that.
+
+### not so recent life updates
+
+- Won the Live Hacking Event conducted by BugDiscover at c0c0n XII.
+- Silver medalist in YIP (Young Innovators Programme) of K-DISC by the Government of Kerala.
+- Gave a talk at DEFCON Group DC0471 0x02, Trivandrum.
+- India Skills Kerala finalist in Web Design & Development.
 
 <style>:host,:root{--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:block;src:url('/fonts/fa-brands-400.woff2') format("woff2"),url('/fonts/fa-brands-400.ttf') format("truetype")}.fa-brands,.fab{font-family:"Font Awesome 6 Brands";font-weight:400}.fa-github:before{content:"\f09b"}.fa-github-alt:before{content:"\f113"}.fa-github-square:before{content:"\f092"}.fa-twitter:before{content:"\f099"}.fa-twitter-square:before{content:"\f081"}.fa-instagram:before{content:"\f16d"}.fa-instagram-square:before{content:"\e055"}.fa-youtube:before{content:"\f167"}.fa-youtube-square:before{content:"\f431"}</style>
 
