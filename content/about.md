@@ -8,7 +8,7 @@ no_header = true
 
 My name's Mufeed, currently <span id="my_age"><noscript>20</noscript></span> years old from Thrissur, Kerala.
 
-I am an avid self-learner and identify myself as an [autodidact](https://en.wikipedia.org/wiki/Autodidacticism), almost everything I know has been self-taught by the means of books and the Internet.
+I am an avid self-learner and consider myself as an [autodidact](https://en.wikipedia.org/wiki/Autodidacticism), almost everything I know has been self-taught by the means of books and the Internet.
 
 I have alternating interests but the only ones that stayed consistent are <strong>coding</strong> and <strong>art</strong> (which I haven't done in a while).
 
@@ -16,7 +16,7 @@ As a result, coding is now a fun hobby turned passion which I am grateful to say
 
 The company is called [Lyminal](https://lyminal.space/), derived from the word [Liminal](https://en.wikipedia.org/wiki/Liminal) and my interest in the phenomenon "Liminal Space".
 
-## What Do I Do?
+## What I Do
 
 I basically have this list where I write down random ideas and thoughts, most of them utterly ridiculous but I gotta say, some of them just might be pretty good... prolly. The list is so long, I wouldn't be able to strike off all of them in my lifetime but all in all, I pick one and do it whenever I feel like it. I don't go by any schedule.
 
