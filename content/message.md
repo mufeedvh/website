@@ -6,7 +6,7 @@ description = "anonymously write or draw me a message."
 no_header = true
 +++
 
-anonymously write or draw me a message.
+write or draw me a message **anonymously**.
 
 <style>
     textarea {
