@@ -75,13 +75,10 @@ anonymously write or draw me a message.
     const colorPicker = document.querySelector( '.js-color-picker' );
 
     function detectMob() {
-        console.log(window.innerWidth);
-        console.log(window.innerHeight);
         return window.innerWidth <= 800;
     }
 
     if (detectMob()) {
-        console.log('phone');
         paintCanvas.setAttribute('width', '320');
         paintCanvas.setAttribute('height', '320');
     }
@@ -103,9 +100,10 @@ anonymously write or draw me a message.
     let isMouseDown = false;
 
     const stopDrawing = () => { isMouseDown = false; }
+
     const startDrawing = event => {
         isMouseDown = true;   
-    [x, y] = [event.offsetX, event.offsetY];  
+        [x, y] = [event.offsetX, event.offsetY];
     }
 
     const drawLine = event => {
@@ -122,10 +120,38 @@ anonymously write or draw me a message.
         }
     }
 
+    const startDrawingTouch = event => {
+        isMouseDown = true;
+        var rect = event.target.getBoundingClientRect();
+        [x, y] = [event.targetTouches[0].clientX - rect.left, event.targetTouches[0].clientY - rect.top];
+    }
+
+    const drawLineTouch = event => {
+        var rect = event.target.getBoundingClientRect();
+        if ( isMouseDown ) {
+            const newX = event.targetTouches[0].clientX - rect.left;
+            const newY = event.targetTouches[0].clientY - rect.top;
+            context.beginPath();
+            context.moveTo( x, y );
+            context.lineTo( newX, newY );
+            context.stroke();
+            
+            x = newX;
+            y = newY;
+        }
+    }
+
     paintCanvas.addEventListener( 'mousedown', startDrawing );
+    paintCanvas.addEventListener( 'touchstart', startDrawingTouch );
+
     paintCanvas.addEventListener( 'mousemove', drawLine );
+    paintCanvas.addEventListener( 'touchmove', drawLineTouch );
+    
     paintCanvas.addEventListener( 'mouseup', stopDrawing );
+    paintCanvas.addEventListener( 'touchend', stopDrawing );
+
     paintCanvas.addEventListener( 'mouseout', stopDrawing );
+    paintCanvas.addEventListener( 'touchcancel', stopDrawing );
 
     const API_URL = 'https://api.mufeedvh.com';
 
