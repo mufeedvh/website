@@ -62,7 +62,7 @@ anonymously write or draw me a message.
         <input type="color" class="js-color-picker color-picker">
         <input type="range" class="js-line-range" min="1" max="72" value="1">
         <label class="js-range-value">1</label> px
-        <canvas class="js-paint paint-canvas" width="690" height="400" style="margin-top: 10px;"></canvas>
+        <canvas class="js-paint paint-canvas" width="690" height="400" style="margin-top: 10px; touch-action: none;"></canvas>
         <button id="draw-button" onclick="send_drawing();" style="margin-top: 10px;">Send Drawing</button>
     </div>
 </div>
