@@ -54,12 +54,6 @@
         padding: 0.1rem
         border-radius: 3px
         border: 1px solid $links
-    & img
-        width: 100%
-        max-width: 100%
-        display: block
-        margin: 2rem auto
-        opacity: 1
     & blockquote
         background-color: $links
         color: $dark-grey
@@ -105,6 +99,20 @@
             color: $body-text
             & a
                 color: $body-text
+
+@keyframes imgallery
+    0%
+        opacity: 0; filter: brightness(1) blur(20px)
+    10%
+        opacity: 1; filter: brightness(2) blur(10px)
+    100%
+        opacity: 1; filter: brightness(1) blur(0)
+
+.gallery
+    & img
+        animation: imgallery
+    & a
+        border-bottom: 0px
 
 .tag
     padding: 0.25em 0em
