@@ -1,0 +1,40 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta content="chrome=1" http-equiv=X-UA-Compatible><meta content=True name=HandheldFriendly><meta content=320 name=MobileOptimized><meta content="width=device-width,initial-scale=1.0" name=viewport><meta content=no-referrer name=referrer><meta content="a list of lists you could practically use against me." name=description><link href=https://www.mufeedvh.com/list/ rel=canonical><meta content=en_GB property=og:locale><meta content=website property=og:type><meta content=list property=og:title><meta content="a list of lists you could practically use against me." property=og:description><meta content=https://www.mufeedvh.com/list/ property=og:url><meta content=list property=og:site_name><meta content="a list of lists you could practically use against me." name=twitter:description><meta content=list name=twitter:title><meta content=@mufeedvh name=twitter:site><meta content=@mufeedvh name=twitter:creator><link href=https://www.mufeedvh.com/fonts.css rel=stylesheet><link href=https://www.mufeedvh.com/style.css rel=stylesheet><link as=font crossorigin=anonymous href=/fonts/CMU-Serif-Roman.ttf rel=preload type=font/ttf><link as=font crossorigin=anonymous href=/fonts/Roboto-Light.ttf rel=preload type=font/ttf><title> list </title><body><div class=wrap><div class=section id=title>list</div><div class=section id=sections></div><div class=section id=content><p>a list of lists you could practically use against me.<h2 id=book-recommendations>Book Recommendations</h2><div id=book_recs>Loading...</div><h2 id=favourite-movies>Favourite Movies</h2><p>off the top of my head.<div id=fav_movies>Loading...</div><h2 id=most-played-music>Most Played Music</h2><p>updated monthly.<div id=most_played_music>Loading...</div><script>var xhttp = new XMLHttpRequest();
+    
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var book_recs_remarks = JSON.parse(xhttp.responseText).book_recs_remarks;
+            var book_recs = JSON.parse(xhttp.responseText).book_recs;
+            var fav_movies = JSON.parse(xhttp.responseText).fav_movies;
+            var most_played_music = JSON.parse(xhttp.responseText).most_played_music;
+
+            // book recommendations
+            var elem = '<div class="gallery" align="center">';
+            for (i in book_recs) {
+                var book = book_recs[i];
+                // elem += '<p><strong>Name: </strong>' + book.name + '</p><br>';
+                // elem += '<p><strong>Author: </strong>' + book.author + '</p><br>';
+                elem += '<img src="' + book.src + '" width="200" height="300" style="margin: 5px;">';
+            }
+            elem += '<br><p><strong>Remarks:</strong> ' + book_recs_remarks  + '</p>';
+            document.getElementById('book_recs').innerHTML = elem;
+
+            // favourite movies
+            var elem = '<div class="gallery" align="center">';
+            for (i in fav_movies) {
+                var movie = fav_movies[i];
+                elem += '<img src="' + movie.poster + '" width="200" height="300" style="margin: 5px;">';
+            }
+            document.getElementById('fav_movies').innerHTML = elem;
+
+            // most played music
+            var elem = '';
+            for (i in most_played_music) {
+                var music = most_played_music[i];
+                elem += music;
+            }
+            document.getElementById('most_played_music').innerHTML = elem;            
+        }
+    };
+
+    xhttp.open("GET", "https://api.mufeedvh.com/list", true);
+    xhttp.send();</script></div><div class="section bottom-menu"><hr><p><a href=/posts>posts</a> · <a href=/about>about</a> · <a href=/projects>projects</a> · <a href=/contact>contact</a> · <a href=https://www.mufeedvh.com> home </a></div></div>
