@@ -16,9 +16,6 @@
         <loc>https://www.mufeedvh.com/contact/</loc>
     </url>
     <url>
-        <loc>https://www.mufeedvh.com/list/</loc>
-    </url>
-    <url>
         <loc>https://www.mufeedvh.com/message/</loc>
     </url>
     <url>
@@ -32,8 +29,5 @@
     </url>
     <url>
         <loc>https://www.mufeedvh.com/tags/</loc>
-    </url>
-    <url>
-        <loc>https://www.mufeedvh.com/todo/</loc>
     </url>
 </urlset>
