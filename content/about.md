@@ -20,7 +20,7 @@ The company is called [Lyminal](https://lyminal.space/), derived from the word [
 
 I basically have this list where I write down random ideas and thoughts, most of them utterly ridiculous but I gotta say, some of them just might be pretty good... prolly. The list is so long, I wouldn't be able to strike off all of them in my lifetime but all in all, I pick one and do it whenever I feel like it. I don't go by any schedule.
 
-If you want formal talk, I work in the field of Systems Programming and Infosec where I implement/write high-performance, scalable, and secure software for companies. Expanding on my Security Research work, I have found and patched several CVEs in open-source projects and have secured numerous organizations via Response Disclosure or via Bug Bounty programs.
+If you want formal talk, I work in the field of Systems Programming and Infosec where I implement/write high-performance, scalable, and secure software for companies. Expanding on my Security Research work, I have found and patched several **CVEs** in open-source projects and have secured numerous organizations via Response Disclosure or via Bug Bounty programs.
 
 Here's my GitHub if you wanna have a look at some code crimes: <a href="https://github.com/mufeedvh" target="_blank"><span class="fa-brands fa-github"></span> github/mufeedvh</a>.
 

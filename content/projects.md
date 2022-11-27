@@ -20,7 +20,7 @@ no_header = true
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/moonwalk" target="_blank"><code>moonwalk</code></a></td>
         <td style="padding: 30px;">Cover your tracks during Linux Exploitation / Penetration Testing by leaving zero traces on system logs and filesystem timestamps.</td>
-    </tr>
+    </tr>    
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/basecrack" target="_blank"><code>basecrack</code></a></td>
         <td style="padding: 30px;">BaseCrack is a tool written in Python that can decode all alphanumeric base encoding schemes.</td>
@@ -28,15 +28,19 @@ no_header = true
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/pdfrip" target="_blank"><code>pdfrip</code></a></td>
         <td style="padding: 30px;">A multi-threaded PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks.</td>
-    </tr>    
+    </tr>
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/regretti" target="_blank"><code>regretti</code></a></td>
+        <td style="padding: 30px;">A programming language where comments are the first-class citizen and ASCII art flowcharts are the controls. (Made for Lang Jam (jam0001) theme: first-class comments in 48 hours)</td>
+    </tr>
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/tupperplot" target="_blank"><code>tupperplot</code></a></td>
+        <td style="padding: 30px;">Tupper's self-referential formula plotting itself on a framebuffer with Rust.</td>
+    </tr>
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/gisture" target="_blank"><code>gisture</code></a></td>
         <td style="padding: 30px;">A minimal and flexible blog generator based on GitHub Gists with SEO, Templating, Syntax Highlighting, and Metadata support out-of-the-box.</td>
     </tr>      
-    <tr>
-        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/regretti" target="_blank"><code>regretti</code></a></td>
-        <td style="padding: 30px;">A programming language where comments are the first-class citizen and ASCII art flowcharts are the controls. (Made for Lang Jam (jam0001) theme: first-class comments in 48 hours)</td>
-    </tr>  
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/okjson" target="_blank"><code>okjson</code></a></td>
         <td style="padding: 30px;">A fast, simple, and pythonic JSON Schema Validation library.</td>
