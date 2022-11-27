@@ -38,12 +38,14 @@ That's about it.
 
 ## Recent Life Updates
 
+- Represented my country for Cyber Security at the WorldSkills Internationals held at South Korea and ranked 8th! ([Credly Badge](https://www.credly.com/badges/24ea87f7-030e-41e6-b535-f03fc2b777c6/public_url))
 - Won gold medal at the all India nationals for Cyber Security at [WorldSkills](https://en.wikipedia.org/wiki/WorldSkills), qualified for representing India at Korea in October of 2022.
 - Started a [company](https://lyminal.space/).
 
 ### not so recent life updates
 
 - Won the Live Hacking Event conducted by BugDiscover at c0c0n XII.
+- Won c0c0n XIII: DOME CTF 2020.
 - Silver medalist in YIP (Young Innovators Programme) of K-DISC by the Government of Kerala.
 - Gave a talk at DEFCON Group DC0471 0x02, Trivandrum.
 - India Skills Kerala finalist in Web Design & Development.
