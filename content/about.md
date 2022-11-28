@@ -38,7 +38,7 @@ That's about it.
 
 ## Recent Life Updates
 
-- Represented my country for Cyber Security at the WorldSkills Internationals held at South Korea and ranked 8th! ([Credly Badge](https://www.credly.com/badges/24ea87f7-030e-41e6-b535-f03fc2b777c6/public_url))
+- Represented my country for Cyber Security at the WorldSkills SE 2022 (aka "The Olympics of Skills") held at South Korea and ranked 8th! ([Credly Badge](https://www.credly.com/badges/24ea87f7-030e-41e6-b535-f03fc2b777c6/public_url))
 - Won gold medal at the all India nationals for Cyber Security at [WorldSkills](https://en.wikipedia.org/wiki/WorldSkills), qualified for representing India at Korea in October of 2022.
 - Started a [company](https://lyminal.space/).
 
