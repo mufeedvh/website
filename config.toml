@@ -7,7 +7,7 @@ title_separator = "::"
 
 compile_sass = true
 
-build_search_index = false
+build_search_index = true
 
 check_external_links = true
 

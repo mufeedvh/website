@@ -14,9 +14,10 @@ a page for vibe report; art, interiors, and pics that i like. straight from my g
 
 credits: _these are sourced from twiter, pinterest, random google search, etc. i didn't keep any record._
 
-some of my favourite twitter accounts sharing some good photographs:
+some of my favourite twitter accounts sharing some good photographs/art:
 - [@simonsarris](https://twitter.com/simonsarris)
 - [@palmreport](https://twitter.com/palmreport)
+- [@ennntropy](https://twitter.com/ennntropy)
 - [@ruralindexing](https://twitter.com/ruralindexing)
 - [@curzthetics](https://twitter.com/curzthetics)
 - [@16pxl](https://twitter.com/16pxl)
