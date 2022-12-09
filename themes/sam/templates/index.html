@@ -39,7 +39,7 @@
             <meta property="og:title" content="{{ page.title | safe }}">
             <meta property="og:description" content="{{ page.description | safe }}">
             {% if page.extra.og_image %}
-                <meta property="og:image" content="{{ page.extra.og_image | safe }}">
+                <meta property="og:image" itemprop="image" content="{{ page.extra.og_image | safe }}">
             {% endif %}
             {% if current_url %}
                 <meta property="og:url" content="{{ current_url | safe }}">
