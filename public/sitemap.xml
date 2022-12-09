@@ -16,6 +16,10 @@
         <loc>https://www.mufeedvh.com/contact/</loc>
     </url>
     <url>
+        <loc>https://www.mufeedvh.com/llm-security/</loc>
+        <lastmod>2022-12-09</lastmod>
+    </url>
+    <url>
         <loc>https://www.mufeedvh.com/message/</loc>
     </url>
     <url>
@@ -29,5 +33,11 @@
     </url>
     <url>
         <loc>https://www.mufeedvh.com/tags/</loc>
+    </url>
+    <url>
+        <loc>https://www.mufeedvh.com/tags/ai/</loc>
+    </url>
+    <url>
+        <loc>https://www.mufeedvh.com/tags/security/</loc>
     </url>
 </urlset>

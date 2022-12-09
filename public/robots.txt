@@ -8,4 +8,4 @@ Disallow: /todo
 Disallow: /message
 Disallow: /list
 
-Sitemap: http://127.0.0.1:1111/sitemap.xml
+Sitemap: https://www.mufeedvh.com/sitemap.xml

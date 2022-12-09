@@ -22,7 +22,7 @@
             {% if current_url %}
                 <meta property="og:url" content="{{ current_url | safe }}">
             {% endif %}
-            <meta property="og:site_name" content="{{ section.title | safe }}">
+            <meta property="og:site_name" content="{{ config.title | safe }}">
             <meta name="twitter:description" content="{{ section.description | safe }}">
             <meta name="twitter:title" content="{{ section.title | safe }}">
             <meta name="twitter:site" content="@mufeedvh">
@@ -38,13 +38,13 @@
             <meta property="og:type" content="website">
             <meta property="og:title" content="{{ page.title | safe }}">
             <meta property="og:description" content="{{ page.description | safe }}">
-            {% if page.og_image %}
-                <meta property="og:description" content="{{ page.og_image | safe }}">
+            {% if page.extra.og_image %}
+                <meta property="og:image" content="{{ page.extra.og_image | safe }}">
             {% endif %}
             {% if current_url %}
                 <meta property="og:url" content="{{ current_url | safe }}">
             {% endif %}
-            <meta property="og:site_name" content="{{ page.title | safe }}">
+            <meta property="og:site_name" content="{{ config.title | safe }}">
             <meta name="twitter:description" content="{{ page.description | safe }}">
             <meta name="twitter:title" content="{{ page.title | safe }}">
             <meta name="twitter:site" content="@mufeedvh">
@@ -75,16 +75,8 @@
 
         <link rel="preload" href="/fonts/CMU-Serif-Roman.ttf" as="font" type="font/ttf" crossorigin="anonymous">
         <link rel="preload" href="/fonts/Roboto-Light.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-
-        {% if not section.description %}
-            {% if page.description %}
-                {% if page.title == "Contact" %}
-                <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-                {% endif %}
-            {% else %}
-            <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-            {% endif %}
-        {% endif %}
+        <link rel="preload" href="/fonts/JetBrainsMono-Light.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+        <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
         <title>{% block htmltitle %}{{ config.title }} :: Home{% endblock htmltitle %}</title>
 
