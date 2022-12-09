@@ -18,7 +18,7 @@ og_image = "https://www.mufeedvh.com/blog/llm-security.png"
 
 This is a primer on how threat modeling and detection will drastically change in the age of AI/LLMs and end up with the hardest threat to defend, natural language.
 
-Imagine a time where incident response is figuring out what prompt overrode the filters and not which special character the back-end failed to sanitize. That's where we are right now, a time where payloads are also going to be natural language and not just double encoded XSS payloads and Linux commands.
+Imagine a time where incident response is figuring out what prompt overrode the filters and not which special character the back-end failed to sanitize. That's where we are right now, a time where payloads are also going to be natural language and not just double encoded XSS payloads or Linux commands.
 
 <img src="/blog/llm-security.png" width="100%">
 <div align="center">
