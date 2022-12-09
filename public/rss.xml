@@ -158,7 +158,7 @@
 &lt;p&gt;And I can&#x27;t wait for the &amp;quot;jailbreak&amp;quot; exploits on LLM apps gaining code execution with the exploit being just plain english. Fun times ahead eh?&lt;&#x2F;p&gt;
 &lt;div style=&quot;text-align: center; font-size: 13px;&quot;&gt;
     &lt;pre id=&quot;share-button&quot; onclick=&quot;share_button();&quot; style=&quot;cursor: pointer;&quot;&gt;Link to this article 🔗&lt;&#x2F;pre&gt;
-    &lt;pre&gt;Follow me on &lt;a href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;mufeedvh&quot; aria-label=&quot;Link to my Twitter profile&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;span class=&quot;fa-brands fa-twitter&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;&lt;&#x2F;pre&gt;
+    &lt;pre onclick=&quot;twitter_follow();&quot; style=&quot;cursor: pointer;&quot;&gt;Follow me on &lt;span class=&quot;fa-brands fa-twitter&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;
 &lt;&#x2F;div&gt;
 &lt;script&gt;
     function share_button() {
@@ -174,6 +174,10 @@
             navigator.clipboard.writeText(window.location.href);
             document.getElementById(&#x27;share-button&#x27;).innerHTML = &#x27;Copied link to clipboard! ✅&#x27;;
         }
+    }
+
+    function twitter_follow() {
+        window.location.href = &quot;https:&#x2F;&#x2F;twitter.com&#x2F;mufeedvh&quot;;
     }
 &lt;&#x2F;script&gt;
 &lt;style&gt;:host,:root{--fa-font-brands:normal 400 1em&#x2F;1 &quot;Font Awesome 6 Brands&quot;}@font-face{font-family:&quot;Font Awesome 6 Brands&quot;;font-style:normal;font-weight:400;font-display:block;src:url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.woff2&#x27;) format(&quot;woff2&quot;),url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.ttf&#x27;) format(&quot;truetype&quot;)}.fa-brands,.fab{font-family:&quot;Font Awesome 6 Brands&quot;;font-weight:400}.fa-github:before{content:&quot;\f09b&quot;}.fa-github-alt:before{content:&quot;\f113&quot;}.fa-github-square:before{content:&quot;\f092&quot;}.fa-twitter:before{content:&quot;\f099&quot;}.fa-twitter-square:before{content:&quot;\f081&quot;}.fa-instagram:before{content:&quot;\f16d&quot;}.fa-instagram-square:before{content:&quot;\e055&quot;}.fa-youtube:before{content:&quot;\f167&quot;}.fa-youtube-square:before{content:&quot;\f431&quot;}&lt;&#x2F;style&gt;</description>

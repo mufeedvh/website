@@ -231,7 +231,7 @@ And I can't wait for the "jailbreak" exploits on LLM apps gaining code execution
 
 <div style="text-align: center; font-size: 13px;">
     <pre id="share-button" onclick="share_button();" style="cursor: pointer;">Link to this article 🔗</pre>
-    <pre>Follow me on <a href="https://twitter.com/mufeedvh" aria-label="Link to my Twitter profile" target="_blank" rel="noopener"><span class="fa-brands fa-twitter"></span></a></pre>
+    <pre onclick="twitter_follow();" style="cursor: pointer;">Follow me on <span class="fa-brands fa-twitter"></span></pre>
 </div>
 
 <script>
@@ -248,6 +248,10 @@ And I can't wait for the "jailbreak" exploits on LLM apps gaining code execution
             navigator.clipboard.writeText(window.location.href);
             document.getElementById('share-button').innerHTML = 'Copied link to clipboard! ✅';
         }
+    }
+
+    function twitter_follow() {
+        window.location.href = "https://twitter.com/mufeedvh";
     }
 </script>
 
