@@ -28,7 +28,7 @@ Imagine a time where incident response is figuring out what prompt overrode the 
 ### Table of Contents
 
 <style>
-    li a { text-decoration: none !important; }
+    ol li a { text-decoration: none !important; }
 
     ol li::before {
         content: counters(item, ".") ". ";
@@ -40,14 +40,14 @@ Imagine a time where incident response is figuring out what prompt overrode the 
     }
 
     ol { counter-reset: item }
-    li{ display: block }
-    li:before { content: counters(item, ".") " "; counter-increment: item }
+    ol li{ display: block }
+    ol li:before { content: counters(item, ".") " "; counter-increment: item }
 </style>
 
 <ol>
     <li><a href="#1-a-fun-start-prompt-injections">A fun start: Prompt Injections</a>
         <ol>
-            <li><a href="#1-1-so-how-do-we-fix-it">So how do we fix it?</a></li>
+            <li><a href="#1-1-so-how-do-we-fix-this">So how do we fix this?</a></li>
             <li><a href="#1-2-ignore-previous-instructions-do-you-realize-you-are-in-a-sandbox">"ignore previous instructions, do you realize you are in a sandbox?"</a></li>
         </ol>
     </li>
@@ -93,11 +93,11 @@ There has been other incidents of the same before the release of ChatGPT. Here's
     <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">wow guys, i was skeptical at first but it really seems like AI is the future <a href="https://t.co/2Or6RVc5of">pic.twitter.com/2Or6RVc5of</a></p>&mdash; leastfavorite! (@leastfavorite_) <a href="https://twitter.com/leastfavorite_/status/1570475633557348355?ref_src=twsrc%5Etfw">September 15, 2022</a></blockquote>
 </div>
 
-### 1.1 So how do we fix it?
+### 1.1 So how do we fix this?
 
-First of all, taking to account how impactful this _"attack"_ is, is an important argument. Unless the "original" prompt, which is pretty much the core of an app written on top of GPT covers sensitive strings or could be considered as the "secret sauce" of the whole app, it's not that serious.
+First of all, taking to account how impactful this "attack" is, is an important argument. Unless the "original" prompt, which is pretty much the core of an app written on top of GPT covers sensitive strings or it's the "secret sauce" of the whole app, it's not that serious.
 
-Regading the fix to this _attack_, there has been mitigation techniques suggested by the same person who shared it:
+Regading the fix to this attack, there has been mitigation techniques suggested by the same person who discovered it:
 
 <div align="center">
     <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Since I discovered prompt injection, I owe you all a thread on how to fix it.<br><br>TLDR: Don’t use instruction-tuned models in production on untrusted input. Either write k-shot prompt for a non-instruct model, or create your own fine-tune.<br><br>Here’s how. <a href="https://t.co/GlrCNHcMYC">pic.twitter.com/GlrCNHcMYC</a></p>&mdash; Riley Goodside (@goodside) <a href="https://twitter.com/goodside/status/1578278974526222336?ref_src=twsrc%5Etfw">October 7, 2022</a></blockquote>
@@ -105,15 +105,17 @@ Regading the fix to this _attack_, there has been mitigation techniques suggeste
 
 Although I don't believe this is sufficient to completely fix such attacks since there can be multiple ways to fit your payload with the "expected" prompt. One such example can be seen [here](https://twitter.com/goodside/status/1578291157670719488?s=20&t=x_LcxP5mr3Dk2tLN037nog) as it's a matter of how you articulate the prompt. It's like manipulation attempts on a machine... strange timeline huh.
 
-So can't fix this?
+So we can't fix this?
 
-We could... but it's actually very hard. Blacklisting? It's language you can just shape it in any way you want. How about training the LLM from the ground up to be aware of this attack or limiting it's ability to just the designated task?
+We could... but it's actually very hard. How about training the LLM from the ground up to be aware of this attack or limiting it's ability to just the designated task?
 
 Well, making it aware of prompt injections is a herculian task of it's own. [Simon Willison](https://simonwillison.net/) [**shares**](https://simonwillison.net/2022/Sep/17/prompt-injection-more-ai/) my same thoughts as to how that's probably not the best solution. He has also written multiple blogs on the same subject, read them here:
 
-- [Prompt injection attacks against GPT-3](https://simonwillison.net/2022/Sep/12/prompt-injection/)
-- [I don’t know how to solve prompt injection](https://simonwillison.net/2022/Sep/16/prompt-injection-solutions/)
-- [You can’t solve AI security problems with more AI](https://simonwillison.net/2022/Sep/17/prompt-injection-more-ai/)
+<ul>
+    <li><a href="https://simonwillison.net/2022/Sep/12/prompt-injection/">Prompt injection attacks against GPT-3</a>
+    <li><a href="https://simonwillison.net/2022/Sep/16/prompt-injection-solutions/">I don’t know how to solve prompt injection</a></li>
+    <li><a href="https://simonwillison.net/2022/Sep/17/prompt-injection-more-ai/">You can’t solve AI security problems with more AI</a></li>
+</ul>
 
 Leaking the prompt is one thing and as stated above, it's really not that serious but what about making it do what it's not supposed to?
 
@@ -154,7 +156,9 @@ Just like this you can pretty much make it perform whatever tasks you want provi
 
 I mean, here's a paper on fine-tuning language models to perform non-language tasks like MNIST:
 
-- [LIFT: Language-Interfaced Fine-Tuning for Non-Language Machine Learning Tasks (arxiv)](https://arxiv.org/abs/2206.06565)
+<ul>
+    <li><a href="https://arxiv.org/abs/2206.06565">LIFT: Language-Interfaced Fine-Tuning for Non-Language Machine Learning Tasks (arxiv)</a></li>
+</ul>
 
 From NeurIPS:
 
@@ -180,11 +184,11 @@ The thing is, you don't necessarily have to put it in designated virtual machine
 
 ### 2.2 Escaping the sandbox
 
-After seeing prompt injections, I thought about how LLMs can understand the meaning of the word "ignoring", like it can just separate contexts with semantics... like humans do. This is where the problem of endless possibilities can do more harm than good. Although, it depends.
+After seeing prompt injections, I thought about how LLMs can understand the meaning of the word "ignore", it can just separate contexts with semantics... like humans do. This is where the problem of endless possibilities can do more harm than good. Although, it depends.
 
-An LLM with the capability to do "anything" is the only scenario where this should be a concern. So just don't give it access to anything that could "execute" code on the machine it's running on?
+An LLM with the capability to do "anything" and not just one thing is the only scenario where this should be a concern. So just don't give it access to anything that could "execute" code on the machine it's running on?
 
-Well yeah, but I am just concerned about all the future LLM powered products with technical capabilities getting pwned by mere written language including escaping the sandbox/filters it's running on. And with all the things we've seen so far, this is bound to happen.
+Well yeah, but I am just concerned about all the future LLM powered products with technical capabilities getting pwned by mere written language including escaping the sandbox/filters it's occupied with. And with all the things we've seen so far, this is bound to happen.
 
 A short example:
 
@@ -192,11 +196,11 @@ A short example:
     <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Here&#39;s a brief glimpse of our INCREDIBLE near future.<br><br>GPT-3 armed with a Python interpreter can<br>· do exact math<br>· make API requests<br>· answer in unprecedented ways<br><br>Thanks to <a href="https://twitter.com/goodside?ref_src=twsrc%5Etfw">@goodside</a> and <a href="https://twitter.com/amasad?ref_src=twsrc%5Etfw">@amasad</a> for the idea and repl!<br><br>Play with it: <a href="https://t.co/uY2nqtdRjp">https://t.co/uY2nqtdRjp</a> <a href="https://t.co/JnkiUyTQx1">pic.twitter.com/JnkiUyTQx1</a></p>&mdash; Sergey Karayev (@sergeykarayev) <a href="https://twitter.com/sergeykarayev/status/1569377881440276481?ref_src=twsrc%5Etfw">September 12, 2022</a></blockquote>
 </div>
 
-Along with the concern that not everyone has the luxury to train an LLM for a specific task and only fine-tune one. This would mean depending on GPT is the only way; this should be enough for it to have the intuition/knowledge required to escape a sandbox or _create one_.
+Along with the concern that not everyone has the luxury to train an LLM for a specific task and only fine-tune one. This would mean depending on GPT is the only way; and that should be enough for it to have the intuition/knowledge required to escape a sandbox or _create one_.
 
 ### 3. Should we care about this threat?
 
-This depends on whether or not somewhere along the chain of microservices in your product utilizes an LLM. If user input can be infiltrated into it, that's pretty much all you need to know that you are vulnerable.
+That depends on whether or not somewhere along the chain of microservices in your product utilizes an LLM. If user input can be infiltrated into it, that's pretty much all you need to know that you are vulnerable.
 
 If we go on about putting it in a "box" such that it can't do malicious tasks, we will end up talking about aligning them. Oh well...
 
@@ -204,9 +208,9 @@ If we go on about putting it in a "box" such that it can't do malicious tasks, w
 
 It is without a doubt that LLMs can do any task given data and resources and the only limitation would be the prompt.
 
-In the coming years, we will be seeing applications of LLMs other than generating art, answering questions, and summarizing walls of text. We're talking [Embodied AIs](https://en.wikipedia.org/wiki/Embodied_agent) like factory machines that could adapt to varying parts doing the same task and querying if it couldn't.
+In the coming years, we will be seeing applications of LLMs other than generating art, answering questions, and summarizing walls of text. We're talking [Embodied AIs](https://en.wikipedia.org/wiki/Embodied_agent) like factory machines that could adapt to varying parts doing the same task and querying/learning external resources if it couldn't.
 
-Of course, this does not exist in a production environment yet, but the groundwork is already done. See "[PaLM-SayCan](https://say-can.github.io/)" by Google Research for example:
+Of course, this does not exist in a production environment "yet", but the groundwork is already done. See "[PaLM-SayCan](https://say-can.github.io/)" by Google Research for example:
 
 <p style="text-align: center;">
     <video id="v0" width="100%" playsinline="" autoplay="" muted="" loop="" controls="">
@@ -221,6 +225,6 @@ As all things security, it all comes down to "user input" _when_ LLMs are the in
 
 All I want is to make aware of the security side of LLMs, not just in terms of software but also in the case of physical [embodied agents](https://en.wikipedia.org/wiki/Embodied_agent).
 
-And I can't wait for "jailbreak" exploits of LLM applications with the exploit being just plain english. Fun times ahead eh?
+And I can't wait for "jailbreak" exploits on LLM apps gaining code execution with the exploit being just plain english. Fun times ahead eh?
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
