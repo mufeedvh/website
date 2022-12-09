@@ -225,6 +225,6 @@ As all things security, it all comes down to "user input" _when_ LLMs are the in
 
 All I want is to make aware of the security side of LLMs, not just in terms of software but also in the case of physical [embodied agents](https://en.wikipedia.org/wiki/Embodied_agent).
 
-And I can't wait for "jailbreak" exploits on LLM apps gaining code execution with the exploit being just plain english. Fun times ahead eh?
+And I can't wait for the "jailbreak" exploits on LLM apps gaining code execution with the exploit being just plain english. Fun times ahead eh?
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
