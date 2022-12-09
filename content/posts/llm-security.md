@@ -125,7 +125,7 @@ The use-case of LLMs are not just text-based applications albeit [text being the
 
 ### 2. Sandboxing "Extended" LLMs
 
-In my opinion, AI agents with the extended ability to perform software tasks should be taken with the same cautiousness of LLM powered "[Embodied AIs](https://en.wikipedia.org/wiki/Embodied_agent)". Here's why:
+In my opinion, AI agents with the extended ability to perform software tasks should be taken with the same cautiousness we have on "[Embodied AIs](https://en.wikipedia.org/wiki/Embodied_agent)". Here's why:
 
 LLMs can be utilized to do non-trivial software tasks with close to zero hard coded conditionals. [natbot](https://github.com/nat/natbot) is a great example to this, with a beautifully crafted prompt teaching how to search on Google and figure out what links to click and proceed is enough to drive a browser with GPT3:
 
