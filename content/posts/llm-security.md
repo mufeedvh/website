@@ -44,6 +44,8 @@ Imagine a time where incident response is figuring out what prompt overrode the 
     ol li:before { content: counters(item, ".") " "; counter-increment: item }
 </style>
 
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <ol>
     <li><a href="#1-a-fun-start-prompt-injections">A fun start: Prompt Injections</a>
         <ol>
@@ -250,5 +252,3 @@ And I can't wait for the "jailbreak" exploits on LLM apps gaining code execution
 </script>
 
 <style>:host,:root{--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:block;src:url('/fonts/fa-brands-400.woff2') format("woff2"),url('/fonts/fa-brands-400.ttf') format("truetype")}.fa-brands,.fab{font-family:"Font Awesome 6 Brands";font-weight:400}.fa-github:before{content:"\f09b"}.fa-github-alt:before{content:"\f113"}.fa-github-square:before{content:"\f092"}.fa-twitter:before{content:"\f099"}.fa-twitter-square:before{content:"\f081"}.fa-instagram:before{content:"\f16d"}.fa-instagram-square:before{content:"\e055"}.fa-youtube:before{content:"\f167"}.fa-youtube-square:before{content:"\f431"}</style>
-
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

@@ -36,6 +36,7 @@
     ol li{ display: block }
     ol li:before { content: counters(item, &quot;.&quot;) &quot; &quot;; counter-increment: item }
 &lt;&#x2F;style&gt;
+&lt;script async src=&quot;https:&#x2F;&#x2F;platform.twitter.com&#x2F;widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;&#x2F;script&gt;
 &lt;ol&gt;
     &lt;li&gt;&lt;a href=&quot;#1-a-fun-start-prompt-injections&quot;&gt;A fun start: Prompt Injections&lt;&#x2F;a&gt;
         &lt;ol&gt;
@@ -175,8 +176,7 @@
         }
     }
 &lt;&#x2F;script&gt;
-&lt;style&gt;:host,:root{--fa-font-brands:normal 400 1em&#x2F;1 &quot;Font Awesome 6 Brands&quot;}@font-face{font-family:&quot;Font Awesome 6 Brands&quot;;font-style:normal;font-weight:400;font-display:block;src:url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.woff2&#x27;) format(&quot;woff2&quot;),url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.ttf&#x27;) format(&quot;truetype&quot;)}.fa-brands,.fab{font-family:&quot;Font Awesome 6 Brands&quot;;font-weight:400}.fa-github:before{content:&quot;\f09b&quot;}.fa-github-alt:before{content:&quot;\f113&quot;}.fa-github-square:before{content:&quot;\f092&quot;}.fa-twitter:before{content:&quot;\f099&quot;}.fa-twitter-square:before{content:&quot;\f081&quot;}.fa-instagram:before{content:&quot;\f16d&quot;}.fa-instagram-square:before{content:&quot;\e055&quot;}.fa-youtube:before{content:&quot;\f167&quot;}.fa-youtube-square:before{content:&quot;\f431&quot;}&lt;&#x2F;style&gt;
-&lt;script async src=&quot;https:&#x2F;&#x2F;platform.twitter.com&#x2F;widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;&#x2F;script&gt;</description>
+&lt;style&gt;:host,:root{--fa-font-brands:normal 400 1em&#x2F;1 &quot;Font Awesome 6 Brands&quot;}@font-face{font-family:&quot;Font Awesome 6 Brands&quot;;font-style:normal;font-weight:400;font-display:block;src:url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.woff2&#x27;) format(&quot;woff2&quot;),url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.ttf&#x27;) format(&quot;truetype&quot;)}.fa-brands,.fab{font-family:&quot;Font Awesome 6 Brands&quot;;font-weight:400}.fa-github:before{content:&quot;\f09b&quot;}.fa-github-alt:before{content:&quot;\f113&quot;}.fa-github-square:before{content:&quot;\f092&quot;}.fa-twitter:before{content:&quot;\f099&quot;}.fa-twitter-square:before{content:&quot;\f081&quot;}.fa-instagram:before{content:&quot;\f16d&quot;}.fa-instagram-square:before{content:&quot;\e055&quot;}.fa-youtube:before{content:&quot;\f167&quot;}.fa-youtube-square:before{content:&quot;\f431&quot;}&lt;&#x2F;style&gt;</description>
         </item>
     </channel>
 </rss>
