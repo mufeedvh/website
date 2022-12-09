@@ -227,7 +227,9 @@ All I want is to make aware of the security side of LLMs, not just in terms of s
 
 And I can't wait for the "jailbreak" exploits on LLM apps gaining code execution with the exploit being just plain english. Fun times ahead eh?
 
-<a href="https://twitter.com/mufeedvh" aria-label="Link to my Twitter profile" target="_blank" rel="noopener"><span class="fa-brands fa-twitter"></span></a>
+<div style="text-align: center; font-size: 13px;">
+    <pre>Follow me on <a href="https://twitter.com/mufeedvh" aria-label="Link to my Twitter profile" target="_blank" rel="noopener"><span class="fa-brands fa-twitter"></span></a></pre>
+</div>
 
 <style>:host,:root{--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:block;src:url('/fonts/fa-brands-400.woff2') format("woff2"),url('/fonts/fa-brands-400.ttf') format("truetype")}.fa-brands,.fab{font-family:"Font Awesome 6 Brands";font-weight:400}.fa-github:before{content:"\f09b"}.fa-github-alt:before{content:"\f113"}.fa-github-square:before{content:"\f092"}.fa-twitter:before{content:"\f099"}.fa-twitter-square:before{content:"\f081"}.fa-instagram:before{content:"\f16d"}.fa-instagram-square:before{content:"\e055"}.fa-youtube:before{content:"\f167"}.fa-youtube-square:before{content:"\f431"}</style>
 
