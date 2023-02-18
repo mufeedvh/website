@@ -13,7 +13,7 @@ tags = ["rambling"]
 
 [extra]
 no_header = false
-og_image = "https://www.mufeedvh.com/blog/pottery.png"
+og_image = "https://www.mufeedvh.com/blog/pottery.jpg"
 +++
 
 <img src="/blog/pottery.jpg" width="100%" alt="a pottery scene from the anime let's make a mug too with the caption 'This is a technique called hand-building'">
