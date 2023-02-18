@@ -26,6 +26,10 @@
         <loc>https://www.mufeedvh.com/posts/</loc>
     </url>
     <url>
+        <loc>https://www.mufeedvh.com/pottery/</loc>
+        <lastmod>2023-02-18</lastmod>
+    </url>
+    <url>
         <loc>https://www.mufeedvh.com/projects/</loc>
     </url>
     <url>
@@ -36,6 +40,9 @@
     </url>
     <url>
         <loc>https://www.mufeedvh.com/tags/ai/</loc>
+    </url>
+    <url>
+        <loc>https://www.mufeedvh.com/tags/rambling/</loc>
     </url>
     <url>
         <loc>https://www.mufeedvh.com/tags/security/</loc>

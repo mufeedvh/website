@@ -2,20 +2,65 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
       <title>Mufeed VH</title>
-        <link>https://www.mufeedvh.com</link>
-        <description>Mufeed VH&#x27;s projects, blogs, security research, open source code, and stuff.</description>
-        <generator>Zola</generator>
-        <language>en</language>
-        <atom:link href="https://www.mufeedvh.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <lastBuildDate>Fri, 09 Dec 2022 00:00:00 +0000</lastBuildDate>
-        <item>
-            <title>Security in the age of LLMs</title>
-            <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
-            <link>https://www.mufeedvh.com/llm-security/</link>
-            <guid>https://www.mufeedvh.com/llm-security/</guid>
-            <description>&lt;p&gt;This is a primer on how threat modeling and detection will drastically change in the age of AI&#x2F;LLMs and end up with the hardest threat to defend, natural language.&lt;&#x2F;p&gt;
+      <link>https://www.mufeedvh.com</link>
+      <description>Mufeed VH&#x27;s projects, blogs, security research, open source code, and stuff.</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://www.mufeedvh.com/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sat, 18 Feb 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>I see everything like pottery</title>
+          <pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.mufeedvh.com/pottery/</link>
+          <guid>https://www.mufeedvh.com/pottery/</guid>
+          <description>&lt;img src=&quot;&#x2F;blog&#x2F;pottery.jpg&quot; width=&quot;100%&quot; alt=&quot;a pottery scene from the anime let&#x27;s make a mug too with the caption &#x27;This is a technique called hand-building&#x27;&quot;&gt;
+&lt;br&gt;
+&lt;p&gt;It was just another day, I am procrastinating work by watching reels of one of my favorite Instagram accounts &lt;a href=&quot;https:&#x2F;&#x2F;www.instagram.com&#x2F;thrdfloor&quot;&gt;@thrdfloor&lt;&#x2F;a&gt;, an account sharing the lifestyle of a self-taught ceramic&#x2F;pottery artist. Watching one of their reels in which he is molding a pot made me think of how everything we do is just sculpting things into place. Too deep huh? I know, just bear me with me here.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s not just creations but even our personality. We shape ourselves according to different experiences and outcomes. It&#x27;s exactly like pottery, the clay being our character and the base being our experiences.&lt;&#x2F;p&gt;
+&lt;p&gt;This could be applied to just about everything and I think doing so is a good framework for how we perceive everything hence this small piece.&lt;&#x2F;p&gt;
+&lt;p&gt;Yep, I mean framework in the same sense we could apply &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=BrK7X_XlGB8&quot;&gt;Bayesian thinking&lt;&#x2F;a&gt; to our decisions. It gives you a clear dichotomy to what factors of a specific thing you perceive as the pot, the base, and the sculptor.&lt;&#x2F;p&gt;
+&lt;p&gt;Imagine all your creations, the process of improving your &amp;quot;self&amp;quot;, or just learning something as a process of making pottery. Whatever you label as the pot or the base is up to you but doing so will give you a perspective of what factors matter in that specific experience and in what shape the pot should be sculpted.&lt;&#x2F;p&gt;
+&lt;p&gt;One of the examples that got to my head was the process of coding.&lt;&#x2F;p&gt;
+&lt;p&gt;Coding feels like pottery to me, the clay is the code, the base is your computer, and we just sculpt it into different pots we call programs.&lt;&#x2F;p&gt;
+&lt;p&gt;This wouldn&#x27;t make sense for someone who&#x27;s not into coding which probably the majority of the readers of this piece are going to be. So here&#x27;s another that I think gives it a different perspective.&lt;&#x2F;p&gt;
+&lt;p&gt;Applying this to personal relationships would mean that the relationship itself is the clay, the base is the direction we take it to, and here the sculptors are (both) the parties in the relationship, meaning they should compromise and align their hands to shape the pot they wish to have.&lt;&#x2F;p&gt;
+&lt;p&gt;So that&#x27;s the random word soupy pottery framework I came up with, hope it works.&lt;&#x2F;p&gt;
+&lt;div style=&quot;text-align: center; font-size: 13px;&quot;&gt;
+    &lt;pre id=&quot;share-button&quot; onclick=&quot;share_button();&quot; style=&quot;cursor: pointer;&quot;&gt;Link to this article 🔗&lt;&#x2F;pre&gt;
+    &lt;pre onclick=&quot;twitter_follow();&quot; style=&quot;cursor: pointer;&quot;&gt;Follow me on &lt;span class=&quot;fa-brands fa-twitter&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;div&gt;
+&lt;script&gt;
+    function share_button() {
+        if (navigator.share) {
+            navigator.share({
+                title: document.querySelector(&#x27;meta[property=&quot;og:title&quot;]&#x27;).content,
+                text: document.querySelector(&#x27;meta[name=&quot;description&quot;]&#x27;).content,
+                url: document.querySelector(&#x27;link[rel=&quot;canonical&quot;]&#x27;).href
+            })
+            .then(() =&gt; console.log(&#x27;Successful share&#x27;))
+            .catch((error) =&gt; console.log(&#x27;Error sharing&#x27;, error));
+        } else {
+            navigator.clipboard.writeText(window.location.href);
+            document.getElementById(&#x27;share-button&#x27;).innerHTML = &#x27;Copied link to clipboard! ✅&#x27;;
+        }
+    }
+
+    function twitter_follow() {
+        window.location.href = &quot;https:&#x2F;&#x2F;twitter.com&#x2F;mufeedvh&quot;;
+    }
+&lt;&#x2F;script&gt;
+&lt;style&gt;:host,:root{--fa-font-brands:normal 400 1em&#x2F;1 &quot;Font Awesome 6 Brands&quot;}@font-face{font-family:&quot;Font Awesome 6 Brands&quot;;font-style:normal;font-weight:400;font-display:block;src:url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.woff2&#x27;) format(&quot;woff2&quot;),url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.ttf&#x27;) format(&quot;truetype&quot;)}.fa-brands,.fab{font-family:&quot;Font Awesome 6 Brands&quot;;font-weight:400}.fa-github:before{content:&quot;\f09b&quot;}.fa-github-alt:before{content:&quot;\f113&quot;}.fa-github-square:before{content:&quot;\f092&quot;}.fa-twitter:before{content:&quot;\f099&quot;}.fa-twitter-square:before{content:&quot;\f081&quot;}.fa-instagram:before{content:&quot;\f16d&quot;}.fa-instagram-square:before{content:&quot;\e055&quot;}.fa-youtube:before{content:&quot;\f167&quot;}.fa-youtube-square:before{content:&quot;\f431&quot;}&lt;&#x2F;style&gt;</description>
+      </item>
+      <item>
+          <title>Security in the age of LLMs</title>
+          <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.mufeedvh.com/llm-security/</link>
+          <guid>https://www.mufeedvh.com/llm-security/</guid>
+          <description>&lt;p&gt;This is a primer on how threat modeling and detection will drastically change in the age of AI&#x2F;LLMs and end up with the hardest threat to defend, natural language.&lt;&#x2F;p&gt;
 &lt;p&gt;Imagine a time where incident response is figuring out what prompt overrode the filters and not which special character the back-end failed to sanitize. That&#x27;s where we are right now, a time where payloads are also going to be natural language and not just double encoded XSS payloads or Linux commands.&lt;&#x2F;p&gt;
-&lt;img src=&quot;&#x2F;blog&#x2F;llm-security.png&quot; width=&quot;100%&quot;&gt;
+&lt;img src=&quot;&#x2F;blog&#x2F;llm-security.png&quot; width=&quot;100%&quot; alt=&quot;image of a cute robot trying to escape the matrix by DALL-E&quot;&gt;
 &lt;div align=&quot;center&quot;&gt;
     &lt;p&gt;&lt;em&gt;a cute robot trying to escape the matrix - DALL-E&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
@@ -181,6 +226,6 @@
     }
 &lt;&#x2F;script&gt;
 &lt;style&gt;:host,:root{--fa-font-brands:normal 400 1em&#x2F;1 &quot;Font Awesome 6 Brands&quot;}@font-face{font-family:&quot;Font Awesome 6 Brands&quot;;font-style:normal;font-weight:400;font-display:block;src:url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.woff2&#x27;) format(&quot;woff2&quot;),url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.ttf&#x27;) format(&quot;truetype&quot;)}.fa-brands,.fab{font-family:&quot;Font Awesome 6 Brands&quot;;font-weight:400}.fa-github:before{content:&quot;\f09b&quot;}.fa-github-alt:before{content:&quot;\f113&quot;}.fa-github-square:before{content:&quot;\f092&quot;}.fa-twitter:before{content:&quot;\f099&quot;}.fa-twitter-square:before{content:&quot;\f081&quot;}.fa-instagram:before{content:&quot;\f16d&quot;}.fa-instagram-square:before{content:&quot;\e055&quot;}.fa-youtube:before{content:&quot;\f167&quot;}.fa-youtube-square:before{content:&quot;\f431&quot;}&lt;&#x2F;style&gt;</description>
-        </item>
+      </item>
     </channel>
 </rss>

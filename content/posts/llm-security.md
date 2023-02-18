@@ -20,7 +20,7 @@ This is a primer on how threat modeling and detection will drastically change in
 
 Imagine a time where incident response is figuring out what prompt overrode the filters and not which special character the back-end failed to sanitize. That's where we are right now, a time where payloads are also going to be natural language and not just double encoded XSS payloads or Linux commands.
 
-<img src="/blog/llm-security.png" width="100%">
+<img src="/blog/llm-security.png" width="100%" alt="image of a cute robot trying to escape the matrix by DALL-E">
 <div align="center">
     <p><em>a cute robot trying to escape the matrix - DALL-E</em></p>
 </div>
