@@ -9,7 +9,7 @@ draft = false
 path = "pottery"
 
 [taxonomies]
-tags = ["rambling"]
+tags = ["ramblings"]
 
 [extra]
 no_header = false
