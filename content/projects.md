@@ -75,8 +75,8 @@ no_header = true
 
 As most of these are on GitHub:
 
-- Patches: [GitHub Search](https://github.com/search?p=1&q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues)
-- Reviews: [GitHub Search](https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues)
+- Patches (50+ CVEs): [GitHub Search](https://github.com/search?p=1&q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues) :: [GitHub Search (logged in link)](https://github.com/search?q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests)
+- Reviews (300+ CVEs): [GitHub Search](https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues) :: [GitHub Search (logged in link)](https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests)
 - Exploits: [CVE-2019-8449](https://github.com/mufeedvh/CVE-2019-8449)
 
 ## Notable Security Hall of Fames
