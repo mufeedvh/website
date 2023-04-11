@@ -31,8 +31,12 @@ no_header = true
     </tr>
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/regretti" target="_blank"><code>regretti</code></a></td>
-        <td style="padding: 30px;">A programming language where comments are the first-class citizen and ASCII art flowcharts are the controls. (Made for Lang Jam (jam0001) theme: first-class comments in 48 hours)</td>
+        <td style="padding: 30px;">A programming language where comments are the first-class citizen and ASCII art flowcharts are the controls. Made for Lang Jam (jam0001) theme: first-class comments in 48 hours and <a href="https://www.youtube.com/watch?v=j7VAw8UfMeA&t=466s">Won voter's choice</a>.</td>
     </tr>
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/DNArchery/DNArchery" target="_blank"><code>DNArchery</code></a></td>
+        <td style="padding: 30px;">A free and open-source DNA Sequencing/Visualization software for bioinformatics research. (Made for <a href="https://fossunited.org/fosshack">FOSSHack</a> 3.0 and <a href="https://forum.fossunited.org/t/foss-hack-3-0-results/1882">Won</a>)</td>
+    </tr>    
     <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/tupperplot" target="_blank"><code>tupperplot</code></a></td>
         <td style="padding: 30px;">Tupper's self-referential formula plotting itself on a framebuffer with Rust.</td>
