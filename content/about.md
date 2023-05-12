@@ -38,9 +38,10 @@ That's about it.
 
 ## Recent Life Updates
 
-- Won [FOSSHack 2023](https://forum.fossunited.org/t/foss-hack-3-0-results/1882) by [FOSSUnited](https://fossunited.org/) with our project [**DNArchery**](https://github.com/DNArchery/DNArchery) - A DNA Sequencing/Visualization software for bioinformatics research with my teammates [Vivek R](https://github.com/123vivekr) and [Vishal DS](https://github.com/vishalkrishnads).
-- Represented India for Cyber Security at the WorldSkills SE 2022 (aka "The Olympics of Skills") held at South Korea and ranked 8th! ([Credly Badge](https://www.credly.com/badges/24ea87f7-030e-41e6-b535-f03fc2b777c6/public_url))
-- Won gold medal at the all India nationals for Cyber Security at [WorldSkills](https://en.wikipedia.org/wiki/WorldSkills), qualified for representing India at South Korea in October of 2022.
+- Won Bronze Medal at the [BRICS Skills 2022](http://en.brskills.com/) for Cyber Security representing India, it's a Skills competition I participated adjacent to WorldSkills with participations from the [BRICS](https://en.wikipedia.org/wiki/BRICS) countries: Brazil, India, China, Russia, and South Africa.
+- Won [FOSSHack 2023](https://forum.fossunited.org/t/foss-hack-3-0-results/1882) by [FOSSUnited](https://fossunited.org/) with our project [DNArchery](https://github.com/DNArchery/DNArchery) - A DNA Sequencing/Visualization software for bioinformatics research with my teammates [Vivek R](https://github.com/123vivekr) and [Vishal DS](https://github.com/vishalkrishnads).
+- Represented India for Cyber Security at the [WorldSkills](https://worldskills.org/) SE 2022 (aka "The Olympics of Skills") held at South Korea and ranked 8th! ([Credly Badge](https://www.credly.com/badges/24ea87f7-030e-41e6-b535-f03fc2b777c6/public_url))
+- Won Gold Medal at the all India nationals for Cyber Security at [WorldSkills](https://en.wikipedia.org/wiki/WorldSkills), qualified for representing India at South Korea in October of 2022.
 - Started a [company](https://lyminal.space/).
 
 ### not so recent life updates
