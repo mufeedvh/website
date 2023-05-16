@@ -10,17 +10,28 @@ My name's Mufeed, currently <span id="my_age"><noscript>20</noscript></span> yea
 
 I am an avid self-learner and consider myself as an [autodidact](https://en.wikipedia.org/wiki/Autodidacticism), almost everything I know has been self-taught by the means of books and the Internet.
 
-I have alternating interests but the only ones that stayed consistent are <strong>coding</strong> and <strong>art</strong> (which I haven't done in a while).
+I have alternating interests but the only ones that stayed consistent are <strong>coding</strong>, <strong>hacking</strong>, and <strong>art</strong> (which I haven't done in a while).
 
-As a result, coding is now a fun hobby turned passion which I am grateful to say I make a living out of. Even though I am doing what I love as my career, it's honestly kinda boring in a job setting, especially when you just work on stuff that you're not interested in or when it feels like a chore. Due to these reasons, I have dropped all of that, taking on a completely risky route of starting a company on my own which has been a goal of mine since I was a kid.
+As a result, coding/hacking is now a fun hobby turned passion which I am grateful to say I make a living out of. Even though I am doing what I love as my career, it's honestly kinda boring in a job setting, especially when you just work on stuff that you're not interested in or when it feels like a chore. Due to these reasons, I have dropped all of that, taking on a completely risky route of starting a company on my own which has been a goal of mine since I was a kid.
 
 The company is called [Lyminal](https://lyminal.space/), derived from the word [Liminal](https://en.wikipedia.org/wiki/Liminal) and my interest in the phenomenon "Liminal Space".
+
+## Table of Contents
+
+- [What I Do](#what-i-do)
+- [Technical Skills](#technical-skills)
+- [Recent Life Updates](#recent-life-updates)
+- [Not so recent life updates](#not-so-recent-life-updates)
 
 ## What I Do
 
 I basically have this list where I write down random ideas and thoughts, most of them utterly ridiculous but I gotta say, some of them just might be pretty good... prolly. The list is so long, I wouldn't be able to strike off all of them in my lifetime but all in all, I pick one and do it whenever I feel like it. I don't go by any schedule.
 
 If you want formal talk, I work in the field of Systems Programming and Infosec where I implement/write high-performance, scalable, and secure software for companies. Expanding on my Security Research work, I have found and patched several **CVEs** in open-source projects and have secured numerous organizations via Response Disclosure or via Bug Bounty programs.
+
+I also love winning competitions. I have won WorldSkills (aka The Olympics of Skills), BRICS Skills, and several CTFs, mostly in security. (Read more at [recent life updates](#recent-life-updates))
+
+Currently having fun solving hard software problems via [Lyminal Solve](https://lyminal.space/solve/) where companies reach out to me with a hard problem and I solve it for them.
 
 Here's my GitHub if you wanna have a look at some code crimes: <a href="https://github.com/mufeedvh" target="_blank"><span class="fa-brands fa-github"></span> github/mufeedvh</a>.
 

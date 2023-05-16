@@ -7,5 +7,6 @@ Disallow: /thoughts
 Disallow: /todo
 Disallow: /message
 Disallow: /list
+Disallow: /admin
 
 Sitemap: https://www.mufeedvh.com/sitemap.xml
