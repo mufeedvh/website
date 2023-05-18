@@ -38,7 +38,7 @@ Now I am trapped doing the same thing for a living cus nothing else gave me the 
 
 **A.** I am a high school dropout (12th grade). I figured out how to go without it at 17 and with the help of extremely ambitious (more like delusional) plans, I am out of the system. I am an autodidact.
 
-Being intentionally vague, my [brain](https://en.wikipedia.org/wiki/Twice_exceptional) isn't wired to sit and listen in a class (in the literal sense). The same thing makes me good at what I do.
+Being intentionally vague, my brain isn't wired to sit and listen in a class (in the literal sense). The same thing makes me good at what I do.
 
 And if I get the chance, I would like to work on creating/improving the schooling system addressing the [Bloom's 2 sigma problem](https://en.wikipedia.org/wiki/Bloom%27s_2_sigma_problem) fitting to neurodivergent and neurotypical students alike.
 
@@ -53,12 +53,6 @@ And if I get the chance, I would like to work on creating/improving the schoolin
 **Q.** What's your LinkedIn?
 
 **A.** I am thrilled and excited to share that I do not use LinkedIn. See my [GitHub](https://github.com/mufeedvh) instead.
-
-----
-
-**Q.** How much do you pay for rent? What song are you listening to?
-
-**A.** no.
 
 ----
 
