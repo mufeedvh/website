@@ -62,4 +62,4 @@ And if I get the chance, I would like to work on creating/improving the schoolin
 
 <img src="/faq/cats.jpg" alt="my goal in life is to convince every cat that i am their friend" width="400"></img>
 
-<script>function me_when(){var date_of_birth=(new Date()) - (new Date(2002, 5, 13)); date_of_birth /= (1000 * 60 * 60 * 24 * 365); document.getElementById('my_age').innerHTML='<span>' + Math.floor(date_of_birth) + '</span>.' + (date_of_birth % 1).toFixed(9).substr(2);}setInterval(me_when, 1)</script>
+<script>function me_when() {var date_of_birth = new Date(2002, 5, 13); /* look who's curious about my dob, it's june btw not may cus damn javascript starts the month index at 0 smh  */ var today = new Date(); var age_in_ms = today - date_of_birth; var age_in_years = age_in_ms / (1000 * 60 * 60 * 24 * 365.25); document.getElementById('my_age').innerHTML = '' + Math.floor(age_in_years) + '.' + (age_in_years % 1).toFixed(9).substr(2);}setInterval(me_when, 1)</script>
