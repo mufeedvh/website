@@ -90,7 +90,7 @@
                 {% if config.extra.sam_menu %}
                     {% for link in config.extra.sam_menu %}
                         <div class="big-link">
-                            <a href="{{ link.link }}/">
+                            <a href="{{ link.link }}">
                                 {{ link.text }}
                             </a>
                         </div>
@@ -99,7 +99,7 @@
                     {% for current in section.subsections %}
                         {% set current = get_section(path=current) %}
                         <div class="big-link">
-                            <a href="{{ current.permalink }}/">
+                            <a href="{{ current.permalink }}">
                                 {{ macros::title_or_last(component=current) }}
                             </a>
                         </div>

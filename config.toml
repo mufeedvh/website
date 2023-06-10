@@ -36,10 +36,10 @@ highlight_code = true
 home = "home"
 
 sam_menu = [
-    { text = "posts", link = "/posts" },
-    { text = "about", link = "/about" },
-    { text = "projects", link = "/projects" },
-    { text = "contact", link = "/contact" }
+    { text = "posts", link = "/posts/" },
+    { text = "about", link = "/about/" },
+    { text = "projects", link = "/projects/" },
+    { text = "contact", link = "/contact/" }
 ]
 
 sam_bottom_menu = true
