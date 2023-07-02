@@ -10,8 +10,6 @@ no_header = true
     <a href="/aesthetics/">aesthetics</a>
     <br><br>
     <a href="/message/">message</a>
-    <br><br>
-    <a href="/faq/">faq</a>
     <br><br><br>
     <pre style="font-size: 12px;">🐇🕳️ an experiment.</pre>
 </div>
