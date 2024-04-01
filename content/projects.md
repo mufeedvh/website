@@ -14,6 +14,14 @@ no_header = true
         <th>Description</th>
     </tr>
     <tr>
+        <td style="padding: 30px;"><a href="https://github.com/stitionai/devika" target="_blank"><code>devika</code></a></td>
+        <td style="padding: 30px;">Devika is an Agentic AI Software Engineer that can understand high-level human instructions, break them down into steps, research relevant information, and write code to achieve the given objective. Devika aims to be a competitive open-source alternative to Devin by Cognition AI.</td>
+    </tr>
+    <tr>
+        <td style="padding: 30px;"><a href="https://github.com/mufeedvh/code2prompt" target="_blank"><code>code2prompt</code></a></td>
+        <td style="padding: 30px;">A CLI tool to convert your codebase into a single LLM prompt with source tree, prompt templating, and token counting.</td>
+    </tr>        
+    <tr>
         <td style="padding: 30px;"><a href="https://github.com/mufeedvh/binserve" target="_blank"><code>binserve</code></a></td>
         <td style="padding: 30px;">A fast static web server with routing, templating, and security in a single binary you can set up with zero code.</td>
     </tr>

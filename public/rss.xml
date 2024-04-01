@@ -2,18 +2,19 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
       <title>Mufeed VH</title>
-        <link>https://www.mufeedvh.com</link>
-        <description>Mufeed VH&#x27;s projects, blogs, security research, open source code, and stuff.</description>
-        <generator>Zola</generator>
-        <language>en</language>
-        <atom:link href="https://www.mufeedvh.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <lastBuildDate>Sat, 18 Feb 2023 00:00:00 +0000</lastBuildDate>
-        <item>
-            <title>I see everything like pottery</title>
-            <pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate>
-            <link>https://www.mufeedvh.com/pottery/</link>
-            <guid>https://www.mufeedvh.com/pottery/</guid>
-            <description>&lt;img src=&quot;&#x2F;blog&#x2F;pottery.jpg&quot; width=&quot;100%&quot; alt=&quot;a pottery scene from the anime let&#x27;s make a mug too with the caption &#x27;This is a technique called hand-building&#x27;&quot;&gt;
+      <link>https://www.mufeedvh.com</link>
+      <description>Mufeed VH&#x27;s projects, blogs, security research, open source code, and stuff.</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://www.mufeedvh.com/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sat, 18 Feb 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>I see everything like pottery</title>
+          <pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.mufeedvh.com/pottery/</link>
+          <guid>https://www.mufeedvh.com/pottery/</guid>
+          <description xml:base="https://www.mufeedvh.com/pottery/">&lt;img src=&quot;&#x2F;blog&#x2F;pottery.jpg&quot; width=&quot;100%&quot; alt=&quot;a pottery scene from the anime let&#x27;s make a mug too with the caption &#x27;This is a technique called hand-building&#x27;&quot;&gt;
 &lt;br&gt;
 &lt;p&gt;It was just another day, I am procrastinating work by watching reels of one of my favorite Instagram accounts &lt;a href=&quot;https:&#x2F;&#x2F;www.instagram.com&#x2F;thrdfloor&quot;&gt;@thrdfloor&lt;&#x2F;a&gt;, an account sharing the lifestyle of a self-taught ceramic&#x2F;pottery artist. Watching one of their reels in which he is molding a pot made me think of how everything we do is just sculpting things into place. Too deep huh? I know, just bear me with me here.&lt;&#x2F;p&gt;
 &lt;p&gt;It&#x27;s not just creations but even our personality. We shape ourselves according to different experiences and outcomes. It&#x27;s exactly like pottery, the clay being our character and the base being our experiences.&lt;&#x2F;p&gt;
@@ -50,13 +51,14 @@
     }
 &lt;&#x2F;script&gt;
 &lt;style&gt;:host,:root{--fa-font-brands:normal 400 1em&#x2F;1 &quot;Font Awesome 6 Brands&quot;}@font-face{font-family:&quot;Font Awesome 6 Brands&quot;;font-style:normal;font-weight:400;font-display:block;src:url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.woff2&#x27;) format(&quot;woff2&quot;),url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.ttf&#x27;) format(&quot;truetype&quot;)}.fa-brands,.fab{font-family:&quot;Font Awesome 6 Brands&quot;;font-weight:400}.fa-github:before{content:&quot;\f09b&quot;}.fa-github-alt:before{content:&quot;\f113&quot;}.fa-github-square:before{content:&quot;\f092&quot;}.fa-twitter:before{content:&quot;\f099&quot;}.fa-twitter-square:before{content:&quot;\f081&quot;}.fa-instagram:before{content:&quot;\f16d&quot;}.fa-instagram-square:before{content:&quot;\e055&quot;}.fa-youtube:before{content:&quot;\f167&quot;}.fa-youtube-square:before{content:&quot;\f431&quot;}&lt;&#x2F;style&gt;</description>
-        </item>
-        <item>
-            <title>Security in the age of LLMs</title>
-            <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
-            <link>https://www.mufeedvh.com/llm-security/</link>
-            <guid>https://www.mufeedvh.com/llm-security/</guid>
-            <description>&lt;p&gt;This is a primer on how threat modeling and detection will drastically change in the age of AI&#x2F;LLMs and end up with the hardest threat to defend, natural language.&lt;&#x2F;p&gt;
+      </item>
+      <item>
+          <title>Security in the age of LLMs</title>
+          <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.mufeedvh.com/llm-security/</link>
+          <guid>https://www.mufeedvh.com/llm-security/</guid>
+          <description xml:base="https://www.mufeedvh.com/llm-security/">&lt;p&gt;This is a primer on how threat modeling and detection will drastically change in the age of AI&#x2F;LLMs and end up with the hardest threat to defend, natural language.&lt;&#x2F;p&gt;
 &lt;p&gt;Imagine a time where incident response is figuring out what prompt overrode the filters and not which special character the back-end failed to sanitize. That&#x27;s where we are right now, a time where payloads are also going to be natural language and not just double encoded XSS payloads or Linux commands.&lt;&#x2F;p&gt;
 &lt;img src=&quot;&#x2F;blog&#x2F;llm-security.png&quot; width=&quot;100%&quot; alt=&quot;image of a cute robot trying to escape the matrix by DALL-E&quot;&gt;
 &lt;div align=&quot;center&quot;&gt;
@@ -224,6 +226,6 @@
     }
 &lt;&#x2F;script&gt;
 &lt;style&gt;:host,:root{--fa-font-brands:normal 400 1em&#x2F;1 &quot;Font Awesome 6 Brands&quot;}@font-face{font-family:&quot;Font Awesome 6 Brands&quot;;font-style:normal;font-weight:400;font-display:block;src:url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.woff2&#x27;) format(&quot;woff2&quot;),url(&#x27;&#x2F;fonts&#x2F;fa-brands-400.ttf&#x27;) format(&quot;truetype&quot;)}.fa-brands,.fab{font-family:&quot;Font Awesome 6 Brands&quot;;font-weight:400}.fa-github:before{content:&quot;\f09b&quot;}.fa-github-alt:before{content:&quot;\f113&quot;}.fa-github-square:before{content:&quot;\f092&quot;}.fa-twitter:before{content:&quot;\f099&quot;}.fa-twitter-square:before{content:&quot;\f081&quot;}.fa-instagram:before{content:&quot;\f16d&quot;}.fa-instagram-square:before{content:&quot;\e055&quot;}.fa-youtube:before{content:&quot;\f167&quot;}.fa-youtube-square:before{content:&quot;\f431&quot;}&lt;&#x2F;style&gt;</description>
-        </item>
+      </item>
     </channel>
 </rss>

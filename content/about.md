@@ -6,7 +6,64 @@ description = "Who is Mufeed VH? Read more about Mufeed VH on this about page."
 no_header = true
 +++
 
-My name's Mufeed, currently <span id="my_age"><noscript>20</noscript></span> years old from Thrissur, Kerala.
+<style>
+    .about-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: flex-start;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        margin: auto;
+    }
+    .about-card img {
+        width: 150px;
+        height: 150px;
+        margin-right: 10px;
+        border-radius: 4px;
+    }
+    .about-card div {
+        font-size: 12px;
+    }
+    .about-card h3 {
+        margin: 0 !important; 
+        font-size: 14px;
+    }
+    .about-card ul {
+        padding-left: 20px;
+    }
+    .about-card li {
+        font-size: 14px;
+    }
+    @media (max-width: 768px) {
+        .about-card {
+            flex-direction: row;
+            max-width: 100%;
+        }
+        .about-card img {
+            margin-right: 10px;
+        }
+    }
+</style>
+<div class="about-card">
+    <img src="/mufeedvh.jpeg" alt="mufeed vh">
+    <div>
+        <h3>Mufeed VH</h3>
+        <h3>Co-founder - <a href="https://stition.ai/">Stition, Inc.</a></h3>
+        <h3>Recent Updates:</h3>
+        <ul>
+            <li>Created <strong><a href="https://github.com/stitionai/devika">Devika</a></strong>, the open-source alternative to Devin.</li>
+            <li>Represented 🇮🇳 at the WorldSkills Olympiad in Cyber Security.</li>
+            <li>Won the Bronze Medal at the BRICS Skills Olympiad in Cyber Security representing 🇮🇳.</li>
+            <li>Won the Gold Medal at the IndiaSkills Nationals in Cyber Security.</li>
+            <li>Patched and reviewed 300+ CVEs in open-source software.</li>
+            <li>Secured Google, Mastercard, Okta, DELL, Ford, Zilliqa, EFF, Telefonica, etc. via Bug Bounty programs.</li>
+        </ul>
+    </div>
+</div>
+
+My name's Mufeed, currently <span id="my_age"><noscript>21</noscript></span> years old from Thrissur, Kerala.
 
 I am an avid self-learner and consider myself as an [autodidact](https://en.wikipedia.org/wiki/Autodidacticism), almost everything I know has been self-taught by the means of books and the Internet.
 
@@ -49,6 +106,7 @@ That's about it.
 
 ## Recent Life Updates
 
+- Co-founded [Stition, Inc](https://stition.ai/).
 - Won Bronze Medal at the [BRICS Skills 2022](http://en.brskills.com/) for Cyber Security representing India, it's a Skills competition I participated adjacent to WorldSkills with participations from the [BRICS](https://en.wikipedia.org/wiki/BRICS) countries: Brazil, India, China, Russia, and South Africa.
 - Won [FOSSHack 2023](https://forum.fossunited.org/t/foss-hack-3-0-results/1882) by [FOSSUnited](https://fossunited.org/) with our project [DNArchery](https://github.com/DNArchery/DNArchery) - A DNA Sequencing/Visualization software for bioinformatics research with my teammates [Vivek R](https://github.com/123vivekr) and [Vishal DS](https://github.com/vishalkrishnads).
 - Represented India for Cyber Security at the [WorldSkills](https://worldskills.org/) SE 2022 (aka "The Olympics of Skills") held at South Korea and ranked 8th! ([Credly Badge](https://www.credly.com/badges/24ea87f7-030e-41e6-b535-f03fc2b777c6/public_url))
