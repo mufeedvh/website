@@ -10,4 +10,4 @@ no_header = true
 
 You can email me at mufeed [at] stition [dot] ai
 
-Or you can DM me on <a><i class="fa-brands fa-x-twitter"></i></a>
+Or you can DM me on <a href="https://x.com/mufeedvh" aria-label="Link to my Twitter profile" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
