@@ -7,6 +7,7 @@ date = 2022-12-09
 tags = ["ai", "security"]
 
 [extra]
+blog = true
 no_header = false
 og_image = "https://www.mufeedvh.com/posts/llm-security/llm-security.png"
 +++

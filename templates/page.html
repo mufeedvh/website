@@ -2,9 +2,17 @@
 
 {% block title %}
     {% if page %}
-        {{ page.title }} - {{ config.title }}
+        {% if page.extra.blog %}
+            {{ page.title }}
+        {% else %}
+            {{ page.title }} - {{ config.title }}
+        {% endif %}
     {% elif section %}
-        {{ section.title }} - {{ config.title }}
+        {% if section.extra.blog %}
+            {{ section.title }}
+        {% else %}
+            {{ section.title }} - {{ config.title }}
+        {% endif %}
     {% else %}
         {{ config.title }}
     {% endif %}
