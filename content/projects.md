@@ -1,5 +1,5 @@
 +++
-html = "Projects"
+title = "Projects"
 description = "Get to know about Mufeed VH's work, open-source projects, open-source contributions, CVEs, research, etc."
 
 [extra]
