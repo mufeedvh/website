@@ -22,7 +22,15 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
     <tr>
         <td><a href="https://github.com/mufeedvh/code2prompt" target="_blank"><code>code2prompt</code></a></td>
         <td>A CLI tool to convert your codebase into a single LLM prompt with source tree, prompt templating, and token counting.</td>
-    </tr>        
+    </tr>
+    <tr>
+        <td><a href="https://github.com/stitionai/blockoli" target="_blank"><code>blockoli</code></a></td>
+        <td>Blockoli is a high-performance tool for code indexing, embedding generation and semantic search tool for use with LLMs.</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/stitionai/asterisk" target="_blank"><code>asterisk</code></a></td>
+        <td>ASTerisk is universal language-agnostic AST walking and accurate call stack generation with tree-sitter.</td>
+    </tr>      
     <tr>
         <td><a href="https://github.com/mufeedvh/binserve" target="_blank"><code>binserve</code></a></td>
         <td>A fast static web server with routing, templating, and security in a single binary you can set up with zero code.</td>
