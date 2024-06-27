@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} - {{ config.title }}{% endblock title %}
+
+{% block content %}
+{% if not section.extra.no_header %}
+<h1>{{ section.title }}</h1>
+{% endif %}
+{% if section.content %}
+    {{ section.content | safe }}
+{% endif %}
+
+<ul>
+    {% for page in section.pages %}
+        <li>{{ page.date | date(format="%a %b %e, %Y") }} - <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    {% endfor %}
+    {% for subsection in section.subsections %}
+        {% set subsection_data = get_section(path=subsection) %}
+        {% for page in subsection_data.pages %}
+            <li>{{ page.date | date(format="%a %b %e, %Y") }} - <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+
+<a href="/">&#8592; Back to home</a>
+{% endblock content %}

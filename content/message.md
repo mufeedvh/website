@@ -13,70 +13,65 @@ write or draw me a message **anonymously**.
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        width: 90%;
+        width: 100%;
         padding: 5px;
         font-size: 20px;
         border-radius: 10px;
         border-width: 0px;
     }
 
-    button {
-        width: 90%;
-        font-weight: bold;
-        transition: all 0.2s;
-        -moz-transition: all 0.2s;
-        -webkit-transition: all 0.2s;
-    }
-
-    button:hover {
-        cursor: pointer;
-        color: white;
-        background-color: #171717;
-    }
-
     .paint-canvas {
+        width: 100%;
         background: white;
         border-width: 0px;
         border-radius: 10px;
         display: block;
+        margin-top: 10px;
+        touch-action: none;
     }
-  
-    .color-picker {
-        margin: 1rem 1rem 0 1rem;
-    }    
 </style>
 <div>
     <div align="center">
         <p style="font-size: 20px;"><strong>✍️ send a message</strong></p>
-        <br>    
-        <textarea id="message" rows="10" style="margin-top: 5px;"></textarea>
-        <br>
-        <button id="msg-button" onclick="send_message();">Send Message</button>
+        <textarea id="message" rows="10"></textarea>
+        <h4 class="post-button" id="msg-button" onclick="send_message();">Send Message</h4>
     </div>
-    <div align="center">
-        <br><hr><br>
-    </div>
+    <hr>
     <div align="center">    
         <p style="font-size: 20px;"><strong>🖌️ send a drawing</strong></p>
-        <br>
         <input type="color" class="js-color-picker color-picker">
         <input type="range" class="js-line-range" min="1" max="72" value="1">
         &nbsp
         <label class="js-range-value">1</label> px
-        <canvas class="js-paint paint-canvas" width="690" height="400" style="margin-top: 10px; touch-action: none;"></canvas>
-        <button id="draw-button" onclick="send_drawing();" style="margin-top: 10px;">Send Drawing</button>
+        <canvas class="js-paint paint-canvas"></canvas>
+        <h4 class="post-button" id="draw-button" onclick="send_drawing();">Send Drawing</h4>
     </div>
 </div>
 
 <script>
-    const paintCanvas = document.querySelector( '.js-paint' );
-    const context = paintCanvas.getContext( '2d' );
+    const paintCanvas = document.querySelector('.js-paint');
+    const context = paintCanvas.getContext('2d');
     context.lineCap = 'round';
+    context.lineJoin = 'round';
 
-    const colorPicker = document.querySelector( '.js-color-picker' );
+    // Create a temporary canvas
+    const tempCanvas = document.createElement('canvas');
+    const tempContext = tempCanvas.getContext('2d');
+    tempContext.lineCap = 'round';
+    tempContext.lineJoin = 'round';
+
+    const colorPicker = document.querySelector('.js-color-picker');
 
     function detectMob() {
         return window.innerWidth <= 800;
+    }
+
+    function resizeCanvas() {
+        const rect = paintCanvas.getBoundingClientRect();
+        paintCanvas.width = rect.width;
+        paintCanvas.height = rect.height;
+        tempCanvas.width = rect.width;
+        tempCanvas.height = rect.height;
     }
 
     if (detectMob()) {
@@ -84,75 +79,108 @@ write or draw me a message **anonymously**.
         paintCanvas.setAttribute('height', '320');
     }
 
-    colorPicker.addEventListener( 'change', event => {
-        context.strokeStyle = event.target.value; 
-    } );
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-    const lineWidthRange = document.querySelector( '.js-line-range' );
-    const lineWidthLabel = document.querySelector( '.js-range-value' );
+    colorPicker.addEventListener('change', event => {
+        context.strokeStyle = event.target.value;
+        tempContext.strokeStyle = event.target.value;
+    });
 
-    lineWidthRange.addEventListener( 'input', event => {
+    const lineWidthRange = document.querySelector('.js-line-range');
+    const lineWidthLabel = document.querySelector('.js-range-value');
+
+    lineWidthRange.addEventListener('input', event => {
         const width = event.target.value;
         lineWidthLabel.innerHTML = width;
         context.lineWidth = width;
-    } );
+        tempContext.lineWidth = width;
+    });
 
-    let x = 0, y = 0;
-    let isMouseDown = false;
+    let isDrawing = false;
+    let lastPoint;
+    let points = [];
 
-    const stopDrawing = () => { isMouseDown = false; }
-
-    const startDrawing = event => {
-        isMouseDown = true;   
-        [x, y] = [event.offsetX, event.offsetY];
+    function getMousePos(canvas, evt) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
     }
 
-    const drawLine = event => {
-        if ( isMouseDown ) {
-            const newX = event.offsetX;
-            const newY = event.offsetY;
-            context.beginPath();
-            context.moveTo( x, y );
-            context.lineTo( newX, newY );
-            context.stroke();
-            
-            x = newX;
-            y = newY;
+    function getTouchPos(canvas, evt) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.touches[0].clientX - rect.left,
+            y: evt.touches[0].clientY - rect.top
+        };
+    }
+
+    function drawSmoothLine(points, ctx) {
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+
+        for (let i = 1; i < points.length - 2; i++) {
+            const xc = (points[i].x + points[i + 1].x) / 2;
+            const yc = (points[i].y + points[i + 1].y) / 2;
+            ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
         }
-    }
 
-    const startDrawingTouch = event => {
-        isMouseDown = true;
-        var rect = event.target.getBoundingClientRect();
-        [x, y] = [event.targetTouches[0].clientX - rect.left, event.targetTouches[0].clientY - rect.top];
-    }
-
-    const drawLineTouch = event => {
-        var rect = event.target.getBoundingClientRect();
-        if ( isMouseDown ) {
-            const newX = event.targetTouches[0].clientX - rect.left;
-            const newY = event.targetTouches[0].clientY - rect.top;
-            context.beginPath();
-            context.moveTo( x, y );
-            context.lineTo( newX, newY );
-            context.stroke();
-            
-            x = newX;
-            y = newY;
+        if (points.length > 2) {
+            const last = points.length - 1;
+            ctx.quadraticCurveTo(points[last - 1].x, points[last - 1].y, points[last].x, points[last].y);
         }
+
+        ctx.stroke();
     }
 
-    paintCanvas.addEventListener( 'mousedown', startDrawing );
-    paintCanvas.addEventListener( 'touchstart', startDrawingTouch );
+    function startDrawing(e) {
+        isDrawing = true;
+        points = [];
+        const pos = e.type.startsWith('mouse') ? getMousePos(paintCanvas, e) : getTouchPos(paintCanvas, e);
+        points.push(pos);
+        lastPoint = pos;
+    }
 
-    paintCanvas.addEventListener( 'mousemove', drawLine );
-    paintCanvas.addEventListener( 'touchmove', drawLineTouch );
-    
-    paintCanvas.addEventListener( 'mouseup', stopDrawing );
-    paintCanvas.addEventListener( 'touchend', stopDrawing );
+    function draw(e) {
+        if (!isDrawing) return;
 
-    paintCanvas.addEventListener( 'mouseout', stopDrawing );
-    paintCanvas.addEventListener( 'touchcancel', stopDrawing );
+        e.preventDefault();
+        const pos = e.type.startsWith('mouse') ? getMousePos(paintCanvas, e) : getTouchPos(paintCanvas, e);
+        
+        points.push(pos);
+        
+        // Clear the temporary canvas
+        tempContext.clearRect(0, 0, tempCanvas.width, tempCanvas.height);
+        
+        // Draw the new stroke on the temporary canvas
+        drawSmoothLine(points, tempContext);
+        
+        // Copy the temporary canvas to the main canvas
+        context.drawImage(tempCanvas, 0, 0);
+        
+        lastPoint = pos;
+    }
+
+    function stopDrawing() {
+        if (!isDrawing) return;
+        isDrawing = false;
+        
+        // Draw the final stroke directly on the main canvas
+        drawSmoothLine(points, context);
+        
+        points = [];
+    }
+
+    paintCanvas.addEventListener('mousedown', startDrawing);
+    paintCanvas.addEventListener('mousemove', draw);
+    paintCanvas.addEventListener('mouseup', stopDrawing);
+    paintCanvas.addEventListener('mouseout', stopDrawing);
+
+    paintCanvas.addEventListener('touchstart', startDrawing);
+    paintCanvas.addEventListener('touchmove', draw);
+    paintCanvas.addEventListener('touchend', stopDrawing);
 
     const API_URL = 'https://api.mufeedvh.com';
 
@@ -173,11 +201,11 @@ write or draw me a message **anonymously**.
                         let button = document.getElementById('msg-button');
                         button.style.backgroundColor = 'lightgreen';
                         button.innerHTML = JSON.parse(xhttp.responseText).message;
-                    } else if (this.readyState == 4 && !this.status != 200) {
+                    } else if (this.readyState == 4 && this.status != 200) {
                         let button = document.getElementById('msg-button');
                         button.style.color = 'white';
                         button.style.backgroundColor = 'red';
-                        button.innerHTML = "Failed to sent message";
+                        button.innerHTML = "Failed to send message";
                     }
                 };
 
@@ -211,11 +239,11 @@ write or draw me a message **anonymously**.
                         let button = document.getElementById('draw-button');
                         button.style.backgroundColor = 'lightgreen';
                         button.innerHTML = JSON.parse(xhttp.responseText).message;
-                    } else if (this.readyState == 4 && !this.status != 200) {
+                    } else if (this.readyState == 4 && this.status != 200) {
                         let button = document.getElementById('draw-button');
                         button.style.color = 'white';
                         button.style.backgroundColor = 'red';
-                        button.innerHTML = "Failed to sent message";
+                        button.innerHTML = "Failed to send message";
                     }
                 };
 

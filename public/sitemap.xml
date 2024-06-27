@@ -10,17 +10,7 @@
         <loc>https://www.mufeedvh.com/admin/</loc>
     </url>
     <url>
-        <loc>https://www.mufeedvh.com/aesthetics/</loc>
-    </url>
-    <url>
-        <loc>https://www.mufeedvh.com/authors/</loc>
-    </url>
-    <url>
         <loc>https://www.mufeedvh.com/contact/</loc>
-    </url>
-    <url>
-        <loc>https://www.mufeedvh.com/llm-security/</loc>
-        <lastmod>2022-12-09</lastmod>
     </url>
     <url>
         <loc>https://www.mufeedvh.com/message/</loc>
@@ -29,8 +19,8 @@
         <loc>https://www.mufeedvh.com/posts/</loc>
     </url>
     <url>
-        <loc>https://www.mufeedvh.com/pottery/</loc>
-        <lastmod>2023-02-18</lastmod>
+        <loc>https://www.mufeedvh.com/posts/llm-security/</loc>
+        <lastmod>2022-12-09</lastmod>
     </url>
     <url>
         <loc>https://www.mufeedvh.com/projects/</loc>
@@ -43,9 +33,6 @@
     </url>
     <url>
         <loc>https://www.mufeedvh.com/tags/ai/</loc>
-    </url>
-    <url>
-        <loc>https://www.mufeedvh.com/tags/ramblings/</loc>
     </url>
     <url>
         <loc>https://www.mufeedvh.com/tags/security/</loc>

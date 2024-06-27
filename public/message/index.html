@@ -1,3 +1,333 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta content="chrome=1" http-equiv=X-UA-Compatible><meta content=True name=HandheldFriendly><meta content=320 name=MobileOptimized><meta content="width=device-width,initial-scale=1.0" name=viewport><meta content=no-referrer name=referrer><meta content="anonymously write or draw me a message." name=description><link href=https://www.mufeedvh.com/message/ rel=canonical><meta content=en_GB property=og:locale><meta content=website property=og:type><meta content=message property=og:title><meta content="anonymously write or draw me a message." property=og:description><meta content=https://www.mufeedvh.com/message/ property=og:url><meta content="Mufeed VH" property=og:site_name><meta content="anonymously write or draw me a message." name=twitter:description><meta content=message name=twitter:title><meta content=@mufeedvh name=twitter:site><meta content=@mufeedvh name=twitter:creator><link href=https://www.mufeedvh.com/fonts.css rel=stylesheet><link href=https://www.mufeedvh.com/style.css rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css rel=stylesheet><title>
-    message
-</title><body><div class=wrap><div class=section id=title>message</div><div class=section id=sections></div><div class=section id=content><p>write or draw me a message <strong>anonymously</strong>.</p><style>textarea{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:90%;padding:5px;font-size:20px;border-radius:10px;border-width:0}button{width:90%;font-weight:700;transition:all .2s;-moz-transition:all .2s;-webkit-transition:all .2s}button:hover {cursor:pointer;color:white;background-color:#171717}.paint-canvas{background:white;border-width:0;border-radius:10px;display:block}.color-picker{margin:1rem 1rem 0 1rem}</style><div><div align=center><p style=font-size:20px><strong>✍️ send a message</strong></p><br><textarea id=message rows=10 style=margin-top:5px></textarea><br><button id=msg-button onclick=send_message();>Send Message</button></div><div align=center><br><hr><br></div><div align=center><p style=font-size:20px><strong>🖌️ send a drawing</strong></p><br><input class="js-color-picker color-picker" type=color><input class=js-line-range max=72 min=1 type=range value=1>   <label class=js-range-value>1</label> px <canvas class="js-paint paint-canvas" height=400 style=margin-top:10px;touch-action:none width=690></canvas><button id=draw-button onclick=send_drawing(); style=margin-top:10px>Send Drawing</button></div></div><script>const paintCanvas=document.querySelector('.js-paint');const context=paintCanvas.getContext('2d');context.lineCap='round';const colorPicker=document.querySelector('.js-color-picker');function detectMob(){return window.innerWidth<=800}if(detectMob()){paintCanvas.setAttribute('width','320');paintCanvas.setAttribute('height','320')};colorPicker.addEventListener('change',a=>{context.strokeStyle=a.target.value});const lineWidthRange=document.querySelector('.js-line-range');const lineWidthLabel=document.querySelector('.js-range-value');lineWidthRange.addEventListener('input',a=>{const b=a.target.value;lineWidthLabel.innerHTML=b;context.lineWidth=b});let x=0,y=0;let isMouseDown=false;const stopDrawing=()=>{isMouseDown=false};const startDrawing=a=>{isMouseDown=true;[x,y]=[a.offsetX,a.offsetY]};const drawLine=a=>{if(isMouseDown){const b=a.offsetX;const c=a.offsetY;context.beginPath();context.moveTo(x,y);context.lineTo(b,c);context.stroke();x=b;y=c}};const startDrawingTouch=a=>{isMouseDown=true;var b=a.target.getBoundingClientRect();[x,y]=[a.targetTouches[0].clientX- b.left,a.targetTouches[0].clientY- b.top]};const drawLineTouch=a=>{var b=a.target.getBoundingClientRect();if(isMouseDown){const c=a.targetTouches[0].clientX- b.left;const d=a.targetTouches[0].clientY- b.top;context.beginPath();context.moveTo(x,y);context.lineTo(c,d);context.stroke();x=c;y=d}};paintCanvas.addEventListener('mousedown',startDrawing);paintCanvas.addEventListener('touchstart',startDrawingTouch);paintCanvas.addEventListener('mousemove',drawLine);paintCanvas.addEventListener('touchmove',drawLineTouch);paintCanvas.addEventListener('mouseup',stopDrawing);paintCanvas.addEventListener('touchend',stopDrawing);paintCanvas.addEventListener('mouseout',stopDrawing);paintCanvas.addEventListener('touchcancel',stopDrawing);const API_URL='https://api.mufeedvh.com';function send_message(){var a=new XMLHttpRequest();a.onreadystatechange=function(){if(this.readyState==4&&this.status==200){var b=JSON.parse(this.responseText).token;console.log("acquired token: "+ b);var c=document.getElementById('message').value;var d=new XMLHttpRequest();var e=API_URL+ '/message';d.onreadystatechange=function(){if(this.readyState==4&&this.status==200){let f=document.getElementById('msg-button');f.style.backgroundColor='lightgreen';f.innerHTML=JSON.parse(d.responseText).message}else if(this.readyState==4&&!this.status!=200){let f=document.getElementById('msg-button');f.style.color='white';f.style.backgroundColor='red';f.innerHTML="Failed to sent message"}};d.open("POST",e);d.setRequestHeader("Content-Type","application/json; charset=UTF-8");d.send(JSON.stringify({"token":b,"message":c}))}};a.open("GET",API_URL+ '/get_token',true);a.send()}function send_drawing(){var a=new XMLHttpRequest();a.onreadystatechange=function(){if(this.readyState==4&&this.status==200){var b=JSON.parse(this.responseText).token;console.log("acquired token: "+ b);var c=document.getElementById('message').value;var d=new XMLHttpRequest();var e=API_URL+ '/drawing';d.onreadystatechange=function(){if(this.readyState==4&&this.status==200){let f=document.getElementById('draw-button');f.style.backgroundColor='lightgreen';f.innerHTML=JSON.parse(d.responseText).message}else if(this.readyState==4&&!this.status!=200){let f=document.getElementById('draw-button');f.style.color='white';f.style.backgroundColor='red';f.innerHTML="Failed to sent message"}};d.open("POST",e);d.setRequestHeader("Content-Type","application/json; charset=UTF-8");d.send(JSON.stringify({"token":b,"message":paintCanvas.toDataURL()}))}};a.open("GET",API_URL+ '/get_token',true);a.send()}</script></div><div class="section bottom-menu"><hr><p><a href=/posts/>posts</a> · <a href=/about/>about</a> · <a href=/projects/>projects</a> · <a href=/contact/>contact</a> · <a href=https://www.mufeedvh.com> home </a> <br><br> <strong style="font-family:'JetBrains Mono Light'">~ bend the consensus ~</strong></div></div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+
+    
+
+    
+        <meta name="description" content="anonymously write or draw me a message.">
+        
+            <link rel="canonical" href="https://www.mufeedvh.com/message/">
+        
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="message">
+        <meta property="og:description" content="anonymously write or draw me a message.">
+        
+        
+            <meta property="og:url" content="https://www.mufeedvh.com/message/">
+        
+        <meta property="og:site_name" content="Mufeed VH">
+        <meta name="twitter:description" content="anonymously write or draw me a message.">
+        <meta name="twitter:title" content="message">
+        <meta name="twitter:site" content="@mufeedvh">
+        <meta name="twitter:creator" content="@mufeedvh">
+    
+
+    <title>
+    
+        message - Mufeed VH
+    
+</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-light-hard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    
+    
+</head>
+<body>
+    <div class="content">
+        
+    
+        
+        
+        <p>write or draw me a message <strong>anonymously</strong>.</p>
+<style>
+    textarea {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 5px;
+        font-size: 20px;
+        border-radius: 10px;
+        border-width: 0px;
+    }
+
+    .paint-canvas {
+        width: 100%;
+        background: white;
+        border-width: 0px;
+        border-radius: 10px;
+        display: block;
+        margin-top: 10px;
+        touch-action: none;
+    }
+</style>
+<div>
+    <div align="center">
+        <p style="font-size: 20px;"><strong>✍️ send a message</strong></p>
+        <textarea id="message" rows="10"></textarea>
+        <h4 class="post-button" id="msg-button" onclick="send_message();">Send Message</h4>
+    </div>
+    <hr>
+    <div align="center">    
+        <p style="font-size: 20px;"><strong>🖌️ send a drawing</strong></p>
+        <input type="color" class="js-color-picker color-picker">
+        <input type="range" class="js-line-range" min="1" max="72" value="1">
+        &nbsp
+        <label class="js-range-value">1</label> px
+        <canvas class="js-paint paint-canvas"></canvas>
+        <h4 class="post-button" id="draw-button" onclick="send_drawing();">Send Drawing</h4>
+    </div>
+</div>
+<script>
+    const paintCanvas = document.querySelector('.js-paint');
+    const context = paintCanvas.getContext('2d');
+    context.lineCap = 'round';
+    context.lineJoin = 'round';
+
+    // Create a temporary canvas
+    const tempCanvas = document.createElement('canvas');
+    const tempContext = tempCanvas.getContext('2d');
+    tempContext.lineCap = 'round';
+    tempContext.lineJoin = 'round';
+
+    const colorPicker = document.querySelector('.js-color-picker');
+
+    function detectMob() {
+        return window.innerWidth <= 800;
+    }
+
+    function resizeCanvas() {
+        const rect = paintCanvas.getBoundingClientRect();
+        paintCanvas.width = rect.width;
+        paintCanvas.height = rect.height;
+        tempCanvas.width = rect.width;
+        tempCanvas.height = rect.height;
+    }
+
+    if (detectMob()) {
+        paintCanvas.setAttribute('width', '320');
+        paintCanvas.setAttribute('height', '320');
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    colorPicker.addEventListener('change', event => {
+        context.strokeStyle = event.target.value;
+        tempContext.strokeStyle = event.target.value;
+    });
+
+    const lineWidthRange = document.querySelector('.js-line-range');
+    const lineWidthLabel = document.querySelector('.js-range-value');
+
+    lineWidthRange.addEventListener('input', event => {
+        const width = event.target.value;
+        lineWidthLabel.innerHTML = width;
+        context.lineWidth = width;
+        tempContext.lineWidth = width;
+    });
+
+    let isDrawing = false;
+    let lastPoint;
+    let points = [];
+
+    function getMousePos(canvas, evt) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
+    }
+
+    function getTouchPos(canvas, evt) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.touches[0].clientX - rect.left,
+            y: evt.touches[0].clientY - rect.top
+        };
+    }
+
+    function drawSmoothLine(points, ctx) {
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+
+        for (let i = 1; i < points.length - 2; i++) {
+            const xc = (points[i].x + points[i + 1].x) / 2;
+            const yc = (points[i].y + points[i + 1].y) / 2;
+            ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+        }
+
+        if (points.length > 2) {
+            const last = points.length - 1;
+            ctx.quadraticCurveTo(points[last - 1].x, points[last - 1].y, points[last].x, points[last].y);
+        }
+
+        ctx.stroke();
+    }
+
+    function startDrawing(e) {
+        isDrawing = true;
+        points = [];
+        const pos = e.type.startsWith('mouse') ? getMousePos(paintCanvas, e) : getTouchPos(paintCanvas, e);
+        points.push(pos);
+        lastPoint = pos;
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+
+        e.preventDefault();
+        const pos = e.type.startsWith('mouse') ? getMousePos(paintCanvas, e) : getTouchPos(paintCanvas, e);
+        
+        points.push(pos);
+        
+        // Clear the temporary canvas
+        tempContext.clearRect(0, 0, tempCanvas.width, tempCanvas.height);
+        
+        // Draw the new stroke on the temporary canvas
+        drawSmoothLine(points, tempContext);
+        
+        // Copy the temporary canvas to the main canvas
+        context.drawImage(tempCanvas, 0, 0);
+        
+        lastPoint = pos;
+    }
+
+    function stopDrawing() {
+        if (!isDrawing) return;
+        isDrawing = false;
+        
+        // Draw the final stroke directly on the main canvas
+        drawSmoothLine(points, context);
+        
+        points = [];
+    }
+
+    paintCanvas.addEventListener('mousedown', startDrawing);
+    paintCanvas.addEventListener('mousemove', draw);
+    paintCanvas.addEventListener('mouseup', stopDrawing);
+    paintCanvas.addEventListener('mouseout', stopDrawing);
+
+    paintCanvas.addEventListener('touchstart', startDrawing);
+    paintCanvas.addEventListener('touchmove', draw);
+    paintCanvas.addEventListener('touchend', stopDrawing);
+
+    const API_URL = 'https://api.mufeedvh.com';
+
+    function send_message() {
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var token = JSON.parse(this.responseText).token;
+                console.log("acquired token: " + token);
+
+                var message = document.getElementById('message').value;
+                var xhttp = new XMLHttpRequest();
+                var url = API_URL + '/message';
+
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        let button = document.getElementById('msg-button');
+                        button.style.backgroundColor = 'lightgreen';
+                        button.innerHTML = JSON.parse(xhttp.responseText).message;
+                    } else if (this.readyState == 4 && this.status != 200) {
+                        let button = document.getElementById('msg-button');
+                        button.style.color = 'white';
+                        button.style.backgroundColor = 'red';
+                        button.innerHTML = "Failed to send message";
+                    }
+                };
+
+                xhttp.open("POST", url);
+                xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+                xhttp.send(JSON.stringify({
+                    "token": token,
+                    "message": message
+                }));
+            }
+        };
+
+        xhttp.open("GET", API_URL + '/get_token', true);
+        xhttp.send();
+    }
+
+    function send_drawing() {
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var token = JSON.parse(this.responseText).token;
+                console.log("acquired token: " + token);
+
+                var message = document.getElementById('message').value;
+                var xhttp = new XMLHttpRequest();
+                var url = API_URL + '/drawing';
+
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        let button = document.getElementById('draw-button');
+                        button.style.backgroundColor = 'lightgreen';
+                        button.innerHTML = JSON.parse(xhttp.responseText).message;
+                    } else if (this.readyState == 4 && this.status != 200) {
+                        let button = document.getElementById('draw-button');
+                        button.style.color = 'white';
+                        button.style.backgroundColor = 'red';
+                        button.innerHTML = "Failed to send message";
+                    }
+                };
+
+                xhttp.open("POST", url);
+                xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+                xhttp.send(JSON.stringify({
+                    "token": token,
+                    "message": paintCanvas.toDataURL()
+                }));
+            }
+        };
+
+        xhttp.open("GET", API_URL + '/get_token', true);
+        xhttp.send();
+    }    
+</script>
+    
+    <a href="/">&#8592; Back to home</a>
+
+    </div>
+    
+    <script>
+        function share_button() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.querySelector('meta[property="og:title"]').content,
+                    text: document.querySelector('meta[name="description"]').content,
+                    url: document.querySelector('link[rel="canonical"]').href
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                document.getElementById('share-button').innerHTML = 'Link copied to clipboard! <i class="fa-solid fa-copy"></i>';
+            }
+        }
+    
+        function twitter_follow() {
+            window.location.href = "https://twitter.com/mufeedvh";
+        }
+    </script>
+    
+</body>
+</html>

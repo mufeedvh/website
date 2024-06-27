@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if page %}
+        {{ page.title }} - {{ config.title }}
+    {% elif section %}
+        {{ section.title }} - {{ config.title }}
+    {% else %}
+        {{ config.title }}
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    {% if page %}
+        {% if not page.extra.no_header %}
+            <h1>{{ page.title }}</h1>
+        {% endif %}
+        {% if page.date %}
+            <p>{{ page.date | date(format="%B %d, %Y") }} ·
+            {% if page.taxonomies.tags %}
+                {% for tag in page.taxonomies.tags %}
+                    <span class="tag">
+                        <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
+                            #{{ tag }}
+                        </a>
+                    </span>
+                {% endfor %}
+            {% endif %}
+            <hr>
+        {% endif %}
+        {{ page.content | safe }}
+    {% elif section %}
+        <h1>{{ section.title }}</h1>
+        {% if section.content %}
+            {{ section.content | safe }}
+        {% endif %}
+        {% if section.pages %}
+            <ul>
+            {% for page in section.pages %}
+                <li>{{ page.date | date(format="%a %b %e, %Y") }} - <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endif %}
+    <a href="/">&#8592; Back to home</a>
+{% endblock content %}

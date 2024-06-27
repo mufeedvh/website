@@ -1,0 +1,112 @@
+{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+
+    {% if section.description %}
+        <meta name="description" content="{{ section.description | safe }}">
+        {% if current_url %}
+            <link rel="canonical" href="{{ current_url | safe }}">
+        {% endif %}
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ section.title | safe }}">
+        <meta property="og:description" content="{{ section.description | safe }}">
+        {% if current_url %}
+            <meta property="og:url" content="{{ current_url | safe }}">
+        {% endif %}
+        <meta property="og:site_name" content="{{ config.title | safe }}">
+        <meta name="twitter:description" content="{{ section.description | safe }}">
+        <meta name="twitter:title" content="{{ section.title | safe }}">
+        <meta name="twitter:site" content="@mufeedvh">
+        <meta name="twitter:creator" content="@mufeedvh">
+    {% endif %}
+
+    {% if page.description %}
+        <meta name="description" content="{{ page.description | safe }}">
+        {% if current_url %}
+            <link rel="canonical" href="{{ current_url | safe }}">
+        {% endif %}
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ page.title | safe }}">
+        <meta property="og:description" content="{{ page.description | safe }}">
+        {% if page.extra.og_image %}
+            <meta property="og:image" itemprop="image" content="{{ page.extra.og_image | safe }}">
+        {% endif %}
+        {% if current_url %}
+            <meta property="og:url" content="{{ current_url | safe }}">
+        {% endif %}
+        <meta property="og:site_name" content="{{ config.title | safe }}">
+        <meta name="twitter:description" content="{{ page.description | safe }}">
+        <meta name="twitter:title" content="{{ page.title | safe }}">
+        <meta name="twitter:site" content="@mufeedvh">
+        <meta name="twitter:creator" content="@mufeedvh">
+    {% else %}
+        {% if not section.description %}
+            <meta name="description" content="{{ config.description | safe }}">
+            {% if current_url %}
+                <link rel="canonical" href="{{ current_url | safe }}">
+            {% endif %}
+            <meta property="og:locale" content="en_GB">
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="{{ config.title | safe }}">
+            <meta property="og:description" content="{{ config.description | safe }}">
+            {% if current_url %}
+                <meta property="og:url" content="{{ current_url | safe }}">
+            {% endif %}
+            <meta property="og:site_name" content="{{ config.title | safe }}">
+            <meta name="twitter:description" content="{{ config.description | safe }}">
+            <meta name="twitter:title" content="{{ config.title | safe }}">
+            <meta name="twitter:site" content="@mufeedvh">
+            <meta name="twitter:creator" content="@mufeedvh">            
+        {% endif %}
+    {% endif %}
+
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-light-hard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    {% if config.generate_rss %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
+    {% endif %}
+    {% block extra_head %}{% endblock extra_head %}
+</head>
+<body>
+    <div class="content">
+        {% block content %}{% endblock content %}
+    </div>
+    {% block scripts %}
+    <script>
+        function share_button() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.querySelector('meta[property="og:title"]').content,
+                    text: document.querySelector('meta[name="description"]').content,
+                    url: document.querySelector('link[rel="canonical"]').href
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                document.getElementById('share-button').innerHTML = 'Link copied to clipboard! <i class="fa-solid fa-copy"></i>';
+            }
+        }
+    
+        function twitter_follow() {
+            window.location.href = "https://twitter.com/mufeedvh";
+        }
+    </script>
+    {% endblock scripts %}
+</body>
+</html>
+{% endblock head %}

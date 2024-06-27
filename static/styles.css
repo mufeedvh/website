@@ -1,0 +1,86 @@
+body {
+    background-color: #f4f3ed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+@font-face {
+    font-family: TiemposHeadline-Regular;
+    src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: TiemposText-Regular;
+    src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
+}
+
+.content {
+    padding: 20px;
+    width: 500px;
+    max-width: 90%;
+}
+
+.content {
+    font-family: TiemposText-Regular;
+}
+
+.content h1,h2,h3,h4,h5,a {
+    font-family: TiemposHeadline-Regular;
+}
+
+.no-bullets {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.content a {
+    color: purple;
+    text-decoration: none;
+}
+
+.content p strong {
+    font-family: TiemposHeadline-Regular;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.content img {
+    max-width: 100%;
+}
+
+#my_age {
+    display: inline-block;
+    width: 103px;
+    text-align: left;
+}
+
+button {
+    width: 100%;
+    background-color: #f8f5d7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.post-button {
+    background-color: #f8f5d7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.code-block {
+    overflow-x: auto;
+    scrollbar-color: purple !important;
+}

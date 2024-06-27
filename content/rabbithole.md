@@ -6,10 +6,8 @@ description = "lil rabbithole."
 no_header = true
 +++
 
-<div style="text-align: center; margin-top: 30px; font-size: 30px;">
-    <a href="/aesthetics/">aesthetics</a>
-    <br><br>
-    <a href="/message/">message</a>
-    <br><br><br>
-    <pre style="font-size: 12px;">🐇🕳️ an experiment.</pre>
+# 🐇🕳️
+
+<div style="text-align: center;">
+    <a href="/message" style="color: inherit;"><h4 class="post-button"">leave an anonymous message <span class="fa-regular fa-message"></span></h4></a>
 </div>
