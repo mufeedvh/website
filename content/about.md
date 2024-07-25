@@ -8,7 +8,7 @@ no_header = true
 
 # About Mufeed
 
-I am the CEO and Co-founder of [**Stition, Inc.**](https://stition.ai "Stition, Inc's website") where we're researching and building products that leverage the emergent properties of AI models, such as <u>reasoning</u>, to augment security audits.
+I am the CEO and Co-founder of [**Asterisk**](https://asterisk.so "Asterisk's website") (YC S24) where we're researching and building products that leverage the emergent properties of AI models, such as <u>reasoning</u>, to augment security audits.
 
 I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, Kerala.
 
@@ -16,7 +16,7 @@ I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, K
 
 ### Some things I've done
 
-- Co-founded [**Stition, Inc.**](https://stition.ai "Stition, Inc's website") and got into Y Combinator's S24 batch.
+- Co-founded [**Asterisk**](https://asterisk.ai "Asterisk's website") and got into Y Combinator's S24 batch.
 - Created [Devika](https://github.com/stitionai/devika), the open-source alternative to Devin.
 - Represented India at the WorldSkills Olympiad in Cyber Security.
 - Represtented India and won the Bronze Medal at the BRICS Skills Olympiad in Cyber Security.
