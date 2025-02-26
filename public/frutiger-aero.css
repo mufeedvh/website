@@ -1,0 +1,539 @@
+body.frutiger-aero {
+    background: url('/assets/images/frutiger-aero-1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+    transition: all 0.5s ease;
+}
+
+/* Add Vista-style orb glow to body */
+body.frutiger-aero::before {
+    content: "";
+    position: fixed;
+    top: -150px;
+    left: -150px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(173,216,255,0.3) 30%, rgba(173,216,255,0) 70%);
+    z-index: -1;
+}
+
+/* Vista-style window title bar */
+.vista-titlebar {
+    display: none;
+    position: absolute;
+    top: -30px;
+    left: -1px;
+    right: 0;
+    width: calc(100% + 2px);
+    height: 30px;
+    background: linear-gradient(to bottom, #e0f0ff 0%, #b8deff 100%);
+    border-radius: 8px 8px 0 0;
+    border: 1px solid rgba(173, 216, 255, 0.8);
+    border-bottom: none;
+    box-sizing: border-box;
+    overflow: hidden; /* Add this to contain the background gradient */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+body.frutiger-aero .vista-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+/* Update the gradient overlay to respect border radius */
+.vista-titlebar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.7) 0%, 
+        rgba(255, 255, 255, 0.2) 100%);
+    pointer-events: none;
+    border-radius: 7px 7px 0 0; /* Slightly smaller radius to stay within border */
+}
+
+.vista-titlebar-text {
+    color: #0063B1;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.vista-titlebar-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.vista-control {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 10px;
+    color: #0063B1;
+    transition: all 0.2s ease;
+}
+
+.vista-control:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.vista-close:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #D00;
+}
+
+body.frutiger-aero .content {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 0 0 12px 12px; /* Flat top */
+    padding: 25px;
+    padding-top: 30px; /* Add padding to accommodate content below title bar */
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative; /* Important for the title bar positioning */
+    margin-top: 30px; /* Space for the title bar */
+    margin-bottom: 25px; /* Add equal space at the bottom for desktop */
+    overflow: visible; /* Allow title bar to be visible outside content */
+}
+
+/* Add top margin to ensure title bar has space on desktop */
+@media screen and (min-width: 769px) {
+    body.frutiger-aero {
+        padding-top: 20px;
+    }
+}
+
+/* Remove the glass reflection effect on top of content */
+body.frutiger-aero .content::before {
+    display: none; /* Remove the opacity blur at the beginning of content */
+}
+
+body.frutiger-aero h1,
+body.frutiger-aero h2,
+body.frutiger-aero h3,
+body.frutiger-aero h4 {
+    color: #0063B1;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    position: relative;
+}
+
+/* Add subtle underline glow to headings */
+body.frutiger-aero h1::after,
+body.frutiger-aero h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        rgba(0, 120, 215, 0.1), 
+        rgba(0, 120, 215, 0.5) 50%, 
+        rgba(0, 120, 215, 0.1));
+}
+
+/* Fix the link underline animation */
+body.frutiger-aero a {
+    color: #0078D7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block; /* This helps with positioning the underline */
+    padding: 0 2px;
+}
+
+body.frutiger-aero a:hover {
+    color: #00A2ED;
+    text-shadow: 0 0 5px rgba(0, 162, 237, 0.3);
+}
+
+/* Improved Vista-style hover effect for links */
+body.frutiger-aero a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px; /* Position below the text */
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        rgba(0, 120, 215, 0), 
+        rgba(0, 120, 215, 1) 50%, 
+        rgba(0, 120, 215, 0));
+    transition: width 0.3s ease;
+    z-index: 1; /* Ensure it's above any background */
+}
+
+/* Vista-style arrow bullets */
+body.frutiger-aero ul.no-bullets li a::before {
+    content: "►";
+    font-size: 10px;
+    color: #0078D7;
+    position: absolute;
+    left: -15px;
+    top: 4px;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+/* Special rule for homepage navigation links - use ::after for underline */
+body.frutiger-aero ul.no-bullets li a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; /* Position below the text */
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        rgba(0, 120, 215, 0), 
+        rgba(0, 120, 215, 1) 50%, 
+        rgba(0, 120, 215, 0));
+    transition: width 0.3s ease;
+    z-index: 1;
+}
+
+body.frutiger-aero ul.no-bullets li a:hover::after {
+    width: 100%;
+}
+
+/* Ensure the original ::before rule doesn't apply to navigation links */
+body.frutiger-aero ul.no-bullets li a::before {
+    bottom: auto; /* Reset any bottom positioning */
+}
+
+body.frutiger-aero a:hover::before {
+    width: 100%;
+}
+
+/* Update the list styles for Frutiger Aero theme */
+body.frutiger-aero ul {
+    list-style-type: none;
+    padding-left: 20px; /* Add some padding for the custom bullets */
+}
+
+body.frutiger-aero ul li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+/* Add Vista-style bullets for regular lists */
+body.frutiger-aero ul li::before {
+    content: "•";
+    color: #0078D7;
+    position: absolute;
+    left: -20px;
+    top: 0;
+    font-size: 14px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Override for no-bullets class to maintain existing arrow style */
+body.frutiger-aero ul.no-bullets {
+    padding-left: 0;
+}
+
+body.frutiger-aero ul.no-bullets li::before {
+    content: none; /* Remove default bullet for no-bullets class */
+}
+
+body.frutiger-aero button,
+body.frutiger-aero .post-button {
+    background: linear-gradient(to bottom, #e0f0ff 0%, #b8deff 100%);
+    border: 1px solid #80c0ff;
+    border-radius: 8px;
+    padding: 8px 15px;
+    color: #0063B1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Inner shadow for buttons - Vista style */
+body.frutiger-aero button::before,
+body.frutiger-aero .post-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        rgba(255, 255, 255, 0.2) 100%);
+    border-radius: 7px 7px 0 0;
+}
+
+body.frutiger-aero button:hover,
+body.frutiger-aero .post-button:hover {
+    background: linear-gradient(to bottom, #d0e8ff 0%, #a0d0ff 100%);
+    box-shadow: 0 0 10px rgba(0, 120, 215, 0.3);
+}
+
+body.frutiger-aero code {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid rgba(173, 216, 255, 0.5);
+}
+
+/* Theme toggle button - Vista orb style */
+body.frutiger-aero .theme-toggle {
+    background: radial-gradient(circle at 30% 30%, #f0f8ff 0%, #b8deff 60%, #80c0ff 100%);
+    box-shadow: 0 0 15px rgba(0, 120, 215, 0.5), 
+                inset 0 0 10px rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(173, 216, 255, 0.8);
+    opacity: 0.9;
+}
+
+body.frutiger-aero .theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 120, 215, 0.7), 
+                inset 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+/* Aero window style for content blocks */
+body.frutiger-aero .code-block,
+body.frutiger-aero pre {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add Vista window titlebar style to code blocks */
+body.frutiger-aero pre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to bottom, 
+        rgba(0, 120, 215, 0.7) 0%, 
+        rgba(0, 120, 215, 0.5) 100%);
+}
+
+/* Animation for theme transition */
+body.frutiger-aero * {
+    transition: background-color 0.5s ease, 
+                color 0.5s ease, 
+                box-shadow 0.5s ease, 
+                text-shadow 0.5s ease;
+}
+
+/* Vista-style tooltip */
+.vista-tooltip {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    border: 1px solid #80c0ff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #0063B1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1001;
+}
+
+body.frutiger-aero .vista-tooltip.visible {
+    opacity: 1;
+}
+
+/* Remove the vista-orb styles since they're no longer needed */
+.vista-orb {
+    display: none !important;
+}
+
+body.frutiger-aero .vista-orb {
+    display: none !important;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    /* Adjust Vista titlebar for tablets */
+    .vista-titlebar {
+        height: 28px;
+        top: -28px;
+    }
+    
+    body.frutiger-aero .content {
+        margin-top: 28px;
+        margin-bottom: 15px;
+        padding: 20px;
+        padding-top: 25px;
+        border-radius: 0 0 10px 10px;
+    }
+    
+    .vista-titlebar-text {
+        font-size: 13px;
+    }
+    
+    .vista-control {
+        width: 14px;
+        height: 14px;
+        font-size: 9px;
+    }
+    
+    /* Adjust orb glow position for smaller screens */
+    body.frutiger-aero::before {
+        top: -100px;
+        left: -100px;
+        width: 200px;
+        height: 200px;
+    }
+    
+    /* Adjust heading styles */
+    body.frutiger-aero h1 {
+        font-size: 1.8em;
+    }
+    
+    body.frutiger-aero h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Remove top padding for mobile */
+    body.frutiger-aero {
+        padding-top: 0;
+    }
+    
+    /* Adjust Vista titlebar for mobile */
+    .vista-titlebar {
+        height: 26px;
+        top: -26px;
+        padding: 0 8px;
+    }
+    
+    body.frutiger-aero .content {
+        margin-top: 26px;
+        margin-bottom: 10px;
+        padding: 15px;
+        padding-top: 20px;
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .vista-titlebar-text {
+        font-size: 12px;
+    }
+    
+    .vista-titlebar-controls {
+        gap: 6px;
+    }
+    
+    .vista-control {
+        width: 12px;
+        height: 12px;
+        font-size: 8px;
+    }
+    
+    /* Adjust orb glow position for mobile */
+    body.frutiger-aero::before {
+        top: -80px;
+        left: -80px;
+        width: 160px;
+        height: 160px;
+    }
+    
+    /* Adjust heading styles for mobile */
+    body.frutiger-aero h1 {
+        font-size: 1.6em;
+    }
+    
+    body.frutiger-aero h2 {
+        font-size: 1.3em;
+    }
+    
+    body.frutiger-aero h3 {
+        font-size: 1.1em;
+    }
+    
+    /* Adjust list padding for mobile */
+    body.frutiger-aero ul {
+        padding-left: 15px;
+    }
+    
+    body.frutiger-aero ul li::before {
+        left: -15px;
+    }
+    
+    /* Adjust button padding for mobile */
+    body.frutiger-aero button,
+    body.frutiger-aero .post-button {
+        padding: 6px 12px;
+    }
+    
+    /* Ensure code blocks are readable on mobile */
+    body.frutiger-aero code {
+        padding: 1px 3px;
+        font-size: 0.9em;
+    }
+    
+    /* Adjust tooltip for mobile */
+    .vista-tooltip {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+    
+    /* Increase tap target sizes for mobile */
+    body.frutiger-aero a {
+        padding: 2px 4px;
+    }
+    
+    .vista-control {
+        min-width: 24px;
+        min-height: 24px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    /* Make the theme toggle button more visible on touch devices */
+    .theme-toggle {
+        opacity: 0.8;
+    }
+    
+    /* Ensure controls are easier to tap */
+    .vista-control {
+        min-width: 24px;
+        min-height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Adjust link hover effects for touch devices */
+    body.frutiger-aero a:active::before {
+        width: 100%;
+    }
+    
+    body.frutiger-aero ul.no-bullets li a:active::after {
+        width: 100%;
+    }
+    
+    /* Adjust button hover effects for touch devices */
+    body.frutiger-aero button:active,
+    body.frutiger-aero .post-button:active {
+        background: linear-gradient(to bottom, #d0e8ff 0%, #a0d0ff 100%);
+        box-shadow: 0 0 10px rgba(0, 120, 215, 0.3);
+    }
+}

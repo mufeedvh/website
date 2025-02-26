@@ -5,6 +5,9 @@ body {
     align-items: center;
     justify-content: center;
     text-align: left;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 @font-face {
@@ -21,6 +24,13 @@ body {
     padding: 20px;
     width: 500px;
     max-width: 90%;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+
+/* Add top margin for sub-pages on desktop */
+body:not(.home) .content {
+    margin-top: 30px;
 }
 
 .content {
@@ -83,4 +93,82 @@ button {
 .code-block {
     overflow-x: auto;
     scrollbar-color: purple !important;
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(244, 243, 237, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0.5;
+}
+
+.theme-toggle:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .content {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+    }
+    
+    /* Adjust top margin for sub-pages on tablets */
+    body:not(.home) .content {
+        margin-top: 20px;
+    }
+    
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding: 12px;
+        margin: 5px auto;
+    }
+    
+    /* Remove top margin for sub-pages on mobile */
+    body:not(.home) .content {
+        margin-top: 5px;
+    }
+    
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* Rabbit hole animation */
+.rabbit-hole {
+    display: inline-block;
+    animation: subtle-shake 1.5s ease-in-out 1s forwards;
+}
+
+@keyframes subtle-shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-2px) rotate(-1deg); }
+    40% { transform: translateX(2px) rotate(1deg); }
+    60% { transform: translateX(-2px) rotate(0deg); }
+    80% { transform: translateX(2px) rotate(0deg); }
 }

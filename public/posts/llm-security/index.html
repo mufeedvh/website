@@ -41,6 +41,7 @@
     
 </title>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/frutiger-aero.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-light-hard.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -51,6 +52,23 @@
 </head>
 <body>
     <div class="content">
+        <!-- Move Vista title bar inside the content div -->
+        <div id="vista-titlebar" class="vista-titlebar">
+            <div class="vista-titlebar-text">Mufeed VH</div>
+            <div class="vista-titlebar-controls">
+                <span class="vista-control vista-minimize">
+                    <i class="fa-solid fa-window-minimize"></i>
+                </span>
+                <span class="vista-control vista-maximize">
+                    <i class="fa-regular fa-window-maximize"></i>
+                </span>
+                <span class="vista-control vista-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
+            </div>
+        </div>
+        
+        <!-- Content goes below the title bar -->
         
     
         
@@ -209,6 +227,15 @@ You can issue these commands:
 
     </div>
     
+    <!-- Easter egg theme toggle button, hidden in plain sight -->
+    <div id="theme-toggle" class="theme-toggle" title="Theme Toggle">
+        <i class="fa-solid fa-palette"></i>
+    </div>
+    
+    <!-- Vista-style tooltip -->
+    <div id="vista-tooltip" class="vista-tooltip"></div>
+    
+    
     <script>
         function share_button() {
             if (navigator.share) {
@@ -228,7 +255,224 @@ You can issue these commands:
         function twitter_follow() {
             window.location.href = "https://x.com/mufeedvh";
         }
+        
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const vistaTitlebar = document.getElementById('vista-titlebar');
+            const vistaTooltip = document.getElementById('vista-tooltip');
+            
+            // Check if user has previously set a theme preference
+            const savedTheme = localStorage.getItem('frutigerAeroEnabled');
+            if (savedTheme === 'true') {
+                body.classList.add('frutiger-aero');
+                themeToggle.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i>';
+                themeToggle.setAttribute('title', 'Exit Frutiger Aero mode');
+                
+                // Only play startup sound if this is the first page load in this session
+                if (!sessionStorage.getItem('vistaStartupPlayed')) {
+                    const vistaSound = new Audio('/assets/sounds/vista-startup.mp3');
+                    vistaSound.volume = 0.2;
+                    vistaSound.play();
+                    sessionStorage.setItem('vistaStartupPlayed', 'true');
+                }
+            } else {
+                themeToggle.setAttribute('title', 'Enter Frutiger Aero mode');
+            }
+            
+            // Add click event listener to the theme toggle button
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('frutiger-aero');
+                
+                // Save preference to localStorage
+                if (body.classList.contains('frutiger-aero')) {
+                    localStorage.setItem('frutigerAeroEnabled', 'true');
+                    themeToggle.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i>';
+                    themeToggle.setAttribute('title', 'Exit Frutiger Aero mode');
+                    
+                    const vistaSound = new Audio('/assets/sounds/vista-startup.mp3');
+                    vistaSound.volume = 0.2;
+                    vistaSound.play();
+                    sessionStorage.setItem('vistaStartupPlayed', 'true');
+                } else {
+                    localStorage.setItem('frutigerAeroEnabled', 'false');
+                    themeToggle.innerHTML = '<i class="fa-solid fa-palette"></i>';
+                    themeToggle.setAttribute('title', 'Enter Frutiger Aero mode');
+                    
+                    const vistaSound = new Audio('/assets/sounds/vista-shutdown.mp3');
+                    vistaSound.volume = 0.2;
+                    vistaSound.play();
+                    sessionStorage.removeItem('vistaStartupPlayed');
+                }
+                
+                // Add a small delay to allow DOM updates before height adjustment
+                setTimeout(adjustContentHeight, 10);
+            });
+            
+            // Vista titlebar controls
+            document.querySelectorAll('.vista-control').forEach(control => {
+                control.addEventListener('click', function() {
+                    if (this.classList.contains('vista-close')) {
+                        body.classList.remove('frutiger-aero');
+                        localStorage.setItem('frutigerAeroEnabled', 'false');
+                        themeToggle.innerHTML = '<i class="fa-solid fa-palette"></i>';
+                    }
+                });
+            });
+            
+            // Function to show Vista-style tooltips (only for window controls)
+            function showTooltip(event, text) {
+                vistaTooltip.textContent = text;
+                
+                // Get window width for responsive positioning
+                const windowWidth = window.innerWidth;
+                
+                if (windowWidth <= 480) {
+                    // Mobile positioning
+                    vistaTooltip.style.left = (event.clientX - 40) + 'px';
+                    vistaTooltip.style.top = (event.clientY - 25) + 'px';
+                } else {
+                    // Default positioning for larger screens
+                    vistaTooltip.style.left = (event.clientX + 10) + 'px';
+                    vistaTooltip.style.top = (event.clientY - 30) + 'px';
+                }
+                
+                vistaTooltip.classList.add('visible');
+            }
+            
+            // Add tooltips to Vista controls only
+            document.querySelectorAll('.vista-control').forEach(control => {
+                let tooltipText = 'Button';
+                if (control.classList.contains('vista-minimize')) tooltipText = 'Minimize';
+                if (control.classList.contains('vista-maximize')) tooltipText = 'Maximize';
+                if (control.classList.contains('vista-close')) tooltipText = 'Close';
+                
+                control.addEventListener('mouseenter', function(e) {
+                    showTooltip(e, tooltipText);
+                });
+                
+                control.addEventListener('mouseleave', function() {
+                    vistaTooltip.classList.remove('visible');
+                });
+            });
+            
+            // Add Vista-style tooltip to theme toggle button
+            themeToggle.addEventListener('mouseenter', function(e) {
+                const isAeroMode = body.classList.contains('frutiger-aero');
+                const tooltipText = isAeroMode ? 'Exit Frutiger Aero mode' : 'Enter Frutiger Aero mode';
+                
+                // Use the original tooltip positioning function
+                vistaTooltip.textContent = tooltipText;
+                
+                // Apply consistent positioning for both modes
+                const buttonRect = themeToggle.getBoundingClientRect();
+                const windowWidth = window.innerWidth;
+                
+                // Responsive positioning based on screen size
+                if (windowWidth <= 480) {
+                    // Mobile positioning - above the button
+                    vistaTooltip.style.left = (buttonRect.left - 100) + 'px';
+                    vistaTooltip.style.top = (buttonRect.top - 30) + 'px';
+                } else if (windowWidth <= 768) {
+                    // Tablet positioning - to the left with less offset
+                    vistaTooltip.style.left = (buttonRect.left - 150) + 'px';
+                    vistaTooltip.style.top = (buttonRect.top + 5) + 'px';
+                } else {
+                    // Desktop positioning - to the left
+                    vistaTooltip.style.left = (buttonRect.left - 180) + 'px';
+                    vistaTooltip.style.top = (buttonRect.top + 5) + 'px';
+                }
+                
+                // Apply consistent styling for both modes with Vista-like appearance
+                vistaTooltip.style.fontFamily = "'Segoe UI', Arial, sans-serif"; // Same font for both
+                vistaTooltip.style.whiteSpace = 'nowrap';
+                vistaTooltip.style.opacity = '1';
+                vistaTooltip.style.padding = '4px 8px';
+                
+                // Apply theme-specific styles
+                if (isAeroMode) {
+                    vistaTooltip.style.background = 'rgba(255, 255, 255, 0.9)';
+                    vistaTooltip.style.color = '#0063B1';
+                    vistaTooltip.style.border = '1px solid #80c0ff';
+                    vistaTooltip.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                } else {
+                    // Similar style but with the default theme colors
+                    vistaTooltip.style.background = 'rgba(244, 243, 237, 0.9)';
+                    vistaTooltip.style.color = 'purple'; // Match the site's link color
+                    vistaTooltip.style.border = '1px solid #ccc';
+                    vistaTooltip.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                }
+                
+                vistaTooltip.classList.add('visible');
+            });
+            
+            themeToggle.addEventListener('mouseleave', function() {
+                vistaTooltip.classList.remove('visible');
+                // Reset all custom styles
+                vistaTooltip.style.fontFamily = '';
+                vistaTooltip.style.opacity = '';
+                vistaTooltip.style.background = '';
+                vistaTooltip.style.color = '';
+                vistaTooltip.style.border = '';
+                vistaTooltip.style.whiteSpace = '';
+            });
+            
+            // Add this code to adjust content height dynamically
+            function adjustContentHeight() {
+                if (document.body.classList.contains('frutiger-aero') && 
+                    document.body.classList.contains('home')) {
+                    const contentElement = document.querySelector('.content');
+                    const vistaTitlebar = document.getElementById('vista-titlebar');
+                    
+                    // Reset any previous styles to get an accurate measurement
+                    contentElement.style.height = '';
+                    contentElement.style.minHeight = '';
+                    contentElement.style.maxHeight = '';
+                    contentElement.style.overflow = '';
+                    
+                    // Get window dimensions
+                    const windowHeight = window.innerHeight;
+                    
+                    // Ensure body doesn't scroll
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.height = '100vh';
+                    
+                    // Make sure the content fits within the viewport with some margin
+                    // but don't make it too small
+                    contentElement.style.maxHeight = (windowHeight - 20) + 'px';
+                    
+                    // Don't set a fixed height, just let it size to content
+                    contentElement.style.height = 'auto';
+                    
+                    // Make sure the title bar is visible if it exists
+                    if (vistaTitlebar) {
+                        vistaTitlebar.style.display = 'flex';
+                    }
+                } else if (!document.body.classList.contains('frutiger-aero')) {
+                    // Reset styles when not in Frutiger Aero mode
+                    document.body.style.overflow = '';
+                    document.body.style.height = '';
+                    
+                    const contentElement = document.querySelector('.content');
+                    contentElement.style.height = '';
+                    contentElement.style.minHeight = '';
+                    contentElement.style.maxHeight = '';
+                    contentElement.style.overflow = '';
+                    
+                    const vistaTitlebar = document.getElementById('vista-titlebar');
+                    if (vistaTitlebar) {
+                        vistaTitlebar.style.display = '';
+                    }
+                }
+            }
+            
+            // Run on page load and whenever window is resized
+            adjustContentHeight();
+            window.addEventListener('resize', adjustContentHeight);
+        });
     </script>
     
 </body>
 </html>
+

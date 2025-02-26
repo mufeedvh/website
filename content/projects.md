@@ -20,6 +20,10 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
         <td>Devika is an Agentic AI Software Engineer that can understand high-level human instructions, break them down into steps, research relevant information, and write code to achieve the given objective. Devika aims to be a competitive open-source alternative to Devin by Cognition AI.</td>
     </tr>
     <tr>
+        <td><a href="https://github.com/getasterisk/deepclaude" target="_blank"><code>deepclaude</code></a></td>
+        <td>A high-performance LLM inference API and Chat UI that integrates DeepSeek R1's CoT reasoning traces with Anthropic Claude models.</td>
+    </tr>
+    <tr>
         <td><a href="https://github.com/mufeedvh/code2prompt" target="_blank"><code>code2prompt</code></a></td>
         <td>A CLI tool to convert your codebase into a single LLM prompt with source tree, prompt templating, and token counting.</td>
     </tr>
