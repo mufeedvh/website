@@ -1,0 +1,13 @@
+{
+    "name": "mufeedvh-website",
+    "version": "1.0.0",
+    "description": "HTML formatter for Zola-generated website",
+    "type": "module",
+    "scripts": {
+        "format-html": "bun format-html.js",
+        "build": "zola build && bun format-html.js"
+    },
+    "devDependencies": {
+        "prettier": "^3.1.0"
+    }
+} 

@@ -31,20 +31,20 @@ write or draw me a message **anonymously**.
     }
 </style>
 <div>
-    <div align="center">
+    <div class="center-content">
         <p style="font-size: 20px;"><strong>✍️ send a message</strong></p>
         <textarea id="message" rows="10"></textarea>
-        <h4 class="post-button" id="msg-button" onclick="send_message();">Send Message</h4>
+        {{ button(text="Send Message", id="msg-button", onclick="send_message();") }}
     </div>
     <hr>
-    <div align="center">    
+    <div class="center-content">    
         <p style="font-size: 20px;"><strong>🖌️ send a drawing</strong></p>
         <input type="color" class="js-color-picker color-picker">
         <input type="range" class="js-line-range" min="1" max="72" value="1">
         &nbsp
         <label class="js-range-value">1</label> px
         <canvas class="js-paint paint-canvas"></canvas>
-        <h4 class="post-button" id="draw-button" onclick="send_drawing();">Send Drawing</h4>
+        {{ button(text="Send Drawing", id="draw-button", onclick="send_drawing();") }}
     </div>
 </div>
 

@@ -7,6 +7,13 @@ body.frutiger-aero {
     transition: all 0.5s ease;
 }
 
+/* Mobile-specific background handling */
+@media screen and (max-width: 768px) {
+    body.frutiger-aero {
+        background-attachment: scroll; /* Change from fixed to scroll for mobile */
+    }
+}
+
 /* Add Vista-style orb glow to body */
 body.frutiger-aero::before {
     content: "";
@@ -108,6 +115,72 @@ body.frutiger-aero .content {
     margin-top: 30px; /* Space for the title bar */
     margin-bottom: 25px; /* Add equal space at the bottom for desktop */
     overflow: visible; /* Allow title bar to be visible outside content */
+    text-align: justify;
+}
+
+/* Ensure justified text in Frutiger Aero theme */
+body.frutiger-aero .content p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+body.frutiger-aero .content li {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Keep headings left-aligned in Frutiger Aero */
+body.frutiger-aero .content h1,
+body.frutiger-aero .content h2,
+body.frutiger-aero .content h3,
+body.frutiger-aero .content h4,
+body.frutiger-aero .content h5 {
+    text-align: left;
+}
+
+/* Ensure images and tables use full width in Frutiger Aero */
+body.frutiger-aero .content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em 0;
+}
+
+body.frutiger-aero .content table {
+    width: 100%;
+    margin: 1em 0;
+}
+
+body.frutiger-aero .content blockquote {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    text-align: justify;
+}
+
+/* Twitter embed centering for Frutiger Aero theme */
+body.frutiger-aero .content .twitter-tweet,
+body.frutiger-aero .content .twitter-tweet-rendered {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+}
+
+/* Center the Twitter embed container */
+body.frutiger-aero .content div[style*="twitter-tweet"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Ensure Twitter embeds respect content width on mobile */
+@media screen and (max-width: 768px) {
+    body.frutiger-aero .content .twitter-tweet,
+    body.frutiger-aero .content .twitter-tweet-rendered {
+        max-width: 100% !important;
+    }
+    
+    body.frutiger-aero .content .twitter-tweet iframe {
+        max-width: 100% !important;
+    }
 }
 
 /* Add top margin to ensure title bar has space on desktop */
@@ -255,11 +328,16 @@ body.frutiger-aero .post-button {
     background: linear-gradient(to bottom, #e0f0ff 0%, #b8deff 100%);
     border: 1px solid #80c0ff;
     border-radius: 8px;
-    padding: 8px 15px;
+    padding: 15px 30px;
     color: #0063B1;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 350px;
+    font-size: 1.1em;
 }
 
 /* Inner shadow for buttons - Vista style */
@@ -281,6 +359,30 @@ body.frutiger-aero button:hover,
 body.frutiger-aero .post-button:hover {
     background: linear-gradient(to bottom, #d0e8ff 0%, #a0d0ff 100%);
     box-shadow: 0 0 10px rgba(0, 120, 215, 0.3);
+}
+
+/* Button wrapper for consistent centering in Frutiger Aero theme */
+body.frutiger-aero .button-wrapper {
+    text-align: center;
+    margin: 1em 0;
+    display: block;
+    width: 100%;
+}
+
+/* Ensure links inside button wrapper don't have underlines */
+body.frutiger-aero .button-wrapper a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Ensure h4 elements used as buttons have consistent sizing */
+body.frutiger-aero h4.post-button {
+    display: block !important;
+    box-sizing: border-box;
+    margin: 0.5em auto;
+    text-align: center;
+    width: 100%;
 }
 
 body.frutiger-aero code {
@@ -305,29 +407,8 @@ body.frutiger-aero .theme-toggle:hover {
                 inset 0 0 15px rgba(255, 255, 255, 0.9);
 }
 
-/* Aero window style for content blocks */
-body.frutiger-aero .code-block,
-body.frutiger-aero pre {
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Add Vista window titlebar style to code blocks */
-body.frutiger-aero pre::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(to bottom, 
-        rgba(0, 120, 215, 0.7) 0%, 
-        rgba(0, 120, 215, 0.5) 100%);
-}
+/* Old code block styles - removed in favor of code-block-wrapper */
+/* These styles are now handled by the new code-block-wrapper system below */
 
 /* Animation for theme transition */
 body.frutiger-aero * {
@@ -409,6 +490,37 @@ body.frutiger-aero .vista-orb {
     body.frutiger-aero h2 {
         font-size: 1.5em;
     }
+    
+    /* Code block responsive styles for tablets */
+    body.frutiger-aero .code-block-wrapper {
+        margin: 1rem 0;  /* Changed from 1rem -20px to prevent horizontal scroll */
+        border-radius: 8px;  /* Keep border radius on mobile */
+    }
+    
+    body.frutiger-aero .code-block-header {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    body.frutiger-aero .code-language {
+        font-size: 0.8125rem;
+    }
+    
+    body.frutiger-aero .code-copy-button {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8125rem;
+        display: flex !important;
+        width: auto !important;
+        margin: 0 !important;
+    }
+    
+    /* Adjust button size for tablets */
+    body.frutiger-aero button,
+    body.frutiger-aero .post-button {
+        padding: 12px 25px;
+        width: 320px;
+        font-size: 1.05em;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -476,16 +588,64 @@ body.frutiger-aero .vista-orb {
         left: -15px;
     }
     
-    /* Adjust button padding for mobile */
+    /* Adjust button size for mobile */
     body.frutiger-aero button,
     body.frutiger-aero .post-button {
-        padding: 6px 12px;
+        padding: 12px 20px;
+        width: 280px;
+        font-size: 1em;
+        margin: 0 auto;
     }
     
     /* Ensure code blocks are readable on mobile */
     body.frutiger-aero code {
         padding: 1px 3px;
         font-size: 0.9em;
+    }
+    
+    /* Code block mobile styles */
+    body.frutiger-aero .code-block-wrapper {
+        margin: 1rem 0;  /* Changed from 1rem -15px to prevent horizontal scroll */
+        border-radius: 8px;  /* Keep border radius on mobile */
+    }
+    
+    body.frutiger-aero .code-block-header {
+        padding: 0.375rem 0.5rem;
+    }
+    
+    body.frutiger-aero .code-language {
+        font-size: 0.75rem;
+    }
+    
+    body.frutiger-aero .code-copy-button {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.75rem;
+        gap: 0.25rem;
+        display: flex !important;
+        width: auto !important;
+        margin: 0 !important;
+    }
+    
+    body.frutiger-aero .code-block-wrapper pre,
+    body.frutiger-aero .code-block-wrapper pre code {
+        font-size: 0.8125rem;
+    }
+    
+    body.frutiger-aero .code-line-numbers {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    body.frutiger-aero .code-line-numbers div {
+        font-size: 0.8125rem;
+    }
+    
+    /* Adjust code padding for mobile */
+    body.frutiger-aero .code-block-wrapper pre:not(.with-line-numbers) {
+        padding: 0.75rem 0.75rem;
+    }
+    
+    body.frutiger-aero .code-block-wrapper pre.with-line-numbers code {
+        padding: 0.75rem 0.75rem;
     }
     
     /* Adjust tooltip for mobile */
@@ -536,4 +696,197 @@ body.frutiger-aero .vista-orb {
         background: linear-gradient(to bottom, #d0e8ff 0%, #a0d0ff 100%);
         box-shadow: 0 0 10px rgba(0, 120, 215, 0.3);
     }
+}
+
+/* Media queries for larger screens - matching styles.css */
+@media screen and (min-width: 1024px) {
+    body.frutiger-aero .content {
+        width: 700px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    body.frutiger-aero .content {
+        width: 800px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    body.frutiger-aero .content {
+        width: 900px;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    /* 4K monitors */
+    body.frutiger-aero .content {
+        width: 1000px;
+    }
+    
+    /* Larger fonts for 4K displays */
+    body.frutiger-aero .content {
+        font-size: 1.1em;
+    }
+    
+    body.frutiger-aero h1 {
+        font-size: 2.5em;
+    }
+    
+    body.frutiger-aero h2 {
+        font-size: 2.1em;
+    }
+    
+    body.frutiger-aero h3 {
+        font-size: 1.8em;
+    }
+}
+
+/* Remove conflicting pre styles - they're now handled by code-block-wrapper */
+body.frutiger-aero pre {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    position: static;
+    overflow: visible;
+}
+
+/* Style the code block wrapper with Vista/Aero glass effect */
+body.frutiger-aero .code-block-wrapper {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(173, 216, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    overflow: hidden;
+    margin: 1.5rem 0;
+}
+
+/* Style the code block header to match Vista titlebar */
+body.frutiger-aero .code-block-header {
+    background: linear-gradient(to bottom, #e0f0ff 0%, #b8deff 100%);
+    border-bottom: 1px solid rgba(173, 216, 255, 0.5);
+    padding: 0.375rem 1rem;
+    position: relative;
+}
+
+/* Add glass reflection effect to header */
+body.frutiger-aero .code-block-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.7) 0%, 
+        rgba(255, 255, 255, 0.2) 100%);
+    pointer-events: none;
+}
+
+/* Style the language label */
+body.frutiger-aero .code-language {
+    color: #0063B1;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 1;
+}
+
+/* Style the copy button to match Vista buttons */
+body.frutiger-aero .code-copy-button {
+    background: linear-gradient(to bottom, #e0f0ff 0%, #b8deff 100%);
+    border: 1px solid #80c0ff;
+    border-radius: 6px;
+    color: #0063B1;
+    font-weight: 500;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.2s ease;
+    display: flex !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Inner glow for copy button */
+body.frutiger-aero .code-copy-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        rgba(255, 255, 255, 0.2) 100%);
+    border-radius: 5px 5px 0 0;
+    pointer-events: none;
+}
+
+body.frutiger-aero .code-copy-button:hover {
+    background: linear-gradient(to bottom, #d0e8ff 0%, #a0d0ff 100%);
+    box-shadow: 0 0 10px rgba(0, 120, 215, 0.3);
+    transform: translateY(-1px);
+}
+
+body.frutiger-aero .code-copy-button:active {
+    transform: translateY(0);
+}
+
+/* Success state for copy button */
+body.frutiger-aero .code-copy-button.copy-success {
+    background: linear-gradient(to bottom, #d4f0d4 0%, #a8d8a8 100%);
+    border-color: #6eb86e;
+    color: #2d6b2d;
+}
+
+/* Error state for copy button */
+body.frutiger-aero .code-copy-button.copy-error {
+    background: linear-gradient(to bottom, #ffd4d4 0%, #ffa8a8 100%);
+    border-color: #ff6e6e;
+    color: #b32d2d;
+}
+
+/* Style the actual code content area */
+body.frutiger-aero .code-block-wrapper pre {
+    background-color: rgba(40, 40, 40, 0.95);
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* For code blocks without line numbers */
+body.frutiger-aero .code-block-wrapper pre:not(.with-line-numbers) {
+    padding: 0.75rem 1rem;
+}
+
+/* Ensure code text is visible */
+body.frutiger-aero .code-block-wrapper pre code {
+    color: #ebdbb2;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* For code blocks with line numbers, adjust the code padding */
+body.frutiger-aero .code-block-wrapper pre.with-line-numbers code {
+    padding: 0.75rem 1rem;
+}
+
+/* Style line numbers if present */
+body.frutiger-aero .code-line-numbers {
+    background-color: rgba(29, 32, 33, 0.95);
+    border-right: 1px solid rgba(173, 216, 255, 0.3);
+    padding: 0.75rem 0.75rem;
+}
+
+body.frutiger-aero .code-line-numbers div {
+    color: #7c6f64;
 }

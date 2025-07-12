@@ -1,20 +1,26 @@
-base_url = "https://www.mufeedvh.com"
+base_url = "https://mufeedvh.com"
 title = "Mufeed VH"
 description = "Mufeed VH's projects, blogs, security research, open source code, and stuff."
 
 build_search_index = true
-check_external_links = true
 minify_html = false
 default_language = "en"
-generate_feed = true
-feed_filename = "rss.xml"
-external_links_no_follow = true
-external_links_no_referrer = true
+generate_feeds = true
+feed_filenames = ["rss.xml"]
 taxonomies = [
     { name = "tags", rss = true }
 ]
 
+[link_checker]
+skip_prefixes = []
+skip_anchor_prefixes = []
+internal_level = "error"
+external_level = "error"
+
 [markdown]
 highlight_code = false
+external_links_target_blank = true
+external_links_no_follow = true
+external_links_no_referrer = true
 
 [extra]

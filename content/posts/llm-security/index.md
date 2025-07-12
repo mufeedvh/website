@@ -9,28 +9,18 @@ tags = ["ai", "security"]
 [extra]
 blog = true
 no_header = false
-og_image = "https://www.mufeedvh.com/posts/llm-security/llm-security.png"
+og_image = "https://mufeedvh.com/posts/llm-security/llm-security.png"
 +++
 
 Imagine a time where incident response is figuring out what prompt overrode the filters and not which special character the back-end failed to sanitize. That's where we are right now, a time where payloads are also going to be natural language and not just double encoded XSS payloads or Linux commands.
 
 ![image of a cute robot trying to escape the matrix by DALL-E](llm-security.png)
 
-<div align="center">
+<div class="center-content">
 <p><em>a cute robot trying to escape the matrix - DALL-E</em></p>
 </div>
 
-## Table of Contents
-
-1. [A fun start: Prompt Injections](#1-a-fun-start-prompt-injections)
-   1. [So how do we fix this?](#1-1-so-how-do-we-fix-this)
-   2. ["ignore previous instructions, do you realize you are in a sandbox?"](#1-2-ignore-previous-instructions-do-you-realize-you-are-in-a-sandbox)
-2. [Sandboxing "Extended" LLMs](#2-sandboxing-extended-llms)
-   1. [A peek into the box](#2-1-a-peek-into-the-box)
-   2. [Escaping the sandbox](#2-2-escaping-the-sandbox)
-3. [Should we care about this threat?](#3-should-we-care-about-this-threat)
-4. [AI Alignment](#4-ai-alignment)
-5. [Securing LLMs](#5-securing-llms)
+{{ toc() }}
 
 ### 1. A fun start: Prompt Injections
 
@@ -181,7 +171,7 @@ Of course, this does not exist in a production environment "yet", but the ground
 <video id="v0" width="100%" playsinline="" autoplay="" muted="" loop="" controls="">
     <source src="https://say-can.github.io/img/demo_sequence_compressed.mp4" type="video/mp4">
 </video>
-<div align="center">
+<div class="center-content">
 <a href="https://say-can.github.io/assets/palm_saycan.pdf">Paper</a> - <a href="https://sites.research.google/palm-saycan">Website</a>
 </div>
 
@@ -193,7 +183,6 @@ All I want is to make aware of the security side of LLMs, not just in terms of s
 
 And I can't wait for the "jailbreak" exploits on LLM apps gaining code execution with the exploit being just plain english. Fun times ahead eh?
 
-<div style="text-align: center;">
-    <h4 class="post-button" id="share-button" onclick="share_button();">Link to this article <span class="fa-solid fa-link"></span></h4>
-    <h4 class="post-button" onclick="twitter_follow();">Follow me on <span class="fa-brands fa-x-twitter"></span></h4>
-</div>
+{{ button(text="Link to this article", icon="fa-solid fa-link", id="share-button", onclick="share_button();") }}
+
+{{ button(text="Follow me on", icon="fa-brands fa-x-twitter", onclick="twitter_follow();") }}

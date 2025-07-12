@@ -1,0 +1,494 @@
+<!-- Table of Contents Widget -->
+<div class="toc-container" id="toc-container-{{ id | default(value='default') }}">
+    <div class="toc-toggle" onclick="toggleTOC('{{ id | default(value='default') }}')" role="button" tabindex="0" aria-expanded="true" aria-controls="toc-content-{{ id | default(value='default') }}">
+        <span class="toggle-icon">▶</span> <span class="toc-title">{{ title | default(value='Table of Contents') }}</span>
+    </div>
+    
+    <nav id="toc-content-{{ id | default(value='default') }}" class="toc-content" aria-label="Table of contents" style="display: block;">
+        <ul class="toc-list" id="toc-list-{{ id | default(value='default') }}">
+            <!-- TOC will be populated by JavaScript -->
+        </ul>
+    </nav>
+</div>
+
+<style>
+/* Table of Contents Styles */
+.toc-container {
+    margin: 2em 0;
+    position: relative;
+    font-family: TiemposText-Regular;
+}
+
+/* Desktop sticky sidebar layout - opt-in with class */
+@media screen and (min-width: 1440px) {
+    .toc-container.toc-sticky {
+        position: fixed;
+        right: 20px;
+        top: 80px;
+        width: 250px;
+        max-height: calc(100vh - 160px);
+        margin: 0;
+    }
+    
+    /* Adjust content width when sticky TOC is present */
+    body:has(.toc-container.toc-sticky) .content {
+        max-width: calc(100% - 300px);
+        margin-right: 280px;
+    }
+}
+
+/* Toggle button styling - matching press section */
+.toc-toggle {
+    background-color: rgba(248, 245, 215, 0.3);
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 0.6em 1em;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    transition: all 0.2s ease;
+    color: inherit;
+    font-family: TiemposHeadline-Regular;
+    margin: 0.5em 0;
+    width: auto;
+}
+
+.toc-toggle:hover {
+    background-color: rgba(248, 245, 215, 0.6);
+    border-color: #ccc;
+    transform: translateX(2px);
+}
+
+.toc-toggle:active {
+    transform: translateX(0);
+}
+
+.toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 0.8em;
+    transform: rotate(90deg); /* Start rotated since it's open by default */
+}
+
+.toc-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(90deg);
+}
+
+.toc-toggle[aria-expanded="false"] .toggle-icon {
+    transform: rotate(0deg);
+}
+
+/* TOC content styling */
+.toc-content {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1em;
+    margin-top: 0.5em;
+    animation: fadeIn 0.3s ease;
+    display: block; /* Changed from none to block */
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+/* Desktop: TOC visible if sticky */
+@media screen and (min-width: 1440px) {
+    .toc-container.toc-sticky .toc-toggle {
+        display: none;
+    }
+    
+    .toc-container.toc-sticky .toc-content {
+        display: block;
+        max-height: calc(100vh - 200px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TOC list styling */
+.toc-list,
+.toc-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toc-list ul {
+    margin-left: 1.2em;
+}
+
+.toc-list li {
+    margin: 0.4em 0;
+    position: relative;
+    text-align: left;
+}
+
+/* Override justified text for TOC */
+.toc-list li,
+.toc-list a {
+    text-align: left !important;
+    text-justify: none !important;
+}
+
+.toc-list a {
+    color: purple;
+    text-decoration: none;
+    display: block;
+    padding: 0.3em 0.5em;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.toc-list a:hover {
+    background-color: rgba(248, 245, 215, 0.5);
+    transform: translateX(3px);
+}
+
+/* Active section highlighting */
+.toc-list a.active {
+    background-color: rgba(248, 245, 215, 0.7);
+    font-weight: bold;
+    color: purple;
+}
+
+/* Nested list indicators */
+.toc-list li:has(ul) > a::before {
+    content: "▸";
+    position: absolute;
+    left: -12px;
+    transition: transform 0.2s ease;
+}
+
+.toc-list li:has(ul).expanded > a::before {
+    transform: rotate(90deg);
+}
+
+/* Level-based styling */
+.toc-h1 { font-size: 1em; font-weight: bold; }
+.toc-h2 { font-size: 0.95em; }
+.toc-h3 { font-size: 0.9em; }
+.toc-h4 { font-size: 0.85em; }
+.toc-h5, .toc-h6 { font-size: 0.8em; color: #666; }
+
+/* Frutiger Aero Theme Overrides */
+body.frutiger-aero .toc-container {
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body.frutiger-aero .toc-toggle {
+    background-color: rgba(224, 240, 255, 0.3) !important;
+    border: 1px solid rgba(173, 216, 255, 0.5) !important;
+    color: #0063B1;
+}
+
+body.frutiger-aero .toc-toggle:hover {
+    background-color: rgba(224, 240, 255, 0.5) !important;
+    border-color: rgba(173, 216, 255, 0.8) !important;
+    box-shadow: 0 2px 8px rgba(0, 120, 215, 0.1) !important;
+}
+
+body.frutiger-aero .toc-content {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(173, 216, 255, 0.5);
+    box-shadow: 0 4px 16px rgba(31, 38, 135, 0.1);
+}
+
+body.frutiger-aero .toc-list a {
+    color: #0078D7;
+}
+
+body.frutiger-aero .toc-list a:hover {
+    background-color: rgba(224, 240, 255, 0.5);
+    text-shadow: 0 0 3px rgba(0, 162, 237, 0.2);
+}
+
+body.frutiger-aero .toc-list a.active {
+    background-color: rgba(224, 240, 255, 0.7);
+    color: #0063B1;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+body.frutiger-aero .toc-h5,
+body.frutiger-aero .toc-h6 {
+    color: #666;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+    .toc-container {
+        position: relative !important;
+        width: 100% !important;
+        right: auto !important;
+        top: auto !important;
+        margin: 2em 0 !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .toc-content {
+        max-height: 300px;
+        font-size: 0.95em;
+    }
+    
+    .toc-list a {
+        padding: 0.25em 0.4em;
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .toc-container {
+        margin: 1em 0;
+    }
+    
+    .toc-toggle {
+        font-size: 0.95em;
+        padding: 0.5em 0.8em;
+    }
+    
+    .toc-content {
+        max-height: 250px;
+        padding: 0.8em;
+    }
+    
+    .toc-list a {
+        padding: 0.2em 0.3em;
+        font-size: 0.85em;
+    }
+    
+    .toc-list ul {
+        margin-left: 1em;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Offset for fixed header if any */
+.toc-anchor {
+    scroll-margin-top: 20px;
+}
+</style>
+
+<script>
+(function() {
+    // Unique ID for this TOC instance
+    const tocId = '{{ id | default(value='default') }}';
+    const minLevel = {{ min_level | default(value=1) }};
+    const maxLevel = {{ max_level | default(value=6) }};
+    
+    // Toggle TOC visibility
+    window.toggleTOC = function(id) {
+        const button = document.querySelector(`#toc-container-${id} .toc-toggle`);
+        const content = document.getElementById(`toc-content-${id}`);
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        
+        button.setAttribute('aria-expanded', !isExpanded);
+        content.style.display = isExpanded ? 'none' : 'block';
+    };
+    
+    // Sanitize ID to ensure it's a valid CSS selector
+    function sanitizeId(id) {
+        // If ID starts with a number, prefix it with 'h-'
+        if (/^\d/.test(id)) {
+            return 'h-' + id;
+        }
+        return id;
+    }
+    
+    // Update active section highlighting
+    function updateActiveSection() {
+        const headings = document.querySelectorAll('.toc-anchor');
+        const tocLinks = document.querySelectorAll(`#toc-list-${tocId} a`);
+        
+        // Remove all active classes
+        tocLinks.forEach(link => link.classList.remove('active'));
+        
+        // Find current section
+        let currentSection = null;
+        const scrollPosition = window.scrollY + 100; // Offset for better UX
+        
+        for (let i = headings.length - 1; i >= 0; i--) {
+            if (headings[i].offsetTop <= scrollPosition) {
+                currentSection = headings[i];
+                break;
+            }
+        }
+        
+        // Highlight corresponding TOC link
+        if (currentSection) {
+            const activeLink = document.querySelector(`#toc-list-${tocId} a[href="#${currentSection.id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                
+                // Ensure active item is visible in scrollable TOC
+                const tocContent = document.getElementById(`toc-content-${tocId}`);
+                const linkRect = activeLink.getBoundingClientRect();
+                const contentRect = tocContent.getBoundingClientRect();
+                
+                if (linkRect.top < contentRect.top || linkRect.bottom > contentRect.bottom) {
+                    activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        }
+    }
+    
+    // Generate TOC from headings
+    function generateTOC() {
+        const tocList = document.getElementById(`toc-list-${tocId}`);
+        const content = document.querySelector('.content');
+        const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        
+        if (headings.length === 0) {
+            document.getElementById(`toc-container-${tocId}`).style.display = 'none';
+            return;
+        }
+        
+        let currentList = tocList;
+        let listStack = [currentList];
+        let currentLevel = minLevel;
+        let foundValidHeading = false;
+        
+        headings.forEach((heading, index) => {
+            // Skip only if heading is directly inside a button wrapper
+            // or if it's one of the specific button-related headings
+            const isButtonHeading = heading.parentElement && heading.parentElement.classList.contains('button-wrapper');
+            const isExcludedText = heading.textContent.trim() === 'Link to this article' || 
+                                  heading.textContent.trim() === 'Follow me on';
+            
+            if (isButtonHeading || isExcludedText) {
+                return;
+            }
+            
+            const level = parseInt(heading.tagName.substring(1));
+            
+            // Skip if outside specified level range
+            if (level < minLevel || level > maxLevel) return;
+            
+            foundValidHeading = true;
+            
+            // Ensure heading has an ID for linking
+            if (!heading.id) {
+                heading.id = `heading-${tocId}-${index}`;
+            } else {
+                // Sanitize existing ID
+                const originalId = heading.id;
+                heading.id = sanitizeId(originalId);
+            }
+            
+            // Add anchor class for scroll offset
+            heading.classList.add('toc-anchor');
+            
+            // Create TOC entry
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = `#${heading.id}`;
+            a.textContent = heading.textContent;
+            a.className = `toc-h${level}`;
+            
+            // Handle nesting
+            if (level > currentLevel) {
+                // Create nested list
+                const nestedUl = document.createElement('ul');
+                const parentLi = listStack[listStack.length - 1].lastElementChild;
+                if (parentLi) {
+                    parentLi.appendChild(nestedUl);
+                    listStack.push(nestedUl);
+                }
+            } else if (level < currentLevel) {
+                // Go back up the stack
+                const levelDiff = currentLevel - level;
+                for (let i = 0; i < levelDiff && listStack.length > 1; i++) {
+                    listStack.pop();
+                }
+            }
+            
+            currentLevel = level;
+            currentList = listStack[listStack.length - 1];
+            
+            li.appendChild(a);
+            currentList.appendChild(li);
+            
+            // Smooth scroll on click
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Update URL without jumping
+                    history.pushState(null, null, this.getAttribute('href'));
+                    
+                    // Update active state
+                    updateActiveSection();
+                }
+            });
+        });
+        
+        // Hide TOC if no valid headings were found
+        if (!foundValidHeading) {
+            document.getElementById(`toc-container-${tocId}`).style.display = 'none';
+        }
+        
+        // Set up scroll spy
+        setupScrollSpy();
+    }
+    
+    // Setup scroll spy for active section highlighting
+    function setupScrollSpy() {
+        let isScrolling = false;
+        
+        // Throttled scroll handler
+        window.addEventListener('scroll', function() {
+            if (!isScrolling) {
+                window.requestAnimationFrame(function() {
+                    updateActiveSection();
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        });
+        
+        // Initial update
+        updateActiveSection();
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', generateTOC);
+    } else {
+        generateTOC();
+    }
+    
+    // Add keyboard support for toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const tocToggle = document.querySelector(`#toc-container-${tocId} .toc-toggle`);
+        if (tocToggle) {
+            tocToggle.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleTOC(tocId);
+                }
+            });
+        }
+    });
+})();
+</script> 

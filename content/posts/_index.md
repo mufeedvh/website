@@ -7,4 +7,4 @@ sort_by = "date"
 no_header = true
 +++
 
-# Posts I've written
+# Posts I wrote

@@ -6,4 +6,4 @@ Disallow: /aesthetics
 Disallow: /message
 Disallow: /admin
 
-Sitemap: https://www.mufeedvh.com/sitemap.xml
+Sitemap: https://mufeedvh.com/sitemap.xml
