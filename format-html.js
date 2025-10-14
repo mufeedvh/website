@@ -1,41 +1,18 @@
 #!/usr/bin/env bun
 
-/**
- * HTML Formatter for Zola-generated sites
- * 
- * This script formats all HTML files in the public directory to produce
- * clean, well-formatted HTML output.
- * 
- * Usage:
- *   bun format-html.js
- *   
- * Requirements:
- *   - bun
- *   - prettier
- *   
- * The script will:
- * 1. Find all HTML files in the public directory
- * 2. Format them using Prettier with specific HTML formatting rules
- * 3. Preserve the original functionality while making the source pristine
- */
 
 import { promises as fs } from 'fs';
 import path from 'path';
 import prettier from 'prettier';
 
-/**
- * Recursively finds all HTML files in a directory
- * @param {string} dir - Directory to search
- * @returns {Promise<string[]>} - Array of HTML file paths
- */
-async function findHtmlFiles(dir) {
+async function findWebFiles(dir) {
     const entries = await fs.readdir(dir, { withFileTypes: true });
     const files = await Promise.all(
         entries.map(async (entry) => {
             const fullPath = path.join(dir, entry.name);
             if (entry.isDirectory()) {
-                return findHtmlFiles(fullPath);
-            } else if (entry.name.endsWith('.html')) {
+                return findWebFiles(fullPath);
+            } else if (entry.name.endsWith('.html') || entry.name.endsWith('.css') || entry.name.endsWith('.js')) {
                 return fullPath;
             }
             return null;
@@ -45,30 +22,57 @@ async function findHtmlFiles(dir) {
     return files.flat().filter(file => file !== null);
 }
 
-/**
- * Formats an HTML file using Prettier
- * @param {string} filePath - Path to the HTML file
- */
-async function formatHtmlFile(filePath) {
+async function formatWebFile(filePath) {
     try {
-        // Read the file content
         const content = await fs.readFile(filePath, 'utf-8');
+        const ext = path.extname(filePath).toLowerCase();
         
-        // Format using Prettier with specific HTML formatting options
-        const formatted = await prettier.format(content, {
-            parser: 'html',
-            printWidth: 120,
-            tabWidth: 4,
-            useTabs: false,
-            htmlWhitespaceSensitivity: 'css',
-            bracketSameLine: false,
-            singleAttributePerLine: false,
-            vueIndentScriptAndStyle: false,
-            embeddedLanguageFormatting: 'auto',
-            proseWrap: 'preserve'
-        });
+        let config;
+        switch (ext) {
+            case '.html':
+                config = {
+                    parser: 'html',
+                    printWidth: 120,
+                    tabWidth: 4,
+                    useTabs: false,
+                    htmlWhitespaceSensitivity: 'css',
+                    bracketSameLine: false,
+                    singleAttributePerLine: false,
+                    vueIndentScriptAndStyle: false,
+                    embeddedLanguageFormatting: 'auto',
+                    proseWrap: 'preserve'
+                };
+                break;
+            case '.css':
+                config = {
+                    parser: 'css',
+                    printWidth: 120,
+                    tabWidth: 4,
+                    useTabs: false,
+                    singleQuote: false,
+                    semi: true
+                };
+                break;
+            case '.js':
+                config = {
+                    parser: 'babel',
+                    printWidth: 120,
+                    tabWidth: 4,
+                    useTabs: false,
+                    singleQuote: true,
+                    semi: true,
+                    trailingComma: 'es5',
+                    bracketSpacing: true,
+                    arrowParens: 'avoid'
+                };
+                break;
+            default:
+                console.log(`⚠️  Skipping unsupported file type: ${filePath}`);
+                return;
+        }
         
-        // Write the formatted content back
+        const formatted = await prettier.format(content, config);
+        
         await fs.writeFile(filePath, formatted, 'utf-8');
         console.log(`✅ Formatted: ${filePath}`);
     } catch (error) {
@@ -76,13 +80,9 @@ async function formatHtmlFile(filePath) {
     }
 }
 
-/**
- * Main function to format all HTML files in the public directory
- */
 async function main() {
     const publicDir = path.join(process.cwd(), 'public');
     
-    // Check if public directory exists
     try {
         await fs.access(publicDir);
     } catch {
@@ -90,23 +90,21 @@ async function main() {
         process.exit(1);
     }
     
-    console.log('🔍 Finding HTML files in public directory...');
-    const htmlFiles = await findHtmlFiles(publicDir);
+    console.log('🔍 Finding web files (HTML, CSS, JS) in public directory...');
+    const webFiles = await findWebFiles(publicDir);
     
-    if (htmlFiles.length === 0) {
-        console.log('⚠️  No HTML files found in public directory.');
+    if (webFiles.length === 0) {
+        console.log('⚠️  No web files found in public directory.');
         return;
     }
     
-    console.log(`📝 Found ${htmlFiles.length} HTML files to format.`);
+    console.log(`📝 Found ${webFiles.length} web files to format.`);
     
-    // Format all HTML files
-    await Promise.all(htmlFiles.map(formatHtmlFile));
+    await Promise.all(webFiles.map(formatWebFile));
     
-    console.log('✨ HTML formatting complete!');
+    console.log('✨ Web file formatting complete!');
 }
 
-// Run the script
 main().catch(error => {
     console.error('❌ Script failed:', error);
     process.exit(1);

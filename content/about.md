@@ -116,25 +116,20 @@ I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, K
 
 .press-toggle,
 details summary {
-  background-color: rgba(248, 245, 215, 0.3); /* Subtle tint of button color */
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 0.6em 1em;
-  cursor: pointer;
-  font-size: 1em;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.5em;
-  transition: all 0.2s ease;
-  color: inherit;
+  gap: 0.6em;
   font-family: TiemposHeadline-Regular;
-  margin: 0.5em 0;
-  /* Override any button styles */
-  width: auto !important;
-  text-align: left !important;
-  box-shadow: none !important;
-  position: relative !important;
-  overflow: visible !important;
+  font-size: 1em;
+  color: inherit;
+  justify-content: flex-start;
+  text-align: left;
+  margin: 1em auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  max-width: calc(100% - 40px);
+  box-sizing: border-box;
 }
 
 /* Ensure press-toggle doesn't inherit button pseudo-elements */
@@ -143,53 +138,14 @@ details summary {
   display: none !important;
 }
 
-.press-toggle:hover,
-details summary:hover {
-  background-color: rgba(248, 245, 215, 0.6);
-  border-color: #ccc;
-  transform: translateX(2px);
-}
-
-.press-toggle:active,
-details summary:active {
-  transform: translateX(0);
-}
-
-/* Remove default details marker */
-details summary {
-  list-style: none;
-}
-
-details summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Add custom arrow for details */
-details summary::before {
-  content: "▶";
-  display: inline-block !important;
-  font-size: 0.8em;
-  margin-right: 0.5em;
-  transition: transform 0.3s ease;
-  position: static !important;
-  background: none !important;
-  border: none !important;
-  height: auto !important;
-  width: auto !important;
-  opacity: 1 !important;
-}
-
-details[open] summary::before {
-  transform: rotate(90deg);
-}
-
 .toggle-icon {
   display: inline-block;
   transition: transform 0.3s ease;
   font-size: 0.8em;
 }
 
-.press-toggle[aria-expanded="true"] .toggle-icon {
+.press-toggle[aria-expanded="true"] .toggle-icon,
+details[open] .toggle-icon {
   transform: rotate(90deg);
 }
 
@@ -267,38 +223,13 @@ details > *:not(summary) {
   
   .press-toggle,
   details summary {
-    font-size: 0.95em;
-    padding: 0.5em 0.8em;
+    width: 100%;
+    max-width: calc(100% - 30px);
+    padding: 12px 20px;
   }
 }
 
 /* Frutiger Aero theme styles */
-body.frutiger-aero .press-toggle,
-body.frutiger-aero details summary {
-  background-color: rgba(224, 240, 255, 0.3) !important; /* Subtle Vista-style blue tint */
-  background-image: none !important;
-  border: 1px solid rgba(173, 216, 255, 0.5) !important;
-  color: #0063B1;
-  box-shadow: none !important;
-  position: relative !important;
-  overflow: visible !important;
-}
-
-/* Override any Vista button gradient for press-toggle */
-body.frutiger-aero .press-toggle::before,
-body.frutiger-aero .press-toggle::after {
-  display: none !important;
-  content: none !important;
-}
-
-body.frutiger-aero .press-toggle:hover,
-body.frutiger-aero details summary:hover {
-  background-color: rgba(224, 240, 255, 0.5) !important;
-  background-image: none !important;
-  border-color: rgba(173, 216, 255, 0.8) !important;
-  box-shadow: 0 2px 8px rgba(0, 120, 215, 0.1) !important;
-}
-
 body.frutiger-aero .press-table thead {
   background-color: rgba(224, 240, 255, 0.3);
 }
@@ -358,8 +289,8 @@ document.addEventListener('DOMContentLoaded', function() {
 @mufeedvh on [GitHub](https://github.com/mufeedvh), [X](https://x.com/mufeedvh), and [Instagram](https://instagram.com/mufeedvh).
 
 <details class="bonus-section">
-  <summary>Bonus</summary>
-  <img src="/assets/images/cats.jpg" alt="cats">
+  <summary><span class="toggle-icon">▶</span> Bonus</summary>
+  <img src="/assets/images/cats.jpg" alt="Two adorable cats posing together" loading="lazy" width="800" height="600">
 </details>
 <br>
 

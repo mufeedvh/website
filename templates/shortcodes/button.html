@@ -1,8 +1,8 @@
-<div class="button-wrapper">
+<div class="button-wrapper{% if align %} align-{{ align }}{% endif %}{% if wrapper_class %} {{ wrapper_class }}{% endif %}">
     {%- if href -%}
     <a href="{{ href }}" {% if style %}style="{{ style }}"{% endif %}{% if target %} target="{{ target }}"{% endif %}>
     {%- endif -%}
-        <h4 class="post-button" {% if id %}id="{{ id }}"{% endif %} {% if onclick %}onclick="{{ onclick }}"{% endif %}>
+        <h4 class="post-button{% if button_class %} {{ button_class }}{% endif %}" {% if id %}id="{{ id }}"{% endif %} {% if onclick %}onclick="{{ onclick }}"{% endif %}>
             {{ text | safe }}
             {%- if icon %} <span class="{{ icon }}"></span>{% endif -%}
         </h4>

@@ -274,69 +274,81 @@ html {
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin: 30px 0;
+    gap: 1px;
+    margin: 2em 0;
     width: 100%;
     box-sizing: border-box;
+    background-color: #333;
+    border: 1px solid #333;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
     .projects-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* Dark Theme: Minimal Gwern-inspired Design */
 .project-card {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    transition: all 0.3s ease;
+    background-color: #0d0d0d;
+    border: none;
+    padding: 1em;
+    transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     word-wrap: break-word;
     box-sizing: border-box;
     width: 100%;
+    position: relative;
+    cursor: pointer;
 }
 
 .project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #1a1a1a;
+}
+
+.project-card a {
+    pointer-events: none;
 }
 
 .project-title {
-    margin: 0 0 10px 0;
-    font-size: 1.2em;
+    margin: 0 0 0.5em 0;
+    font-size: 0.95em;
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     width: 100%;
+    font-family: TiemposHeadline-Regular, Georgia, serif;
+    gap: 0.5em;
 }
 
 .project-title a {
-    color: purple;
+    color: #a855f7;
     text-decoration: none;
     overflow-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
+    transition: color 0.15s ease;
+    border-bottom: 1px solid transparent;
 }
 
-/* GitHub Stars Styling */
+.project-title a:hover {
+    color: #c084fc;
+    border-bottom-color: #c084fc;
+}
+
+/* GitHub Stars Styling - Minimal */
 .github-stars {
     display: inline-flex;
     align-items: center;
     gap: 3px;
-    font-size: 0.75em;
+    font-size: 0.7em;
     color: #666;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    background-color: #f1f3f4;
-    padding: 1px 6px;
-    border-radius: 10px;
-    border: 1px solid #e0e0e0;
-    margin-left: auto;
+    font-family: 'Fira Code', monospace;
     white-space: nowrap;
+    flex-shrink: 0;
+    opacity: 0.7;
 }
 
 .github-stars::before {
@@ -346,8 +358,8 @@ html {
 }
 
 .github-stars.loading {
-    color: #999;
-    min-width: 35px;
+    color: #555;
+    min-width: 30px;
     text-align: center;
 }
 
@@ -356,130 +368,173 @@ html {
 }
 
 .github-stars.error {
-    color: #999;
+    color: #555;
 }
 
 .github-stars.error::after {
-    content: "--";
+    content: "—";
 }
 
 .project-description {
     flex-grow: 1;
-    margin-bottom: 15px;
+    margin-bottom: 0.75em;
     line-height: 1.5;
-    color: #555;
+    color: #666;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
+    font-size: 0.85em;
 }
 
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 0.4em;
     margin-top: auto;
     width: 100%;
     box-sizing: border-box;
 }
 
 .project-tag {
-    background-color: #f8f5d7;
+    background-color: transparent;
     color: #666;
-    padding: 3px 10px;
-    border-radius: 15px;
-    font-size: 0.85em;
-    border: 1px solid #e0e0e0;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.75em;
+    border: none;
+    font-family: 'Fira Code', monospace;
+    text-transform: lowercase;
+}
+
+.project-tag::before {
+    content: "#";
+    opacity: 0.5;
 }
 
 /* CVE Section */
 .cve-section {
-    margin-top: 40px;
+    margin-top: 3em;
     width: 100%;
     box-sizing: border-box;
 }
 
 .cve-links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin: 20px 0;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    margin: 1.5em 0;
     width: 100%;
     box-sizing: border-box;
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+@media screen and (min-width: 768px) {
+    .cve-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .cve-item {
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
+    background-color: #0d0d0d;
+    padding: 1.5em;
+    border: none;
     box-sizing: border-box;
     overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+.cve-item:hover {
+    background-color: #1a1a1a;
 }
 
 .cve-item h4 {
-    margin: 0 0 10px 0;
-    color: #333;
+    margin: 0 0 0.75em 0;
+    color: #ffffff;
+    font-family: TiemposHeadline-Regular, Georgia, serif;
+    font-size: 1em;
 }
 
 .cve-item a {
     word-break: break-all;
+    color: #a855f7;
+    transition: color 0.15s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.cve-item a:hover {
+    color: #c084fc;
+    border-bottom-color: #c084fc;
 }
 
 .hall-of-fame {
     font-style: italic;
-    color: #666;
-    margin-top: 10px;
+    color: #999;
+    margin-top: 1.5em;
     word-wrap: break-word;
+    padding: 1.5em;
+    background-color: #0d0d0d;
+    border: 1px solid #333;
+    text-align: center;
 }
 
-@media screen and (max-width: 480px) {
-    .cve-section {
-        margin-top: 30px;
-    }
-    
-    .cve-links {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin: 15px 0;
-    }
-    
-    .cve-item {
-        padding: 12px;
-    }
-    
-    .cve-item h4 {
-        font-size: 0.95em;
-    }
+/* Frutiger Aero Theme: Vista-inspired Design */
+body.frutiger-aero .projects-grid {
+    gap: 20px;
+    background: transparent;
+    border: none;
 }
 
-/* Frutiger Aero Theme Overrides */
 body.frutiger-aero .project-card {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(173, 216, 255, 0.5);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(173, 216, 255, 0.6);
+    border-radius: 8px;
+    padding: 1.25em;
+    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+body.frutiger-aero .project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
 }
 
 body.frutiger-aero .project-card:hover {
-    background-color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 8px 24px rgba(31, 38, 135, 0.15);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 248, 255, 1) 100%);
+    box-shadow: 0 8px 32px rgba(0, 120, 215, 0.2);
     border-color: rgba(173, 216, 255, 0.8);
+    transform: translateY(-2px);
 }
 
 body.frutiger-aero .project-title a {
     color: #0078D7;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    border-bottom-color: transparent;
 }
 
 body.frutiger-aero .project-title a:hover {
     color: #00A2ED;
-    text-shadow: 0 0 5px rgba(0, 162, 237, 0.3);
+    text-shadow: 0 0 8px rgba(0, 162, 237, 0.3);
+    border-bottom-color: #00A2ED;
 }
 
 body.frutiger-aero .project-description {
     color: #333;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 body.frutiger-aero .project-tag {
@@ -487,6 +542,36 @@ body.frutiger-aero .project-tag {
     border: 1px solid #80c0ff;
     color: #0063B1;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.8em;
+}
+
+body.frutiger-aero .project-tag::before {
+    content: "";
+    opacity: 1;
+}
+
+body.frutiger-aero .project-tag::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+body.frutiger-aero .project-tag:hover {
+    background: linear-gradient(to bottom, #d0e8ff 0%, #b8deff 100%);
+    box-shadow: 0 2px 8px rgba(0, 120, 215, 0.15);
+    transform: translateY(-1px);
 }
 
 body.frutiger-aero .github-stars {
@@ -494,46 +579,145 @@ body.frutiger-aero .github-stars {
     border: 1px solid #80c0ff;
     color: #0063B1;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    padding: 2px 6px;
+    border-radius: 10px;
+    opacity: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+body.frutiger-aero .github-stars::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 body.frutiger-aero .github-stars::before {
     color: #f39c12;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+body.frutiger-aero .cve-links {
+    gap: 20px;
+    background: transparent;
+    border: none;
 }
 
 body.frutiger-aero .cve-item {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(173, 216, 255, 0.5);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(173, 216, 255, 0.6);
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+body.frutiger-aero .cve-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+body.frutiger-aero .cve-item:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 248, 255, 1) 100%);
+    box-shadow: 0 8px 32px rgba(0, 120, 215, 0.2);
+    border-color: rgba(173, 216, 255, 0.8);
+    transform: translateY(-2px);
 }
 
 body.frutiger-aero .cve-item h4 {
     color: #0063B1;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+body.frutiger-aero .cve-item a {
+    color: #0078D7;
+    border-bottom-color: transparent;
+}
+
+body.frutiger-aero .cve-item a:hover {
+    color: #00A2ED;
+    border-bottom-color: #00A2ED;
+}
+
+body.frutiger-aero .hall-of-fame {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(173, 216, 255, 0.6);
+    color: #333;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+body.frutiger-aero .hall-of-fame::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
-        margin: 15px 0;
+        gap: 1px;
+    }
+    
+    body.frutiger-aero .projects-grid {
+        gap: 16px;
     }
     
     .project-card {
-        padding: 15px;
-        margin: 0;
+        padding: 0.85em;
+    }
+    
+    body.frutiger-aero .project-card {
+        padding: 1.1em;
     }
     
     .cve-links {
         grid-template-columns: 1fr;
+        gap: 1px;
     }
     
-    /* Adjust title layout for tablets */
+    body.frutiger-aero .cve-links {
+        gap: 16px;
+    }
+    
     .project-title {
         flex-wrap: nowrap;
-        gap: 8px;
+        gap: 0.5em;
+        font-size: 1em;
     }
     
     .project-title a {
@@ -543,115 +727,62 @@ body.frutiger-aero .cve-item h4 {
     
     .github-stars {
         margin-left: auto;
-        font-size: 0.7em;
+        font-size: 0.65em;
         flex-shrink: 0;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .projects-grid {
-        gap: 12px;
-        margin: 10px 0;
-        padding: 0;
+    .project-card {
+        padding: 0.75em;
     }
     
-    .project-card {
-        padding: 12px;
-        border-radius: 6px;
+    body.frutiger-aero .project-card {
+        padding: 1em;
     }
     
     .project-title {
-        font-size: 1em;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 6px;
-        margin-bottom: 8px;
-        flex-wrap: nowrap;
-    }
-    
-    .project-title a {
         font-size: 0.95em;
-        line-height: 1.2;
-        flex: 1;
-        min-width: 0;
-        overflow-wrap: break-word;
-        word-break: break-word;
-    }
-    
-    /* Keep stars on right side on mobile */
-    .github-stars {
-        margin-left: 6px;
-        font-size: 0.55em;
-        padding: 0px 3px;
-        flex-shrink: 0;
-        white-space: nowrap;
-    }
-    
-    .github-stars::before {
-        font-size: 0.8em;
+        margin-bottom: 0.4em;
     }
     
     .project-description {
         font-size: 0.9em;
-        line-height: 1.4;
-        margin-bottom: 10px;
+        line-height: 1.5;
+        margin-bottom: 0.75em;
     }
     
     .project-tags {
-        gap: 4px;
+        gap: 0.4em;
     }
     
     .project-tag {
-        font-size: 0.75em;
-        padding: 2px 6px;
-        border-radius: 10px;
+        font-size: 0.8em;
     }
     
-    /* Ensure content wrapper has proper padding on mobile */
-    .content .projects-grid {
-        margin-left: -12px;
-        margin-right: -12px;
-        width: calc(100% + 24px);
-    }
-    
-    .content .projects-grid .project-card {
-        margin-left: 12px;
-        margin-right: 12px;
-        width: calc(100% - 24px);
-    }
-}
-
-/* Very small screens */
-@media screen and (max-width: 360px) {
-    .project-card {
-        padding: 10px;
-    }
-    
-    .project-title {
-        font-size: 0.95em;
-        gap: 6px;
-    }
-    
-    .project-title a {
-        font-size: 0.95em;
+    body.frutiger-aero .project-tag {
+        padding: 2px 8px;
     }
     
     .github-stars {
-        font-size: 0.55em;
-        padding: 0px 3px;
-        gap: 2px;
-        margin-left: auto;
+        font-size: 0.6em;
     }
     
-    .project-description {
-        font-size: 0.85em;
+    body.frutiger-aero .github-stars {
+        padding: 2px 6px;
     }
     
-    .project-tag {
-        font-size: 0.7em;
-        padding: 1px 5px;
+    .cve-item {
+        padding: 1.25em;
+    }
+    
+    body.frutiger-aero .cve-item {
+        padding: 1.25em;
+    }
+    
+    .hall-of-fame {
+        padding: 1.25em;
+        font-size: 0.95em;
     }
 }
 
@@ -664,47 +795,14 @@ body.frutiger-aero .cve-item h4 {
 
 /* Global mobile fixes to prevent horizontal scroll */
 @media screen and (max-width: 768px) {
-    /* Override base content styles for mobile */
     body {
         overflow-x: hidden !important;
     }
     
-    .content {
-        padding: 15px !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Ensure all content stays within bounds */
     .content * {
         max-width: 100%;
         word-wrap: break-word;
         overflow-wrap: break-word;
-    }
-    
-    /* Fix for long URLs or text */
-    .content a {
-        word-break: break-all;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .content {
-        padding: 12px !important;
-    }
-    
-    /* Override the negative margin approach for better mobile handling */
-    .content .projects-grid {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        width: 100% !important;
-    }
-    
-    .content .projects-grid .project-card {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        width: 100% !important;
     }
 }
 </style>
@@ -835,5 +933,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Log optimization info
     console.log('GitHub API optimization enabled: Bulk fetching repos for mufeedvh and getAsterisk');
+    
+    // Make project cards clickable
+    document.querySelectorAll('.project-card').forEach(card => {
+        const link = card.querySelector('.project-title a');
+        if (link) {
+            card.addEventListener('click', function(e) {
+                // Don't trigger if clicking directly on the link or star count
+                if (e.target.tagName !== 'A' && !e.target.closest('.github-stars')) {
+                    window.open(link.href, '_blank');
+                }
+            });
+        }
+    });
 });
 </script>

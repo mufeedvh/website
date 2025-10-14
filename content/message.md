@@ -22,6 +22,7 @@ write or draw me a message **anonymously**.
 
     .paint-canvas {
         width: 100%;
+        height: 400px;
         background: white;
         border-width: 0px;
         border-radius: 10px;
@@ -49,214 +50,304 @@ write or draw me a message **anonymously**.
 </div>
 
 <script>
-    const paintCanvas = document.querySelector('.js-paint');
-    const context = paintCanvas.getContext('2d');
-    context.lineCap = 'round';
-    context.lineJoin = 'round';
+    (function initializeDrawingModule() {
+        const paintCanvas = document.querySelector('.js-paint');
 
-    // Create a temporary canvas
-    const tempCanvas = document.createElement('canvas');
-    const tempContext = tempCanvas.getContext('2d');
-    tempContext.lineCap = 'round';
-    tempContext.lineJoin = 'round';
-
-    const colorPicker = document.querySelector('.js-color-picker');
-
-    function detectMob() {
-        return window.innerWidth <= 800;
-    }
-
-    function resizeCanvas() {
-        const rect = paintCanvas.getBoundingClientRect();
-        paintCanvas.width = rect.width;
-        paintCanvas.height = rect.height;
-        tempCanvas.width = rect.width;
-        tempCanvas.height = rect.height;
-    }
-
-    if (detectMob()) {
-        paintCanvas.setAttribute('width', '320');
-        paintCanvas.setAttribute('height', '320');
-    }
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    colorPicker.addEventListener('change', event => {
-        context.strokeStyle = event.target.value;
-        tempContext.strokeStyle = event.target.value;
-    });
-
-    const lineWidthRange = document.querySelector('.js-line-range');
-    const lineWidthLabel = document.querySelector('.js-range-value');
-
-    lineWidthRange.addEventListener('input', event => {
-        const width = event.target.value;
-        lineWidthLabel.innerHTML = width;
-        context.lineWidth = width;
-        tempContext.lineWidth = width;
-    });
-
-    let isDrawing = false;
-    let lastPoint;
-    let points = [];
-
-    function getMousePos(canvas, evt) {
-        const rect = canvas.getBoundingClientRect();
-        return {
-            x: evt.clientX - rect.left,
-            y: evt.clientY - rect.top
-        };
-    }
-
-    function getTouchPos(canvas, evt) {
-        const rect = canvas.getBoundingClientRect();
-        return {
-            x: evt.touches[0].clientX - rect.left,
-            y: evt.touches[0].clientY - rect.top
-        };
-    }
-
-    function drawSmoothLine(points, ctx) {
-        ctx.beginPath();
-        ctx.moveTo(points[0].x, points[0].y);
-
-        for (let i = 1; i < points.length - 2; i++) {
-            const xc = (points[i].x + points[i + 1].x) / 2;
-            const yc = (points[i].y + points[i + 1].y) / 2;
-            ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+        if (!paintCanvas) {
+            console.error('[paint-canvas] Canvas element not found; drawing has been disabled.');
+            return;
         }
 
-        if (points.length > 2) {
-            const last = points.length - 1;
-            ctx.quadraticCurveTo(points[last - 1].x, points[last - 1].y, points[last].x, points[last].y);
+        const context = paintCanvas.getContext('2d');
+        const tempCanvas = document.createElement('canvas');
+        const tempContext = tempCanvas.getContext('2d');
+        const colorPicker = document.querySelector('.js-color-picker');
+        const lineWidthRange = document.querySelector('.js-line-range');
+        const lineWidthLabel = document.querySelector('.js-range-value');
+
+        /**
+         * Drawing module orchestrates a temporary off-screen canvas and the main canvas to create smooth
+         * strokes, while ensuring the rendering space matches the device pixel ratio.
+         *
+         * Security considerations: logs emit only sizing metadata and configuration changes, never PII.
+         */
+        if (!context || !tempContext) {
+            console.error('[paint-canvas] Failed to obtain a 2D rendering context; drawing has been disabled.');
+            return;
         }
 
-        ctx.stroke();
-    }
+        let currentStrokeStyle = colorPicker ? colorPicker.value : '#000000';
+        let currentLineWidth = lineWidthRange ? parseInt(lineWidthRange.value, 10) || 1 : 1;
 
-    function startDrawing(e) {
-        isDrawing = true;
-        points = [];
-        const pos = e.type.startsWith('mouse') ? getMousePos(paintCanvas, e) : getTouchPos(paintCanvas, e);
-        points.push(pos);
-        lastPoint = pos;
-    }
-
-    function draw(e) {
-        if (!isDrawing) return;
-
-        e.preventDefault();
-        const pos = e.type.startsWith('mouse') ? getMousePos(paintCanvas, e) : getTouchPos(paintCanvas, e);
-        
-        points.push(pos);
-        
-        // Clear the temporary canvas
-        tempContext.clearRect(0, 0, tempCanvas.width, tempCanvas.height);
-        
-        // Draw the new stroke on the temporary canvas
-        drawSmoothLine(points, tempContext);
-        
-        // Copy the temporary canvas to the main canvas
-        context.drawImage(tempCanvas, 0, 0);
-        
-        lastPoint = pos;
-    }
-
-    function stopDrawing() {
-        if (!isDrawing) return;
-        isDrawing = false;
-        
-        // Draw the final stroke directly on the main canvas
-        drawSmoothLine(points, context);
-        
-        points = [];
-    }
-
-    paintCanvas.addEventListener('mousedown', startDrawing);
-    paintCanvas.addEventListener('mousemove', draw);
-    paintCanvas.addEventListener('mouseup', stopDrawing);
-    paintCanvas.addEventListener('mouseout', stopDrawing);
-
-    paintCanvas.addEventListener('touchstart', startDrawing);
-    paintCanvas.addEventListener('touchmove', draw);
-    paintCanvas.addEventListener('touchend', stopDrawing);
-
-    const API_URL = 'https://api.mufeedvh.com';
-
-    function send_message() {
-        var xhttp = new XMLHttpRequest();
-
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var token = JSON.parse(this.responseText).token;
-                console.log("acquired token: " + token);
-
-                var message = document.getElementById('message').value;
-                var xhttp = new XMLHttpRequest();
-                var url = API_URL + '/message';
-
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        let button = document.getElementById('msg-button');
-                        button.style.backgroundColor = 'lightgreen';
-                        button.innerHTML = JSON.parse(xhttp.responseText).message;
-                    } else if (this.readyState == 4 && this.status != 200) {
-                        let button = document.getElementById('msg-button');
-                        button.style.color = 'white';
-                        button.style.backgroundColor = 'red';
-                        button.innerHTML = "Failed to send message";
-                    }
-                };
-
-                xhttp.open("POST", url);
-                xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-                xhttp.send(JSON.stringify({
-                    "token": token,
-                    "message": message
-                }));
-            }
+        const logPaintEvent = (message, data = {}) => {
+            console.info('[paint-canvas]', message, data);
         };
 
-        xhttp.open("GET", API_URL + '/get_token', true);
-        xhttp.send();
-    }
+        const applyStrokeSettings = () => {
+            context.lineCap = 'round';
+            context.lineJoin = 'round';
+            context.lineWidth = currentLineWidth;
+            context.strokeStyle = currentStrokeStyle;
 
-    function send_drawing() {
-        var xhttp = new XMLHttpRequest();
-
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var token = JSON.parse(this.responseText).token;
-                console.log("acquired token: " + token);
-
-                var message = document.getElementById('message').value;
-                var xhttp = new XMLHttpRequest();
-                var url = API_URL + '/drawing';
-
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        let button = document.getElementById('draw-button');
-                        button.style.backgroundColor = 'lightgreen';
-                        button.innerHTML = JSON.parse(xhttp.responseText).message;
-                    } else if (this.readyState == 4 && this.status != 200) {
-                        let button = document.getElementById('draw-button');
-                        button.style.color = 'white';
-                        button.style.backgroundColor = 'red';
-                        button.innerHTML = "Failed to send message";
-                    }
-                };
-
-                xhttp.open("POST", url);
-                xhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-                xhttp.send(JSON.stringify({
-                    "token": token,
-                    "message": paintCanvas.toDataURL()
-                }));
-            }
+            tempContext.lineCap = 'round';
+            tempContext.lineJoin = 'round';
+            tempContext.lineWidth = currentLineWidth;
+            tempContext.strokeStyle = currentStrokeStyle;
         };
 
-        xhttp.open("GET", API_URL + '/get_token', true);
-        xhttp.send();
-    }    
+        const detectMob = () => window.innerWidth <= 800;
+
+        /**
+         * Resize both canvases to follow layout changes and honour the device pixel ratio. Resetting the
+         * transform on each call prevents cumulative scaling that previously displaced strokes below the
+         * user's cursor.
+         */
+        const resizeCanvas = () => {
+            const rect = paintCanvas.getBoundingClientRect();
+
+            if (!rect.width || !rect.height) {
+                console.warn('[paint-canvas] Skipping resize due to zero-sized bounding rectangle.', {
+                    width: rect.width,
+                    height: rect.height
+                });
+                return;
+            }
+
+            const dpr = window.devicePixelRatio || 1;
+
+            paintCanvas.width = rect.width * dpr;
+            paintCanvas.height = rect.height * dpr;
+            tempCanvas.width = rect.width * dpr;
+            tempCanvas.height = rect.height * dpr;
+
+            paintCanvas.style.width = `${rect.width}px`;
+            paintCanvas.style.height = `${rect.height}px`;
+            tempCanvas.style.width = `${rect.width}px`;
+            tempCanvas.style.height = `${rect.height}px`;
+
+            context.setTransform(1, 0, 0, 1, 0, 0);
+            tempContext.setTransform(1, 0, 0, 1, 0, 0);
+
+            context.scale(dpr, dpr);
+            tempContext.scale(dpr, dpr);
+
+            applyStrokeSettings();
+
+            logPaintEvent('Canvas resized', {
+                width: rect.width,
+                height: rect.height,
+                dpr
+            });
+        };
+
+        if (detectMob()) {
+            paintCanvas.style.height = '320px';
+        }
+
+        if (colorPicker) {
+            colorPicker.addEventListener('change', event => {
+                currentStrokeStyle = event.target.value;
+                applyStrokeSettings();
+                logPaintEvent('Stroke colour changed', { stroke: currentStrokeStyle });
+            });
+        }
+
+        if (lineWidthRange && lineWidthLabel) {
+            lineWidthLabel.innerHTML = currentLineWidth;
+            lineWidthRange.addEventListener('input', event => {
+                const width = parseInt(event.target.value, 10) || 1;
+                currentLineWidth = width;
+                lineWidthLabel.innerHTML = width;
+                applyStrokeSettings();
+                logPaintEvent('Line width changed', { width: currentLineWidth });
+            });
+        }
+
+        applyStrokeSettings();
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', resizeCanvas);
+        } else {
+            resizeCanvas();
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        let isDrawing = false;
+        let points = [];
+        let savedImageData = null;
+
+        /**
+         * Convert a pointer event into canvas-relative coordinates using CSS pixels so the drawing logic can
+         * stay agnostic of the backing store resolution.
+         */
+        const getPointerPosition = (canvas, evt) => {
+            const rect = canvas.getBoundingClientRect();
+            if ('touches' in evt && evt.touches.length) {
+                const touch = evt.touches[0];
+                return {
+                    x: touch.clientX - rect.left,
+                    y: touch.clientY - rect.top
+                };
+            }
+
+            return {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        };
+
+        /**
+         * Render a smoothed stroke following the historical pointer trail, using quadratic curves for a
+         * natural brush appearance.
+         */
+        const drawSmoothLine = (inputPoints, ctx) => {
+            if (inputPoints.length === 0) {
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(inputPoints[0].x, inputPoints[0].y);
+
+            for (let i = 1; i < inputPoints.length - 2; i++) {
+                const xc = (inputPoints[i].x + inputPoints[i + 1].x) / 2;
+                const yc = (inputPoints[i].y + inputPoints[i + 1].y) / 2;
+                ctx.quadraticCurveTo(inputPoints[i].x, inputPoints[i].y, xc, yc);
+            }
+
+            if (inputPoints.length > 2) {
+                const last = inputPoints.length - 1;
+                ctx.quadraticCurveTo(inputPoints[last - 1].x, inputPoints[last - 1].y, inputPoints[last].x, inputPoints[last].y);
+            }
+
+            ctx.stroke();
+        };
+
+        const startDrawing = event => {
+            isDrawing = true;
+            points = [];
+            points.push(getPointerPosition(paintCanvas, event));
+            savedImageData = context.getImageData(0, 0, paintCanvas.width, paintCanvas.height);
+        };
+
+        const draw = event => {
+            if (!isDrawing) {
+                return;
+            }
+
+            event.preventDefault();
+            points.push(getPointerPosition(paintCanvas, event));
+
+            if (savedImageData) {
+                context.putImageData(savedImageData, 0, 0);
+            }
+
+            drawSmoothLine(points, context);
+        };
+
+        const stopDrawing = () => {
+            if (!isDrawing) {
+                return;
+            }
+
+            isDrawing = false;
+            
+            if (savedImageData) {
+                context.putImageData(savedImageData, 0, 0);
+            }
+            
+            drawSmoothLine(points, context);
+            points = [];
+            savedImageData = null;
+        };
+
+        paintCanvas.addEventListener('mousedown', startDrawing);
+        paintCanvas.addEventListener('mousemove', draw);
+        paintCanvas.addEventListener('mouseup', stopDrawing);
+        paintCanvas.addEventListener('mouseout', stopDrawing);
+
+        paintCanvas.addEventListener('touchstart', startDrawing);
+        paintCanvas.addEventListener('touchmove', draw);
+        paintCanvas.addEventListener('touchend', stopDrawing);
+
+        const API_URL = 'https://api.mufeedvh.com';
+
+        const send_message = () => {
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    const token = JSON.parse(this.responseText).token;
+                    console.log('acquired token: ' + token);
+
+                    const message = document.getElementById('message').value;
+                    const innerXhttp = new XMLHttpRequest();
+                    const url = API_URL + '/message';
+
+                    innerXhttp.onreadystatechange = function() {
+                        if (this.readyState === 4 && this.status === 200) {
+                            const button = document.getElementById('msg-button');
+                            button.style.backgroundColor = 'lightgreen';
+                            button.innerHTML = JSON.parse(innerXhttp.responseText).message;
+                        } else if (this.readyState === 4 && this.status !== 200) {
+                            const button = document.getElementById('msg-button');
+                            button.style.color = 'white';
+                            button.style.backgroundColor = 'red';
+                            button.innerHTML = 'Failed to send message';
+                        }
+                    };
+
+                    innerXhttp.open('POST', url);
+                    innerXhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+                    innerXhttp.send(JSON.stringify({
+                        'token': token,
+                        'message': message
+                    }));
+                }
+            };
+
+            xhttp.open('GET', API_URL + '/get_token', true);
+            xhttp.send();
+        };
+
+        const send_drawing = () => {
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    const token = JSON.parse(this.responseText).token;
+                    console.log('acquired token: ' + token);
+
+                    const innerXhttp = new XMLHttpRequest();
+                    const url = API_URL + '/drawing';
+
+                    innerXhttp.onreadystatechange = function() {
+                        if (this.readyState === 4 && this.status === 200) {
+                            const button = document.getElementById('draw-button');
+                            button.style.backgroundColor = 'lightgreen';
+                            button.innerHTML = JSON.parse(innerXhttp.responseText).message;
+                        } else if (this.readyState === 4 && this.status !== 200) {
+                            const button = document.getElementById('draw-button');
+                            button.style.color = 'white';
+                            button.style.backgroundColor = 'red';
+                            button.innerHTML = 'Failed to send message';
+                        }
+                    };
+
+                    innerXhttp.open('POST', url);
+                    innerXhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+                    innerXhttp.send(JSON.stringify({
+                        'token': token,
+                        'message': paintCanvas.toDataURL()
+                    }));
+                }
+            };
+
+            xhttp.open('GET', API_URL + '/get_token', true);
+            xhttp.send();
+        };
+
+        window.send_message = send_message;
+        window.send_drawing = send_drawing;
+    })();
 </script>

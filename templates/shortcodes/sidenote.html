@@ -1,0 +1,22 @@
+{# 
+  Sidenote Shortcode for Zola
+  
+  Usage:
+    Inline: {{ sidenote(id="1", content="Your sidenote text here") }}
+    Block:  {{ sidenote(id="2") }}Your sidenote text here{{ end }}
+  
+  Parameters:
+    - id (required): A unique identifier for the sidenote (e.g., "1", "intro", "note-1")
+    - content (optional): The sidenote text (use for inline notes)
+    - body (optional): The sidenote text (use for block notes)
+  
+  Behavior:
+    - Desktop (≥1200px): Displays in the right margin
+    - Mobile (<1200px): Expandable inline when clicked
+#}
+<span class="sidenote-container">
+    <a href="#sidenote-{{ id }}" class="sidenote-marker" data-sidenote="sidenote-{{ id }}" onclick="toggleSidenote('sidenote-{{ id }}'); return false;">†</a>
+    <span id="sidenote-{{ id }}" class="sidenote">
+        {% if body %}{{ body | safe }}{% elif content %}{{ content | safe }}{% endif %}
+    </span>
+</span>

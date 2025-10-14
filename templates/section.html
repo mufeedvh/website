@@ -2,6 +2,29 @@
 
 {% block title %}{{ section.title }} - {{ config.title }}{% endblock title %}
 
+{% block extra_head %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ config.base_url | safe }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ section.title | json_encode | safe }},
+            "item": "{{ current_url | default(value=config.base_url) | safe }}"
+        }
+    ]
+}
+</script>
+{% endblock extra_head %}
+
 {% block content %}
 {% if not section.extra.no_header %}
 <h1>{{ section.title }}</h1>

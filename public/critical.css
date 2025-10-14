@@ -1,0 +1,105 @@
+@font-face {
+    font-family: TiemposHeadline-Regular;
+    src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: TiemposText-Regular;
+    src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
+    font-display: swap;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.content {
+    padding: 20px;
+    width: 600px;
+    max-width: 90%;
+    margin: 20px auto;
+    box-sizing: border-box;
+    text-align: justify;
+    font-family: TiemposText-Regular, Georgia, serif;
+    position: relative;
+    background-color: transparent;
+}
+
+.content h1 {
+    font-family: TiemposHeadline-Regular, Georgia, serif;
+    font-size: 2em;
+    color: #ffffff;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.content a {
+    font-family: TiemposHeadline-Regular, Georgia, serif;
+    color: #a855f7;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.content p {
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 1em 0;
+    line-height: 1.7;
+}
+
+.no-bullets {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    background-color: #1a1a1a;
+    border: 2px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0.6;
+    color: #e0e0e0;
+    font-size: 1.2em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.vista-titlebar {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    .theme-toggle {
+        width: 44px;
+        height: 44px;
+        bottom: 15px;
+        right: 15px;
+    }
+}

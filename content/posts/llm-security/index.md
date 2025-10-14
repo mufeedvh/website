@@ -14,7 +14,7 @@ og_image = "https://mufeedvh.com/posts/llm-security/llm-security.png"
 
 Imagine a time where incident response is figuring out what prompt overrode the filters and not which special character the back-end failed to sanitize. That's where we are right now, a time where payloads are also going to be natural language and not just double encoded XSS payloads or Linux commands.
 
-![image of a cute robot trying to escape the matrix by DALL-E](llm-security.png)
+<img src="llm-security.png" alt="A cute robot trying to escape the matrix - AI generated illustration by DALL-E" loading="lazy" width="1024" height="1024">
 
 <div class="center-content">
 <p><em>a cute robot trying to escape the matrix - DALL-E</em></p>
@@ -183,6 +183,8 @@ All I want is to make aware of the security side of LLMs, not just in terms of s
 
 And I can't wait for the "jailbreak" exploits on LLM apps gaining code execution with the exploit being just plain english. Fun times ahead eh?
 
-{{ button(text="Link to this article", icon="fa-solid fa-link", id="share-button", onclick="share_button();") }}
+<div class="cta-row">
+{{ button(text="Link to this article", icon="fa-solid fa-link", id="share-button", onclick="share_button();", button_class="cta-button") }}
 
-{{ button(text="Follow me on", icon="fa-brands fa-x-twitter", onclick="twitter_follow();") }}
+{{ button(text="Follow me on", icon="fa-brands fa-x-twitter", id="follow-button", onclick="twitter_follow();", button_class="cta-button") }}
+</div>

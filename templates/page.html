@@ -24,16 +24,20 @@
             <h1>{{ page.title }}</h1>
         {% endif %}
         {% if page.date %}
-            <p>{{ page.date | date(format="%B %d, %Y") }} ·
-            {% if page.taxonomies.tags %}
-                {% for tag in page.taxonomies.tags %}
-                    <span class="tag">
-                        <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
-                            #{{ tag }}
-                        </a>
-                    </span>
-                {% endfor %}
-            {% endif %}
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1em;">
+                <span>{{ page.date | date(format="%B %d, %Y") }}</span>
+                {% if page.taxonomies.tags %}
+                    <div>
+                        {% for tag in page.taxonomies.tags %}
+                            <span class="tag">
+                                <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
+                                    #{{ tag }}
+                                </a>
+                            </span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
             <hr>
         {% endif %}
         {{ page.content | safe }}

@@ -1,6 +1,7 @@
 base_url = "https://mufeedvh.com"
 title = "Mufeed VH"
 description = "Mufeed VH's projects, blogs, security research, open source code, and stuff."
+author = "Mufeed VH"
 
 build_search_index = true
 minify_html = false
