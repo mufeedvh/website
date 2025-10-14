@@ -1,18 +1,29 @@
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Wait for highlight.js to load
-    if (window.hljs) {
-        initializeCodeBlocks();
-    } else {
-        // If hljs hasn't loaded yet, wait for it
-        const checkHljs = setInterval(function() {
-            if (window.hljs) {
-                clearInterval(checkHljs);
-                initializeCodeBlocks();
-            }
-        }, 50);
+/// Initialize with robust ready check
+function initWhenReady() {
+    function init() {
+        // Wait for highlight.js to load
+        if (window.hljs) {
+            initializeCodeBlocks();
+        } else {
+            // If hljs hasn't loaded yet, wait for it
+            const checkHljs = setInterval(function() {
+                if (window.hljs) {
+                    clearInterval(checkHljs);
+                    initializeCodeBlocks();
+                }
+            }, 50);
+        }
     }
-});
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        // DOM already loaded
+        setTimeout(init, 0);
+    }
+}
+initWhenReady();
 
 function initializeCodeBlocks() {
     // First, apply syntax highlighting to all code blocks

@@ -411,15 +411,23 @@
 
     /**
      * Initialize when DOM is ready
+     * Uses robust ready check that works with deferred scripts
      */
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeDropCap();
-            watchForThemeChanges();
-        });
-    } else {
-        initializeDropCap();
-        watchForThemeChanges();
+    function initWhenReady() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeDropCap();
+                watchForThemeChanges();
+            });
+        } else {
+            // DOM already loaded (can happen with defer or cached pages)
+            // Use setTimeout to ensure all elements are fully parsed
+            setTimeout(() => {
+                initializeDropCap();
+                watchForThemeChanges();
+            }, 0);
+        }
     }
+    initWhenReady();
 })();
 

@@ -143,20 +143,25 @@
         subtree: true
     });
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
+    function initWhenReady() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                configureTweetEmbeds();
+                setTimeout(forceCompactStyle, 500);
+                setTimeout(forceCompactStyle, 1000);
+                setTimeout(forceCompactStyle, 2000);
+                setTimeout(forceCompactStyle, 3000);
+            });
+        } else {
+            // DOM already loaded - use setTimeout for consistency
             configureTweetEmbeds();
             setTimeout(forceCompactStyle, 500);
             setTimeout(forceCompactStyle, 1000);
             setTimeout(forceCompactStyle, 2000);
             setTimeout(forceCompactStyle, 3000);
-        });
-    } else {
-        setTimeout(forceCompactStyle, 500);
-        setTimeout(forceCompactStyle, 1000);
-        setTimeout(forceCompactStyle, 2000);
-        setTimeout(forceCompactStyle, 3000);
+        }
     }
+    initWhenReady();
 
     window.addEventListener('load', () => {
         setTimeout(forceCompactStyle, 500);

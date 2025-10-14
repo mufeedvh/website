@@ -366,10 +366,6 @@
     if (!window.sidenotesInitialized) {
         window.sidenotesInitialized = true;
         
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeSidenotes();
-        });
-
         function initializeSidenotes() {
             const markers = document.querySelectorAll('.sidenote-marker');
             markers.forEach(marker => {
@@ -405,6 +401,14 @@
                 initializeSidenotes();
             }, 100);
         });
+        
+        // Initialize sidenotes with robust ready check
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeSidenotes);
+        } else {
+            // DOM already loaded - use setTimeout to ensure all elements are parsed
+            setTimeout(initializeSidenotes, 0);
+        }
     }
     </script>
     {% endblock scripts %}

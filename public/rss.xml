@@ -553,11 +553,17 @@ html { scroll-behavior: smooth; }
         updateActiveSection();
     }
     
-    if (document.readyState === &#x27;loading&#x27;) {
-        document.addEventListener(&#x27;DOMContentLoaded&#x27;, generateTOC);
-    } else {
-        generateTOC();
+    &#x2F;&#x2F; Ensure generateTOC runs after DOM is fully loaded
+    &#x2F;&#x2F; Use a more robust check that works with inline scripts
+    function initWhenReady() {
+        if (document.readyState === &#x27;loading&#x27;) {
+            document.addEventListener(&#x27;DOMContentLoaded&#x27;, generateTOC);
+        } else if (document.readyState === &#x27;interactive&#x27; || document.readyState === &#x27;complete&#x27;) {
+            &#x2F;&#x2F; DOM is already loaded, but give it a tick to ensure all elements are parsed
+            setTimeout(generateTOC, 0);
+        }
     }
+    initWhenReady();
     
     document.addEventListener(&#x27;DOMContentLoaded&#x27;, function() {
         const tocToggle = document.querySelector(`#toc-container-${tocId} .toc-toggle`);

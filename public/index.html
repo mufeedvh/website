@@ -1,296 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="HandheldFriendly" content="True" />
-        <meta name="MobileOptimized" content="320" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="referrer" content="no-referrer" />
-        <meta name="theme-color" content="#0d0d0d" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#0d0d0d">
+    
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://platform.twitter.com">
 
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-        <link rel="dns-prefetch" href="https://platform.twitter.com" />
+    
 
-        <meta
-            name="description"
-            content="Mufeed VH's projects, blogs, security research, open source code, and stuff."
-        />
-        <link rel="canonical" href="https://mufeedvh.com" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Mufeed VH" />
-        <meta
-            property="og:description"
-            content="Mufeed VH's projects, blogs, security research, open source code, and stuff."
-        />
-        <meta property="og:image" content="https://mufeedvh.com/assets/images/vista-background.jpg" />
-        <meta property="og:image:alt" content="Mufeed VH" />
-        <meta property="og:url" content="https://mufeedvh.com" />
-        <meta property="og:site_name" content="Mufeed VH" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mufeedvh" />
-        <meta name="twitter:creator" content="@mufeedvh" />
-        <meta name="twitter:title" content="Mufeed VH" />
-        <meta
-            name="twitter:description"
-            content="Mufeed VH's projects, blogs, security research, open source code, and stuff."
-        />
-        <meta name="twitter:image" content="https://mufeedvh.com/assets/images/vista-background.jpg" />
+    
+        
+            <meta name="description" content="Mufeed VH's projects, blogs, security research, open source code, and stuff.">
+            <link rel="canonical" href="https://mufeedvh.com">
+            <meta property="og:locale" content="en_US">
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="Mufeed VH">
+            <meta property="og:description" content="Mufeed VH's projects, blogs, security research, open source code, and stuff.">
+            <meta property="og:image" content="https://mufeedvh.com/assets/images/vista-background.jpg">
+            <meta property="og:image:alt" content="Mufeed VH">
+            <meta property="og:url" content="https://mufeedvh.com">
+            <meta property="og:site_name" content="Mufeed VH">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:site" content="@mufeedvh">
+            <meta name="twitter:creator" content="@mufeedvh">
+            <meta name="twitter:title" content="Mufeed VH">
+            <meta name="twitter:description" content="Mufeed VH's projects, blogs, security research, open source code, and stuff.">
+            <meta name="twitter:image" content="https://mufeedvh.com/assets/images/vista-background.jpg">
+        
+    
 
-        <title>Mufeed VH</title>
+    <title>Mufeed VH</title>
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <link rel="preload" href="/assets/fonts/TiemposHeadline-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="/assets/fonts/TiemposText-Regular.otf" as="font" type="font/otf" crossorigin>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+    .content code:not(pre code),
+    .code-block-wrapper pre code,
+    .code-line-numbers div {
+        font-family: 'Fira Code' !important;
+    }
+    
+    @font-face {
+        font-family: TiemposHeadline-Regular;
+        src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: TiemposText-Regular;
+        src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
+        font-display: swap;
+    }
+    body {
+        background-color: #0d0d0d;
+        color: #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    .content {
+        padding: 20px;
+        width: 600px;
+        max-width: 90%;
+        margin: 20px auto;
+        box-sizing: border-box;
+        text-align: justify;
+        font-family: TiemposText-Regular, Georgia, serif;
+        position: relative;
+    }
+    .content h1 {
+        font-family: TiemposHeadline-Regular, Georgia, serif;
+        font-size: 2em;
+        color: #ffffff;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+    .content a {
+        font-family: TiemposHeadline-Regular, Georgia, serif;
+        color: #a855f7;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+    .content p {
+        text-align: justify;
+        text-justify: inter-word;
+        margin: 1em 0;
+        line-height: 1.7;
+    }
+    .no-bullets {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .theme-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        background-color: #1a1a1a;
+        border: 2px solid #444;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        opacity: 0.6;
+        color: #e0e0e0;
+        font-size: 1.2em;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    @media screen and (max-width: 768px) {
+        .content {
+            width: 100%;
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+        }
+        .theme-toggle {
+            width: 44px;
+            height: 44px;
+            bottom: 15px;
+            right: 15px;
+        }
+    }
+    </style>
+    
+    <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/frutiger-aero.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/frutiger-aero.css">
+    </noscript>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script defer src="/codeblock-enhancer.js"></script>
 
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-        <link rel="preload" href="/assets/fonts/TiemposHeadline-Regular.otf" as="font" type="font/otf" crossorigin />
-        <link rel="preload" href="/assets/fonts/TiemposText-Regular.otf" as="font" type="font/otf" crossorigin />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
-
-        <style>
-            .content code:not(pre code),
-            .code-block-wrapper pre code,
-            .code-line-numbers div {
-                font-family: "Fira Code" !important;
-            }
-
-            @font-face {
-                font-family: TiemposHeadline-Regular;
-                src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
-                font-display: swap;
-            }
-            @font-face {
-                font-family: TiemposText-Regular;
-                src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
-                font-display: swap;
-            }
-            body {
-                background-color: #0d0d0d;
-                color: #e0e0e0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                text-align: left;
-                min-height: 100vh;
-                margin: 0;
-                padding: 0;
-                overflow-x: hidden;
-            }
-            .content {
-                padding: 20px;
-                width: 600px;
-                max-width: 90%;
-                margin: 20px auto;
-                box-sizing: border-box;
-                text-align: justify;
-                font-family: TiemposText-Regular, Georgia, serif;
-                position: relative;
-            }
-            .content h1 {
-                font-family: TiemposHeadline-Regular, Georgia, serif;
-                font-size: 2em;
-                color: #ffffff;
-                margin-top: 1em;
-                margin-bottom: 0.5em;
-            }
-            .content a {
-                font-family: TiemposHeadline-Regular, Georgia, serif;
-                color: #a855f7;
-                text-decoration: none;
-                transition: all 0.2s ease;
-            }
-            .content p {
-                text-align: justify;
-                text-justify: inter-word;
-                margin: 1em 0;
-                line-height: 1.7;
-            }
-            .no-bullets {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            .theme-toggle {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                width: 48px;
-                height: 48px;
-                background-color: #1a1a1a;
-                border: 2px solid #444;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                z-index: 1000;
-                opacity: 0.6;
-                color: #e0e0e0;
-                font-size: 1.2em;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            }
-            @media screen and (max-width: 768px) {
-                .content {
-                    width: 100%;
-                    max-width: 100%;
-                    padding: 15px;
-                    margin: 10px auto;
-                }
-                .theme-toggle {
-                    width: 44px;
-                    height: 44px;
-                    bottom: 15px;
-                    right: 15px;
-                }
-            }
-        </style>
-
-        <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-        <link rel="preload" href="/frutiger-aero.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-        <noscript>
-            <link rel="stylesheet" href="/styles.css" />
-            <link rel="stylesheet" href="/frutiger-aero.css" />
-        </noscript>
-
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
-        />
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-        <script defer src="/codeblock-enhancer.js"></script>
-
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml" />
-    </head>
-    <body class="home">
-        <div class="content">
-            <div id="vista-titlebar" class="vista-titlebar">
-                <div class="vista-titlebar-text">Mufeed VH</div>
-                <div class="vista-titlebar-controls">
-                    <span class="vista-control vista-minimize">
-                        <i class="fa-solid fa-window-minimize"></i>
-                    </span>
-                    <span class="vista-control vista-maximize">
-                        <i class="fa-regular fa-window-maximize"></i>
-                    </span>
-                    <span class="vista-control vista-close">
-                        <i class="fa-solid fa-xmark"></i>
-                    </span>
-                </div>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml">
+    
+    
+    
+    
+    
+    
+    
+</head>
+<body class="home">
+    <div class="content">
+        <div id="vista-titlebar" class="vista-titlebar">
+            <div class="vista-titlebar-text">Mufeed VH</div>
+            <div class="vista-titlebar-controls">
+                <span class="vista-control vista-minimize">
+                    <i class="fa-solid fa-window-minimize"></i>
+                </span>
+                <span class="vista-control vista-maximize">
+                    <i class="fa-regular fa-window-maximize"></i>
+                </span>
+                <span class="vista-control vista-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
             </div>
-
-            <h1>Mufeed VH</h1>
-            <p>
-                CEO and Co-founder of
-                <a href="https://asterisk.so" title="Asterisk's website" target="_blank"
-                    ><strong>Asterisk (YC S24)</strong></a
-                >
-            </p>
-            <ul class="no-bullets">
-                <li><a href="/about">&#8627; About</a></li>
-                <br />
-                <li><a href="/posts">&#8627; Posts</a></li>
-                <br />
-                <li><a href="/projects">&#8627; Projects</a></li>
-                <br />
-                <li><a href="/contact">&#8627; Contact</a></li>
-            </ul>
-            <br />
-            <a href="https://github.com/mufeedvh" aria-label="Link to my GitHub profile" target="_blank" rel="noopener"
-                ><span class="fa-brands fa-github"></span
-            ></a>
-            &nbsp;
-            <a href="https://x.com/mufeedvh" aria-label="Link to my Twitter profile" target="_blank" rel="noopener"
-                ><span class="fa-brands fa-x-twitter"></span
-            ></a>
-            &nbsp;
-            <a
-                href="https://www.linkedin.com/in/mufeed-vh/"
-                aria-label="Link to my LinkedIn profile"
-                target="_blank"
-                rel="noopener"
-                ><span class="fa-brands fa-linkedin"></span
-            ></a>
-            &nbsp;
-            <a
-                href="https://www.instagram.com/mufeedvh"
-                aria-label="Link to my Instagram profile"
-                target="_blank"
-                rel="noopener"
-                ><span class="fa-brands fa-instagram"></span
-            ></a>
-            &nbsp;
-            <a href="/rabbithole/" aria-label="Link to more useless pages on my website" class="rabbit-hole">🐇🕳️</a>
         </div>
+        
+        
+    <h1>Mufeed VH</h1>
+    <p>CEO and Co-founder of <a href="https://asterisk.so" title="Asterisk's website" target="_blank"><strong>Asterisk (YC S24)</strong></a></p>
+    <ul class="no-bullets">
+        <li><a href="/about">&#8627; About</a></li>
+        <br>
+        <li><a href="/posts">&#8627; Posts</a></li>
+        <br>
+        <li><a href="/projects">&#8627; Projects</a></li>
+        <br>
+        <li><a href="/contact">&#8627; Contact</a></li>
+    </ul>
+    <br>
+    <a href="https://github.com/mufeedvh" aria-label="Link to my GitHub profile" target="_blank" rel="noopener"><span class="fa-brands fa-github"></span></a>
+    &nbsp;
+    <a href="https://x.com/mufeedvh" aria-label="Link to my Twitter profile" target="_blank" rel="noopener"><span class="fa-brands fa-x-twitter"></span></a>
+    &nbsp;
+    <a href="https://www.linkedin.com/in/mufeed-vh/" aria-label="Link to my LinkedIn profile" target="_blank" rel="noopener"><span class="fa-brands fa-linkedin"></span></a>
+    &nbsp;
+    <a href="https://www.instagram.com/mufeedvh" aria-label="Link to my Instagram profile" target="_blank" rel="noopener"><span class="fa-brands fa-instagram"></span></a>
+    &nbsp;
+    <a href="/rabbithole/" aria-label="Link to more useless pages on my website" class="rabbit-hole">🐇🕳️</a>
 
-        <div id="theme-toggle" class="theme-toggle" title="Toggle Frutiger Aero Theme">
-            <i class="fa-solid fa-sun"></i>
-        </div>
+    </div>
+    
+    <div id="theme-toggle" class="theme-toggle" title="Toggle Frutiger Aero Theme">
+        <i class="fa-solid fa-sun"></i>
+    </div>
+    
+    
+    <script defer src="/theme-toggle.js"></script>
+    <script defer src="/tweet-theme-override.js"></script>
+    
+    <script>
+    function toggleSidenote(id) {
+        const sidenote = document.getElementById(id);
+        if (sidenote) {
+            sidenote.classList.toggle('active');
+        }
+    }
 
-        <script defer src="/theme-toggle.js"></script>
-        <script defer src="/tweet-theme-override.js"></script>
-
-        <script>
-            function toggleSidenote(id) {
-                const sidenote = document.getElementById(id);
+    if (!window.sidenotesInitialized) {
+        window.sidenotesInitialized = true;
+        
+        function initializeSidenotes() {
+            const markers = document.querySelectorAll('.sidenote-marker');
+            markers.forEach(marker => {
+                const sidenoteId = marker.getAttribute('data-sidenote');
+                const sidenote = document.getElementById(sidenoteId);
                 if (sidenote) {
-                    sidenote.classList.toggle("active");
+                    // Reset any inline styles that might interfere
+                    sidenote.style.top = '';
+                    sidenote.style.position = '';
+                    
+                    // Add click handler for desktop hover behavior
+                    if (window.innerWidth >= 1200) {
+                        marker.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            // Close all other sidenotes
+                            document.querySelectorAll('.sidenote').forEach(note => {
+                                if (note.id !== sidenoteId) {
+                                    note.classList.remove('active');
+                                }
+                            });
+                            // Toggle current sidenote
+                            sidenote.classList.toggle('active');
+                        });
+                    }
                 }
-            }
+            });
+        }
 
-            if (!window.sidenotesInitialized) {
-                window.sidenotesInitialized = true;
-
-                document.addEventListener("DOMContentLoaded", function () {
-                    initializeSidenotes();
-                });
-
-                function initializeSidenotes() {
-                    const markers = document.querySelectorAll(".sidenote-marker");
-                    markers.forEach((marker) => {
-                        const sidenoteId = marker.getAttribute("data-sidenote");
-                        const sidenote = document.getElementById(sidenoteId);
-                        if (sidenote) {
-                            // Reset any inline styles that might interfere
-                            sidenote.style.top = "";
-                            sidenote.style.position = "";
-
-                            // Add click handler for desktop hover behavior
-                            if (window.innerWidth >= 1200) {
-                                marker.addEventListener("click", function (e) {
-                                    e.preventDefault();
-                                    // Close all other sidenotes
-                                    document.querySelectorAll(".sidenote").forEach((note) => {
-                                        if (note.id !== sidenoteId) {
-                                            note.classList.remove("active");
-                                        }
-                                    });
-                                    // Toggle current sidenote
-                                    sidenote.classList.toggle("active");
-                                });
-                            }
-                        }
-                    });
-                }
-
-                let resizeTimeout;
-                window.addEventListener("resize", function () {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(function () {
-                        initializeSidenotes();
-                    }, 100);
-                });
-            }
-        </script>
-    </body>
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                initializeSidenotes();
+            }, 100);
+        });
+        
+        // Initialize sidenotes with robust ready check
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeSidenotes);
+        } else {
+            // DOM already loaded - use setTimeout to ensure all elements are parsed
+            setTimeout(initializeSidenotes, 0);
+        }
+    }
+    </script>
+    
+</body>
 </html>

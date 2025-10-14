@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     function configureTweetEmbeds() {
@@ -44,8 +44,7 @@
 
             let baselineHeight = parseFloat(iframe.dataset.tweetBaselineHeight);
             if (!Number.isFinite(baselineHeight) || baselineHeight <= 0) {
-                const measuredHeight =
-                    iframe.getBoundingClientRect().height || iframe.offsetHeight || getNumericStyle(iframe, 'height');
+                const measuredHeight = iframe.getBoundingClientRect().height || iframe.offsetHeight || getNumericStyle(iframe, 'height');
                 if (measuredHeight > 0) {
                     baselineHeight = measuredHeight / previousScale;
                     iframe.dataset.tweetBaselineHeight = String(baselineHeight);
@@ -120,10 +119,10 @@
 
     configureTweetEmbeds();
 
-    const observer = new MutationObserver(mutations => {
+    const observer = new MutationObserver((mutations) => {
         let needsUpdate = false;
-        mutations.forEach(mutation => {
-            mutation.addedNodes.forEach(node => {
+        mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
                 if (node.nodeType === 1) {
                     if (node.classList && node.classList.contains('twitter-tweet-rendered')) {
                         needsUpdate = true;
@@ -138,32 +137,37 @@
             setTimeout(forceCompactStyle, 100);
         }
     });
-
+    
     observer.observe(document.body, {
         childList: true,
-        subtree: true,
+        subtree: true
     });
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
+    function initWhenReady() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                configureTweetEmbeds();
+                setTimeout(forceCompactStyle, 500);
+                setTimeout(forceCompactStyle, 1000);
+                setTimeout(forceCompactStyle, 2000);
+                setTimeout(forceCompactStyle, 3000);
+            });
+        } else {
+            // DOM already loaded - use setTimeout for consistency
             configureTweetEmbeds();
             setTimeout(forceCompactStyle, 500);
             setTimeout(forceCompactStyle, 1000);
             setTimeout(forceCompactStyle, 2000);
             setTimeout(forceCompactStyle, 3000);
-        });
-    } else {
-        setTimeout(forceCompactStyle, 500);
-        setTimeout(forceCompactStyle, 1000);
-        setTimeout(forceCompactStyle, 2000);
-        setTimeout(forceCompactStyle, 3000);
+        }
     }
+    initWhenReady();
 
     window.addEventListener('load', () => {
         setTimeout(forceCompactStyle, 500);
         setTimeout(forceCompactStyle, 1500);
     });
-
+    
     let resizeTimeoutId;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeoutId);

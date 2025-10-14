@@ -1,1120 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="HandheldFriendly" content="True" />
-        <meta name="MobileOptimized" content="320" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="referrer" content="no-referrer" />
-        <meta name="theme-color" content="#0d0d0d" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#0d0d0d">
+    
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://platform.twitter.com">
 
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-        <link rel="dns-prefetch" href="https://platform.twitter.com" />
+    
 
-        <meta name="description" content="Who is Mufeed VH? Read more about Mufeed VH on this about page." />
+    
+        <meta name="description" content="Who is Mufeed VH? Read more about Mufeed VH on this about page.">
+        
+            <link rel="canonical" href="https://mufeedvh.com/about/">
+        
+        <meta property="og:locale" content="en_US">
+        
+            <meta property="og:type" content="website">
+        
+        <meta property="og:title" content="About">
+        <meta property="og:description" content="Who is Mufeed VH? Read more about Mufeed VH on this about page.">
+        
+            <meta property="og:image" content="https://mufeedvh.com/assets/images/vista-background.jpg">
+            <meta property="og:image:alt" content="About">
+        
+        
+            <meta property="og:url" content="https://mufeedvh.com/about/">
+        
+        <meta property="og:site_name" content="Mufeed VH">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@mufeedvh">
+        <meta name="twitter:creator" content="@mufeedvh">
+        <meta name="twitter:title" content="About">
+        <meta name="twitter:description" content="Who is Mufeed VH? Read more about Mufeed VH on this about page.">
+        
+            <meta name="twitter:image" content="https://mufeedvh.com/assets/images/vista-background.jpg">
+        
+    
 
-        <link rel="canonical" href="https://mufeedvh.com/about/" />
+    <title>
+    
+        
+            About - Mufeed VH
+        
+    
+</title>
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <link rel="preload" href="/assets/fonts/TiemposHeadline-Regular.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="/assets/fonts/TiemposText-Regular.otf" as="font" type="font/otf" crossorigin>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+    .content code:not(pre code),
+    .code-block-wrapper pre code,
+    .code-line-numbers div {
+        font-family: 'Fira Code' !important;
+    }
+    
+    @font-face {
+        font-family: TiemposHeadline-Regular;
+        src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: TiemposText-Regular;
+        src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
+        font-display: swap;
+    }
+    body {
+        background-color: #0d0d0d;
+        color: #e0e0e0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    .content {
+        padding: 20px;
+        width: 600px;
+        max-width: 90%;
+        margin: 20px auto;
+        box-sizing: border-box;
+        text-align: justify;
+        font-family: TiemposText-Regular, Georgia, serif;
+        position: relative;
+    }
+    .content h1 {
+        font-family: TiemposHeadline-Regular, Georgia, serif;
+        font-size: 2em;
+        color: #ffffff;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+    .content a {
+        font-family: TiemposHeadline-Regular, Georgia, serif;
+        color: #a855f7;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+    .content p {
+        text-align: justify;
+        text-justify: inter-word;
+        margin: 1em 0;
+        line-height: 1.7;
+    }
+    .no-bullets {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .theme-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        background-color: #1a1a1a;
+        border: 2px solid #444;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        opacity: 0.6;
+        color: #e0e0e0;
+        font-size: 1.2em;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    @media screen and (max-width: 768px) {
+        .content {
+            width: 100%;
+            max-width: 100%;
+            padding: 15px;
+            margin: 10px auto;
+        }
+        .theme-toggle {
+            width: 44px;
+            height: 44px;
+            bottom: 15px;
+            right: 15px;
+        }
+    }
+    </style>
+    
+    <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/frutiger-aero.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/frutiger-aero.css">
+    </noscript>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script defer src="/codeblock-enhancer.js"></script>
 
-        <meta property="og:locale" content="en_US" />
-
-        <meta property="og:type" content="website" />
-
-        <meta property="og:title" content="About" />
-        <meta property="og:description" content="Who is Mufeed VH? Read more about Mufeed VH on this about page." />
-
-        <meta property="og:image" content="https://mufeedvh.com/assets/images/vista-background.jpg" />
-        <meta property="og:image:alt" content="About" />
-
-        <meta property="og:url" content="https://mufeedvh.com/about/" />
-
-        <meta property="og:site_name" content="Mufeed VH" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@mufeedvh" />
-        <meta name="twitter:creator" content="@mufeedvh" />
-        <meta name="twitter:title" content="About" />
-        <meta name="twitter:description" content="Who is Mufeed VH? Read more about Mufeed VH on this about page." />
-
-        <meta name="twitter:image" content="https://mufeedvh.com/assets/images/vista-background.jpg" />
-
-        <title>About - Mufeed VH</title>
-
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-        <link rel="preload" href="/assets/fonts/TiemposHeadline-Regular.otf" as="font" type="font/otf" crossorigin />
-        <link rel="preload" href="/assets/fonts/TiemposText-Regular.otf" as="font" type="font/otf" crossorigin />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
-
-        <style>
-            .content code:not(pre code),
-            .code-block-wrapper pre code,
-            .code-line-numbers div {
-                font-family: "Fira Code" !important;
-            }
-
-            @font-face {
-                font-family: TiemposHeadline-Regular;
-                src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
-                font-display: swap;
-            }
-            @font-face {
-                font-family: TiemposText-Regular;
-                src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
-                font-display: swap;
-            }
-            body {
-                background-color: #0d0d0d;
-                color: #e0e0e0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                text-align: left;
-                min-height: 100vh;
-                margin: 0;
-                padding: 0;
-                overflow-x: hidden;
-            }
-            .content {
-                padding: 20px;
-                width: 600px;
-                max-width: 90%;
-                margin: 20px auto;
-                box-sizing: border-box;
-                text-align: justify;
-                font-family: TiemposText-Regular, Georgia, serif;
-                position: relative;
-            }
-            .content h1 {
-                font-family: TiemposHeadline-Regular, Georgia, serif;
-                font-size: 2em;
-                color: #ffffff;
-                margin-top: 1em;
-                margin-bottom: 0.5em;
-            }
-            .content a {
-                font-family: TiemposHeadline-Regular, Georgia, serif;
-                color: #a855f7;
-                text-decoration: none;
-                transition: all 0.2s ease;
-            }
-            .content p {
-                text-align: justify;
-                text-justify: inter-word;
-                margin: 1em 0;
-                line-height: 1.7;
-            }
-            .no-bullets {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            .theme-toggle {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                width: 48px;
-                height: 48px;
-                background-color: #1a1a1a;
-                border: 2px solid #444;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                z-index: 1000;
-                opacity: 0.6;
-                color: #e0e0e0;
-                font-size: 1.2em;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            }
-            @media screen and (max-width: 768px) {
-                .content {
-                    width: 100%;
-                    max-width: 100%;
-                    padding: 15px;
-                    margin: 10px auto;
-                }
-                .theme-toggle {
-                    width: 44px;
-                    height: 44px;
-                    bottom: 15px;
-                    right: 15px;
-                }
-            }
-        </style>
-
-        <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-        <link rel="preload" href="/frutiger-aero.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-        <noscript>
-            <link rel="stylesheet" href="/styles.css" />
-            <link rel="stylesheet" href="/frutiger-aero.css" />
-        </noscript>
-
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
-        />
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-        <script defer src="/codeblock-enhancer.js"></script>
-
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml" />
-    </head>
-    <body>
-        <div class="content">
-            <div id="vista-titlebar" class="vista-titlebar">
-                <div class="vista-titlebar-text">Mufeed VH</div>
-                <div class="vista-titlebar-controls">
-                    <span class="vista-control vista-minimize">
-                        <i class="fa-solid fa-window-minimize"></i>
-                    </span>
-                    <span class="vista-control vista-maximize">
-                        <i class="fa-regular fa-window-maximize"></i>
-                    </span>
-                    <span class="vista-control vista-close">
-                        <i class="fa-solid fa-xmark"></i>
-                    </span>
-                </div>
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml">
+    
+    
+    
+        
+    
+    
+    
+    
+    
+</head>
+<body>
+    <div class="content">
+        <div id="vista-titlebar" class="vista-titlebar">
+            <div class="vista-titlebar-text">Mufeed VH</div>
+            <div class="vista-titlebar-controls">
+                <span class="vista-control vista-minimize">
+                    <i class="fa-solid fa-window-minimize"></i>
+                </span>
+                <span class="vista-control vista-maximize">
+                    <i class="fa-regular fa-window-maximize"></i>
+                </span>
+                <span class="vista-control vista-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
             </div>
+        </div>
+        
+        
+    
+        
+        
+        <h1 id="about-mufeed">About Mufeed</h1>
+<p>I am the CEO and Co-founder of <a rel="noopener nofollow noreferrer" target="_blank" title="Asterisk's website" href="https://asterisk.so"><strong>Asterisk</strong></a> (YC S24) where we're researching and building products that leverage the emergent properties of AI models, such as <u>reasoning</u>, to augment security audits.</p>
+<p>I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, Kerala.</p>
+<p><strong>Latest Oscillating Interests:</strong> spreadsheets, compilers, and <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.instagram.com/xiaojie_cat">xiaojie cat</a>.</p>
+<h3 id="i-ve-done-a-thing-or-two">I've done a thing or two</h3>
+<ul>
+<li>Co-founded <a rel="noopener nofollow noreferrer" target="_blank" title="Asterisk's website" href="https://asterisk.ai"><strong>Asterisk</strong></a> and got into Y Combinator's S24 batch.</li>
+<li>Created <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/stitionai/devika">Devika</a>, the open-source alternative to Devin.</li>
+<li>Represented India at the WorldSkills Olympiad in Cyber Security.</li>
+<li>Represtented India and won the Bronze Medal at the BRICS Skills Olympiad in Cyber Security.</li>
+<li>Won the Gold Medal at the IndiaSkills Nationals in Cyber Security.</li>
+<li>Ran a research consultancy company called <a rel="noopener nofollow noreferrer" target="_blank" href="https://lyminal.space/">Lyminal</a> where I solved hard software problems for companies for fun and profit.</li>
+<li>Patched and reviewed 300+ CVEs in open-source software.</li>
+<li>Secured Google, Mastercard, Okta, DELL, Ford, Zilliqa, EFF, Telefonica, etc. via Bug Bounty programs.</li>
+<li>Won the Silver Medal in YIP (Young Innovators Programme) of K-DISC by the Government of Kerala.</li>
+<li>I loved participating in competitions and have won: FOSSHack 2023, c0c0n CTFs, IndiaSkills, Langjam, etc.</li>
+</ul>
+<h3 id="in-the-press">In the press</h3>
+<div class="press-section">
+  <div class="press-toggle" onclick="togglePress()" role="button" tabindex="0" aria-expanded="false" aria-controls="press-content">
+    <span class="toggle-icon">▶</span> View media mentions
+  </div>
+  <div id="press-content" class="press-content" style="display: none;">
+    <table class="press-table">
+      <thead>
+        <tr>
+          <th>Publication</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>TEDx Talk</td><td><a href="https://www.youtube.com/watch?v=N5MSMmt0e3o" target="_blank">View</a></td></tr>
+        <tr><td>NDTV</td><td><a href="https://www.ndtv.com/feature/artificial-intelligence-indian-ai-engineer-devika-emerges-to-challenge-devin-the-worlds-first-ai-coder-5355983" target="_blank">View</a></td></tr>
+        <tr><td>NDTV National TV Interview</td><td><a href="https://www.youtube.com/watch?v=7pLlRsk0bKs&t=1s" target="_blank">View</a></td></tr>
+        <tr><td>Economic Times</td><td><a href="https://economictimes.indiatimes.com/tech/technology/meet-devika-indias-first-ai-engineer-who-can-do-it-all/articleshow/109043053.cms?from=mdr" target="_blank">View</a></td></tr>
+        <tr><td>Hindustan Times</td><td><a href="https://www.hindustantimes.com/trending/who-is-devika-indias-ai-coder-an-alternative-to-devin-101712054136352.html" target="_blank">View</a></td></tr>
+        <tr><td>Financial Express</td><td><a href="https://www.financialexpress.com/life/technology-meet-devika-indias-own-ai-software-engineer-answer-to-us-devinnbsp-3445145/" target="_blank">View</a></td></tr>
+        <tr><td>IndiaTimes</td><td><a href="https://www.indiatimes.com/news/india/meet-devika-an-indian-open-source-alternative-to-ai-engineer-devin-631360.html" target="_blank">View</a></td></tr>
+        <tr><td>Firstpost</td><td><a href="https://www.firstpost.com/tech/devin-meets-devika-21-yo-creates-indias-own-ai-software-engineer-can-develop-software-from-scratch-13756394.html" target="_blank">View</a></td></tr>
+        <tr><td>News18</td><td><a href="https://www.news18.com/news/education-career/andhra-pradesh-student-to-represent-india-in-cybersecurity-at-worldskills-competition-in-korea-6119209.html" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-news-updates/yc-startup-unveils-open-source-graphical-interface-for-claude-code/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/meet-the-21-year-old-creator-of-devika-the-indian-open-source-devin-alternative/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/indiaskills-nsdc-youth-web-technologies-cloud-computing-mobile-robotics/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-news-updates/meet-devika-an-open-source-alternative-to-devin/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-news-updates/yann-lecun-advices-students-getting-into-ai-space-to-not-work-on-llms/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/why-india-needs-more-ai4bharats/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/a-bunch-of-20-year-old-programmers-are-driving-indias-open-source-ai/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/top-ai-tools/top-6-devin-alternatives-to-automate-your-coding-tasks/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/industry-insights/ai-startups/12-indian-genai-startups-building-insane-products-you-should-know-about/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-insights-analysis/india-is-likely-to-develop-its-foundational-model-this-year/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/indian-ai-researchers-should-move-beyond-phds/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/github-is-madly-in-love-with-indias-burgeoning-developer-community/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-news-updates/devika-creator-launches-asterisk-yc-backed-ai-agent-startup/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/taking-your-ai-passion-projects-seriously-may-not-be-a-bad-idea-after-all/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/indian-researchers-need-to-stop-making-useless-llms/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/its-too-early-to-write-off-llms/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-trends-future/why-is-yc-bullish-on-indian-ai-startups/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/cracking-yc-a-guide-for-ai-startups/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/the-secret-to-creating-the-next-billion-dollar-ai-startup/" target="_blank">View</a></td></tr>
+        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/videos/meet-indian-ai-developers-and-engineers-in-tech-talk/" target="_blank">View</a></td></tr>
+        <tr><td>MSN</td><td><a href="https://www.msn.com/en-in/money/news/kerala-man-creates-india-s-first-open-source-ai-engineer-devika-born-from-joke-on-x/ar-BB1laFXY?ocid=finance-verthp-feeds" target="_blank">View</a></td></tr>
+        <tr><td>MSN</td><td><a href="https://www.msn.com/en-in/money/news/meet-devika-india-s-own-ai-software-engineer-answer-to-us-devin/ar-BB1l09ao" target="_blank">View</a></td></tr>
+        <tr><td>Kerala Kaumudi</td><td><a href="https://keralakaumudi.com/en/news/news.php?id=1282584&u=ai-engineer-devika-to-develop-apps" target="_blank">View</a></td></tr>
+        <tr><td>Asianet News</td><td><a href="https://newsable.asianetnews.com/science/kerala-man-creates-india-s-first-open-source-ai-engineer-devika-born-from-joke-on-x-vkp-sbipng" target="_blank">View</a></td></tr>
+        <tr><td>Mathrubhumi</td><td><a href="https://www.mathrubhumi.com/technology/news/devika-indian-open-source-devin-alternative-mufeed-vh-1.9453997" target="_blank">View</a></td></tr>
+        <tr><td>The Drop Times</td><td><a href="https://www.thedroptimes.com/38641/21-year-old-innovator-launches-devika-open-source-alternative-devin" target="_blank">View</a></td></tr>
+        <tr><td>Business Prizm</td><td><a href="https://businessprizm.com/the-innovative-mind-behind-devika-ai/" target="_blank">View</a></td></tr>
+        <tr><td>Inshorts</td><td><a href="https://inshorts.com/en/news/meet-devika-indian-opensource-alternative-to-ai-engineer-devin-1712049838586" target="_blank">View</a></td></tr>
+        <tr><td>Consultants Review</td><td><a href="https://www.consultantsreview.com/news/introducing-devika-an-indian-substitute-for-ai-engineer-devin-nwid-4494.html" target="_blank">View</a></td></tr>
+        <tr><td>Consultants Review</td><td><a href="https://www.consultantsreview.com/news/devika-the-first-ai-engineer-from-india-with-the-prowess-of-all-nwid-4531.html" target="_blank">View</a></td></tr>
+        <tr><td>Industry Wired</td><td><a href="https://industrywired.com/web-stories/indian-ai-engineer-devika-rises-to-compete-with-devin/" target="_blank">View</a></td></tr>
+        <tr><td>TechJockey</td><td><a href="https://www.techjockey.com/news/indian-ai-engineer-devika-steps-up-to-challenge-devin-ai-coding-pioneer" target="_blank">View</a></td></tr>
+        <tr><td>India AI by the Government</td><td><a href="https://indiaai.gov.in/article/indian-ai-engineer-devika-challenges-the-world-s-first-ai-coder-devin" target="_blank">View</a></td></tr>
+        <tr><td>Digit</td><td><a href="https://www.digit.in/news/general/what-is-devika-an-indian-ai-software-engineer-capable-of-find-out.html" target="_blank">View</a></td></tr>
+        <tr><td>The Samur.ai</td><td><a href="https://www.thesamur.ai/news/devika-vs-devin-a-new-chapter-in-the-global-ai-race" target="_blank">View</a></td></tr>
+        <tr><td>World Skills India</td><td><a href="https://worldskillsindia.co.in/life-after-worldskill.php" target="_blank">View</a></td></tr>
+        <tr><td>New India Abroad</td><td><a href="https://www.newindiaabroad.com/news/you-devin-me-devika-indian-startup-challenges-worlds-first-ai-software-engineer" target="_blank">View</a></td></tr>
+        <tr><td>IT Voice</td><td><a href="https://www.itvoice.in/introducing-devika-indias-open-source-answer-to-ai-engineer-devin" target="_blank">View</a></td></tr>
+        <tr><td>Echo Craft AI</td><td><a href="https://echocraftai.com/devika-pioneering-an-ideal-ai-software-for-2024/" target="_blank">View</a></td></tr>
+        <tr><td>PC-Tablet</td><td><a href="https://pc-tablet.co.in/indias-ai-innovator-mufeed-vh-launches-devika-an-open-source-ai-engineer/15030/" target="_blank">View</a></td></tr>
+        <tr><td>Chronicle India</td><td><a href="https://www.chronicleindia.in/current-affairs/11145-india-devika" target="_blank">View</a></td></tr>
+        <tr><td>Velocity Tech</td><td><a href="https://blog.velocitytech.in/who-is-devika-ai/" target="_blank">View</a></td></tr>
+        <tr><td>NewsX</td><td><a href="https://www.newsx.com/science-and-technology/who-is-devika-indias-1st-ai-engineer-challenging-devin-worlds-1st-ai-coder/" target="_blank">View</a></td></tr>
+        <tr><td>MiEthereum</td><td><a href="https://miethereum.com/ai/indias-ai-innovation-devika-challenges-devin-in-the-ai-coder-arena/" target="_blank">View</a></td></tr>
+        <tr><td>Consultants Review</td><td><a href="https://www.consultantsreview.com/news/devika-the-first-ai-engineer-from-india-with-the-prowess-of-all-nwid-4531.html" target="_blank">View</a></td></tr>
+        <tr><td>MENA FN</td><td><a href="https://menafn.com/1108066161/Kerala-Man-Creates-Indias-First-Open-Source-AI-Engineer-Devika-Born-From-Joke-On-X" target="_blank">View</a></td></tr>
+        <tr><td>Anweshanam</td><td><a href="https://anweshanam.com/737707/a-i-devika-and-devin/" target="_blank">View</a></td></tr>
+        <tr><td>Kerala Technology</td><td><a href="https://keralatechnology.com/blog/devika-still-a-work-in-progress-says-creator" target="_blank">View</a></td></tr>
+        <tr><td>The Drop Times</td><td><a href="https://www.thedroptimes.com/38641/21-year-old-innovator-launches-devika-open-source-alternative-devin" target="_blank">View</a></td></tr>
+        <tr><td>World Skills 2022</td><td><a href="https://worldskills2022se.com/skills/cyber-security/index.html" target="_blank">View</a></td></tr>
+        <tr><td>IT'S FOSS NEWS</td><td><a href="https://news.itsfoss.com/claudia/" target="_blank">View</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<style>
+/* Common toggle styles */
+.press-section {
+  margin: 2em 0;
+}
 
-            <h1 id="about-mufeed">About Mufeed</h1>
-            <p>
-                I am the CEO and Co-founder of
-                <a
-                    rel="noopener nofollow noreferrer"
-                    target="_blank"
-                    title="Asterisk's website"
-                    href="https://asterisk.so"
-                    ><strong>Asterisk</strong></a
-                >
-                (YC S24) where we're researching and building products that leverage the emergent properties of AI
-                models, such as <u>reasoning</u>, to augment security audits.
-            </p>
-            <p>
-                I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, Kerala.
-            </p>
-            <p>
-                <strong>Latest Oscillating Interests:</strong> spreadsheets, compilers, and
-                <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.instagram.com/xiaojie_cat"
-                    >xiaojie cat</a
-                >.
-            </p>
-            <h3 id="i-ve-done-a-thing-or-two">I've done a thing or two</h3>
-            <ul>
-                <li>
-                    Co-founded
-                    <a
-                        rel="noopener nofollow noreferrer"
-                        target="_blank"
-                        title="Asterisk's website"
-                        href="https://asterisk.ai"
-                        ><strong>Asterisk</strong></a
-                    >
-                    and got into Y Combinator's S24 batch.
-                </li>
-                <li>
-                    Created
-                    <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/stitionai/devika"
-                        >Devika</a
-                    >, the open-source alternative to Devin.
-                </li>
-                <li>Represented India at the WorldSkills Olympiad in Cyber Security.</li>
-                <li>Represtented India and won the Bronze Medal at the BRICS Skills Olympiad in Cyber Security.</li>
-                <li>Won the Gold Medal at the IndiaSkills Nationals in Cyber Security.</li>
-                <li>
-                    Ran a research consultancy company called
-                    <a rel="noopener nofollow noreferrer" target="_blank" href="https://lyminal.space/">Lyminal</a>
-                    where I solved hard software problems for companies for fun and profit.
-                </li>
-                <li>Patched and reviewed 300+ CVEs in open-source software.</li>
-                <li>
-                    Secured Google, Mastercard, Okta, DELL, Ford, Zilliqa, EFF, Telefonica, etc. via Bug Bounty
-                    programs.
-                </li>
-                <li>Won the Silver Medal in YIP (Young Innovators Programme) of K-DISC by the Government of Kerala.</li>
-                <li>
-                    I loved participating in competitions and have won: FOSSHack 2023, c0c0n CTFs, IndiaSkills, Langjam,
-                    etc.
-                </li>
-            </ul>
-            <h3 id="in-the-press">In the press</h3>
-            <div class="press-section">
-                <div
-                    class="press-toggle"
-                    onclick="togglePress()"
-                    role="button"
-                    tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="press-content"
-                >
-                    <span class="toggle-icon">▶</span> View media mentions
-                </div>
-                <div id="press-content" class="press-content" style="display: none">
-                    <table class="press-table">
-                        <thead>
-                            <tr>
-                                <th>Publication</th>
-                                <th>Link</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>TEDx Talk</td>
-                                <td><a href="https://www.youtube.com/watch?v=N5MSMmt0e3o" target="_blank">View</a></td>
-                            </tr>
-                            <tr>
-                                <td>NDTV</td>
-                                <td>
-                                    <a
-                                        href="https://www.ndtv.com/feature/artificial-intelligence-indian-ai-engineer-devika-emerges-to-challenge-devin-the-worlds-first-ai-coder-5355983"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>NDTV National TV Interview</td>
-                                <td>
-                                    <a href="https://www.youtube.com/watch?v=7pLlRsk0bKs&t=1s" target="_blank">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Economic Times</td>
-                                <td>
-                                    <a
-                                        href="https://economictimes.indiatimes.com/tech/technology/meet-devika-indias-first-ai-engineer-who-can-do-it-all/articleshow/109043053.cms?from=mdr"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Hindustan Times</td>
-                                <td>
-                                    <a
-                                        href="https://www.hindustantimes.com/trending/who-is-devika-indias-ai-coder-an-alternative-to-devin-101712054136352.html"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Financial Express</td>
-                                <td>
-                                    <a
-                                        href="https://www.financialexpress.com/life/technology-meet-devika-indias-own-ai-software-engineer-answer-to-us-devinnbsp-3445145/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>IndiaTimes</td>
-                                <td>
-                                    <a
-                                        href="https://www.indiatimes.com/news/india/meet-devika-an-indian-open-source-alternative-to-ai-engineer-devin-631360.html"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Firstpost</td>
-                                <td>
-                                    <a
-                                        href="https://www.firstpost.com/tech/devin-meets-devika-21-yo-creates-indias-own-ai-software-engineer-can-develop-software-from-scratch-13756394.html"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>News18</td>
-                                <td>
-                                    <a
-                                        href="https://www.news18.com/news/education-career/andhra-pradesh-student-to-represent-india-in-cybersecurity-at-worldskills-competition-in-korea-6119209.html"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-news-updates/yc-startup-unveils-open-source-graphical-interface-for-claude-code/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/meet-the-21-year-old-creator-of-devika-the-indian-open-source-devin-alternative/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/indiaskills-nsdc-youth-web-technologies-cloud-computing-mobile-robotics/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-news-updates/meet-devika-an-open-source-alternative-to-devin/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-news-updates/yann-lecun-advices-students-getting-into-ai-space-to-not-work-on-llms/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-origins-evolution/why-india-needs-more-ai4bharats/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-origins-evolution/a-bunch-of-20-year-old-programmers-are-driving-indias-open-source-ai/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/top-ai-tools/top-6-devin-alternatives-to-automate-your-coding-tasks/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/industry-insights/ai-startups/12-indian-genai-startups-building-insane-products-you-should-know-about/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-insights-analysis/india-is-likely-to-develop-its-foundational-model-this-year/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-origins-evolution/indian-ai-researchers-should-move-beyond-phds/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-origins-evolution/github-is-madly-in-love-with-indias-burgeoning-developer-community/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-news-updates/devika-creator-launches-asterisk-yc-backed-ai-agent-startup/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-origins-evolution/taking-your-ai-passion-projects-seriously-may-not-be-a-bad-idea-after-all/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-origins-evolution/indian-researchers-need-to-stop-making-useless-llms/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-origins-evolution/its-too-early-to-write-off-llms/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-trends-future/why-is-yc-bullish-on-indian-ai-startups/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-origins-evolution/cracking-yc-a-guide-for-ai-startups/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/ai-origins-evolution/the-secret-to-creating-the-next-billion-dollar-ai-startup/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Analytics India Magazine</td>
-                                <td>
-                                    <a
-                                        href="https://analyticsindiamag.com/videos/meet-indian-ai-developers-and-engineers-in-tech-talk/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>MSN</td>
-                                <td>
-                                    <a
-                                        href="https://www.msn.com/en-in/money/news/kerala-man-creates-india-s-first-open-source-ai-engineer-devika-born-from-joke-on-x/ar-BB1laFXY?ocid=finance-verthp-feeds"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>MSN</td>
-                                <td>
-                                    <a
-                                        href="https://www.msn.com/en-in/money/news/meet-devika-india-s-own-ai-software-engineer-answer-to-us-devin/ar-BB1l09ao"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kerala Kaumudi</td>
-                                <td>
-                                    <a
-                                        href="https://keralakaumudi.com/en/news/news.php?id=1282584&u=ai-engineer-devika-to-develop-apps"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Asianet News</td>
-                                <td>
-                                    <a
-                                        href="https://newsable.asianetnews.com/science/kerala-man-creates-india-s-first-open-source-ai-engineer-devika-born-from-joke-on-x-vkp-sbipng"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Mathrubhumi</td>
-                                <td>
-                                    <a
-                                        href="https://www.mathrubhumi.com/technology/news/devika-indian-open-source-devin-alternative-mufeed-vh-1.9453997"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>The Drop Times</td>
-                                <td>
-                                    <a
-                                        href="https://www.thedroptimes.com/38641/21-year-old-innovator-launches-devika-open-source-alternative-devin"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Business Prizm</td>
-                                <td>
-                                    <a
-                                        href="https://businessprizm.com/the-innovative-mind-behind-devika-ai/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Inshorts</td>
-                                <td>
-                                    <a
-                                        href="https://inshorts.com/en/news/meet-devika-indian-opensource-alternative-to-ai-engineer-devin-1712049838586"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Consultants Review</td>
-                                <td>
-                                    <a
-                                        href="https://www.consultantsreview.com/news/introducing-devika-an-indian-substitute-for-ai-engineer-devin-nwid-4494.html"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Consultants Review</td>
-                                <td>
-                                    <a
-                                        href="https://www.consultantsreview.com/news/devika-the-first-ai-engineer-from-india-with-the-prowess-of-all-nwid-4531.html"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Industry Wired</td>
-                                <td>
-                                    <a
-                                        href="https://industrywired.com/web-stories/indian-ai-engineer-devika-rises-to-compete-with-devin/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>TechJockey</td>
-                                <td>
-                                    <a
-                                        href="https://www.techjockey.com/news/indian-ai-engineer-devika-steps-up-to-challenge-devin-ai-coding-pioneer"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>India AI by the Government</td>
-                                <td>
-                                    <a
-                                        href="https://indiaai.gov.in/article/indian-ai-engineer-devika-challenges-the-world-s-first-ai-coder-devin"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Digit</td>
-                                <td>
-                                    <a
-                                        href="https://www.digit.in/news/general/what-is-devika-an-indian-ai-software-engineer-capable-of-find-out.html"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>The Samur.ai</td>
-                                <td>
-                                    <a
-                                        href="https://www.thesamur.ai/news/devika-vs-devin-a-new-chapter-in-the-global-ai-race"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>World Skills India</td>
-                                <td>
-                                    <a href="https://worldskillsindia.co.in/life-after-worldskill.php" target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>New India Abroad</td>
-                                <td>
-                                    <a
-                                        href="https://www.newindiaabroad.com/news/you-devin-me-devika-indian-startup-challenges-worlds-first-ai-software-engineer"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>IT Voice</td>
-                                <td>
-                                    <a
-                                        href="https://www.itvoice.in/introducing-devika-indias-open-source-answer-to-ai-engineer-devin"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Echo Craft AI</td>
-                                <td>
-                                    <a
-                                        href="https://echocraftai.com/devika-pioneering-an-ideal-ai-software-for-2024/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>PC-Tablet</td>
-                                <td>
-                                    <a
-                                        href="https://pc-tablet.co.in/indias-ai-innovator-mufeed-vh-launches-devika-an-open-source-ai-engineer/15030/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Chronicle India</td>
-                                <td>
-                                    <a
-                                        href="https://www.chronicleindia.in/current-affairs/11145-india-devika"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Velocity Tech</td>
-                                <td>
-                                    <a href="https://blog.velocitytech.in/who-is-devika-ai/" target="_blank">View</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>NewsX</td>
-                                <td>
-                                    <a
-                                        href="https://www.newsx.com/science-and-technology/who-is-devika-indias-1st-ai-engineer-challenging-devin-worlds-1st-ai-coder/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>MiEthereum</td>
-                                <td>
-                                    <a
-                                        href="https://miethereum.com/ai/indias-ai-innovation-devika-challenges-devin-in-the-ai-coder-arena/"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Consultants Review</td>
-                                <td>
-                                    <a
-                                        href="https://www.consultantsreview.com/news/devika-the-first-ai-engineer-from-india-with-the-prowess-of-all-nwid-4531.html"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>MENA FN</td>
-                                <td>
-                                    <a
-                                        href="https://menafn.com/1108066161/Kerala-Man-Creates-Indias-First-Open-Source-AI-Engineer-Devika-Born-From-Joke-On-X"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Anweshanam</td>
-                                <td>
-                                    <a href="https://anweshanam.com/737707/a-i-devika-and-devin/" target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kerala Technology</td>
-                                <td>
-                                    <a
-                                        href="https://keralatechnology.com/blog/devika-still-a-work-in-progress-says-creator"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>The Drop Times</td>
-                                <td>
-                                    <a
-                                        href="https://www.thedroptimes.com/38641/21-year-old-innovator-launches-devika-open-source-alternative-devin"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>World Skills 2022</td>
-                                <td>
-                                    <a
-                                        href="https://worldskills2022se.com/skills/cyber-security/index.html"
-                                        target="_blank"
-                                        >View</a
-                                    >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>IT'S FOSS NEWS</td>
-                                <td><a href="https://news.itsfoss.com/claudia/" target="_blank">View</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <style>
-                /* Common toggle styles */
-                .press-section {
-                    margin: 2em 0;
-                }
+.press-toggle,
+details summary {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: TiemposHeadline-Regular;
+  font-size: 1em;
+  color: inherit;
+  justify-content: flex-start;
+  text-align: left;
+  margin: 1em auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  max-width: calc(100% - 40px);
+  box-sizing: border-box;
+}
 
-                .press-toggle,
-                details summary {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.6em;
-                    font-family: TiemposHeadline-Regular;
-                    font-size: 1em;
-                    color: inherit;
-                    justify-content: flex-start;
-                    text-align: left;
-                    margin: 1em auto;
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: 350px;
-                    max-width: calc(100% - 40px);
-                    box-sizing: border-box;
-                }
+/* Ensure press-toggle doesn't inherit button pseudo-elements */
+.press-toggle::before,
+.press-toggle::after {
+  display: none !important;
+}
 
-                /* Ensure press-toggle doesn't inherit button pseudo-elements */
-                .press-toggle::before,
-                .press-toggle::after {
-                    display: none !important;
-                }
+.toggle-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 0.8em;
+}
 
-                .toggle-icon {
-                    display: inline-block;
-                    transition: transform 0.3s ease;
-                    font-size: 0.8em;
-                }
+.press-toggle[aria-expanded="true"] .toggle-icon,
+details[open] .toggle-icon {
+  transform: rotate(90deg);
+}
 
-                .press-toggle[aria-expanded="true"] .toggle-icon,
-                details[open] .toggle-icon {
-                    transform: rotate(90deg);
-                }
+.press-content {
+  margin-top: 1em;
+  overflow-x: auto;
+  animation: fadeIn 0.3s ease;
+}
 
-                .press-content {
-                    margin-top: 1em;
-                    overflow-x: auto;
-                    animation: fadeIn 0.3s ease;
-                }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(-10px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
+.press-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  font-size: 0.95em;
+}
 
-                .press-table {
-                    width: 100%;
-                    border-collapse: collapse;
-                    margin-top: 1em;
-                    font-size: 0.95em;
-                }
+.press-table thead {
+  background-color: rgba(248, 245, 215, 0.5);
+}
 
-                .press-table thead {
-                    background-color: rgba(248, 245, 215, 0.5);
-                }
+.press-table th {
+  text-align: left;
+  padding: 0.75em;
+  border-bottom: 2px solid #ccc;
+  font-weight: 600;
+}
 
-                .press-table th {
-                    text-align: left;
-                    padding: 0.75em;
-                    border-bottom: 2px solid #ccc;
-                    font-weight: 600;
-                }
+.press-table td {
+  padding: 0.75em;
+  border-bottom: 1px solid #e0e0e0;
+}
 
-                .press-table td {
-                    padding: 0.75em;
-                    border-bottom: 1px solid #e0e0e0;
-                }
+.press-table tr:hover {
+  background-color: rgba(248, 245, 215, 0.2);
+}
 
-                .press-table tr:hover {
-                    background-color: rgba(248, 245, 215, 0.2);
-                }
+.press-table a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #ccc;
+  font-weight: 500;
+}
 
-                .press-table a {
-                    color: inherit;
-                    text-decoration: underline;
-                    text-decoration-color: #ccc;
-                    font-weight: 500;
-                }
+.press-table a:hover {
+  text-decoration-color: #999;
+}
 
-                .press-table a:hover {
-                    text-decoration-color: #999;
-                }
+/* Details content styling */
+details > *:not(summary) {
+  animation: fadeIn 0.3s ease;
+  margin-top: 0.5em;
+}
 
-                /* Details content styling */
-                details > *:not(summary) {
-                    animation: fadeIn 0.3s ease;
-                    margin-top: 0.5em;
-                }
+/* Responsive styles */
+@media (max-width: 600px) {
+  .press-table {
+    font-size: 0.85em;
+  }
+  
+  .press-table th,
+  .press-table td {
+    padding: 0.5em;
+  }
+  
+  .press-toggle,
+  details summary {
+    width: 100%;
+    max-width: calc(100% - 30px);
+    padding: 12px 20px;
+  }
+}
 
-                /* Responsive styles */
-                @media (max-width: 600px) {
-                    .press-table {
-                        font-size: 0.85em;
-                    }
+/* Frutiger Aero theme styles */
+body.frutiger-aero .press-table thead {
+  background-color: rgba(224, 240, 255, 0.3);
+}
 
-                    .press-table th,
-                    .press-table td {
-                        padding: 0.5em;
-                    }
+body.frutiger-aero .press-table th {
+  border-bottom-color: rgba(173, 216, 255, 0.8);
+}
 
-                    .press-toggle,
-                    details summary {
-                        width: 100%;
-                        max-width: calc(100% - 30px);
-                        padding: 12px 20px;
-                    }
-                }
+body.frutiger-aero .press-table td {
+  border-bottom-color: rgba(173, 216, 255, 0.3);
+}
 
-                /* Frutiger Aero theme styles */
-                body.frutiger-aero .press-table thead {
-                    background-color: rgba(224, 240, 255, 0.3);
-                }
+body.frutiger-aero .press-table tr:hover {
+  background-color: rgba(224, 240, 255, 0.2);
+}
 
-                body.frutiger-aero .press-table th {
-                    border-bottom-color: rgba(173, 216, 255, 0.8);
-                }
+body.frutiger-aero .press-table a {
+  color: #0063B1;
+  text-decoration-color: rgba(173, 216, 255, 0.8);
+}
 
-                body.frutiger-aero .press-table td {
-                    border-bottom-color: rgba(173, 216, 255, 0.3);
-                }
+body.frutiger-aero .press-table a:hover {
+  text-decoration-color: #0063B1;
+}
+</style>
+<script>
+function togglePress() {
+  const button = document.querySelector('.press-toggle');
+  const content = document.getElementById('press-content');
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  
+  button.setAttribute('aria-expanded', !isExpanded);
+  content.style.display = isExpanded ? 'none' : 'block';
+  
+  // Update button text
+  const buttonText = isExpanded ? 'View media mentions' : 'Hide media mentions';
+  button.innerHTML = `<span class="toggle-icon">▶</span> ${buttonText}`;
+}
 
-                body.frutiger-aero .press-table tr:hover {
-                    background-color: rgba(224, 240, 255, 0.2);
-                }
+// Add keyboard support for the press toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const pressToggle = document.querySelector('.press-toggle');
+  if (pressToggle) {
+    pressToggle.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        togglePress();
+      }
+    });
+  }
+});
+</script>
+<h3 id="socials">Socials</h3>
+<p>@mufeedvh on <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/mufeedvh">GitHub</a>, <a rel="noopener nofollow noreferrer" target="_blank" href="https://x.com/mufeedvh">X</a>, and <a rel="noopener nofollow noreferrer" target="_blank" href="https://instagram.com/mufeedvh">Instagram</a>.</p>
+<details class="bonus-section">
+  <summary><span class="toggle-icon">▶</span> Bonus</summary>
+  <img src="/assets/images/cats.jpg" alt="Two adorable cats posing together" loading="lazy" width="800" height="600">
+</details>
+<br>
+<script>
+function me_when() {
+    var a = new Date(2002,5,13);
+    var b = new Date();
+    var c = b - a;
+    var d = c / (1000 * 60 * 60 * 24 * 365.25);
+    document.getElementById('my_age').innerHTML = '' + Math.floor(d) + '.' + (d % 1).toFixed(9).substr(2)
+}
+setInterval(me_when, 1)
+</script>
+    
+    <a href="/">&#8592; Back to home</a>
 
-                body.frutiger-aero .press-table a {
-                    color: #0063b1;
-                    text-decoration-color: rgba(173, 216, 255, 0.8);
-                }
+    </div>
+    
+    <div id="theme-toggle" class="theme-toggle" title="Toggle Frutiger Aero Theme">
+        <i class="fa-solid fa-sun"></i>
+    </div>
+    
+    
+    <script defer src="/theme-toggle.js"></script>
+    <script defer src="/tweet-theme-override.js"></script>
+    
+    <script>
+    function toggleSidenote(id) {
+        const sidenote = document.getElementById(id);
+        if (sidenote) {
+            sidenote.classList.toggle('active');
+        }
+    }
 
-                body.frutiger-aero .press-table a:hover {
-                    text-decoration-color: #0063b1;
-                }
-            </style>
-            <script>
-                function togglePress() {
-                    const button = document.querySelector(".press-toggle");
-                    const content = document.getElementById("press-content");
-                    const isExpanded = button.getAttribute("aria-expanded") === "true";
-
-                    button.setAttribute("aria-expanded", !isExpanded);
-                    content.style.display = isExpanded ? "none" : "block";
-
-                    // Update button text
-                    const buttonText = isExpanded ? "View media mentions" : "Hide media mentions";
-                    button.innerHTML = `<span class="toggle-icon">▶</span> ${buttonText}`;
-                }
-
-                // Add keyboard support for the press toggle
-                document.addEventListener("DOMContentLoaded", function () {
-                    const pressToggle = document.querySelector(".press-toggle");
-                    if (pressToggle) {
-                        pressToggle.addEventListener("keydown", function (e) {
-                            if (e.key === "Enter" || e.key === " ") {
-                                e.preventDefault();
-                                togglePress();
-                            }
+    if (!window.sidenotesInitialized) {
+        window.sidenotesInitialized = true;
+        
+        function initializeSidenotes() {
+            const markers = document.querySelectorAll('.sidenote-marker');
+            markers.forEach(marker => {
+                const sidenoteId = marker.getAttribute('data-sidenote');
+                const sidenote = document.getElementById(sidenoteId);
+                if (sidenote) {
+                    // Reset any inline styles that might interfere
+                    sidenote.style.top = '';
+                    sidenote.style.position = '';
+                    
+                    // Add click handler for desktop hover behavior
+                    if (window.innerWidth >= 1200) {
+                        marker.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            // Close all other sidenotes
+                            document.querySelectorAll('.sidenote').forEach(note => {
+                                if (note.id !== sidenoteId) {
+                                    note.classList.remove('active');
+                                }
+                            });
+                            // Toggle current sidenote
+                            sidenote.classList.toggle('active');
                         });
                     }
-                });
-            </script>
-            <h3 id="socials">Socials</h3>
-            <p>
-                @mufeedvh on
-                <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/mufeedvh">GitHub</a>,
-                <a rel="noopener nofollow noreferrer" target="_blank" href="https://x.com/mufeedvh">X</a>, and
-                <a rel="noopener nofollow noreferrer" target="_blank" href="https://instagram.com/mufeedvh">Instagram</a
-                >.
-            </p>
-            <details class="bonus-section">
-                <summary><span class="toggle-icon">▶</span> Bonus</summary>
-                <img
-                    src="/assets/images/cats.jpg"
-                    alt="Two adorable cats posing together"
-                    loading="lazy"
-                    width="800"
-                    height="600"
-                />
-            </details>
-            <br />
-            <script>
-                function me_when() {
-                    var a = new Date(2002, 5, 13);
-                    var b = new Date();
-                    var c = b - a;
-                    var d = c / (1000 * 60 * 60 * 24 * 365.25);
-                    document.getElementById("my_age").innerHTML =
-                        "" + Math.floor(d) + "." + (d % 1).toFixed(9).substr(2);
                 }
-                setInterval(me_when, 1);
-            </script>
+            });
+        }
 
-            <a href="/">&#8592; Back to home</a>
-        </div>
-
-        <div id="theme-toggle" class="theme-toggle" title="Toggle Frutiger Aero Theme">
-            <i class="fa-solid fa-sun"></i>
-        </div>
-
-        <script defer src="/theme-toggle.js"></script>
-        <script defer src="/tweet-theme-override.js"></script>
-
-        <script>
-            function toggleSidenote(id) {
-                const sidenote = document.getElementById(id);
-                if (sidenote) {
-                    sidenote.classList.toggle("active");
-                }
-            }
-
-            if (!window.sidenotesInitialized) {
-                window.sidenotesInitialized = true;
-
-                document.addEventListener("DOMContentLoaded", function () {
-                    initializeSidenotes();
-                });
-
-                function initializeSidenotes() {
-                    const markers = document.querySelectorAll(".sidenote-marker");
-                    markers.forEach((marker) => {
-                        const sidenoteId = marker.getAttribute("data-sidenote");
-                        const sidenote = document.getElementById(sidenoteId);
-                        if (sidenote) {
-                            // Reset any inline styles that might interfere
-                            sidenote.style.top = "";
-                            sidenote.style.position = "";
-
-                            // Add click handler for desktop hover behavior
-                            if (window.innerWidth >= 1200) {
-                                marker.addEventListener("click", function (e) {
-                                    e.preventDefault();
-                                    // Close all other sidenotes
-                                    document.querySelectorAll(".sidenote").forEach((note) => {
-                                        if (note.id !== sidenoteId) {
-                                            note.classList.remove("active");
-                                        }
-                                    });
-                                    // Toggle current sidenote
-                                    sidenote.classList.toggle("active");
-                                });
-                            }
-                        }
-                    });
-                }
-
-                let resizeTimeout;
-                window.addEventListener("resize", function () {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(function () {
-                        initializeSidenotes();
-                    }, 100);
-                });
-            }
-        </script>
-    </body>
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                initializeSidenotes();
+            }, 100);
+        });
+        
+        // Initialize sidenotes with robust ready check
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeSidenotes);
+        } else {
+            // DOM already loaded - use setTimeout to ensure all elements are parsed
+            setTimeout(initializeSidenotes, 0);
+        }
+    }
+    </script>
+    
+</body>
 </html>

@@ -532,11 +532,17 @@ html { scroll-behavior: smooth; }
         updateActiveSection();
     }
     
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', generateTOC);
-    } else {
-        generateTOC();
+    // Ensure generateTOC runs after DOM is fully loaded
+    // Use a more robust check that works with inline scripts
+    function initWhenReady() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', generateTOC);
+        } else if (document.readyState === 'interactive' || document.readyState === 'complete') {
+            // DOM is already loaded, but give it a tick to ensure all elements are parsed
+            setTimeout(generateTOC, 0);
+        }
     }
+    initWhenReady();
     
     document.addEventListener('DOMContentLoaded', function() {
         const tocToggle = document.querySelector(`#toc-container-${tocId} .toc-toggle`);

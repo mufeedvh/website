@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: TiemposHeadline-Regular;
     src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
@@ -95,7 +96,7 @@ body {
         padding: 15px;
         margin: 10px auto;
     }
-
+    
     .theme-toggle {
         width: 44px;
         height: 44px;
@@ -103,3 +104,4 @@ body {
         right: 15px;
     }
 }
+

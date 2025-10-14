@@ -1,3 +1,5 @@
+
+
 body {
     background-color: #0d0d0d;
     color: #e0e0e0;
@@ -184,7 +186,7 @@ body:not(.home) .content {
     background-color: #1a1a1a;
     color: #f8f8f2;
     padding: 2px 6px;
-    font-family: "Fira Code" !important;
+    font-family: 'Fira Code' !important;
     font-size: 0.9em;
     border: 1px solid #333;
 }
@@ -210,7 +212,7 @@ body:not(.home) .content {
 .code-language {
     font-size: 0.75rem;
     color: #8a7a64;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -230,7 +232,7 @@ body:not(.home) .content {
     width: auto !important;
     margin: 0 !important;
     font-weight: 500;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .code-copy-button:hover {
@@ -262,7 +264,7 @@ body:not(.home) .content {
 }
 
 .code-block-wrapper pre code {
-    font-family: "Fira Code" !important;
+    font-family: 'Fira Code' !important;
     font-size: 0.875rem;
     line-height: 1.6;
     color: #d4c4a8;
@@ -286,7 +288,7 @@ body:not(.home) .content {
 }
 
 .code-line-numbers div {
-    font-family: "Fira Code" !important;
+    font-family: 'Fira Code' !important;
     font-size: 0.875rem;
     line-height: 1.6;
     color: #444;
@@ -348,7 +350,7 @@ body:not(.home) .content {
     align-items: center;
     gap: 0.4rem;
     font-weight: 500;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     pointer-events: auto;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -376,7 +378,7 @@ body:not(.home) .content {
 }
 
 .code-preview-mode {
-    max-height: calc(1.6em * 15 + 2rem);
+    max-height: calc(1.6em * 15 + 2rem); 
     overflow: hidden;
     position: relative;
 }
@@ -635,7 +637,7 @@ h4.post-button {
     .sidenote {
         display: none;
     }
-
+    
     .sidenote-container:hover .sidenote,
     .sidenote.active {
         display: block;
@@ -644,7 +646,7 @@ h4.post-button {
     .sidenote-marker {
         cursor: pointer;
     }
-
+    
     .sidenote {
         max-width: min(250px, calc(100vw - 800px));
     }
@@ -684,22 +686,11 @@ h4.post-button {
 }
 
 @keyframes subtle-shake {
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-    20% {
-        transform: translateX(-2px) rotate(-1deg);
-    }
-    40% {
-        transform: translateX(2px) rotate(1deg);
-    }
-    60% {
-        transform: translateX(-2px) rotate(0deg);
-    }
-    80% {
-        transform: translateX(2px) rotate(0deg);
-    }
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-2px) rotate(-1deg); }
+    40% { transform: translateX(2px) rotate(1deg); }
+    60% { transform: translateX(-2px) rotate(0deg); }
+    80% { transform: translateX(2px) rotate(0deg); }
 }
 
 .tag {
@@ -779,11 +770,11 @@ hr {
     body {
         overflow-x: hidden;
     }
-
+    
     body:not(.home) .content {
         margin-top: 20px;
     }
-
+    
     .content {
         width: 100%;
         max-width: 100%;
@@ -795,30 +786,30 @@ hr {
     .content .twitter-tweet-rendered {
         margin: 1.5em auto 0 !important;
     }
-
+    
     body:not(.home) .content {
         margin-top: 20px;
     }
-
+    
     .theme-toggle {
         width: 44px;
         height: 44px;
         bottom: 15px;
         right: 15px;
     }
-
+    
     .code-block-wrapper {
         margin: 1rem 0;
     }
-
+    
     .code-block-header {
         padding: 0.5rem 0.75rem;
     }
-
+    
     .code-language {
         font-size: 0.8125rem;
     }
-
+    
     .code-copy-button {
         padding: 0.35rem 0.7rem;
         font-size: 0.8125rem;
@@ -826,7 +817,7 @@ hr {
         width: auto !important;
         margin: 0 !important;
     }
-
+    
     button,
     .post-button,
     .press-toggle,
@@ -850,7 +841,7 @@ hr {
         padding: 12px;
         margin: 5px auto;
     }
-
+    
     body:not(.home) .content {
         margin-top: 5px;
     }
@@ -859,26 +850,26 @@ hr {
     .content blockquote.twitter-tweet {
         margin: 1.2em auto 0 !important;
     }
-
+    
     .theme-toggle {
         width: 40px;
         height: 40px;
         bottom: 10px;
         right: 10px;
     }
-
+    
     .code-block-wrapper {
         margin: 1rem 0;
     }
-
+    
     .code-block-header {
         padding: 0.375rem 0.5rem;
     }
-
+    
     .code-language {
         font-size: 0.75rem;
     }
-
+    
     .code-copy-button {
         padding: 0.3rem 0.6rem;
         font-size: 0.75rem;
@@ -887,25 +878,25 @@ hr {
         width: auto !important;
         margin: 0 !important;
     }
-
+    
     .code-block-wrapper pre,
     .code-block-wrapper pre code {
         font-size: 0.8125rem;
     }
-
+    
     .code-line-numbers {
         padding: 1rem 0.5rem;
     }
-
+    
     .code-line-numbers div {
         font-size: 0.8125rem;
     }
-
+    
     .code-expand-button {
         padding: 0.35rem 0.7rem;
         font-size: 0.7rem;
     }
-
+    
     button,
     .post-button,
     .press-toggle,
@@ -922,7 +913,7 @@ hr {
     .content {
         width: 700px;
     }
-
+    
     .code-block-wrapper {
         margin: 1.5rem 0;
     }
@@ -945,15 +936,15 @@ hr {
         width: 1000px;
         font-size: 1.1em;
     }
-
+    
     .content h1 {
         font-size: 2.5em;
     }
-
+    
     .content h2 {
         font-size: 2.1em;
     }
-
+    
     .content h3 {
         font-size: 1.8em;
     }
@@ -973,7 +964,7 @@ hr {
     display: block;
     width: var(--drop-cap-width, 80px);
     height: var(--drop-cap-height, calc(1em * 1.7 * 3));
-
+    
     max-height: calc(var(--drop-cap-height) - 2px);
 }
 
@@ -1011,3 +1002,4 @@ hr {
         height: var(--drop-cap-height, calc(1em * 1.7 * 3));
     }
 }
+
