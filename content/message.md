@@ -21,6 +21,9 @@ write or draw me a message **anonymously**.
     }
 
     .paint-canvas {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
         width: 100%;
         height: 400px;
         background: white;
@@ -166,9 +169,13 @@ write or draw me a message **anonymously**.
         applyStrokeSettings();
 
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', resizeCanvas);
+            document.addEventListener('DOMContentLoaded', () => {
+                resizeCanvas();
+                setTimeout(resizeCanvas, 100);
+            });
         } else {
             resizeCanvas();
+            setTimeout(resizeCanvas, 100);
         }
 
         window.addEventListener('resize', resizeCanvas);
@@ -272,7 +279,31 @@ write or draw me a message **anonymously**.
 
         const API_URL = 'https://api.mufeedvh.com';
 
+        let lastSentMessage = null;
+        let lastSentDrawing = null;
+        let isSendingMessage = false;
+        let isSendingDrawing = false;
+
         const send_message = () => {
+            if (isSendingMessage) {
+                return;
+            }
+
+            const message = document.getElementById('message').value;
+            const button = document.getElementById('msg-button');
+
+            if (lastSentMessage !== null && message === lastSentMessage) {
+                button.style.backgroundColor = '#ffa500';
+                button.style.color = 'white';
+                button.innerHTML = 'Message already sent';
+                return;
+            }
+
+            isSendingMessage = true;
+            button.disabled = true;
+            button.style.backgroundColor = '#808080';
+            button.innerHTML = 'Sending...';
+
             const xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function() {
@@ -280,20 +311,23 @@ write or draw me a message **anonymously**.
                     const token = JSON.parse(this.responseText).token;
                     console.log('acquired token: ' + token);
 
-                    const message = document.getElementById('message').value;
                     const innerXhttp = new XMLHttpRequest();
                     const url = API_URL + '/message';
 
                     innerXhttp.onreadystatechange = function() {
                         if (this.readyState === 4 && this.status === 200) {
-                            const button = document.getElementById('msg-button');
+                            lastSentMessage = message;
                             button.style.backgroundColor = 'lightgreen';
+                            button.style.color = 'black';
                             button.innerHTML = JSON.parse(innerXhttp.responseText).message;
+                            button.disabled = false;
+                            isSendingMessage = false;
                         } else if (this.readyState === 4 && this.status !== 200) {
-                            const button = document.getElementById('msg-button');
                             button.style.color = 'white';
                             button.style.backgroundColor = 'red';
                             button.innerHTML = 'Failed to send message';
+                            button.disabled = false;
+                            isSendingMessage = false;
                         }
                     };
 
@@ -303,6 +337,12 @@ write or draw me a message **anonymously**.
                         'token': token,
                         'message': message
                     }));
+                } else if (this.readyState === 4 && this.status !== 200) {
+                    button.style.color = 'white';
+                    button.style.backgroundColor = 'red';
+                    button.innerHTML = 'Failed to get token';
+                    button.disabled = false;
+                    isSendingMessage = false;
                 }
             };
 
@@ -311,6 +351,25 @@ write or draw me a message **anonymously**.
         };
 
         const send_drawing = () => {
+            if (isSendingDrawing) {
+                return;
+            }
+
+            const drawingData = paintCanvas.toDataURL();
+            const button = document.getElementById('draw-button');
+
+            if (lastSentDrawing !== null && drawingData === lastSentDrawing) {
+                button.style.backgroundColor = '#ffa500';
+                button.style.color = 'white';
+                button.innerHTML = 'Drawing already sent';
+                return;
+            }
+
+            isSendingDrawing = true;
+            button.disabled = true;
+            button.style.backgroundColor = '#808080';
+            button.innerHTML = 'Sending...';
+
             const xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function() {
@@ -323,14 +382,18 @@ write or draw me a message **anonymously**.
 
                     innerXhttp.onreadystatechange = function() {
                         if (this.readyState === 4 && this.status === 200) {
-                            const button = document.getElementById('draw-button');
+                            lastSentDrawing = drawingData;
                             button.style.backgroundColor = 'lightgreen';
+                            button.style.color = 'black';
                             button.innerHTML = JSON.parse(innerXhttp.responseText).message;
+                            button.disabled = false;
+                            isSendingDrawing = false;
                         } else if (this.readyState === 4 && this.status !== 200) {
-                            const button = document.getElementById('draw-button');
                             button.style.color = 'white';
                             button.style.backgroundColor = 'red';
-                            button.innerHTML = 'Failed to send message';
+                            button.innerHTML = 'Failed to send drawing';
+                            button.disabled = false;
+                            isSendingDrawing = false;
                         }
                     };
 
@@ -338,8 +401,14 @@ write or draw me a message **anonymously**.
                     innerXhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
                     innerXhttp.send(JSON.stringify({
                         'token': token,
-                        'message': paintCanvas.toDataURL()
+                        'message': drawingData
                     }));
+                } else if (this.readyState === 4 && this.status !== 200) {
+                    button.style.color = 'white';
+                    button.style.backgroundColor = 'red';
+                    button.innerHTML = 'Failed to get token';
+                    button.disabled = false;
+                    isSendingDrawing = false;
                 }
             };
 

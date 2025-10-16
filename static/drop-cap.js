@@ -316,12 +316,22 @@
         if (!targetParagraph) return;
         
         // Extract the first letter
-        const textNode = targetParagraph.childNodes[0];
-        if (!textNode || textNode.nodeType !== Node.TEXT_NODE) return;
+        // Find the first non-whitespace text node (handles formatted HTML with newlines/indentation)
+        let textNode = null;
+        for (const node of targetParagraph.childNodes) {
+            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+                textNode = node;
+                break;
+            }
+        }
+        
+        if (!textNode) return;
         
         const fullText = textNode.textContent;
-        const firstLetter = fullText.charAt(0);
-        const remainingText = fullText.substring(1);
+        const trimmedText = fullText.trimStart(); // Remove leading whitespace
+        const leadingWhitespace = fullText.substring(0, fullText.length - trimmedText.length);
+        const firstLetter = trimmedText.charAt(0);
+        const remainingText = trimmedText.substring(1);
         
         if (!firstLetter || !/[A-Z]/.test(firstLetter)) return;
 
@@ -352,6 +362,11 @@
         remainingTextSpan.textContent = remainingText;
         
         // Replace the text node with our new structure
+        // Preserve leading whitespace, then add drop cap and remaining text
+        if (leadingWhitespace) {
+            const whitespaceNode = document.createTextNode(leadingWhitespace);
+            targetParagraph.insertBefore(whitespaceNode, textNode);
+        }
         targetParagraph.insertBefore(dropCapContainer, textNode);
         targetParagraph.insertBefore(remainingTextSpan, textNode);
         targetParagraph.removeChild(textNode);

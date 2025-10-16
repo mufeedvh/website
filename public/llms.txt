@@ -1,0 +1,38 @@
+# Mufeed VH
+
+> Mufeed VH is the CEO and Co-founder of Winfunc (YC S24), a company building AI-powered security audit tools. He is the creator of Devika, an open-source AI Software Engineer, and a security researcher who has found 300+ CVEs in open-source software. He represented India at the WorldSkills Olympiad in Cyber Security and has secured companies like Google, Mastercard, Okta, and DELL through bug bounty programs.
+
+This website contains Mufeed's projects, blog posts on AI and security, open-source contributions, and professional background. Most projects focus on AI agents, LLM tooling, security tools, and systems programming in Rust and Python.
+
+## About
+
+- [About Mufeed](https://mufeedvh.com/about/): Biography, achievements, press mentions, and social profiles
+- [Projects](https://mufeedvh.com/projects/): Complete list of open-source projects with CVE work and security hall of fames
+
+## Blog
+
+- [Security in the age of LLMs](https://mufeedvh.com/posts/llm-security/): Analysis of security threat models in the age of AI, covering prompt injections, sandboxing extended LLMs, SSRF vulnerabilities in AI agents, and AI alignment considerations
+
+## Key Projects
+
+- [Devika](https://github.com/stitionai/devika): An Agentic AI Software Engineer that understands high-level instructions, breaks them into steps, researches information, and writes code. Open-source alternative to Devin by Cognition AI
+- [Opcode (formerly Claudia)](https://github.com/winfunc/opcode): A powerful GUI app and toolkit for Claude Code. Create custom agents, manage interactive sessions, and run secure background agents
+- [DeepClaude](https://github.com/winfunc/deepclaude): High-performance LLM inference API and Chat UI integrating DeepSeek R1's Chain-of-Thought reasoning with Anthropic Claude models
+- [code2prompt](https://github.com/mufeedvh/code2prompt): CLI tool to convert codebases into a single LLM prompt with source tree, prompt templating, and token counting
+- [blockoli](https://github.com/winfunc/blockoli): High-performance code indexing, embedding generation, and semantic search tool for use with LLMs
+- [stackwalk](https://github.com/winfunc/stackwalk): Universal language-agnostic AST walking and accurate call stack generation with tree-sitter
+- [titor](https://github.com/winfunc/titor): High-performance checkpointing library enabling time-travel capabilities through directory snapshots with incremental backups and cryptographic verification
+- [binserve](https://github.com/mufeedvh/binserve): Fast static web server with routing, templating, and security in a single binary with zero code setup
+- [moonwalk](https://github.com/mufeedvh/moonwalk): Cover tracks during Linux exploitation by leaving zero traces on system logs and filesystem timestamps
+- [basecrack](https://github.com/mufeedvh/basecrack): Tool to decode all alphanumeric base encoding schemes
+- [pdfrip](https://github.com/mufeedvh/pdfrip): Multi-threaded PDF password cracking utility with common password format builders and dictionary attacks
+- [regretti](https://github.com/mufeedvh/regretti): Programming language where comments are first-class citizens and ASCII art flowcharts are controls. Won voter's choice at Lang Jam
+
+## Optional
+
+- [Contact](https://mufeedvh.com/contact/): How to reach Mufeed
+- [GitHub Profile](https://github.com/mufeedvh): All open-source projects and contributions
+- [X (Twitter)](https://x.com/mufeedvh): Updates and thoughts
+- [LinkedIn](https://www.linkedin.com/in/mufeed-vh/): Professional profile
+- [Winfunc Company](https://winfunc.com): YC S24 company building AI-powered security audit products
+

@@ -1,1189 +1,1308 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <meta name="theme-color" content="#0d0d0d">
-    
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://platform.twitter.com">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="referrer" content="no-referrer" />
+        <meta name="theme-color" content="#0d0d0d" />
 
-    
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+        <link rel="dns-prefetch" href="https://platform.twitter.com" />
 
-    
-        <meta name="description" content="Get to know about Mufeed VH's work, open-source projects, open-source contributions, CVEs, research, etc.">
-        
-            <link rel="canonical" href="https://mufeedvh.com/projects/">
-        
-        <meta property="og:locale" content="en_US">
-        
-            <meta property="og:type" content="website">
-        
-        <meta property="og:title" content="Projects">
-        <meta property="og:description" content="Get to know about Mufeed VH's work, open-source projects, open-source contributions, CVEs, research, etc.">
-        
-            <meta property="og:image" content="https://mufeedvh.com/assets/images/vista-background.jpg">
-            <meta property="og:image:alt" content="Projects">
-        
-        
-            <meta property="og:url" content="https://mufeedvh.com/projects/">
-        
-        <meta property="og:site_name" content="Mufeed VH">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@mufeedvh">
-        <meta name="twitter:creator" content="@mufeedvh">
-        <meta name="twitter:title" content="Projects">
-        <meta name="twitter:description" content="Get to know about Mufeed VH's work, open-source projects, open-source contributions, CVEs, research, etc.">
-        
-            <meta name="twitter:image" content="https://mufeedvh.com/assets/images/vista-background.jpg">
-        
-    
+        <meta
+            name="description"
+            content="Get to know about Mufeed VH's work, open-source projects, open-source contributions, CVEs, research, etc."
+        />
 
-    <title>
-    
-        
-            Projects - Mufeed VH
-        
-    
-</title>
-    
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-    <link rel="preload" href="/assets/fonts/TiemposHeadline-Regular.otf" as="font" type="font/otf" crossorigin>
-    <link rel="preload" href="/assets/fonts/TiemposText-Regular.otf" as="font" type="font/otf" crossorigin>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
-    
-    <style>
-    .content code:not(pre code),
-    .code-block-wrapper pre code,
-    .code-line-numbers div {
-        font-family: 'Fira Code' !important;
-    }
-    
-    @font-face {
-        font-family: TiemposHeadline-Regular;
-        src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
-        font-display: swap;
-    }
-    @font-face {
-        font-family: TiemposText-Regular;
-        src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
-        font-display: swap;
-    }
-    body {
-        background-color: #0d0d0d;
-        color: #e0e0e0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: left;
-        min-height: 100vh;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-    .content {
-        padding: 20px;
-        width: 600px;
-        max-width: 90%;
-        margin: 20px auto;
-        box-sizing: border-box;
-        text-align: justify;
-        font-family: TiemposText-Regular, Georgia, serif;
-        position: relative;
-    }
-    .content h1 {
-        font-family: TiemposHeadline-Regular, Georgia, serif;
-        font-size: 2em;
-        color: #ffffff;
-        margin-top: 1em;
-        margin-bottom: 0.5em;
-    }
-    .content a {
-        font-family: TiemposHeadline-Regular, Georgia, serif;
-        color: #a855f7;
-        text-decoration: none;
-        transition: all 0.2s ease;
-    }
-    .content p {
-        text-align: justify;
-        text-justify: inter-word;
-        margin: 1em 0;
-        line-height: 1.7;
-    }
-    .no-bullets {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-    .theme-toggle {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 48px;
-        height: 48px;
-        background-color: #1a1a1a;
-        border: 2px solid #444;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        opacity: 0.6;
-        color: #e0e0e0;
-        font-size: 1.2em;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    }
-    @media screen and (max-width: 768px) {
-        .content {
-            width: 100%;
-            max-width: 100%;
-            padding: 15px;
-            margin: 10px auto;
-        }
-        .theme-toggle {
-            width: 44px;
-            height: 44px;
-            bottom: 15px;
-            right: 15px;
-        }
-    }
-    </style>
-    
-    <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/frutiger-aero.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="/styles.css">
-        <link rel="stylesheet" href="/frutiger-aero.css">
-    </noscript>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script defer src="/codeblock-enhancer.js"></script>
+        <link rel="canonical" href="https://mufeedvh.com/projects/" />
 
-    
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml">
-    
-    
-    
-        
-    
-    
-    
-    
-    
-</head>
-<body>
-    <div class="content">
-        <div id="vista-titlebar" class="vista-titlebar">
-            <div class="vista-titlebar-text">Mufeed VH</div>
-            <div class="vista-titlebar-controls">
-                <span class="vista-control vista-minimize">
-                    <i class="fa-solid fa-window-minimize"></i>
-                </span>
-                <span class="vista-control vista-maximize">
-                    <i class="fa-regular fa-window-maximize"></i>
-                </span>
-                <span class="vista-control vista-close">
-                    <i class="fa-solid fa-xmark"></i>
-                </span>
-            </div>
-        </div>
-        
-        
-    
-        
-        
-        <h1 id="projects-i-ve-worked-on">Projects I've worked on</h1>
-<p>Most of my projects are on my <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/mufeedvh">GitHub</a>. List of a few below.</p>
-<div class="projects-grid">
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/stitionai/devika" target="_blank">devika</a> <span class="github-stars" data-repo="stitionai/devika"></span></h3>
-<p class="project-description">Devika is an Agentic AI Software Engineer that can understand high-level human instructions, break them down into steps, research relevant information, and write code to achieve the given objective. Devika aims to be a competitive open-source alternative to Devin by Cognition AI.</p>
-<div class="project-tags">
-<span class="project-tag">AI</span>
-<span class="project-tag">Agent</span>
-<span class="project-tag">Python</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getAsterisk/claudia" target="_blank">claudia</a> <span class="github-stars" data-repo="getAsterisk/claudia"></span></h3>
-<p class="project-description">A powerful GUI app and Toolkit for Claude Code. Create custom agents, manage interactive Claude Code sessions, run secure background agents, and more.</p>
-<div class="project-tags">
-<span class="project-tag">GUI</span>
-<span class="project-tag">AI</span>
-<span class="project-tag">Tauri</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getasterisk/deepclaude" target="_blank">deepclaude</a> <span class="github-stars" data-repo="getasterisk/deepclaude"></span></h3>
-<p class="project-description">A high-performance LLM inference API and Chat UI that integrates DeepSeek R1's CoT reasoning traces with Anthropic Claude models.</p>
-<div class="project-tags">
-<span class="project-tag">LLM</span>
-<span class="project-tag">API</span>
-<span class="project-tag">TypeScript</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/code2prompt" target="_blank">code2prompt</a> <span class="github-stars" data-repo="mufeedvh/code2prompt"></span></h3>
-<p class="project-description">A CLI tool to convert your codebase into a single LLM prompt with source tree, prompt templating, and token counting.</p>
-<div class="project-tags">
-<span class="project-tag">CLI</span>
-<span class="project-tag">LLM</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getAsterisk/blockoli" target="_blank">blockoli</a> <span class="github-stars" data-repo="getAsterisk/blockoli"></span></h3>
-<p class="project-description">Blockoli is a high-performance tool for code indexing, embedding generation and semantic search tool for use with LLMs.</p>
-<div class="project-tags">
-<span class="project-tag">Search</span>
-<span class="project-tag">LLM</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getAsterisk/stackwalk" target="_blank">stackwalk</a> <span class="github-stars" data-repo="getAsterisk/stackwalk"></span></h3>
-<p class="project-description">StackWalk is universal language-agnostic AST walking and accurate call stack generation with tree-sitter.</p>
-<div class="project-tags">
-<span class="project-tag">AST</span>
-<span class="project-tag">Parser</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getAsterisk/titor" target="_blank">titor</a> <span class="github-stars" data-repo="getAsterisk/titor"></span></h3>
-<p class="project-description">A high-performance checkpointing library for Rust that enables time-travel capabilities through directory snapshots with efficient incremental backups, cryptographic verification, and content deduplication.</p>
-<div class="project-tags">
-<span class="project-tag">Library</span>
-<span class="project-tag">Checkpoint</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/binserve" target="_blank">binserve</a> <span class="github-stars" data-repo="mufeedvh/binserve"></span></h3>
-<p class="project-description">A fast static web server with routing, templating, and security in a single binary you can set up with zero code.</p>
-<div class="project-tags">
-<span class="project-tag">Web</span>
-<span class="project-tag">Server</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/moonwalk" target="_blank">moonwalk</a> <span class="github-stars" data-repo="mufeedvh/moonwalk"></span></h3>
-<p class="project-description">Cover your tracks during Linux Exploitation / Penetration Testing by leaving zero traces on system logs and filesystem timestamps.</p>
-<div class="project-tags">
-<span class="project-tag">Security</span>
-<span class="project-tag">Linux</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/basecrack" target="_blank">basecrack</a> <span class="github-stars" data-repo="mufeedvh/basecrack"></span></h3>
-<p class="project-description">BaseCrack is a tool written in Python that can decode all alphanumeric base encoding schemes.</p>
-<div class="project-tags">
-<span class="project-tag">Crypto</span>
-<span class="project-tag">Tool</span>
-<span class="project-tag">Python</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/pdfrip" target="_blank">pdfrip</a> <span class="github-stars" data-repo="mufeedvh/pdfrip"></span></h3>
-<p class="project-description">A multi-threaded PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks.</p>
-<div class="project-tags">
-<span class="project-tag">Security</span>
-<span class="project-tag">PDF</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/regretti" target="_blank">regretti</a> <span class="github-stars" data-repo="mufeedvh/regretti"></span></h3>
-<p class="project-description">A programming language where comments are the first-class citizen and ASCII art flowcharts are the controls. Made for Lang Jam (jam0001) theme: first-class comments in 48 hours and <a href="https://www.youtube.com/watch?v=j7VAw8UfMeA&t=466s">Won voter's choice</a>.</p>
-<div class="project-tags">
-<span class="project-tag">Language</span>
-<span class="project-tag">Compiler</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/DNArchery/DNArchery" target="_blank">DNArchery</a> <span class="github-stars" data-repo="DNArchery/DNArchery"></span></h3>
-<p class="project-description">A free and open-source DNA Sequencing/Visualization software for bioinformatics research. (Made for <a href="https://fossunited.org/fosshack">FOSSHack</a> 3.0 and <a href="https://forum.fossunited.org/t/foss-hack-3-0-results/1882">Won</a>)</p>
-<div class="project-tags">
-<span class="project-tag">Bio</span>
-<span class="project-tag">DNA</span>
-<span class="project-tag">Python</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/tupperplot" target="_blank">tupperplot</a> <span class="github-stars" data-repo="mufeedvh/tupperplot"></span></h3>
-<p class="project-description">Tupper's self-referential formula plotting itself on a framebuffer with Rust.</p>
-<div class="project-tags">
-<span class="project-tag">Math</span>
-<span class="project-tag">Graphics</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/gisture" target="_blank">gisture</a> <span class="github-stars" data-repo="mufeedvh/gisture"></span></h3>
-<p class="project-description">A minimal and flexible blog generator based on GitHub Gists with SEO, Templating, Syntax Highlighting, and Metadata support out-of-the-box.</p>
-<div class="project-tags">
-<span class="project-tag">Blog</span>
-<span class="project-tag">SSG</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/okjson" target="_blank">okjson</a> <span class="github-stars" data-repo="mufeedvh/okjson"></span></h3>
-<p class="project-description">A fast, simple, and pythonic JSON Schema Validation library.</p>
-<div class="project-tags">
-<span class="project-tag">JSON</span>
-<span class="project-tag">Validation</span>
-<span class="project-tag">Python</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/paydept" target="_blank">paydept</a> <span class="github-stars" data-repo="mufeedvh/paydept"></span></h3>
-<p class="project-description">Shows every open-source dependency you use in your system that accept donations.</p>
-<div class="project-tags">
-<span class="project-tag">CLI</span>
-<span class="project-tag">OSS</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/seclip" target="_blank">seclip</a> <span class="github-stars" data-repo="mufeedvh/seclip"></span></h3>
-<p class="project-description">A CLI utility to secretly copy secrets to clipboard.</p>
-<div class="project-tags">
-<span class="project-tag">CLI</span>
-<span class="project-tag">Security</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/l33tmario" target="_blank">l33tmario</a> <span class="github-stars" data-repo="mufeedvh/l33tmario"></span></h3>
-<p class="project-description">Mario the game but you rescue the princess by hacking.</p>
-<div class="project-tags">
-<span class="project-tag">Game</span>
-<span class="project-tag">Hacking</span>
-<span class="project-tag">JS</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/log4jail" target="_blank">log4jail</a> <span class="github-stars" data-repo="mufeedvh/log4jail"></span></h3>
-<p class="project-description">A fast firewall reverse proxy with TLS (HTTPS) and swarm support for preventing Log4J (Log4Shell aka CVE-2021-44228) attacks.</p>
-<div class="project-tags">
-<span class="project-tag">Security</span>
-<span class="project-tag">Proxy</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/mufeedvh/CVE-2019-8449" target="_blank">CVE-2019-8449</a> <span class="github-stars" data-repo="mufeedvh/CVE-2019-8449"></span></h3>
-<p class="project-description">CVE-2019-8449 Exploit for Jira v2.1 - v8.3.4.</p>
-<div class="project-tags">
-<span class="project-tag">CVE</span>
-<span class="project-tag">Exploit</span>
-<span class="project-tag">Python</span>
-</div>
-</div>
-<div class="project-card">
-<h3 class="project-title"><a href="https://github.com/CynthiaOS/cynthia" target="_blank">CynthiaOS</a> <span class="github-stars" data-repo="CynthiaOS/cynthia"></span></h3>
-<p class="project-description">The Cynthia Operating System. (WIP 🚧)</p>
-<div class="project-tags">
-<span class="project-tag">OS</span>
-<span class="project-tag">Kernel</span>
-<span class="project-tag">Rust</span>
-</div>
-</div>
-</div>
-<h2>CVEs I've found/reviewed/patched</h2>
-<div class="cve-section">
-<p>As most of these are on GitHub:</p>
-<div class="cve-links">
-<div class="cve-item">
-<h4>Patches (50+ CVEs)</h4>
-<a href="https://github.com/search?p=1&q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues" target="_blank">GitHub Search</a> OR <a href="https://github.com/search?q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests" target="_blank">GitHub Search (logged in link)</a>
-</div>
-<div class="cve-item">
-<h4>Reviews (300+ CVEs)</h4>
-<a href="https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues" target="_blank">GitHub Search</a> OR <a href="https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests" target="_blank">GitHub Search (logged in link)</a>
-</div>
-<div class="cve-item">
-<h4>Exploits</h4>
-<a href="https://github.com/mufeedvh/CVE-2019-8449" target="_blank">CVE-2019-8449</a>
-</div>
-</div>
-</div>
-<h2>Notable Security Hall of Fames</h2>
-<p class="hall-of-fame">Google, Mastercard, Okta, DELL, Ford, Zilliqa, EFF, Telefonica, etc.</p>
-<style>
-/* Reset box-sizing for all elements to ensure consistent sizing */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+        <meta property="og:locale" content="en_US" />
 
-/* Ensure HTML and body don't cause overflow */
-html {
-    overflow-x: hidden;
-}
+        <meta property="og:type" content="website" />
 
-/* Projects Grid Layout */
-.projects-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1px;
-    margin: 2em 0;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #333;
-    border: 1px solid #333;
-}
+        <meta property="og:title" content="Projects" />
+        <meta
+            property="og:description"
+            content="Get to know about Mufeed VH's work, open-source projects, open-source contributions, CVEs, research, etc."
+        />
 
-@media screen and (min-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+        <meta property="og:image" content="https://mufeedvh.com/assets/images/vista-background.jpg" />
+        <meta property="og:image:alt" content="Projects" />
 
-/* Dark Theme: Minimal Gwern-inspired Design */
-.project-card {
-    background-color: #0d0d0d;
-    border: none;
-    padding: 1em;
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    word-wrap: break-word;
-    box-sizing: border-box;
-    width: 100%;
-    position: relative;
-    cursor: pointer;
-}
+        <meta property="og:url" content="https://mufeedvh.com/projects/" />
 
-.project-card:hover {
-    background-color: #1a1a1a;
-}
+        <meta property="og:site_name" content="Mufeed VH" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@mufeedvh" />
+        <meta name="twitter:creator" content="@mufeedvh" />
+        <meta name="twitter:title" content="Projects" />
+        <meta
+            name="twitter:description"
+            content="Get to know about Mufeed VH's work, open-source projects, open-source contributions, CVEs, research, etc."
+        />
 
-.project-card a {
-    pointer-events: none;
-}
+        <meta name="twitter:image" content="https://mufeedvh.com/assets/images/vista-background.jpg" />
 
-.project-title {
-    margin: 0 0 0.5em 0;
-    font-size: 0.95em;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    width: 100%;
-    font-family: TiemposHeadline-Regular, Georgia, serif;
-    gap: 0.5em;
-}
+        <title>Projects - Mufeed VH</title>
 
-.project-title a {
-    color: #a855f7;
-    text-decoration: none;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-    transition: color 0.15s ease;
-    border-bottom: 1px solid transparent;
-}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-.project-title a:hover {
-    color: #c084fc;
-    border-bottom-color: #c084fc;
-}
+        <link rel="preload" href="/assets/fonts/TiemposHeadline-Regular.otf" as="font" type="font/otf" crossorigin />
+        <link rel="preload" href="/assets/fonts/TiemposText-Regular.otf" as="font" type="font/otf" crossorigin />
 
-/* GitHub Stars Styling - Minimal */
-.github-stars {
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    font-size: 0.7em;
-    color: #666;
-    font-family: 'Fira Code', monospace;
-    white-space: nowrap;
-    flex-shrink: 0;
-    opacity: 0.7;
-}
-
-.github-stars::before {
-    content: "★";
-    color: #f39c12;
-    font-size: 0.9em;
-}
-
-.github-stars.loading {
-    color: #555;
-    min-width: 30px;
-    text-align: center;
-}
-
-.github-stars.loading::after {
-    content: "...";
-}
-
-.github-stars.error {
-    color: #555;
-}
-
-.github-stars.error::after {
-    content: "—";
-}
-
-.project-description {
-    flex-grow: 1;
-    margin-bottom: 0.75em;
-    line-height: 1.5;
-    color: #666;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    font-size: 0.85em;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4em;
-    margin-top: auto;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.project-tag {
-    background-color: transparent;
-    color: #666;
-    padding: 0;
-    border-radius: 0;
-    font-size: 0.75em;
-    border: none;
-    font-family: 'Fira Code', monospace;
-    text-transform: lowercase;
-}
-
-.project-tag::before {
-    content: "#";
-    opacity: 0.5;
-}
-
-/* CVE Section */
-.cve-section {
-    margin-top: 3em;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.cve-links {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1px;
-    margin: 1.5em 0;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #333;
-    border: 1px solid #333;
-}
-
-@media screen and (min-width: 768px) {
-    .cve-links {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.cve-item {
-    background-color: #0d0d0d;
-    padding: 1.5em;
-    border: none;
-    box-sizing: border-box;
-    overflow: hidden;
-    transition: background-color 0.2s ease;
-}
-
-.cve-item:hover {
-    background-color: #1a1a1a;
-}
-
-.cve-item h4 {
-    margin: 0 0 0.75em 0;
-    color: #ffffff;
-    font-family: TiemposHeadline-Regular, Georgia, serif;
-    font-size: 1em;
-}
-
-.cve-item a {
-    word-break: break-all;
-    color: #a855f7;
-    transition: color 0.15s ease;
-    border-bottom: 1px solid transparent;
-}
-
-.cve-item a:hover {
-    color: #c084fc;
-    border-bottom-color: #c084fc;
-}
-
-.hall-of-fame {
-    font-style: italic;
-    color: #999;
-    margin-top: 1.5em;
-    word-wrap: break-word;
-    padding: 1.5em;
-    background-color: #0d0d0d;
-    border: 1px solid #333;
-    text-align: center;
-}
-
-/* Frutiger Aero Theme: Vista-inspired Design */
-body.frutiger-aero .projects-grid {
-    gap: 20px;
-    background: transparent;
-    border: none;
-}
-
-body.frutiger-aero .project-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(173, 216, 255, 0.6);
-    border-radius: 8px;
-    padding: 1.25em;
-    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
-    position: relative;
-    overflow: hidden;
-}
-
-body.frutiger-aero .project-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-body.frutiger-aero .project-card:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 248, 255, 1) 100%);
-    box-shadow: 0 8px 32px rgba(0, 120, 215, 0.2);
-    border-color: rgba(173, 216, 255, 0.8);
-    transform: translateY(-2px);
-}
-
-body.frutiger-aero .project-title a {
-    color: #0078D7;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-    border-bottom-color: transparent;
-}
-
-body.frutiger-aero .project-title a:hover {
-    color: #00A2ED;
-    text-shadow: 0 0 8px rgba(0, 162, 237, 0.3);
-    border-bottom-color: #00A2ED;
-}
-
-body.frutiger-aero .project-description {
-    color: #333;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-}
-
-body.frutiger-aero .project-tag {
-    background: linear-gradient(to bottom, #e0f0ff 0%, #d0e8ff 100%);
-    border: 1px solid #80c0ff;
-    color: #0063B1;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-weight: 500;
-    position: relative;
-    overflow: hidden;
-    font-size: 0.8em;
-}
-
-body.frutiger-aero .project-tag::before {
-    content: "";
-    opacity: 1;
-}
-
-body.frutiger-aero .project-tag::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-body.frutiger-aero .project-tag:hover {
-    background: linear-gradient(to bottom, #d0e8ff 0%, #b8deff 100%);
-    box-shadow: 0 2px 8px rgba(0, 120, 215, 0.15);
-    transform: translateY(-1px);
-}
-
-body.frutiger-aero .github-stars {
-    background: linear-gradient(to bottom, #e0f0ff 0%, #d0e8ff 100%);
-    border: 1px solid #80c0ff;
-    color: #0063B1;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-    padding: 2px 6px;
-    border-radius: 10px;
-    opacity: 1;
-    position: relative;
-    overflow: hidden;
-}
-
-body.frutiger-aero .github-stars::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-body.frutiger-aero .github-stars::before {
-    color: #f39c12;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 1;
-}
-
-body.frutiger-aero .cve-links {
-    gap: 20px;
-    background: transparent;
-    border: none;
-}
-
-body.frutiger-aero .cve-item {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(173, 216, 255, 0.6);
-    border-radius: 8px;
-    padding: 1.5em;
-    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
-    position: relative;
-    overflow: hidden;
-}
-
-body.frutiger-aero .cve-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-body.frutiger-aero .cve-item:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 248, 255, 1) 100%);
-    box-shadow: 0 8px 32px rgba(0, 120, 215, 0.2);
-    border-color: rgba(173, 216, 255, 0.8);
-    transform: translateY(-2px);
-}
-
-body.frutiger-aero .cve-item h4 {
-    color: #0063B1;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-}
-
-body.frutiger-aero .cve-item a {
-    color: #0078D7;
-    border-bottom-color: transparent;
-}
-
-body.frutiger-aero .cve-item a:hover {
-    color: #00A2ED;
-    border-bottom-color: #00A2ED;
-}
-
-body.frutiger-aero .hall-of-fame {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(173, 216, 255, 0.6);
-    color: #333;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-}
-
-body.frutiger-aero .hall-of-fame::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 767px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1px;
-    }
-    
-    body.frutiger-aero .projects-grid {
-        gap: 16px;
-    }
-    
-    .project-card {
-        padding: 0.85em;
-    }
-    
-    body.frutiger-aero .project-card {
-        padding: 1.1em;
-    }
-    
-    .cve-links {
-        grid-template-columns: 1fr;
-        gap: 1px;
-    }
-    
-    body.frutiger-aero .cve-links {
-        gap: 16px;
-    }
-    
-    .project-title {
-        flex-wrap: nowrap;
-        gap: 0.5em;
-        font-size: 1em;
-    }
-    
-    .project-title a {
-        flex: 1;
-        min-width: 0;
-    }
-    
-    .github-stars {
-        margin-left: auto;
-        font-size: 0.65em;
-        flex-shrink: 0;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .project-card {
-        padding: 0.75em;
-    }
-    
-    body.frutiger-aero .project-card {
-        padding: 1em;
-    }
-    
-    .project-title {
-        font-size: 0.95em;
-        margin-bottom: 0.4em;
-    }
-    
-    .project-description {
-        font-size: 0.9em;
-        line-height: 1.5;
-        margin-bottom: 0.75em;
-    }
-    
-    .project-tags {
-        gap: 0.4em;
-    }
-    
-    .project-tag {
-        font-size: 0.8em;
-    }
-    
-    body.frutiger-aero .project-tag {
-        padding: 2px 8px;
-    }
-    
-    .github-stars {
-        font-size: 0.6em;
-    }
-    
-    body.frutiger-aero .github-stars {
-        padding: 2px 6px;
-    }
-    
-    .cve-item {
-        padding: 1.25em;
-    }
-    
-    body.frutiger-aero .cve-item {
-        padding: 1.25em;
-    }
-    
-    .hall-of-fame {
-        padding: 1.25em;
-        font-size: 0.95em;
-    }
-}
-
-/* Ensure the custom styles work with the base styles */
-.content .projects-grid,
-.content .cve-section {
-    width: 100%;
-    max-width: 100%;
-}
-
-/* Global mobile fixes to prevent horizontal scroll */
-@media screen and (max-width: 768px) {
-    body {
-        overflow-x: hidden !important;
-    }
-    
-    .content * {
-        max-width: 100%;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-}
-</style>
-<script>
-// GitHub API Optimization Strategy:
-// - Bulk fetch all repos for mufeedvh and getAsterisk (2 API calls)
-// - Use individual calls only for external repos (stitionai, DNArchery, CynthiaOS)
-// This reduces ~20 API calls to just 5, preventing rate limits
-
-// Function to format star count (e.g., 1.2k, 15.3k)
-function formatStarCount(count) {
-    if (count >= 1000) {
-        return (count / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
-    }
-    return count.toString();
-}
-
-// Function to fetch all repos for a user/org
-async function fetchUserRepos(username) {
-    try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`, {
-            headers: {
-                'Accept': 'application/vnd.github.v3+json'
+        <style>
+            .content code:not(pre code),
+            .code-block-wrapper pre code,
+            .code-line-numbers div {
+                font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
             }
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const repos = await response.json();
-        const starMap = {};
-        
-        repos.forEach(repo => {
-            starMap[repo.name.toLowerCase()] = repo.stargazers_count;
-        });
-        
-        return starMap;
-    } catch (error) {
-        console.error(`Failed to fetch repos for ${username}:`, error);
-        return {};
-    }
-}
 
-// Function to fetch GitHub stars for a single repository
-async function fetchGitHubStars(repo) {
-    try {
-        const response = await fetch(`https://api.github.com/repos/${repo}`, {
-            headers: {
-                'Accept': 'application/vnd.github.v3+json'
+            @font-face {
+                font-family: TiemposHeadline-Regular;
+                src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
+                font-display: swap;
             }
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        return data.stargazers_count;
-    } catch (error) {
-        console.error(`Failed to fetch stars for ${repo}:`, error);
-        return null;
-    }
-}
-
-// Function to update all star counts on the page
-async function updateAllStarCounts() {
-    const starElements = document.querySelectorAll('.github-stars');
-    
-    // Add loading state
-    starElements.forEach(el => {
-        el.classList.add('loading');
-    });
-    
-    // First, fetch all repos for mufeedvh and getAsterisk
-    const [mufeedvhRepos, getAsteriskRepos] = await Promise.all([
-        fetchUserRepos('mufeedvh'),
-        fetchUserRepos('getAsterisk')
-    ]);
-    
-    // Combine the star maps
-    const bulkStarData = {
-        'mufeedvh': mufeedvhRepos,
-        'getasterisk': getAsteriskRepos
-    };
-    
-    // Process each star element
-    const promises = Array.from(starElements).map(async (el) => {
-        const repo = el.getAttribute('data-repo');
-        if (!repo) return null;
-        
-        const [owner, repoName] = repo.split('/');
-        const ownerLower = owner.toLowerCase();
-        const repoNameLower = repoName.toLowerCase();
-        
-        // Check if we have the data in bulk fetch
-        if (bulkStarData[ownerLower] && bulkStarData[ownerLower][repoNameLower] !== undefined) {
-            return { element: el, stars: bulkStarData[ownerLower][repoNameLower] };
-        }
-        
-        // Otherwise, fetch individually (for repos like stitionai/devika, DNArchery/DNArchery, etc.)
-        const stars = await fetchGitHubStars(repo);
-        return { element: el, stars };
-    });
-    
-    // Wait for all processing to complete
-    const results = await Promise.all(promises);
-    
-    // Update the DOM with results
-    results.forEach(result => {
-        if (result && result.element) {
-            result.element.classList.remove('loading');
-            
-            if (result.stars !== null) {
-                result.element.textContent = formatStarCount(result.stars);
-            } else {
-                result.element.classList.add('error');
+            @font-face {
+                font-family: TiemposText-Regular;
+                src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
+                font-display: swap;
             }
-        }
-    });
-}
-
-// Run when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    // Small delay to ensure smooth page load
-    setTimeout(updateAllStarCounts, 100);
-    
-    // Log optimization info
-    console.log('GitHub API optimization enabled: Bulk fetching repos for mufeedvh and getAsterisk');
-    
-    // Make project cards clickable
-    document.querySelectorAll('.project-card').forEach(card => {
-        const link = card.querySelector('.project-title a');
-        if (link) {
-            card.addEventListener('click', function(e) {
-                // Don't trigger if clicking directly on the link or star count
-                if (e.target.tagName !== 'A' && !e.target.closest('.github-stars')) {
-                    window.open(link.href, '_blank');
+            body {
+                background-color: #0d0d0d;
+                color: #e0e0e0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: left;
+                min-height: 100vh;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+            .content {
+                padding: 20px;
+                width: 600px;
+                max-width: 90%;
+                margin: 20px auto;
+                box-sizing: border-box;
+                text-align: justify;
+                font-family: TiemposText-Regular, Georgia, serif;
+                position: relative;
+            }
+            .content h1 {
+                font-family: TiemposHeadline-Regular, Georgia, serif;
+                font-size: 2em;
+                color: #ffffff;
+                margin-top: 1em;
+                margin-bottom: 0.5em;
+            }
+            .content a {
+                font-family: TiemposHeadline-Regular, Georgia, serif;
+                color: #a855f7;
+                text-decoration: none;
+                transition: all 0.2s ease;
+            }
+            .content p {
+                text-align: justify;
+                text-justify: inter-word;
+                margin: 1em 0;
+                line-height: 1.7;
+            }
+            .no-bullets {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            .theme-toggle {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 48px;
+                height: 48px;
+                background-color: #1a1a1a;
+                border: 2px solid #444;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                opacity: 0.6;
+                color: #e0e0e0;
+                font-size: 1.2em;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            }
+            @media screen and (max-width: 768px) {
+                .content {
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 15px;
+                    margin: 10px auto;
                 }
-            });
-        }
-    });
-});
-</script>
-    
-    <a href="/">&#8592; Back to home</a>
+                .theme-toggle {
+                    width: 44px;
+                    height: 44px;
+                    bottom: 15px;
+                    right: 15px;
+                }
+            }
+        </style>
 
-    </div>
-    
-    <div id="theme-toggle" class="theme-toggle" title="Toggle Frutiger Aero Theme">
-        <i class="fa-solid fa-sun"></i>
-    </div>
-    
-    
-    <script defer src="/theme-toggle.js"></script>
-    <script defer src="/tweet-theme-override.js"></script>
-    
-    <script>
-    function toggleSidenote(id) {
-        const sidenote = document.getElementById(id);
-        if (sidenote) {
-            sidenote.classList.toggle('active');
-        }
-    }
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+            <symbol id="icon-minimize" viewBox="0 0 512 512">
+                <path d="M32 416c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z" />
+            </symbol>
+            <symbol id="icon-maximize" viewBox="0 0 512 512">
+                <path
+                    d="M432 48H208c-17.7 0-32 14.3-32 32V96H128V80c0-44.2 35.8-80 80-80H432c44.2 0 80 35.8 80 80V304c0 44.2-35.8 80-80 80H416V336h16c17.7 0 32-14.3 32-32V80c0-17.7-14.3-32-32-32zM48 448c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16H272c8.8 0 16 7.2 16 16V432c0 8.8-7.2 16-16 16H48zm0 64H272c44.2 0 80-35.8 80-80V240c0-44.2-35.8-80-80-80H48c-44.2 0-80 35.8-80 80V432c0 44.2 35.8 80 80 80z"
+                />
+            </symbol>
+            <symbol id="icon-close" viewBox="0 0 384 512">
+                <path
+                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                />
+            </symbol>
+            <symbol id="icon-sun" viewBox="0 0 512 512">
+                <path
+                    d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"
+                />
+            </symbol>
+            <symbol id="icon-moon" viewBox="0 0 384 512">
+                <path
+                    d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"
+                />
+            </symbol>
+            <symbol id="icon-github" viewBox="0 0 496 512">
+                <path
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                />
+            </symbol>
+            <symbol id="icon-x-twitter" viewBox="0 0 512 512">
+                <path
+                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                />
+            </symbol>
+            <symbol id="icon-linkedin" viewBox="0 0 448 512">
+                <path
+                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+                />
+            </symbol>
+            <symbol id="icon-instagram" viewBox="0 0 448 512">
+                <path
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                />
+            </symbol>
+            <symbol id="icon-link" viewBox="0 0 640 512">
+                <path
+                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"
+                />
+            </symbol>
+            <symbol id="icon-message" viewBox="0 0 512 512">
+                <path
+                    d="M160 368c26.5 0 48 21.5 48 48v16l72.5-54.4c8.3-6.2 18.4-9.6 28.8-9.6H448c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16h96zm48 124l-.2 .2-5.1 3.8-17.1 12.8c-4.8 3.6-11.3 4.2-16.8 1.5s-8.8-8.2-8.8-14.3V474.7v-6.4V468v-4V416H112 64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0H448c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H309.3L208 492z"
+                />
+            </symbol>
+        </svg>
 
-    if (!window.sidenotesInitialized) {
-        window.sidenotesInitialized = true;
-        
-        function initializeSidenotes() {
-            const markers = document.querySelectorAll('.sidenote-marker');
-            markers.forEach(marker => {
-                const sidenoteId = marker.getAttribute('data-sidenote');
-                const sidenote = document.getElementById(sidenoteId);
-                if (sidenote) {
-                    // Reset any inline styles that might interfere
-                    sidenote.style.top = '';
-                    sidenote.style.position = '';
-                    
-                    // Add click handler for desktop hover behavior
-                    if (window.innerWidth >= 1200) {
-                        marker.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            // Close all other sidenotes
-                            document.querySelectorAll('.sidenote').forEach(note => {
-                                if (note.id !== sidenoteId) {
-                                    note.classList.remove('active');
-                                }
-                            });
-                            // Toggle current sidenote
-                            sidenote.classList.toggle('active');
-                        });
+        <style>
+            .svg-icon {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                fill: currentColor;
+                vertical-align: -0.125em;
+            }
+            .theme-toggle .svg-icon {
+                width: 1.1em;
+                height: 1.1em;
+            }
+        </style>
+
+        <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="/frutiger-aero.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript>
+            <link rel="stylesheet" href="/styles.css" />
+            <link rel="stylesheet" href="/frutiger-aero.css" />
+        </noscript>
+
+        <script defer src="/codeblock-enhancer.js"></script>
+
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml" />
+    </head>
+    <body>
+        <div class="content">
+            <div id="vista-titlebar" class="vista-titlebar">
+                <div class="vista-titlebar-text">Mufeed VH</div>
+                <div class="vista-titlebar-controls">
+                    <span class="vista-control vista-minimize">
+                        <svg class="svg-icon" aria-hidden="true"><use href="#icon-minimize" /></svg>
+                    </span>
+                    <span class="vista-control vista-maximize">
+                        <svg class="svg-icon" aria-hidden="true"><use href="#icon-maximize" /></svg>
+                    </span>
+                    <span class="vista-control vista-close">
+                        <svg class="svg-icon" aria-hidden="true"><use href="#icon-close" /></svg>
+                    </span>
+                </div>
+            </div>
+
+            <h1 id="projects-i-ve-worked-on">Projects I've worked on</h1>
+            <p>
+                Most of my projects are on my
+                <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/mufeedvh">GitHub</a>.
+                List of a few below.
+            </p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/stitionai/devika" target="_blank">devika</a>
+                        <span class="github-stars" data-repo="stitionai/devika"></span>
+                    </h3>
+                    <p class="project-description">
+                        Devika is an Agentic AI Software Engineer that can understand high-level human instructions,
+                        break them down into steps, research relevant information, and write code to achieve the given
+                        objective. Devika aims to be a competitive open-source alternative to Devin by Cognition AI.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">Agent</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/winfunc/opcode" target="_blank">opcode</a>
+                        <span class="github-stars" data-repo="winfunc/opcode"></span>
+                    </h3>
+                    <p class="project-description">
+                        A powerful GUI app and Toolkit for Claude Code. Create custom agents, manage interactive Claude
+                        Code sessions, run secure background agents, and more. This project was formerly called Claudia.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">GUI</span>
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">Tauri</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/winfunc/deepclaude" target="_blank">deepclaude</a>
+                        <span class="github-stars" data-repo="winfunc/deepclaude"></span>
+                    </h3>
+                    <p class="project-description">
+                        A high-performance LLM inference API and Chat UI that integrates DeepSeek R1's CoT reasoning
+                        traces with Anthropic Claude models.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">LLM</span>
+                        <span class="project-tag">API</span>
+                        <span class="project-tag">TypeScript</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/code2prompt" target="_blank">code2prompt</a>
+                        <span class="github-stars" data-repo="mufeedvh/code2prompt"></span>
+                    </h3>
+                    <p class="project-description">
+                        A CLI tool to convert your codebase into a single LLM prompt with source tree, prompt
+                        templating, and token counting.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">CLI</span>
+                        <span class="project-tag">LLM</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/winfunc/blockoli" target="_blank">blockoli</a>
+                        <span class="github-stars" data-repo="winfunc/blockoli"></span>
+                    </h3>
+                    <p class="project-description">
+                        Blockoli is a high-performance tool for code indexing, embedding generation and semantic search
+                        tool for use with LLMs.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Search</span>
+                        <span class="project-tag">LLM</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/winfunc/stackwalk" target="_blank">stackwalk</a>
+                        <span class="github-stars" data-repo="winfunc/stackwalk"></span>
+                    </h3>
+                    <p class="project-description">
+                        StackWalk is universal language-agnostic AST walking and accurate call stack generation with
+                        tree-sitter.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">AST</span>
+                        <span class="project-tag">Parser</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/winfunc/titor" target="_blank">titor</a>
+                        <span class="github-stars" data-repo="winfunc/titor"></span>
+                    </h3>
+                    <p class="project-description">
+                        A high-performance checkpointing library for Rust that enables time-travel capabilities through
+                        directory snapshots with efficient incremental backups, cryptographic verification, and content
+                        deduplication.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Library</span>
+                        <span class="project-tag">Checkpoint</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/binserve" target="_blank">binserve</a>
+                        <span class="github-stars" data-repo="mufeedvh/binserve"></span>
+                    </h3>
+                    <p class="project-description">
+                        A fast static web server with routing, templating, and security in a single binary you can set
+                        up with zero code.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Web</span>
+                        <span class="project-tag">Server</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/moonwalk" target="_blank">moonwalk</a>
+                        <span class="github-stars" data-repo="mufeedvh/moonwalk"></span>
+                    </h3>
+                    <p class="project-description">
+                        Cover your tracks during Linux Exploitation / Penetration Testing by leaving zero traces on
+                        system logs and filesystem timestamps.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Security</span>
+                        <span class="project-tag">Linux</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/basecrack" target="_blank">basecrack</a>
+                        <span class="github-stars" data-repo="mufeedvh/basecrack"></span>
+                    </h3>
+                    <p class="project-description">
+                        BaseCrack is a tool written in Python that can decode all alphanumeric base encoding schemes.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Crypto</span>
+                        <span class="project-tag">Tool</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/pdfrip" target="_blank">pdfrip</a>
+                        <span class="github-stars" data-repo="mufeedvh/pdfrip"></span>
+                    </h3>
+                    <p class="project-description">
+                        A multi-threaded PDF password cracking utility equipped with commonly encountered password
+                        format builders and dictionary attacks.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Security</span>
+                        <span class="project-tag">PDF</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/regretti" target="_blank">regretti</a>
+                        <span class="github-stars" data-repo="mufeedvh/regretti"></span>
+                    </h3>
+                    <p class="project-description">
+                        A programming language where comments are the first-class citizen and ASCII art flowcharts are
+                        the controls. Made for Lang Jam (jam0001) theme: first-class comments in 48 hours and
+                        <a href="https://www.youtube.com/watch?v=j7VAw8UfMeA&t=466s">Won voter's choice</a>.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Language</span>
+                        <span class="project-tag">Compiler</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/DNArchery/DNArchery" target="_blank">DNArchery</a>
+                        <span class="github-stars" data-repo="DNArchery/DNArchery"></span>
+                    </h3>
+                    <p class="project-description">
+                        A free and open-source DNA Sequencing/Visualization software for bioinformatics research. (Made
+                        for <a href="https://fossunited.org/fosshack">FOSSHack</a> 3.0 and
+                        <a href="https://forum.fossunited.org/t/foss-hack-3-0-results/1882">Won</a>)
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Bio</span>
+                        <span class="project-tag">DNA</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/tupperplot" target="_blank">tupperplot</a>
+                        <span class="github-stars" data-repo="mufeedvh/tupperplot"></span>
+                    </h3>
+                    <p class="project-description">
+                        Tupper's self-referential formula plotting itself on a framebuffer with Rust.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Math</span>
+                        <span class="project-tag">Graphics</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/gisture" target="_blank">gisture</a>
+                        <span class="github-stars" data-repo="mufeedvh/gisture"></span>
+                    </h3>
+                    <p class="project-description">
+                        A minimal and flexible blog generator based on GitHub Gists with SEO, Templating, Syntax
+                        Highlighting, and Metadata support out-of-the-box.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Blog</span>
+                        <span class="project-tag">SSG</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/okjson" target="_blank">okjson</a>
+                        <span class="github-stars" data-repo="mufeedvh/okjson"></span>
+                    </h3>
+                    <p class="project-description">A fast, simple, and pythonic JSON Schema Validation library.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">JSON</span>
+                        <span class="project-tag">Validation</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/paydept" target="_blank">paydept</a>
+                        <span class="github-stars" data-repo="mufeedvh/paydept"></span>
+                    </h3>
+                    <p class="project-description">
+                        Shows every open-source dependency you use in your system that accept donations.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">CLI</span>
+                        <span class="project-tag">OSS</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/seclip" target="_blank">seclip</a>
+                        <span class="github-stars" data-repo="mufeedvh/seclip"></span>
+                    </h3>
+                    <p class="project-description">A CLI utility to secretly copy secrets to clipboard.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">CLI</span>
+                        <span class="project-tag">Security</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/l33tmario" target="_blank">l33tmario</a>
+                        <span class="github-stars" data-repo="mufeedvh/l33tmario"></span>
+                    </h3>
+                    <p class="project-description">Mario the game but you rescue the princess by hacking.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Game</span>
+                        <span class="project-tag">Hacking</span>
+                        <span class="project-tag">JS</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/log4jail" target="_blank">log4jail</a>
+                        <span class="github-stars" data-repo="mufeedvh/log4jail"></span>
+                    </h3>
+                    <p class="project-description">
+                        A fast firewall reverse proxy with TLS (HTTPS) and swarm support for preventing Log4J (Log4Shell
+                        aka CVE-2021-44228) attacks.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Security</span>
+                        <span class="project-tag">Proxy</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/mufeedvh/CVE-2019-8449" target="_blank">CVE-2019-8449</a>
+                        <span class="github-stars" data-repo="mufeedvh/CVE-2019-8449"></span>
+                    </h3>
+                    <p class="project-description">CVE-2019-8449 Exploit for Jira v2.1 - v8.3.4.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">CVE</span>
+                        <span class="project-tag">Exploit</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        <a href="https://github.com/CynthiaOS/cynthia" target="_blank">CynthiaOS</a>
+                        <span class="github-stars" data-repo="CynthiaOS/cynthia"></span>
+                    </h3>
+                    <p class="project-description">The Cynthia Operating System. (WIP 🚧)</p>
+                    <div class="project-tags">
+                        <span class="project-tag">OS</span>
+                        <span class="project-tag">Kernel</span>
+                        <span class="project-tag">Rust</span>
+                    </div>
+                </div>
+            </div>
+            <h2>CVEs I've found/reviewed/patched</h2>
+            <div class="cve-section">
+                <p>As most of these are on GitHub:</p>
+                <div class="cve-links">
+                    <div class="cve-item">
+                        <h4>Patches (50+ CVEs)</h4>
+                        <a
+                            href="https://github.com/search?p=1&q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues"
+                            target="_blank"
+                            >GitHub Search</a
+                        >
+                        OR
+                        <a
+                            href="https://github.com/search?q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests"
+                            target="_blank"
+                            >GitHub Search (logged in link)</a
+                        >
+                    </div>
+                    <div class="cve-item">
+                        <h4>Reviews (300+ CVEs)</h4>
+                        <a
+                            href="https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues"
+                            target="_blank"
+                            >GitHub Search</a
+                        >
+                        OR
+                        <a
+                            href="https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests"
+                            target="_blank"
+                            >GitHub Search (logged in link)</a
+                        >
+                    </div>
+                    <div class="cve-item">
+                        <h4>Exploits</h4>
+                        <a href="https://github.com/mufeedvh/CVE-2019-8449" target="_blank">CVE-2019-8449</a>
+                    </div>
+                </div>
+            </div>
+            <h2>Notable Security Hall of Fames</h2>
+            <p class="hall-of-fame">Google, Mastercard, Okta, DELL, Ford, Zilliqa, EFF, Telefonica, etc.</p>
+            <style>
+                /* Reset box-sizing for all elements to ensure consistent sizing */
+                *,
+                *::before,
+                *::after {
+                    box-sizing: border-box;
+                }
+
+                /* Ensure HTML and body don't cause overflow */
+                html {
+                    overflow-x: hidden;
+                }
+
+                /* Projects Grid Layout */
+                .projects-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 1px;
+                    margin: 2em 0;
+                    width: 100%;
+                    box-sizing: border-box;
+                    background-color: #333;
+                    border: 1px solid #333;
+                }
+
+                @media screen and (min-width: 768px) {
+                    .projects-grid {
+                        grid-template-columns: repeat(2, 1fr);
                     }
                 }
-            });
-        }
 
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(function() {
-                initializeSidenotes();
-            }, 100);
-        });
-        
-        // Initialize sidenotes with robust ready check
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeSidenotes);
-        } else {
-            // DOM already loaded - use setTimeout to ensure all elements are parsed
-            setTimeout(initializeSidenotes, 0);
-        }
-    }
-    </script>
-    
-</body>
+                /* Dark Theme: Minimal Gwern-inspired Design */
+                .project-card {
+                    background-color: #0d0d0d;
+                    border: none;
+                    padding: 1em;
+                    transition: all 0.2s ease;
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    word-wrap: break-word;
+                    box-sizing: border-box;
+                    width: 100%;
+                    position: relative;
+                    cursor: pointer;
+                }
+
+                .project-card:hover {
+                    background-color: #1a1a1a;
+                }
+
+                .project-card a {
+                    pointer-events: none;
+                }
+
+                .project-title {
+                    margin: 0 0 0.5em 0;
+                    font-size: 0.95em;
+                    display: flex;
+                    align-items: baseline;
+                    justify-content: space-between;
+                    width: 100%;
+                    font-family: TiemposHeadline-Regular, Georgia, serif;
+                    gap: 0.5em;
+                }
+
+                .project-title a {
+                    color: #a855f7;
+                    text-decoration: none;
+                    overflow-wrap: break-word;
+                    word-break: break-word;
+                    hyphens: auto;
+                    transition: color 0.15s ease;
+                    border-bottom: 1px solid transparent;
+                }
+
+                .project-title a:hover {
+                    color: #c084fc;
+                    border-bottom-color: #c084fc;
+                }
+
+                /* GitHub Stars Styling - Minimal */
+                .github-stars {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 3px;
+                    font-size: 0.7em;
+                    color: #666;
+                    font-family: "Fira Code", monospace;
+                    white-space: nowrap;
+                    flex-shrink: 0;
+                    opacity: 0.7;
+                }
+
+                .github-stars::before {
+                    content: "★";
+                    color: #f39c12;
+                    font-size: 0.9em;
+                }
+
+                .github-stars.loading {
+                    color: #555;
+                    min-width: 30px;
+                    text-align: center;
+                }
+
+                .github-stars.loading::after {
+                    content: "...";
+                }
+
+                .github-stars.error {
+                    color: #555;
+                }
+
+                .github-stars.error::after {
+                    content: "—";
+                }
+
+                .project-description {
+                    flex-grow: 1;
+                    margin-bottom: 0.75em;
+                    line-height: 1.5;
+                    color: #666;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                    hyphens: auto;
+                    -webkit-hyphens: auto;
+                    -moz-hyphens: auto;
+                    -ms-hyphens: auto;
+                    font-size: 0.85em;
+                }
+
+                .project-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.4em;
+                    margin-top: auto;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                .project-tag {
+                    background-color: transparent;
+                    color: #666;
+                    padding: 0;
+                    border-radius: 0;
+                    font-size: 0.75em;
+                    border: none;
+                    font-family: "Fira Code", monospace;
+                    text-transform: lowercase;
+                }
+
+                .project-tag::before {
+                    content: "#";
+                    opacity: 0.5;
+                }
+
+                /* CVE Section */
+                .cve-section {
+                    margin-top: 3em;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                .cve-links {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 1px;
+                    margin: 1.5em 0;
+                    width: 100%;
+                    box-sizing: border-box;
+                    background-color: #333;
+                    border: 1px solid #333;
+                }
+
+                @media screen and (min-width: 768px) {
+                    .cve-links {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+
+                .cve-item {
+                    background-color: #0d0d0d;
+                    padding: 1.5em;
+                    border: none;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    transition: background-color 0.2s ease;
+                }
+
+                .cve-item:hover {
+                    background-color: #1a1a1a;
+                }
+
+                .cve-item h4 {
+                    margin: 0 0 0.75em 0;
+                    color: #ffffff;
+                    font-family: TiemposHeadline-Regular, Georgia, serif;
+                    font-size: 1em;
+                }
+
+                .cve-item a {
+                    word-break: break-all;
+                    color: #a855f7;
+                    transition: color 0.15s ease;
+                    border-bottom: 1px solid transparent;
+                }
+
+                .cve-item a:hover {
+                    color: #c084fc;
+                    border-bottom-color: #c084fc;
+                }
+
+                .hall-of-fame {
+                    font-style: italic;
+                    color: #999;
+                    margin-top: 1.5em;
+                    word-wrap: break-word;
+                    padding: 1.5em;
+                    background-color: #0d0d0d;
+                    border: 1px solid #333;
+                    text-align: center;
+                }
+
+                /* Frutiger Aero Theme: Vista-inspired Design */
+                body.frutiger-aero .projects-grid {
+                    gap: 20px;
+                    background: transparent;
+                    border: none;
+                }
+
+                body.frutiger-aero .project-card {
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
+                    backdrop-filter: blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    border: 1px solid rgba(173, 216, 255, 0.6);
+                    border-radius: 8px;
+                    padding: 1.25em;
+                    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                body.frutiger-aero .project-card::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 50%;
+                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+                    pointer-events: none;
+                }
+
+                body.frutiger-aero .project-card:hover {
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 248, 255, 1) 100%);
+                    box-shadow: 0 8px 32px rgba(0, 120, 215, 0.2);
+                    border-color: rgba(173, 216, 255, 0.8);
+                    transform: translateY(-2px);
+                }
+
+                body.frutiger-aero .project-title a {
+                    color: #0078d7;
+                    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+                    border-bottom-color: transparent;
+                }
+
+                body.frutiger-aero .project-title a:hover {
+                    color: #00a2ed;
+                    text-shadow: 0 0 8px rgba(0, 162, 237, 0.3);
+                    border-bottom-color: #00a2ed;
+                }
+
+                body.frutiger-aero .project-description {
+                    color: #333;
+                    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+                }
+
+                body.frutiger-aero .project-tag {
+                    background: linear-gradient(to bottom, #e0f0ff 0%, #d0e8ff 100%);
+                    border: 1px solid #80c0ff;
+                    color: #0063b1;
+                    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+                    padding: 2px 8px;
+                    border-radius: 10px;
+                    font-weight: 500;
+                    position: relative;
+                    overflow: hidden;
+                    font-size: 0.8em;
+                }
+
+                body.frutiger-aero .project-tag::before {
+                    content: "";
+                    opacity: 1;
+                }
+
+                body.frutiger-aero .project-tag::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 50%;
+                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+                    pointer-events: none;
+                }
+
+                body.frutiger-aero .project-tag:hover {
+                    background: linear-gradient(to bottom, #d0e8ff 0%, #b8deff 100%);
+                    box-shadow: 0 2px 8px rgba(0, 120, 215, 0.15);
+                    transform: translateY(-1px);
+                }
+
+                body.frutiger-aero .github-stars {
+                    background: linear-gradient(to bottom, #e0f0ff 0%, #d0e8ff 100%);
+                    border: 1px solid #80c0ff;
+                    color: #0063b1;
+                    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+                    padding: 2px 6px;
+                    border-radius: 10px;
+                    opacity: 1;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                body.frutiger-aero .github-stars::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 50%;
+                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+                    pointer-events: none;
+                    z-index: 0;
+                }
+
+                body.frutiger-aero .github-stars::before {
+                    color: #f39c12;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                    position: relative;
+                    z-index: 1;
+                }
+
+                body.frutiger-aero .cve-links {
+                    gap: 20px;
+                    background: transparent;
+                    border: none;
+                }
+
+                body.frutiger-aero .cve-item {
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
+                    backdrop-filter: blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    border: 1px solid rgba(173, 216, 255, 0.6);
+                    border-radius: 8px;
+                    padding: 1.5em;
+                    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                body.frutiger-aero .cve-item::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 50%;
+                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+                    pointer-events: none;
+                }
+
+                body.frutiger-aero .cve-item:hover {
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 248, 255, 1) 100%);
+                    box-shadow: 0 8px 32px rgba(0, 120, 215, 0.2);
+                    border-color: rgba(173, 216, 255, 0.8);
+                    transform: translateY(-2px);
+                }
+
+                body.frutiger-aero .cve-item h4 {
+                    color: #0063b1;
+                    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+                }
+
+                body.frutiger-aero .cve-item a {
+                    color: #0078d7;
+                    border-bottom-color: transparent;
+                }
+
+                body.frutiger-aero .cve-item a:hover {
+                    color: #00a2ed;
+                    border-bottom-color: #00a2ed;
+                }
+
+                body.frutiger-aero .hall-of-fame {
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
+                    backdrop-filter: blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    border: 1px solid rgba(173, 216, 255, 0.6);
+                    color: #333;
+                    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+                    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
+                    border-radius: 8px;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                body.frutiger-aero .hall-of-fame::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 50%;
+                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+                    pointer-events: none;
+                }
+
+                /* Responsive adjustments */
+                @media screen and (max-width: 767px) {
+                    .projects-grid {
+                        grid-template-columns: 1fr;
+                        gap: 1px;
+                    }
+
+                    body.frutiger-aero .projects-grid {
+                        gap: 16px;
+                    }
+
+                    .project-card {
+                        padding: 0.85em;
+                    }
+
+                    body.frutiger-aero .project-card {
+                        padding: 1.1em;
+                    }
+
+                    .cve-links {
+                        grid-template-columns: 1fr;
+                        gap: 1px;
+                    }
+
+                    body.frutiger-aero .cve-links {
+                        gap: 16px;
+                    }
+
+                    .project-title {
+                        flex-wrap: nowrap;
+                        gap: 0.5em;
+                        font-size: 1em;
+                    }
+
+                    .project-title a {
+                        flex: 1;
+                        min-width: 0;
+                    }
+
+                    .github-stars {
+                        margin-left: auto;
+                        font-size: 0.65em;
+                        flex-shrink: 0;
+                    }
+                }
+
+                @media screen and (max-width: 480px) {
+                    .project-card {
+                        padding: 0.75em;
+                    }
+
+                    body.frutiger-aero .project-card {
+                        padding: 1em;
+                    }
+
+                    .project-title {
+                        font-size: 0.95em;
+                        margin-bottom: 0.4em;
+                    }
+
+                    .project-description {
+                        font-size: 0.9em;
+                        line-height: 1.5;
+                        margin-bottom: 0.75em;
+                    }
+
+                    .project-tags {
+                        gap: 0.4em;
+                    }
+
+                    .project-tag {
+                        font-size: 0.8em;
+                    }
+
+                    body.frutiger-aero .project-tag {
+                        padding: 2px 8px;
+                    }
+
+                    .github-stars {
+                        font-size: 0.6em;
+                    }
+
+                    body.frutiger-aero .github-stars {
+                        padding: 2px 6px;
+                    }
+
+                    .cve-item {
+                        padding: 1.25em;
+                    }
+
+                    body.frutiger-aero .cve-item {
+                        padding: 1.25em;
+                    }
+
+                    .hall-of-fame {
+                        padding: 1.25em;
+                        font-size: 0.95em;
+                    }
+                }
+
+                /* Ensure the custom styles work with the base styles */
+                .content .projects-grid,
+                .content .cve-section {
+                    width: 100%;
+                    max-width: 100%;
+                }
+
+                /* Global mobile fixes to prevent horizontal scroll */
+                @media screen and (max-width: 768px) {
+                    body {
+                        overflow-x: hidden !important;
+                    }
+
+                    .content * {
+                        max-width: 100%;
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                    }
+                }
+            </style>
+            <script>
+                // GitHub API Optimization Strategy:
+                // - Bulk fetch all repos for mufeedvh and winfunc (2 API calls)
+                // - Use individual calls only for external repos (stitionai, DNArchery, CynthiaOS)
+                // This reduces ~20 API calls to just 5, preventing rate limits
+
+                // Function to format star count (e.g., 1.2k, 15.3k)
+                function formatStarCount(count) {
+                    if (count >= 1000) {
+                        return (count / 1000).toFixed(1).replace(/\.0$/, "") + "k";
+                    }
+                    return count.toString();
+                }
+
+                // Function to fetch all repos for a user/org
+                async function fetchUserRepos(username) {
+                    try {
+                        const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`, {
+                            headers: {
+                                Accept: "application/vnd.github.v3+json",
+                            },
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+
+                        const repos = await response.json();
+                        const starMap = {};
+
+                        repos.forEach((repo) => {
+                            starMap[repo.name.toLowerCase()] = repo.stargazers_count;
+                        });
+
+                        return starMap;
+                    } catch (error) {
+                        console.error(`Failed to fetch repos for ${username}:`, error);
+                        return {};
+                    }
+                }
+
+                // Function to fetch GitHub stars for a single repository
+                async function fetchGitHubStars(repo) {
+                    try {
+                        const response = await fetch(`https://api.github.com/repos/${repo}`, {
+                            headers: {
+                                Accept: "application/vnd.github.v3+json",
+                            },
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+
+                        const data = await response.json();
+                        return data.stargazers_count;
+                    } catch (error) {
+                        console.error(`Failed to fetch stars for ${repo}:`, error);
+                        return null;
+                    }
+                }
+
+                // Function to update all star counts on the page
+                async function updateAllStarCounts() {
+                    const starElements = document.querySelectorAll(".github-stars");
+
+                    // Add loading state
+                    starElements.forEach((el) => {
+                        el.classList.add("loading");
+                    });
+
+                    // First, fetch all repos for mufeedvh and winfunc
+                    const [mufeedvhRepos, winfuncRepos] = await Promise.all([
+                        fetchUserRepos("mufeedvh"),
+                        fetchUserRepos("winfunc"),
+                    ]);
+
+                    // Combine the star maps
+                    const bulkStarData = {
+                        mufeedvh: mufeedvhRepos,
+                        winfunc: winfuncRepos,
+                    };
+
+                    // Process each star element
+                    const promises = Array.from(starElements).map(async (el) => {
+                        const repo = el.getAttribute("data-repo");
+                        if (!repo) return null;
+
+                        const [owner, repoName] = repo.split("/");
+                        const ownerLower = owner.toLowerCase();
+                        const repoNameLower = repoName.toLowerCase();
+
+                        // Check if we have the data in bulk fetch
+                        if (bulkStarData[ownerLower] && bulkStarData[ownerLower][repoNameLower] !== undefined) {
+                            return { element: el, stars: bulkStarData[ownerLower][repoNameLower] };
+                        }
+
+                        // Otherwise, fetch individually (for repos like stitionai/devika, DNArchery/DNArchery, etc.)
+                        const stars = await fetchGitHubStars(repo);
+                        return { element: el, stars };
+                    });
+
+                    // Wait for all processing to complete
+                    const results = await Promise.all(promises);
+
+                    // Update the DOM with results
+                    results.forEach((result) => {
+                        if (result && result.element) {
+                            result.element.classList.remove("loading");
+
+                            if (result.stars !== null) {
+                                result.element.textContent = formatStarCount(result.stars);
+                            } else {
+                                result.element.classList.add("error");
+                            }
+                        }
+                    });
+                }
+
+                // Run when the page loads
+                document.addEventListener("DOMContentLoaded", () => {
+                    // Small delay to ensure smooth page load
+                    setTimeout(updateAllStarCounts, 100);
+
+                    // Log optimization info
+                    console.log("GitHub API optimization enabled: Bulk fetching repos for mufeedvh and winfunc");
+
+                    // Make project cards clickable
+                    document.querySelectorAll(".project-card").forEach((card) => {
+                        const link = card.querySelector(".project-title a");
+                        if (link) {
+                            card.addEventListener("click", function (e) {
+                                // Don't trigger if clicking directly on the link or star count
+                                if (e.target.tagName !== "A" && !e.target.closest(".github-stars")) {
+                                    window.open(link.href, "_blank");
+                                }
+                            });
+                        }
+                    });
+                });
+            </script>
+
+            <a href="/">&#8592; Back to home</a>
+        </div>
+
+        <div id="theme-toggle" class="theme-toggle" title="Toggle Frutiger Aero Theme">
+            <svg class="svg-icon" aria-hidden="true"><use href="#icon-sun" /></svg>
+        </div>
+
+        <script defer src="/theme-toggle.js"></script>
+        <script defer src="/tweet-theme-override.js"></script>
+    </body>
 </html>

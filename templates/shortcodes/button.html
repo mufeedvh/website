@@ -4,7 +4,16 @@
     {%- endif -%}
         <h4 class="post-button{% if button_class %} {{ button_class }}{% endif %}" {% if id %}id="{{ id }}"{% endif %} {% if onclick %}onclick="{{ onclick }}"{% endif %}>
             {{ text | safe }}
-            {%- if icon %} <span class="{{ icon }}"></span>{% endif -%}
+            {%- if icon %}
+                {%- if icon is containing("fa-link") %} <svg class="svg-icon" aria-hidden="true" style="width:1.2em;height:1.2em;"><use href="#icon-link"/></svg>
+                {%- elif icon is containing("fa-x-twitter") or icon is containing("fa-twitter") %} 𝕏
+                {%- elif icon is containing("fa-message") %} <svg class="svg-icon" aria-hidden="true" style="width:1.2em;height:1.2em;"><use href="#icon-message"/></svg>
+                {%- elif icon is containing("fa-github") %} <svg class="svg-icon" aria-hidden="true" style="width:1.2em;height:1.2em;"><use href="#icon-github"/></svg>
+                {%- elif icon is containing("fa-linkedin") %} <svg class="svg-icon" aria-hidden="true" style="width:1.2em;height:1.2em;"><use href="#icon-linkedin"/></svg>
+                {%- elif icon is containing("fa-instagram") %} <svg class="svg-icon" aria-hidden="true" style="width:1.2em;height:1.2em;"><use href="#icon-instagram"/></svg>
+                {%- else %} {{ icon }}
+                {%- endif -%}
+            {%- endif -%}
         </h4>
     {%- if href -%}
     </a>

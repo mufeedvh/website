@@ -22,8 +22,8 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
 </div>
 
 <div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getAsterisk/claudia" target="_blank">claudia</a> <span class="github-stars" data-repo="getAsterisk/claudia"></span></h3>
-<p class="project-description">A powerful GUI app and Toolkit for Claude Code. Create custom agents, manage interactive Claude Code sessions, run secure background agents, and more.</p>
+<h3 class="project-title"><a href="https://github.com/winfunc/opcode" target="_blank">opcode</a> <span class="github-stars" data-repo="winfunc/opcode"></span></h3>
+<p class="project-description">A powerful GUI app and Toolkit for Claude Code. Create custom agents, manage interactive Claude Code sessions, run secure background agents, and more. This project was formerly called Claudia.</p>
 <div class="project-tags">
 <span class="project-tag">GUI</span>
 <span class="project-tag">AI</span>
@@ -32,7 +32,7 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
 </div>
 
 <div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getasterisk/deepclaude" target="_blank">deepclaude</a> <span class="github-stars" data-repo="getasterisk/deepclaude"></span></h3>
+<h3 class="project-title"><a href="https://github.com/winfunc/deepclaude" target="_blank">deepclaude</a> <span class="github-stars" data-repo="winfunc/deepclaude"></span></h3>
 <p class="project-description">A high-performance LLM inference API and Chat UI that integrates DeepSeek R1's CoT reasoning traces with Anthropic Claude models.</p>
 <div class="project-tags">
 <span class="project-tag">LLM</span>
@@ -52,7 +52,7 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
 </div>
 
 <div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getAsterisk/blockoli" target="_blank">blockoli</a> <span class="github-stars" data-repo="getAsterisk/blockoli"></span></h3>
+<h3 class="project-title"><a href="https://github.com/winfunc/blockoli" target="_blank">blockoli</a> <span class="github-stars" data-repo="winfunc/blockoli"></span></h3>
 <p class="project-description">Blockoli is a high-performance tool for code indexing, embedding generation and semantic search tool for use with LLMs.</p>
 <div class="project-tags">
 <span class="project-tag">Search</span>
@@ -62,7 +62,7 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
 </div>
 
 <div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getAsterisk/stackwalk" target="_blank">stackwalk</a> <span class="github-stars" data-repo="getAsterisk/stackwalk"></span></h3>
+<h3 class="project-title"><a href="https://github.com/winfunc/stackwalk" target="_blank">stackwalk</a> <span class="github-stars" data-repo="winfunc/stackwalk"></span></h3>
 <p class="project-description">StackWalk is universal language-agnostic AST walking and accurate call stack generation with tree-sitter.</p>
 <div class="project-tags">
 <span class="project-tag">AST</span>
@@ -72,7 +72,7 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
 </div>
 
 <div class="project-card">
-<h3 class="project-title"><a href="https://github.com/getAsterisk/titor" target="_blank">titor</a> <span class="github-stars" data-repo="getAsterisk/titor"></span></h3>
+<h3 class="project-title"><a href="https://github.com/winfunc/titor" target="_blank">titor</a> <span class="github-stars" data-repo="winfunc/titor"></span></h3>
 <p class="project-description">A high-performance checkpointing library for Rust that enables time-travel capabilities through directory snapshots with efficient incremental backups, cryptographic verification, and content deduplication.</p>
 <div class="project-tags">
 <span class="project-tag">Library</span>
@@ -809,7 +809,7 @@ body.frutiger-aero .hall-of-fame::before {
 
 <script>
 // GitHub API Optimization Strategy:
-// - Bulk fetch all repos for mufeedvh and getAsterisk (2 API calls)
+// - Bulk fetch all repos for mufeedvh and winfunc (2 API calls)
 // - Use individual calls only for external repos (stitionai, DNArchery, CynthiaOS)
 // This reduces ~20 API calls to just 5, preventing rate limits
 
@@ -878,16 +878,16 @@ async function updateAllStarCounts() {
         el.classList.add('loading');
     });
     
-    // First, fetch all repos for mufeedvh and getAsterisk
-    const [mufeedvhRepos, getAsteriskRepos] = await Promise.all([
+    // First, fetch all repos for mufeedvh and winfunc
+    const [mufeedvhRepos, winfuncRepos] = await Promise.all([
         fetchUserRepos('mufeedvh'),
-        fetchUserRepos('getAsterisk')
+        fetchUserRepos('winfunc')
     ]);
     
     // Combine the star maps
     const bulkStarData = {
         'mufeedvh': mufeedvhRepos,
-        'getasterisk': getAsteriskRepos
+        'winfunc': winfuncRepos
     };
     
     // Process each star element
@@ -932,7 +932,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(updateAllStarCounts, 100);
     
     // Log optimization info
-    console.log('GitHub API optimization enabled: Bulk fetching repos for mufeedvh and getAsterisk');
+    console.log('GitHub API optimization enabled: Bulk fetching repos for mufeedvh and winfunc');
     
     // Make project cards clickable
     document.querySelectorAll('.project-card').forEach(card => {

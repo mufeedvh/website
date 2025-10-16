@@ -1,624 +1,682 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <meta name="theme-color" content="#0d0d0d">
-    
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://platform.twitter.com">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="referrer" content="no-referrer" />
+        <meta name="theme-color" content="#0d0d0d" />
 
-    
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+        <link rel="dns-prefetch" href="https://platform.twitter.com" />
 
-    
-        <meta name="description" content="anonymously write or draw me a message.">
-        
-            <link rel="canonical" href="https://mufeedvh.com/message/">
-        
-        <meta property="og:locale" content="en_US">
-        
-            <meta property="og:type" content="website">
-        
-        <meta property="og:title" content="message">
-        <meta property="og:description" content="anonymously write or draw me a message.">
-        
-            <meta property="og:image" content="https://mufeedvh.com/assets/images/vista-background.jpg">
-            <meta property="og:image:alt" content="message">
-        
-        
-            <meta property="og:url" content="https://mufeedvh.com/message/">
-        
-        <meta property="og:site_name" content="Mufeed VH">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@mufeedvh">
-        <meta name="twitter:creator" content="@mufeedvh">
-        <meta name="twitter:title" content="message">
-        <meta name="twitter:description" content="anonymously write or draw me a message.">
-        
-            <meta name="twitter:image" content="https://mufeedvh.com/assets/images/vista-background.jpg">
-        
-    
+        <meta name="description" content="anonymously write or draw me a message." />
 
-    <title>
-    
-        
-            message - Mufeed VH
-        
-    
-</title>
-    
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-    <link rel="preload" href="/assets/fonts/TiemposHeadline-Regular.otf" as="font" type="font/otf" crossorigin>
-    <link rel="preload" href="/assets/fonts/TiemposText-Regular.otf" as="font" type="font/otf" crossorigin>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
-    
-    <style>
-    .content code:not(pre code),
-    .code-block-wrapper pre code,
-    .code-line-numbers div {
-        font-family: 'Fira Code' !important;
-    }
-    
-    @font-face {
-        font-family: TiemposHeadline-Regular;
-        src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
-        font-display: swap;
-    }
-    @font-face {
-        font-family: TiemposText-Regular;
-        src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
-        font-display: swap;
-    }
-    body {
-        background-color: #0d0d0d;
-        color: #e0e0e0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: left;
-        min-height: 100vh;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-    .content {
-        padding: 20px;
-        width: 600px;
-        max-width: 90%;
-        margin: 20px auto;
-        box-sizing: border-box;
-        text-align: justify;
-        font-family: TiemposText-Regular, Georgia, serif;
-        position: relative;
-    }
-    .content h1 {
-        font-family: TiemposHeadline-Regular, Georgia, serif;
-        font-size: 2em;
-        color: #ffffff;
-        margin-top: 1em;
-        margin-bottom: 0.5em;
-    }
-    .content a {
-        font-family: TiemposHeadline-Regular, Georgia, serif;
-        color: #a855f7;
-        text-decoration: none;
-        transition: all 0.2s ease;
-    }
-    .content p {
-        text-align: justify;
-        text-justify: inter-word;
-        margin: 1em 0;
-        line-height: 1.7;
-    }
-    .no-bullets {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-    .theme-toggle {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 48px;
-        height: 48px;
-        background-color: #1a1a1a;
-        border: 2px solid #444;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        opacity: 0.6;
-        color: #e0e0e0;
-        font-size: 1.2em;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    }
-    @media screen and (max-width: 768px) {
-        .content {
-            width: 100%;
-            max-width: 100%;
-            padding: 15px;
-            margin: 10px auto;
-        }
-        .theme-toggle {
-            width: 44px;
-            height: 44px;
-            bottom: 15px;
-            right: 15px;
-        }
-    }
-    </style>
-    
-    <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/frutiger-aero.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="/styles.css">
-        <link rel="stylesheet" href="/frutiger-aero.css">
-    </noscript>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script defer src="/codeblock-enhancer.js"></script>
+        <link rel="canonical" href="https://mufeedvh.com/message/" />
 
-    
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml">
-    
-    
-    
-        
-    
-    
-    
-    
-    
-</head>
-<body>
-    <div class="content">
-        <div id="vista-titlebar" class="vista-titlebar">
-            <div class="vista-titlebar-text">Mufeed VH</div>
-            <div class="vista-titlebar-controls">
-                <span class="vista-control vista-minimize">
-                    <i class="fa-solid fa-window-minimize"></i>
-                </span>
-                <span class="vista-control vista-maximize">
-                    <i class="fa-regular fa-window-maximize"></i>
-                </span>
-                <span class="vista-control vista-close">
-                    <i class="fa-solid fa-xmark"></i>
-                </span>
+        <meta property="og:locale" content="en_US" />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:title" content="message" />
+        <meta property="og:description" content="anonymously write or draw me a message." />
+
+        <meta property="og:image" content="https://mufeedvh.com/assets/images/vista-background.jpg" />
+        <meta property="og:image:alt" content="message" />
+
+        <meta property="og:url" content="https://mufeedvh.com/message/" />
+
+        <meta property="og:site_name" content="Mufeed VH" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@mufeedvh" />
+        <meta name="twitter:creator" content="@mufeedvh" />
+        <meta name="twitter:title" content="message" />
+        <meta name="twitter:description" content="anonymously write or draw me a message." />
+
+        <meta name="twitter:image" content="https://mufeedvh.com/assets/images/vista-background.jpg" />
+
+        <title>message - Mufeed VH</title>
+
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+        <link rel="preload" href="/assets/fonts/TiemposHeadline-Regular.otf" as="font" type="font/otf" crossorigin />
+        <link rel="preload" href="/assets/fonts/TiemposText-Regular.otf" as="font" type="font/otf" crossorigin />
+
+        <style>
+            .content code:not(pre code),
+            .code-block-wrapper pre code,
+            .code-line-numbers div {
+                font-family: "Fira Code", "Courier New", Consolas, Monaco, monospace !important;
+            }
+
+            @font-face {
+                font-family: TiemposHeadline-Regular;
+                src: url("/assets/fonts/TiemposHeadline-Regular.otf") format("opentype");
+                font-display: swap;
+            }
+            @font-face {
+                font-family: TiemposText-Regular;
+                src: url("/assets/fonts/TiemposText-Regular.otf") format("opentype");
+                font-display: swap;
+            }
+            body {
+                background-color: #0d0d0d;
+                color: #e0e0e0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: left;
+                min-height: 100vh;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+            .content {
+                padding: 20px;
+                width: 600px;
+                max-width: 90%;
+                margin: 20px auto;
+                box-sizing: border-box;
+                text-align: justify;
+                font-family: TiemposText-Regular, Georgia, serif;
+                position: relative;
+            }
+            .content h1 {
+                font-family: TiemposHeadline-Regular, Georgia, serif;
+                font-size: 2em;
+                color: #ffffff;
+                margin-top: 1em;
+                margin-bottom: 0.5em;
+            }
+            .content a {
+                font-family: TiemposHeadline-Regular, Georgia, serif;
+                color: #a855f7;
+                text-decoration: none;
+                transition: all 0.2s ease;
+            }
+            .content p {
+                text-align: justify;
+                text-justify: inter-word;
+                margin: 1em 0;
+                line-height: 1.7;
+            }
+            .no-bullets {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            .theme-toggle {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 48px;
+                height: 48px;
+                background-color: #1a1a1a;
+                border: 2px solid #444;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                opacity: 0.6;
+                color: #e0e0e0;
+                font-size: 1.2em;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            }
+            @media screen and (max-width: 768px) {
+                .content {
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 15px;
+                    margin: 10px auto;
+                }
+                .theme-toggle {
+                    width: 44px;
+                    height: 44px;
+                    bottom: 15px;
+                    right: 15px;
+                }
+            }
+        </style>
+
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+            <symbol id="icon-minimize" viewBox="0 0 512 512">
+                <path d="M32 416c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z" />
+            </symbol>
+            <symbol id="icon-maximize" viewBox="0 0 512 512">
+                <path
+                    d="M432 48H208c-17.7 0-32 14.3-32 32V96H128V80c0-44.2 35.8-80 80-80H432c44.2 0 80 35.8 80 80V304c0 44.2-35.8 80-80 80H416V336h16c17.7 0 32-14.3 32-32V80c0-17.7-14.3-32-32-32zM48 448c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16H272c8.8 0 16 7.2 16 16V432c0 8.8-7.2 16-16 16H48zm0 64H272c44.2 0 80-35.8 80-80V240c0-44.2-35.8-80-80-80H48c-44.2 0-80 35.8-80 80V432c0 44.2 35.8 80 80 80z"
+                />
+            </symbol>
+            <symbol id="icon-close" viewBox="0 0 384 512">
+                <path
+                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                />
+            </symbol>
+            <symbol id="icon-sun" viewBox="0 0 512 512">
+                <path
+                    d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"
+                />
+            </symbol>
+            <symbol id="icon-moon" viewBox="0 0 384 512">
+                <path
+                    d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"
+                />
+            </symbol>
+            <symbol id="icon-github" viewBox="0 0 496 512">
+                <path
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                />
+            </symbol>
+            <symbol id="icon-x-twitter" viewBox="0 0 512 512">
+                <path
+                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                />
+            </symbol>
+            <symbol id="icon-linkedin" viewBox="0 0 448 512">
+                <path
+                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+                />
+            </symbol>
+            <symbol id="icon-instagram" viewBox="0 0 448 512">
+                <path
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                />
+            </symbol>
+            <symbol id="icon-link" viewBox="0 0 640 512">
+                <path
+                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"
+                />
+            </symbol>
+            <symbol id="icon-message" viewBox="0 0 512 512">
+                <path
+                    d="M160 368c26.5 0 48 21.5 48 48v16l72.5-54.4c8.3-6.2 18.4-9.6 28.8-9.6H448c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16h96zm48 124l-.2 .2-5.1 3.8-17.1 12.8c-4.8 3.6-11.3 4.2-16.8 1.5s-8.8-8.2-8.8-14.3V474.7v-6.4V468v-4V416H112 64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0H448c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H309.3L208 492z"
+                />
+            </symbol>
+        </svg>
+
+        <style>
+            .svg-icon {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                fill: currentColor;
+                vertical-align: -0.125em;
+            }
+            .theme-toggle .svg-icon {
+                width: 1.1em;
+                height: 1.1em;
+            }
+        </style>
+
+        <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="/frutiger-aero.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript>
+            <link rel="stylesheet" href="/styles.css" />
+            <link rel="stylesheet" href="/frutiger-aero.css" />
+        </noscript>
+
+        <script defer src="/codeblock-enhancer.js"></script>
+
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml" />
+    </head>
+    <body>
+        <div class="content">
+            <div id="vista-titlebar" class="vista-titlebar">
+                <div class="vista-titlebar-text">Mufeed VH</div>
+                <div class="vista-titlebar-controls">
+                    <span class="vista-control vista-minimize">
+                        <svg class="svg-icon" aria-hidden="true"><use href="#icon-minimize" /></svg>
+                    </span>
+                    <span class="vista-control vista-maximize">
+                        <svg class="svg-icon" aria-hidden="true"><use href="#icon-maximize" /></svg>
+                    </span>
+                    <span class="vista-control vista-close">
+                        <svg class="svg-icon" aria-hidden="true"><use href="#icon-close" /></svg>
+                    </span>
+                </div>
             </div>
-        </div>
-        
-        
-    
-        
-        
-        <p>write or draw me a message <strong>anonymously</strong>.</p>
-<style>
-    textarea {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        width: 100%;
-        padding: 5px;
-        font-size: 20px;
-        border-radius: 10px;
-        border-width: 0px;
-    }
 
-    .paint-canvas {
-        width: 100%;
-        height: 400px;
-        background: white;
-        border-width: 0px;
-        border-radius: 10px;
-        display: block;
-        margin-top: 10px;
-        touch-action: none;
-    }
-</style>
-<div>
-    <div class="center-content">
-        <p style="font-size: 20px;"><strong>✍️ send a message</strong></p>
-        <textarea id="message" rows="10"></textarea>
-        <div class="button-wrapper"><h4 class="post-button" id="msg-button" onclick="send_message();">
-            Send Message</h4></div> 
-    </div>
-    <hr>
-    <div class="center-content">    
-        <p style="font-size: 20px;"><strong>🖌️ send a drawing</strong></p>
-        <input type="color" class="js-color-picker color-picker">
-        <input type="range" class="js-line-range" min="1" max="72" value="1">
-        &nbsp
-        <label class="js-range-value">1</label> px
-        <canvas class="js-paint paint-canvas"></canvas>
-        <div class="button-wrapper"><h4 class="post-button" id="draw-button" onclick="send_drawing();">
-            Send Drawing</h4></div> 
-    </div>
-</div>
-<script>
-    (function initializeDrawingModule() {
-        const paintCanvas = document.querySelector('.js-paint');
+            <p>write or draw me a message <strong>anonymously</strong>.</p>
+            <style>
+                textarea {
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 5px;
+                    font-size: 20px;
+                    border-radius: 10px;
+                    border-width: 0px;
+                }
 
-        if (!paintCanvas) {
-            console.error('[paint-canvas] Canvas element not found; drawing has been disabled.');
-            return;
-        }
+                .paint-canvas {
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: 400px;
+                    background: white;
+                    border-width: 0px;
+                    border-radius: 10px;
+                    display: block;
+                    margin-top: 10px;
+                    touch-action: none;
+                }
+            </style>
+            <div>
+                <div class="center-content">
+                    <p style="font-size: 20px"><strong>✍️ send a message</strong></p>
+                    <textarea id="message" rows="10"></textarea>
+                    <div class="button-wrapper">
+                        <h4 class="post-button" id="msg-button" onclick="send_message();">Send Message</h4>
+                    </div>
+                </div>
+                <hr />
+                <div class="center-content">
+                    <p style="font-size: 20px"><strong>🖌️ send a drawing</strong></p>
+                    <input type="color" class="js-color-picker color-picker" />
+                    <input type="range" class="js-line-range" min="1" max="72" value="1" />
+                    &nbsp
+                    <label class="js-range-value">1</label> px
+                    <canvas class="js-paint paint-canvas"></canvas>
+                    <div class="button-wrapper">
+                        <h4 class="post-button" id="draw-button" onclick="send_drawing();">Send Drawing</h4>
+                    </div>
+                </div>
+            </div>
+            <script>
+                (function initializeDrawingModule() {
+                    const paintCanvas = document.querySelector(".js-paint");
 
-        const context = paintCanvas.getContext('2d');
-        const tempCanvas = document.createElement('canvas');
-        const tempContext = tempCanvas.getContext('2d');
-        const colorPicker = document.querySelector('.js-color-picker');
-        const lineWidthRange = document.querySelector('.js-line-range');
-        const lineWidthLabel = document.querySelector('.js-range-value');
+                    if (!paintCanvas) {
+                        console.error("[paint-canvas] Canvas element not found; drawing has been disabled.");
+                        return;
+                    }
 
-        /**
-         * Drawing module orchestrates a temporary off-screen canvas and the main canvas to create smooth
-         * strokes, while ensuring the rendering space matches the device pixel ratio.
-         *
-         * Security considerations: logs emit only sizing metadata and configuration changes, never PII.
-         */
-        if (!context || !tempContext) {
-            console.error('[paint-canvas] Failed to obtain a 2D rendering context; drawing has been disabled.');
-            return;
-        }
+                    const context = paintCanvas.getContext("2d");
+                    const tempCanvas = document.createElement("canvas");
+                    const tempContext = tempCanvas.getContext("2d");
+                    const colorPicker = document.querySelector(".js-color-picker");
+                    const lineWidthRange = document.querySelector(".js-line-range");
+                    const lineWidthLabel = document.querySelector(".js-range-value");
 
-        let currentStrokeStyle = colorPicker ? colorPicker.value : '#000000';
-        let currentLineWidth = lineWidthRange ? parseInt(lineWidthRange.value, 10) || 1 : 1;
+                    /**
+                     * Drawing module orchestrates a temporary off-screen canvas and the main canvas to create smooth
+                     * strokes, while ensuring the rendering space matches the device pixel ratio.
+                     *
+                     * Security considerations: logs emit only sizing metadata and configuration changes, never PII.
+                     */
+                    if (!context || !tempContext) {
+                        console.error(
+                            "[paint-canvas] Failed to obtain a 2D rendering context; drawing has been disabled.",
+                        );
+                        return;
+                    }
 
-        const logPaintEvent = (message, data = {}) => {
-            console.info('[paint-canvas]', message, data);
-        };
+                    let currentStrokeStyle = colorPicker ? colorPicker.value : "#000000";
+                    let currentLineWidth = lineWidthRange ? parseInt(lineWidthRange.value, 10) || 1 : 1;
 
-        const applyStrokeSettings = () => {
-            context.lineCap = 'round';
-            context.lineJoin = 'round';
-            context.lineWidth = currentLineWidth;
-            context.strokeStyle = currentStrokeStyle;
-
-            tempContext.lineCap = 'round';
-            tempContext.lineJoin = 'round';
-            tempContext.lineWidth = currentLineWidth;
-            tempContext.strokeStyle = currentStrokeStyle;
-        };
-
-        const detectMob = () => window.innerWidth <= 800;
-
-        /**
-         * Resize both canvases to follow layout changes and honour the device pixel ratio. Resetting the
-         * transform on each call prevents cumulative scaling that previously displaced strokes below the
-         * user's cursor.
-         */
-        const resizeCanvas = () => {
-            const rect = paintCanvas.getBoundingClientRect();
-
-            if (!rect.width || !rect.height) {
-                console.warn('[paint-canvas] Skipping resize due to zero-sized bounding rectangle.', {
-                    width: rect.width,
-                    height: rect.height
-                });
-                return;
-            }
-
-            const dpr = window.devicePixelRatio || 1;
-
-            paintCanvas.width = rect.width * dpr;
-            paintCanvas.height = rect.height * dpr;
-            tempCanvas.width = rect.width * dpr;
-            tempCanvas.height = rect.height * dpr;
-
-            paintCanvas.style.width = `${rect.width}px`;
-            paintCanvas.style.height = `${rect.height}px`;
-            tempCanvas.style.width = `${rect.width}px`;
-            tempCanvas.style.height = `${rect.height}px`;
-
-            context.setTransform(1, 0, 0, 1, 0, 0);
-            tempContext.setTransform(1, 0, 0, 1, 0, 0);
-
-            context.scale(dpr, dpr);
-            tempContext.scale(dpr, dpr);
-
-            applyStrokeSettings();
-
-            logPaintEvent('Canvas resized', {
-                width: rect.width,
-                height: rect.height,
-                dpr
-            });
-        };
-
-        if (detectMob()) {
-            paintCanvas.style.height = '320px';
-        }
-
-        if (colorPicker) {
-            colorPicker.addEventListener('change', event => {
-                currentStrokeStyle = event.target.value;
-                applyStrokeSettings();
-                logPaintEvent('Stroke colour changed', { stroke: currentStrokeStyle });
-            });
-        }
-
-        if (lineWidthRange && lineWidthLabel) {
-            lineWidthLabel.innerHTML = currentLineWidth;
-            lineWidthRange.addEventListener('input', event => {
-                const width = parseInt(event.target.value, 10) || 1;
-                currentLineWidth = width;
-                lineWidthLabel.innerHTML = width;
-                applyStrokeSettings();
-                logPaintEvent('Line width changed', { width: currentLineWidth });
-            });
-        }
-
-        applyStrokeSettings();
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', resizeCanvas);
-        } else {
-            resizeCanvas();
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-
-        let isDrawing = false;
-        let points = [];
-        let savedImageData = null;
-
-        /**
-         * Convert a pointer event into canvas-relative coordinates using CSS pixels so the drawing logic can
-         * stay agnostic of the backing store resolution.
-         */
-        const getPointerPosition = (canvas, evt) => {
-            const rect = canvas.getBoundingClientRect();
-            if ('touches' in evt && evt.touches.length) {
-                const touch = evt.touches[0];
-                return {
-                    x: touch.clientX - rect.left,
-                    y: touch.clientY - rect.top
-                };
-            }
-
-            return {
-                x: evt.clientX - rect.left,
-                y: evt.clientY - rect.top
-            };
-        };
-
-        /**
-         * Render a smoothed stroke following the historical pointer trail, using quadratic curves for a
-         * natural brush appearance.
-         */
-        const drawSmoothLine = (inputPoints, ctx) => {
-            if (inputPoints.length === 0) {
-                return;
-            }
-
-            ctx.beginPath();
-            ctx.moveTo(inputPoints[0].x, inputPoints[0].y);
-
-            for (let i = 1; i < inputPoints.length - 2; i++) {
-                const xc = (inputPoints[i].x + inputPoints[i + 1].x) / 2;
-                const yc = (inputPoints[i].y + inputPoints[i + 1].y) / 2;
-                ctx.quadraticCurveTo(inputPoints[i].x, inputPoints[i].y, xc, yc);
-            }
-
-            if (inputPoints.length > 2) {
-                const last = inputPoints.length - 1;
-                ctx.quadraticCurveTo(inputPoints[last - 1].x, inputPoints[last - 1].y, inputPoints[last].x, inputPoints[last].y);
-            }
-
-            ctx.stroke();
-        };
-
-        const startDrawing = event => {
-            isDrawing = true;
-            points = [];
-            points.push(getPointerPosition(paintCanvas, event));
-            savedImageData = context.getImageData(0, 0, paintCanvas.width, paintCanvas.height);
-        };
-
-        const draw = event => {
-            if (!isDrawing) {
-                return;
-            }
-
-            event.preventDefault();
-            points.push(getPointerPosition(paintCanvas, event));
-
-            if (savedImageData) {
-                context.putImageData(savedImageData, 0, 0);
-            }
-
-            drawSmoothLine(points, context);
-        };
-
-        const stopDrawing = () => {
-            if (!isDrawing) {
-                return;
-            }
-
-            isDrawing = false;
-            
-            if (savedImageData) {
-                context.putImageData(savedImageData, 0, 0);
-            }
-            
-            drawSmoothLine(points, context);
-            points = [];
-            savedImageData = null;
-        };
-
-        paintCanvas.addEventListener('mousedown', startDrawing);
-        paintCanvas.addEventListener('mousemove', draw);
-        paintCanvas.addEventListener('mouseup', stopDrawing);
-        paintCanvas.addEventListener('mouseout', stopDrawing);
-
-        paintCanvas.addEventListener('touchstart', startDrawing);
-        paintCanvas.addEventListener('touchmove', draw);
-        paintCanvas.addEventListener('touchend', stopDrawing);
-
-        const API_URL = 'https://api.mufeedvh.com';
-
-        const send_message = () => {
-            const xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                    const token = JSON.parse(this.responseText).token;
-                    console.log('acquired token: ' + token);
-
-                    const message = document.getElementById('message').value;
-                    const innerXhttp = new XMLHttpRequest();
-                    const url = API_URL + '/message';
-
-                    innerXhttp.onreadystatechange = function() {
-                        if (this.readyState === 4 && this.status === 200) {
-                            const button = document.getElementById('msg-button');
-                            button.style.backgroundColor = 'lightgreen';
-                            button.innerHTML = JSON.parse(innerXhttp.responseText).message;
-                        } else if (this.readyState === 4 && this.status !== 200) {
-                            const button = document.getElementById('msg-button');
-                            button.style.color = 'white';
-                            button.style.backgroundColor = 'red';
-                            button.innerHTML = 'Failed to send message';
-                        }
+                    const logPaintEvent = (message, data = {}) => {
+                        console.info("[paint-canvas]", message, data);
                     };
 
-                    innerXhttp.open('POST', url);
-                    innerXhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-                    innerXhttp.send(JSON.stringify({
-                        'token': token,
-                        'message': message
-                    }));
-                }
-            };
+                    const applyStrokeSettings = () => {
+                        context.lineCap = "round";
+                        context.lineJoin = "round";
+                        context.lineWidth = currentLineWidth;
+                        context.strokeStyle = currentStrokeStyle;
 
-            xhttp.open('GET', API_URL + '/get_token', true);
-            xhttp.send();
-        };
-
-        const send_drawing = () => {
-            const xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                    const token = JSON.parse(this.responseText).token;
-                    console.log('acquired token: ' + token);
-
-                    const innerXhttp = new XMLHttpRequest();
-                    const url = API_URL + '/drawing';
-
-                    innerXhttp.onreadystatechange = function() {
-                        if (this.readyState === 4 && this.status === 200) {
-                            const button = document.getElementById('draw-button');
-                            button.style.backgroundColor = 'lightgreen';
-                            button.innerHTML = JSON.parse(innerXhttp.responseText).message;
-                        } else if (this.readyState === 4 && this.status !== 200) {
-                            const button = document.getElementById('draw-button');
-                            button.style.color = 'white';
-                            button.style.backgroundColor = 'red';
-                            button.innerHTML = 'Failed to send message';
-                        }
+                        tempContext.lineCap = "round";
+                        tempContext.lineJoin = "round";
+                        tempContext.lineWidth = currentLineWidth;
+                        tempContext.strokeStyle = currentStrokeStyle;
                     };
 
-                    innerXhttp.open('POST', url);
-                    innerXhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-                    innerXhttp.send(JSON.stringify({
-                        'token': token,
-                        'message': paintCanvas.toDataURL()
-                    }));
-                }
-            };
+                    const detectMob = () => window.innerWidth <= 800;
 
-            xhttp.open('GET', API_URL + '/get_token', true);
-            xhttp.send();
-        };
+                    /**
+                     * Resize both canvases to follow layout changes and honour the device pixel ratio. Resetting the
+                     * transform on each call prevents cumulative scaling that previously displaced strokes below the
+                     * user's cursor.
+                     */
+                    const resizeCanvas = () => {
+                        const rect = paintCanvas.getBoundingClientRect();
 
-        window.send_message = send_message;
-        window.send_drawing = send_drawing;
-    })();
-</script>
-    
-    <a href="/">&#8592; Back to home</a>
-
-    </div>
-    
-    <div id="theme-toggle" class="theme-toggle" title="Toggle Frutiger Aero Theme">
-        <i class="fa-solid fa-sun"></i>
-    </div>
-    
-    
-    <script defer src="/theme-toggle.js"></script>
-    <script defer src="/tweet-theme-override.js"></script>
-    
-    <script>
-    function toggleSidenote(id) {
-        const sidenote = document.getElementById(id);
-        if (sidenote) {
-            sidenote.classList.toggle('active');
-        }
-    }
-
-    if (!window.sidenotesInitialized) {
-        window.sidenotesInitialized = true;
-        
-        function initializeSidenotes() {
-            const markers = document.querySelectorAll('.sidenote-marker');
-            markers.forEach(marker => {
-                const sidenoteId = marker.getAttribute('data-sidenote');
-                const sidenote = document.getElementById(sidenoteId);
-                if (sidenote) {
-                    // Reset any inline styles that might interfere
-                    sidenote.style.top = '';
-                    sidenote.style.position = '';
-                    
-                    // Add click handler for desktop hover behavior
-                    if (window.innerWidth >= 1200) {
-                        marker.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            // Close all other sidenotes
-                            document.querySelectorAll('.sidenote').forEach(note => {
-                                if (note.id !== sidenoteId) {
-                                    note.classList.remove('active');
-                                }
+                        if (!rect.width || !rect.height) {
+                            console.warn("[paint-canvas] Skipping resize due to zero-sized bounding rectangle.", {
+                                width: rect.width,
+                                height: rect.height,
                             });
-                            // Toggle current sidenote
-                            sidenote.classList.toggle('active');
+                            return;
+                        }
+
+                        const dpr = window.devicePixelRatio || 1;
+
+                        paintCanvas.width = rect.width * dpr;
+                        paintCanvas.height = rect.height * dpr;
+                        tempCanvas.width = rect.width * dpr;
+                        tempCanvas.height = rect.height * dpr;
+
+                        paintCanvas.style.width = `${rect.width}px`;
+                        paintCanvas.style.height = `${rect.height}px`;
+                        tempCanvas.style.width = `${rect.width}px`;
+                        tempCanvas.style.height = `${rect.height}px`;
+
+                        context.setTransform(1, 0, 0, 1, 0, 0);
+                        tempContext.setTransform(1, 0, 0, 1, 0, 0);
+
+                        context.scale(dpr, dpr);
+                        tempContext.scale(dpr, dpr);
+
+                        applyStrokeSettings();
+
+                        logPaintEvent("Canvas resized", {
+                            width: rect.width,
+                            height: rect.height,
+                            dpr,
+                        });
+                    };
+
+                    if (detectMob()) {
+                        paintCanvas.style.height = "320px";
+                    }
+
+                    if (colorPicker) {
+                        colorPicker.addEventListener("change", (event) => {
+                            currentStrokeStyle = event.target.value;
+                            applyStrokeSettings();
+                            logPaintEvent("Stroke colour changed", { stroke: currentStrokeStyle });
                         });
                     }
-                }
-            });
-        }
 
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(function() {
-                initializeSidenotes();
-            }, 100);
-        });
-        
-        // Initialize sidenotes with robust ready check
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeSidenotes);
-        } else {
-            // DOM already loaded - use setTimeout to ensure all elements are parsed
-            setTimeout(initializeSidenotes, 0);
-        }
-    }
-    </script>
-    
-</body>
+                    if (lineWidthRange && lineWidthLabel) {
+                        lineWidthLabel.innerHTML = currentLineWidth;
+                        lineWidthRange.addEventListener("input", (event) => {
+                            const width = parseInt(event.target.value, 10) || 1;
+                            currentLineWidth = width;
+                            lineWidthLabel.innerHTML = width;
+                            applyStrokeSettings();
+                            logPaintEvent("Line width changed", { width: currentLineWidth });
+                        });
+                    }
+
+                    applyStrokeSettings();
+
+                    if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", () => {
+                            resizeCanvas();
+                            setTimeout(resizeCanvas, 100);
+                        });
+                    } else {
+                        resizeCanvas();
+                        setTimeout(resizeCanvas, 100);
+                    }
+
+                    window.addEventListener("resize", resizeCanvas);
+
+                    let isDrawing = false;
+                    let points = [];
+                    let savedImageData = null;
+
+                    /**
+                     * Convert a pointer event into canvas-relative coordinates using CSS pixels so the drawing logic can
+                     * stay agnostic of the backing store resolution.
+                     */
+                    const getPointerPosition = (canvas, evt) => {
+                        const rect = canvas.getBoundingClientRect();
+                        if ("touches" in evt && evt.touches.length) {
+                            const touch = evt.touches[0];
+                            return {
+                                x: touch.clientX - rect.left,
+                                y: touch.clientY - rect.top,
+                            };
+                        }
+
+                        return {
+                            x: evt.clientX - rect.left,
+                            y: evt.clientY - rect.top,
+                        };
+                    };
+
+                    /**
+                     * Render a smoothed stroke following the historical pointer trail, using quadratic curves for a
+                     * natural brush appearance.
+                     */
+                    const drawSmoothLine = (inputPoints, ctx) => {
+                        if (inputPoints.length === 0) {
+                            return;
+                        }
+
+                        ctx.beginPath();
+                        ctx.moveTo(inputPoints[0].x, inputPoints[0].y);
+
+                        for (let i = 1; i < inputPoints.length - 2; i++) {
+                            const xc = (inputPoints[i].x + inputPoints[i + 1].x) / 2;
+                            const yc = (inputPoints[i].y + inputPoints[i + 1].y) / 2;
+                            ctx.quadraticCurveTo(inputPoints[i].x, inputPoints[i].y, xc, yc);
+                        }
+
+                        if (inputPoints.length > 2) {
+                            const last = inputPoints.length - 1;
+                            ctx.quadraticCurveTo(
+                                inputPoints[last - 1].x,
+                                inputPoints[last - 1].y,
+                                inputPoints[last].x,
+                                inputPoints[last].y,
+                            );
+                        }
+
+                        ctx.stroke();
+                    };
+
+                    const startDrawing = (event) => {
+                        isDrawing = true;
+                        points = [];
+                        points.push(getPointerPosition(paintCanvas, event));
+                        savedImageData = context.getImageData(0, 0, paintCanvas.width, paintCanvas.height);
+                    };
+
+                    const draw = (event) => {
+                        if (!isDrawing) {
+                            return;
+                        }
+
+                        event.preventDefault();
+                        points.push(getPointerPosition(paintCanvas, event));
+
+                        if (savedImageData) {
+                            context.putImageData(savedImageData, 0, 0);
+                        }
+
+                        drawSmoothLine(points, context);
+                    };
+
+                    const stopDrawing = () => {
+                        if (!isDrawing) {
+                            return;
+                        }
+
+                        isDrawing = false;
+
+                        if (savedImageData) {
+                            context.putImageData(savedImageData, 0, 0);
+                        }
+
+                        drawSmoothLine(points, context);
+                        points = [];
+                        savedImageData = null;
+                    };
+
+                    paintCanvas.addEventListener("mousedown", startDrawing);
+                    paintCanvas.addEventListener("mousemove", draw);
+                    paintCanvas.addEventListener("mouseup", stopDrawing);
+                    paintCanvas.addEventListener("mouseout", stopDrawing);
+
+                    paintCanvas.addEventListener("touchstart", startDrawing);
+                    paintCanvas.addEventListener("touchmove", draw);
+                    paintCanvas.addEventListener("touchend", stopDrawing);
+
+                    const API_URL = "https://api.mufeedvh.com";
+
+                    let lastSentMessage = null;
+                    let lastSentDrawing = null;
+                    let isSendingMessage = false;
+                    let isSendingDrawing = false;
+
+                    const send_message = () => {
+                        if (isSendingMessage) {
+                            return;
+                        }
+
+                        const message = document.getElementById("message").value;
+                        const button = document.getElementById("msg-button");
+
+                        if (lastSentMessage !== null && message === lastSentMessage) {
+                            button.style.backgroundColor = "#ffa500";
+                            button.style.color = "white";
+                            button.innerHTML = "Message already sent";
+                            return;
+                        }
+
+                        isSendingMessage = true;
+                        button.disabled = true;
+                        button.style.backgroundColor = "#808080";
+                        button.innerHTML = "Sending...";
+
+                        const xhttp = new XMLHttpRequest();
+
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState === 4 && this.status === 200) {
+                                const token = JSON.parse(this.responseText).token;
+                                console.log("acquired token: " + token);
+
+                                const innerXhttp = new XMLHttpRequest();
+                                const url = API_URL + "/message";
+
+                                innerXhttp.onreadystatechange = function () {
+                                    if (this.readyState === 4 && this.status === 200) {
+                                        lastSentMessage = message;
+                                        button.style.backgroundColor = "lightgreen";
+                                        button.style.color = "black";
+                                        button.innerHTML = JSON.parse(innerXhttp.responseText).message;
+                                        button.disabled = false;
+                                        isSendingMessage = false;
+                                    } else if (this.readyState === 4 && this.status !== 200) {
+                                        button.style.color = "white";
+                                        button.style.backgroundColor = "red";
+                                        button.innerHTML = "Failed to send message";
+                                        button.disabled = false;
+                                        isSendingMessage = false;
+                                    }
+                                };
+
+                                innerXhttp.open("POST", url);
+                                innerXhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+                                innerXhttp.send(
+                                    JSON.stringify({
+                                        token: token,
+                                        message: message,
+                                    }),
+                                );
+                            } else if (this.readyState === 4 && this.status !== 200) {
+                                button.style.color = "white";
+                                button.style.backgroundColor = "red";
+                                button.innerHTML = "Failed to get token";
+                                button.disabled = false;
+                                isSendingMessage = false;
+                            }
+                        };
+
+                        xhttp.open("GET", API_URL + "/get_token", true);
+                        xhttp.send();
+                    };
+
+                    const send_drawing = () => {
+                        if (isSendingDrawing) {
+                            return;
+                        }
+
+                        const drawingData = paintCanvas.toDataURL();
+                        const button = document.getElementById("draw-button");
+
+                        if (lastSentDrawing !== null && drawingData === lastSentDrawing) {
+                            button.style.backgroundColor = "#ffa500";
+                            button.style.color = "white";
+                            button.innerHTML = "Drawing already sent";
+                            return;
+                        }
+
+                        isSendingDrawing = true;
+                        button.disabled = true;
+                        button.style.backgroundColor = "#808080";
+                        button.innerHTML = "Sending...";
+
+                        const xhttp = new XMLHttpRequest();
+
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState === 4 && this.status === 200) {
+                                const token = JSON.parse(this.responseText).token;
+                                console.log("acquired token: " + token);
+
+                                const innerXhttp = new XMLHttpRequest();
+                                const url = API_URL + "/drawing";
+
+                                innerXhttp.onreadystatechange = function () {
+                                    if (this.readyState === 4 && this.status === 200) {
+                                        lastSentDrawing = drawingData;
+                                        button.style.backgroundColor = "lightgreen";
+                                        button.style.color = "black";
+                                        button.innerHTML = JSON.parse(innerXhttp.responseText).message;
+                                        button.disabled = false;
+                                        isSendingDrawing = false;
+                                    } else if (this.readyState === 4 && this.status !== 200) {
+                                        button.style.color = "white";
+                                        button.style.backgroundColor = "red";
+                                        button.innerHTML = "Failed to send drawing";
+                                        button.disabled = false;
+                                        isSendingDrawing = false;
+                                    }
+                                };
+
+                                innerXhttp.open("POST", url);
+                                innerXhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+                                innerXhttp.send(
+                                    JSON.stringify({
+                                        token: token,
+                                        message: drawingData,
+                                    }),
+                                );
+                            } else if (this.readyState === 4 && this.status !== 200) {
+                                button.style.color = "white";
+                                button.style.backgroundColor = "red";
+                                button.innerHTML = "Failed to get token";
+                                button.disabled = false;
+                                isSendingDrawing = false;
+                            }
+                        };
+
+                        xhttp.open("GET", API_URL + "/get_token", true);
+                        xhttp.send();
+                    };
+
+                    window.send_message = send_message;
+                    window.send_drawing = send_drawing;
+                })();
+            </script>
+
+            <a href="/">&#8592; Back to home</a>
+        </div>
+
+        <div id="theme-toggle" class="theme-toggle" title="Toggle Frutiger Aero Theme">
+            <svg class="svg-icon" aria-hidden="true"><use href="#icon-sun" /></svg>
+        </div>
+
+        <script defer src="/theme-toggle.js"></script>
+        <script defer src="/tweet-theme-override.js"></script>
+    </body>
 </html>

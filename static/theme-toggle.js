@@ -45,7 +45,7 @@
     
     if (frutigerAeroEnabled) {
         body.classList.add('frutiger-aero');
-        themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        themeToggle.innerHTML = '<svg class="svg-icon" aria-hidden="true"><use href="#icon-moon"/></svg>';
         themeToggle.setAttribute('title', 'Switch to Dark Theme');
         
         // Play startup sound on page load if this is the first page in the session
@@ -54,7 +54,7 @@
             sessionStorage.setItem('vistaStartupPlayed', 'true');
         }
     } else {
-        themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        themeToggle.innerHTML = '<svg class="svg-icon" aria-hidden="true"><use href="#icon-sun"/></svg>';
         themeToggle.setAttribute('title', 'Switch to Frutiger Aero Theme');
     }
     
@@ -63,14 +63,14 @@
         
         if (body.classList.contains('frutiger-aero')) {
             localStorage.setItem('frutigerAeroEnabled', 'true');
-            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            themeToggle.innerHTML = '<svg class="svg-icon" aria-hidden="true"><use href="#icon-moon"/></svg>';
             themeToggle.setAttribute('title', 'Switch to Dark Theme');
             
             playSound('/assets/sounds/vista-startup.mp3');
             sessionStorage.setItem('vistaStartupPlayed', 'true');
         } else {
             localStorage.setItem('frutigerAeroEnabled', 'false');
-            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            themeToggle.innerHTML = '<svg class="svg-icon" aria-hidden="true"><use href="#icon-sun"/></svg>';
             themeToggle.setAttribute('title', 'Switch to Frutiger Aero Theme');
             
             playSound('/assets/sounds/vista-shutdown.mp3');
@@ -85,7 +85,7 @@
             if (this.classList.contains('vista-close')) {
                 body.classList.remove('frutiger-aero');
                 localStorage.setItem('frutigerAeroEnabled', 'false');
-                themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+                themeToggle.innerHTML = '<svg class="svg-icon" aria-hidden="true"><use href="#icon-sun"/></svg>';
                 themeToggle.setAttribute('title', 'Switch to Frutiger Aero Theme');
                 
                 playSound('/assets/sounds/vista-shutdown.mp3');

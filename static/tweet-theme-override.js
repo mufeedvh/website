@@ -57,6 +57,7 @@
             wrapper.style.setProperty('width', `${targetWidth}px`, 'important');
             wrapper.style.setProperty('max-width', '100%', 'important');
             wrapper.style.setProperty('line-height', '0', 'important');
+            wrapper.style.setProperty('overflow', 'hidden', 'important');
 
             iframe.style.setProperty('transform', `scale(${nextScale})`, 'important');
             iframe.style.setProperty('transform-origin', 'top center', 'important');
@@ -66,7 +67,7 @@
             if (baselineHeight > 0) {
                 const scaledHeight = baselineHeight * nextScale;
 
-                wrapper.style.setProperty('height', `${Math.ceil(scaledHeight)}px`, 'important');
+                wrapper.style.setProperty('height', `${Math.round(scaledHeight)}px`, 'important');
                 // Don't set fixed height or negative margin on container - let it flow naturally
                 container.style.removeProperty('height');
                 container.style.setProperty('margin-bottom', '1.5em', 'important');

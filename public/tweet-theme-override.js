@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     function configureTweetEmbeds() {
@@ -44,7 +44,8 @@
 
             let baselineHeight = parseFloat(iframe.dataset.tweetBaselineHeight);
             if (!Number.isFinite(baselineHeight) || baselineHeight <= 0) {
-                const measuredHeight = iframe.getBoundingClientRect().height || iframe.offsetHeight || getNumericStyle(iframe, 'height');
+                const measuredHeight =
+                    iframe.getBoundingClientRect().height || iframe.offsetHeight || getNumericStyle(iframe, 'height');
                 if (measuredHeight > 0) {
                     baselineHeight = measuredHeight / previousScale;
                     iframe.dataset.tweetBaselineHeight = String(baselineHeight);
@@ -57,6 +58,7 @@
             wrapper.style.setProperty('width', `${targetWidth}px`, 'important');
             wrapper.style.setProperty('max-width', '100%', 'important');
             wrapper.style.setProperty('line-height', '0', 'important');
+            wrapper.style.setProperty('overflow', 'hidden', 'important');
 
             iframe.style.setProperty('transform', `scale(${nextScale})`, 'important');
             iframe.style.setProperty('transform-origin', 'top center', 'important');
@@ -66,7 +68,7 @@
             if (baselineHeight > 0) {
                 const scaledHeight = baselineHeight * nextScale;
 
-                wrapper.style.setProperty('height', `${Math.ceil(scaledHeight)}px`, 'important');
+                wrapper.style.setProperty('height', `${Math.round(scaledHeight)}px`, 'important');
                 // Don't set fixed height or negative margin on container - let it flow naturally
                 container.style.removeProperty('height');
                 container.style.setProperty('margin-bottom', '1.5em', 'important');
@@ -119,10 +121,10 @@
 
     configureTweetEmbeds();
 
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(mutations => {
         let needsUpdate = false;
-        mutations.forEach((mutation) => {
-            mutation.addedNodes.forEach((node) => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
                 if (node.nodeType === 1) {
                     if (node.classList && node.classList.contains('twitter-tweet-rendered')) {
                         needsUpdate = true;
@@ -137,10 +139,10 @@
             setTimeout(forceCompactStyle, 100);
         }
     });
-    
+
     observer.observe(document.body, {
         childList: true,
-        subtree: true
+        subtree: true,
     });
 
     function initWhenReady() {
@@ -167,7 +169,7 @@
         setTimeout(forceCompactStyle, 500);
         setTimeout(forceCompactStyle, 1500);
     });
-    
+
     let resizeTimeoutId;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeoutId);

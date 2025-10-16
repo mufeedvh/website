@@ -1,9 +1,9 @@
 /**
  * Drop Cap Enhancement
- * 
+ *
  * Automatically creates beautiful SVG drop caps for the first letter of blog posts.
  * Inspired by Gwern's aesthetic with abstract art styling.
- * 
+ *
  * Features:
  * - Generates custom SVG for each letter
  * - Abstract geometric design with decorative elements
@@ -11,27 +11,27 @@
  * - Responsive and accessible
  */
 
-(function() {
+(function () {
     'use strict';
 
     /**
      * Generates an SVG drop cap with frutiger aero styling (glossy, bubble-like)
-     * 
+     *
      * @param {string} letter - The letter to render
      * @returns {string} SVG markup
      */
     function generateFrutigerAeroDropCapSVG(letter) {
         const svgWidth = 80;
         const svgHeight = 80;
-        
+
         const letterCode = letter.charCodeAt(0);
-        
+
         // Frutiger aero colors: sky blues, whites, transparent elements
         const skyBlue = '#4da6ff';
         const lightBlue = '#99ccff';
         const white = '#ffffff';
         const softBlue = '#cce6ff';
-        
+
         return `
             <svg xmlns="http://www.w3.org/2000/svg" 
                  viewBox="0 0 ${svgWidth} ${svgHeight}" 
@@ -137,28 +137,28 @@
 
     /**
      * Generates an SVG drop cap with abstract art styling
-     * 
+     *
      * @param {string} letter - The letter to render
      * @returns {string} SVG markup
      */
     function generateDropCapSVG(letter) {
         const svgWidth = 80;
         const svgHeight = 80;
-        
+
         // Generate abstract background patterns based on letter
         const letterCode = letter.charCodeAt(0);
         const seed = letterCode * 137.5; // Golden angle for aesthetics
-        
+
         // Create geometric pattern elements
-        const pattern1Rotate = (seed % 360);
-        const pattern2Rotate = ((seed * 1.618) % 360); // Golden ratio
-        const pattern3Rotate = ((seed * 2.414) % 360); // Silver ratio
-        
+        const pattern1Rotate = seed % 360;
+        const pattern2Rotate = (seed * 1.618) % 360; // Golden ratio
+        const pattern3Rotate = (seed * 2.414) % 360; // Silver ratio
+
         // Use site's purple/violet color palette
-        const primaryColor = '#a855f7';    // Site's main purple (links)
-        const secondaryColor = '#7c3aed';  // Darker purple
-        const accentColor = '#c084fc';     // Lighter purple
-        
+        const primaryColor = '#a855f7'; // Site's main purple (links)
+        const secondaryColor = '#7c3aed'; // Darker purple
+        const accentColor = '#c084fc'; // Lighter purple
+
         return `
             <svg xmlns="http://www.w3.org/2000/svg" 
                  viewBox="0 0 ${svgWidth} ${svgHeight}" 
@@ -293,17 +293,17 @@
         // Only run on blog post pages
         const contentDiv = document.querySelector('.content');
         if (!contentDiv) return;
-        
+
         // Check if this is a blog post (has date or is in posts directory)
-        const isBlogPost = document.body.classList.contains('blog-post') || 
-                          window.location.pathname.includes('/posts/');
-        
+        const isBlogPost =
+            document.body.classList.contains('blog-post') || window.location.pathname.includes('/posts/');
+
         if (!isBlogPost) return;
 
         // Find the first paragraph that starts with actual text (not HTML/images)
         const paragraphs = contentDiv.querySelectorAll('p');
         let targetParagraph = null;
-        
+
         for (const p of paragraphs) {
             const text = p.textContent.trim();
             // Skip empty paragraphs or those that start with special characters
@@ -312,26 +312,36 @@
                 break;
             }
         }
-        
+
         if (!targetParagraph) return;
-        
+
         // Extract the first letter
-        const textNode = targetParagraph.childNodes[0];
-        if (!textNode || textNode.nodeType !== Node.TEXT_NODE) return;
-        
+        // Find the first non-whitespace text node (handles formatted HTML with newlines/indentation)
+        let textNode = null;
+        for (const node of targetParagraph.childNodes) {
+            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+                textNode = node;
+                break;
+            }
+        }
+
+        if (!textNode) return;
+
         const fullText = textNode.textContent;
-        const firstLetter = fullText.charAt(0);
-        const remainingText = fullText.substring(1);
-        
+        const trimmedText = fullText.trimStart(); // Remove leading whitespace
+        const leadingWhitespace = fullText.substring(0, fullText.length - trimmedText.length);
+        const firstLetter = trimmedText.charAt(0);
+        const remainingText = trimmedText.substring(1);
+
         if (!firstLetter || !/[A-Z]/.test(firstLetter)) return;
 
         // Calculate dynamic sizing based on paragraph line height
         const lineHeight = getLineHeight(targetParagraph);
         // Set height to just under 3 lines so it clears properly
         // Subtract a small amount to ensure the 4th line starts below
-        const dropCapHeight = (lineHeight * 3) - (lineHeight * 0.05);
+        const dropCapHeight = lineHeight * 3 - lineHeight * 0.05;
         const dropCapWidth = Math.round(dropCapHeight); // keep square aspect
-        
+
         // Create drop cap container
         const dropCapContainer = document.createElement('span');
         dropCapContainer.className = 'drop-cap-container';
@@ -340,22 +350,27 @@
         dropCapContainer.style.setProperty('--drop-cap-width', `${dropCapWidth}px`);
         dropCapContainer.style.height = `${dropCapHeight}px`;
         dropCapContainer.style.width = `${dropCapWidth}px`;
-        
+
         // Use frutiger aero design if that theme is active
         const isFrutigerAero = document.body.classList.contains('frutiger-aero');
-        dropCapContainer.innerHTML = isFrutigerAero 
+        dropCapContainer.innerHTML = isFrutigerAero
             ? generateFrutigerAeroDropCapSVG(firstLetter)
             : generateDropCapSVG(firstLetter);
-        
+
         // Create a span for the remaining text
         const remainingTextSpan = document.createElement('span');
         remainingTextSpan.textContent = remainingText;
-        
+
         // Replace the text node with our new structure
+        // Preserve leading whitespace, then add drop cap and remaining text
+        if (leadingWhitespace) {
+            const whitespaceNode = document.createTextNode(leadingWhitespace);
+            targetParagraph.insertBefore(whitespaceNode, textNode);
+        }
         targetParagraph.insertBefore(dropCapContainer, textNode);
         targetParagraph.insertBefore(remainingTextSpan, textNode);
         targetParagraph.removeChild(textNode);
-        
+
         // Mark paragraph as having a drop cap for styling
         targetParagraph.classList.add('has-drop-cap');
     }
@@ -367,25 +382,25 @@
         // Remove existing drop cap if present
         const existingDropCap = document.querySelector('.drop-cap-container');
         const paragraph = document.querySelector('.has-drop-cap');
-        
+
         if (existingDropCap && paragraph) {
             // Get the letter from data attribute
             const letter = existingDropCap.getAttribute('data-letter');
             const remainingTextSpan = existingDropCap.nextElementSibling;
             const remainingText = remainingTextSpan ? remainingTextSpan.textContent : '';
-            
+
             // Remove existing elements
             existingDropCap.remove();
             if (remainingTextSpan) {
                 remainingTextSpan.remove();
             }
-            
+
             // Restore original text
             const textNode = document.createTextNode(letter + remainingText);
             paragraph.insertBefore(textNode, paragraph.firstChild);
             paragraph.classList.remove('has-drop-cap');
         }
-        
+
         // Reinitialize
         initializeDropCap();
     }
@@ -394,18 +409,18 @@
      * Watch for theme changes
      */
     function watchForThemeChanges() {
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
                 if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
                     // Theme changed, regenerate drop cap
                     reinitializeDropCap();
                 }
             });
         });
-        
+
         observer.observe(document.body, {
             attributes: true,
-            attributeFilter: ['class']
+            attributeFilter: ['class'],
         });
     }
 
@@ -430,4 +445,3 @@
     }
     initWhenReady();
 })();
-

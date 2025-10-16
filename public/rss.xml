@@ -85,6 +85,34 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+&#x2F;* TOC scrollbar - Default theme *&#x2F;
+.toc-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.toc-content::-webkit-scrollbar-track {
+    background-color: #151515;
+}
+
+.toc-content::-webkit-scrollbar-thumb {
+    background-color: #3a3a3a;
+    border-radius: 5px;
+    border: 2px solid #151515;
+}
+
+.toc-content::-webkit-scrollbar-thumb:hover {
+    background-color: #4a4a4a;
+}
+
+.toc-content::-webkit-scrollbar-thumb:active {
+    background-color: #5a5a5a;
+}
+
+.toc-content {
+    scrollbar-width: thin;
+    scrollbar-color: #3a3a3a #151515;
+}
+
 .toc-list,
 .toc-list ul {
     list-style: none !important;
@@ -211,6 +239,37 @@ body.frutiger-aero .toc-content {
     border: 1px solid rgba(173, 216, 255, 0.8);
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     border-radius: 8px;
+}
+
+&#x2F;* TOC scrollbar - Frutiger Aero theme *&#x2F;
+body.frutiger-aero .toc-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.frutiger-aero .toc-content::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, rgba(224, 240, 255, 0.3) 0%, rgba(184, 222, 255, 0.3) 100%);
+    border-radius: 0 8px 8px 0;
+}
+
+body.frutiger-aero .toc-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #b8deff 0%, #80c0ff 100%);
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.frutiger-aero .toc-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #a0d0ff 0%, #60a8ff 100%);
+    box-shadow: 0 2px 6px rgba(0, 120, 215, 0.3);
+}
+
+body.frutiger-aero .toc-content::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(to bottom, #80c0ff 0%, #4090ff 100%);
+}
+
+body.frutiger-aero .toc-content {
+    scrollbar-width: thin;
+    scrollbar-color: #b8deff rgba(224, 240, 255, 0.3);
 }
 
 body.frutiger-aero .toc-list &gt; li:nth-child(odd) {
@@ -403,7 +462,7 @@ html { scroll-behavior: smooth; }
             const li = document.createElement(&#x27;li&#x27;);
             const a = document.createElement(&#x27;a&#x27;);
             a.href = `#${heading.id}`;
-            a.textContent = heading.textContent;
+            a.textContent = heading.textContent.trim();
             a.className = `toc-h${level}`;
             a.dataset.level = level;
             
@@ -682,9 +741,9 @@ You can issue these commands:
 &lt;p&gt;And I can&#x27;t wait for the &quot;jailbreak&quot; exploits on LLM apps gaining code execution with the exploit being just plain english. Fun times ahead eh?&lt;&#x2F;p&gt;
 &lt;div class=&quot;cta-row&quot;&gt;
 &lt;div class=&quot;button-wrapper&quot;&gt;&lt;h4 class=&quot;post-button cta-button&quot; id=&quot;share-button&quot; onclick=&quot;share_button();&quot;&gt;
-            Link to this article &lt;span class=&quot;fa-solid fa-link&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;h4&gt;&lt;&#x2F;div&gt; 
+            Link to this article &lt;svg class=&quot;svg-icon&quot; aria-hidden=&quot;true&quot; style=&quot;width:1.2em;height:1.2em;&quot;&gt;&lt;use href=&quot;#icon-link&quot;&#x2F;&gt;&lt;&#x2F;svg&gt;&lt;&#x2F;h4&gt;&lt;&#x2F;div&gt; 
 &lt;div class=&quot;button-wrapper&quot;&gt;&lt;h4 class=&quot;post-button cta-button&quot; id=&quot;follow-button&quot; onclick=&quot;twitter_follow();&quot;&gt;
-            Follow me on &lt;span class=&quot;fa-brands fa-x-twitter&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;h4&gt;&lt;&#x2F;div&gt; &lt;&#x2F;div&gt;</description>
+            Follow me on 𝕏&lt;&#x2F;h4&gt;&lt;&#x2F;div&gt; &lt;&#x2F;div&gt;</description>
       </item>
     </channel>
 </rss>
