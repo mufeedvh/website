@@ -134,7 +134,7 @@ body:not(.home) .content {
 }
 
 .no-bullets li {
-    margin-bottom: 0.5em;
+    margin-bottom: 1.2em;
 }
 
 .content ul.no-bullets {
