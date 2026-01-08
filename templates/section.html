@@ -23,27 +23,176 @@
     ]
 }
 </script>
+<style>
+    .posts-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .posts-header h1 {
+        font-family: var(--font-display);
+        font-size: clamp(1.75rem, 4vw, 2rem);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0;
+        letter-spacing: -0.02em;
+    }
+
+    .post-list {
+        list-style: none;
+        padding: 0 !important;
+        padding-left: 0 !important;
+        margin: 0;
+    }
+
+    .post-list li {
+        padding: 0;
+        margin: 0;
+    }
+
+    .post-list li::before {
+        display: none;
+    }
+
+    .post-item {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-subtle);
+        text-decoration: none;
+        transition: all 0.15s ease;
+    }
+
+    .post-item::after {
+        display: none;
+    }
+
+    .post-item:hover {
+        padding-left: 0.5rem;
+    }
+
+    .post-item-date {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+        width: 120px;
+    }
+
+    .post-item-title {
+        font-family: var(--font-display);
+        font-size: var(--text-lg);
+        font-weight: 500;
+        color: var(--text-primary);
+        margin: 0;
+        transition: color 0.15s ease;
+    }
+
+    .post-item:hover .post-item-title {
+        color: var(--accent-gold);
+    }
+
+    .post-item-tags {
+        display: flex;
+        gap: 0.4rem;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    .post-tag {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--accent-gold);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        padding: 0.15rem 0.4rem;
+        border: 1px solid var(--accent-gold);
+        opacity: 0.6;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        text-decoration: none;
+        transition: all 0.15s ease;
+    }
+
+    .back-link::after {
+        display: none;
+    }
+
+    .back-link:hover {
+        color: var(--accent-gold);
+    }
+
+    @media (max-width: 600px) {
+        .post-item {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .post-item:hover {
+            padding-left: 0;
+        }
+
+        .post-item-tags {
+            margin-left: 0;
+            width: 100%;
+            order: 3;
+        }
+    }
+</style>
 {% endblock extra_head %}
 
 {% block content %}
-{% if not section.extra.no_header %}
-<h1>{{ section.title }}</h1>
-{% endif %}
-{% if section.content %}
-    {{ section.content | safe }}
-{% endif %}
+<header class="posts-header">
+    <h1>Writing</h1>
+</header>
 
-<ul>
+<ul class="post-list">
     {% for page in section.pages %}
-        <li>{{ page.date | date(format="%a %b %e, %Y") }} - <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+        <li>
+            <a href="{{ page.permalink | safe }}" class="post-item">
+                <span class="post-item-date">{{ page.date | date(format="%b %d, %Y") }}</span>
+                <span class="post-item-title">{{ page.title }}</span>
+                {% if page.taxonomies.tags %}
+                <div class="post-item-tags">
+                    {% for tag in page.taxonomies.tags %}
+                    <span class="post-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </a>
+        </li>
     {% endfor %}
     {% for subsection in section.subsections %}
         {% set subsection_data = get_section(path=subsection) %}
         {% for page in subsection_data.pages %}
-            <li>{{ page.date | date(format="%a %b %e, %Y") }} - <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+            <li>
+                <a href="{{ page.permalink | safe }}" class="post-item">
+                    <span class="post-item-date">{{ page.date | date(format="%b %d, %Y") }}</span>
+                    <span class="post-item-title">{{ page.title }}</span>
+                    {% if page.taxonomies.tags %}
+                    <div class="post-item-tags">
+                        {% for tag in page.taxonomies.tags %}
+                        <span class="post-tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </a>
+            </li>
         {% endfor %}
     {% endfor %}
 </ul>
 
-<a href="/">&#8592; Back to home</a>
+<a href="/" class="back-link">← Back to home</a>
 {% endblock content %}

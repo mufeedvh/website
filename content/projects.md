@@ -274,12 +274,12 @@ html {
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1px;
+    gap: 1rem;
     margin: 2em 0;
     width: 100%;
     box-sizing: border-box;
-    background-color: #333;
-    border: 1px solid #333;
+    background-color: transparent;
+    border: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -288,12 +288,12 @@ html {
     }
 }
 
-/* Dark Theme: Minimal Gwern-inspired Design */
+/* Dark Theme: Minimal Design */
 .project-card {
-    background-color: #0d0d0d;
-    border: none;
-    padding: 1em;
-    transition: all 0.2s ease;
+    background-color: var(--bg-card, #161616);
+    border: 1px solid var(--border-subtle, #1c1c1c);
+    padding: 1.25em;
+    transition: all 0.25s ease;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -305,7 +305,9 @@ html {
 }
 
 .project-card:hover {
-    background-color: #1a1a1a;
+    border-color: var(--accent-gold, #d4a00a);
+    box-shadow: 0 0 20px rgba(212, 160, 10, 0.1);
+    transform: translateY(-2px);
 }
 
 .project-card a {
@@ -314,28 +316,28 @@ html {
 
 .project-title {
     margin: 0 0 0.5em 0;
-    font-size: 0.95em;
+    font-size: 1em;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     width: 100%;
-    font-family: TiemposHeadline-Regular, Georgia, serif;
+    font-family: var(--font-display, 'Space Grotesk', sans-serif);
+    font-weight: 500;
     gap: 0.5em;
 }
 
 .project-title a {
-    color: #a855f7;
+    color: var(--accent-gold, #d4a00a);
     text-decoration: none;
     overflow-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
     transition: color 0.15s ease;
-    border-bottom: 1px solid transparent;
+    border-bottom: none;
 }
 
 .project-title a:hover {
-    color: #c084fc;
-    border-bottom-color: #c084fc;
+    color: var(--accent-gold-bright, #e8b30e);
 }
 
 /* GitHub Stars Styling - Minimal */
@@ -344,16 +346,16 @@ html {
     align-items: center;
     gap: 3px;
     font-size: 0.7em;
-    color: #666;
-    font-family: 'Fira Code', monospace;
+    color: var(--text-tertiary, #5a5a54);
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
     white-space: nowrap;
     flex-shrink: 0;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .github-stars::before {
     content: "★";
-    color: #f39c12;
+    color: var(--accent-gold, #d4a00a);
     font-size: 0.9em;
 }
 
@@ -378,40 +380,40 @@ html {
 .project-description {
     flex-grow: 1;
     margin-bottom: 0.75em;
-    line-height: 1.5;
-    color: #666;
+    line-height: 1.6;
+    color: var(--text-secondary, #9a9a90);
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
-    font-size: 0.85em;
+    font-size: 0.9em;
 }
 
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4em;
+    gap: 0.5em;
     margin-top: auto;
     width: 100%;
     box-sizing: border-box;
 }
 
 .project-tag {
-    background-color: transparent;
-    color: #666;
-    padding: 0;
+    background-color: var(--bg-card, #161616);
+    color: var(--text-tertiary, #5a5a54);
+    padding: 0.15em 0.5em;
     border-radius: 0;
     font-size: 0.75em;
-    border: none;
-    font-family: 'Fira Code', monospace;
-    text-transform: lowercase;
+    border: 1px solid var(--border-subtle, #1c1c1c);
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .project-tag::before {
-    content: "#";
-    opacity: 0.5;
+    content: "";
 }
 
 /* CVE Section */
@@ -424,12 +426,12 @@ html {
 .cve-links {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1px;
+    gap: 1rem;
     margin: 1.5em 0;
     width: 100%;
     box-sizing: border-box;
-    background-color: #333;
-    border: 1px solid #333;
+    background-color: transparent;
+    border: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -439,45 +441,46 @@ html {
 }
 
 .cve-item {
-    background-color: #0d0d0d;
+    background-color: var(--bg-card, #161616);
     padding: 1.5em;
-    border: none;
+    border: 1px solid var(--border-subtle, #1c1c1c);
     box-sizing: border-box;
     overflow: hidden;
-    transition: background-color 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 .cve-item:hover {
-    background-color: #1a1a1a;
+    border-color: var(--accent-gold, #d4a00a);
+    box-shadow: 0 0 20px rgba(212, 160, 10, 0.1);
 }
 
 .cve-item h4 {
     margin: 0 0 0.75em 0;
-    color: #ffffff;
-    font-family: TiemposHeadline-Regular, Georgia, serif;
+    color: var(--text-primary, #f5f5f0);
+    font-family: var(--font-display, 'Space Grotesk', sans-serif);
     font-size: 1em;
+    font-weight: 500;
 }
 
 .cve-item a {
     word-break: break-all;
-    color: #a855f7;
+    color: var(--accent-gold, #d4a00a);
     transition: color 0.15s ease;
-    border-bottom: 1px solid transparent;
+    text-decoration: none;
 }
 
 .cve-item a:hover {
-    color: #c084fc;
-    border-bottom-color: #c084fc;
+    color: var(--accent-gold-bright, #e8b30e);
 }
 
 .hall-of-fame {
     font-style: italic;
-    color: #999;
+    color: var(--text-secondary, #9a9a90);
     margin-top: 1.5em;
     word-wrap: break-word;
     padding: 1.5em;
-    background-color: #0d0d0d;
-    border: 1px solid #333;
+    background-color: var(--bg-card, #161616);
+    border: 1px solid var(--border-subtle, #1c1c1c);
     text-align: center;
 }
 

@@ -119,9 +119,15 @@ details summary {
   display: flex;
   align-items: center;
   gap: 0.6em;
-  font-family: TiemposHeadline-Regular;
-  font-size: 1em;
-  color: inherit;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 500;
+  color: var(--accent-gold, #d4a00a);
+  background-color: transparent;
+  border: 1px solid var(--accent-gold, #d4a00a);
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
   justify-content: flex-start;
   text-align: left;
   margin: 1em auto;
@@ -130,12 +136,21 @@ details summary {
   width: 350px;
   max-width: calc(100% - 40px);
   box-sizing: border-box;
+  transition: all 0.25s ease;
 }
 
 /* Ensure press-toggle doesn't inherit button pseudo-elements */
 .press-toggle::before,
 .press-toggle::after {
   display: none !important;
+}
+
+.press-toggle:hover,
+details summary:hover {
+  background-color: var(--accent-gold, #d4a00a);
+  color: var(--bg-deep, #080808);
+  box-shadow: 0 0 20px rgba(212, 160, 10, 0.15);
+  transform: translateY(-2px);
 }
 
 .toggle-icon {
@@ -174,34 +189,39 @@ details[open] .toggle-icon {
 }
 
 .press-table thead {
-  background-color: rgba(248, 245, 215, 0.5);
+  background-color: var(--bg-elevated, #1a1a1a);
 }
 
 .press-table th {
   text-align: left;
   padding: 0.75em;
-  border-bottom: 2px solid #ccc;
-  font-weight: 600;
+  border-bottom: 1px solid var(--border-accent, #2a2a2a);
+  font-weight: 500;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-primary, #f5f5f0);
 }
 
 .press-table td {
   padding: 0.75em;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-subtle, #1c1c1c);
 }
 
 .press-table tr:hover {
-  background-color: rgba(248, 245, 215, 0.2);
+  background-color: var(--bg-elevated, #1a1a1a);
 }
 
 .press-table a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: #ccc;
+  color: var(--accent-gold, #d4a00a);
+  text-decoration: none;
   font-weight: 500;
+  transition: color 0.15s ease;
 }
 
 .press-table a:hover {
-  text-decoration-color: #999;
+  color: var(--accent-gold-bright, #e8b30e);
 }
 
 /* Details content styling */

@@ -54,10 +54,12 @@
             iframe.dataset.tweetAppliedScale = String(nextScale);
 
             wrapper.style.setProperty('margin', '0 auto', 'important');
-            wrapper.style.setProperty('width', `${targetWidth}px`, 'important');
-            wrapper.style.setProperty('max-width', '100%', 'important');
+            wrapper.style.setProperty('width', '100%', 'important');
+            wrapper.style.setProperty('max-width', '400px', 'important');
             wrapper.style.setProperty('line-height', '0', 'important');
             wrapper.style.setProperty('overflow', 'hidden', 'important');
+            wrapper.style.setProperty('display', 'flex', 'important');
+            wrapper.style.setProperty('justify-content', 'center', 'important');
 
             iframe.style.setProperty('transform', `scale(${nextScale})`, 'important');
             iframe.style.setProperty('transform-origin', 'top center', 'important');
@@ -72,37 +74,25 @@
                 container.style.removeProperty('height');
                 container.style.setProperty('margin-bottom', '1.5em', 'important');
                 container.style.setProperty('padding-bottom', '0', 'important');
+                container.style.setProperty('display', 'flex', 'important');
+                container.style.setProperty('justify-content', 'center', 'important');
             } else {
                 wrapper.style.removeProperty('height');
                 container.style.removeProperty('height');
                 container.style.setProperty('margin-bottom', '1.5em', 'important');
+                container.style.setProperty('display', 'flex', 'important');
+                container.style.setProperty('justify-content', 'center', 'important');
             }
         });
 
         function calculateScale(baseWidth) {
-            if (!baseWidth || baseWidth <= 0) {
-                return 0.7;
-            }
-
-            if (baseWidth >= 560) {
-                return 0.7;
-            }
-
-            const minWidth = 320;
-            const maxScale = 0.9;
-            const minScale = 0.65;
-
-            if (baseWidth <= minWidth) {
-                return maxScale;
-            }
-
-            const ratio = (baseWidth - minWidth) / (560 - minWidth);
-            return Math.max(minScale, Math.min(maxScale, maxScale - (maxScale - minScale) * ratio));
+            // Scale down to 85% for a more compact look
+            return 0.85;
         }
 
         function clampWidth(width) {
             const min = 320;
-            const max = 560;
+            const max = 400;
 
             if (!width || width <= 0) {
                 return max;

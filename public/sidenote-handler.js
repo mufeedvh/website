@@ -3,7 +3,7 @@
  * Manages interactive sidenotes for blog posts
  */
 
-(function () {
+(function() {
     'use strict';
 
     function toggleSidenote(id) {
@@ -18,7 +18,7 @@
 
     if (!window.sidenotesInitialized) {
         window.sidenotesInitialized = true;
-
+        
         function initializeSidenotes() {
             const markers = document.querySelectorAll('.sidenote-marker');
             markers.forEach(marker => {
@@ -28,10 +28,10 @@
                     // Reset any inline styles that might interfere
                     sidenote.style.top = '';
                     sidenote.style.position = '';
-
+                    
                     // Add click handler for desktop hover behavior
                     if (window.innerWidth >= 1200) {
-                        marker.addEventListener('click', function (e) {
+                        marker.addEventListener('click', function(e) {
                             e.preventDefault();
                             // Close all other sidenotes
                             document.querySelectorAll('.sidenote').forEach(note => {
@@ -48,13 +48,13 @@
         }
 
         let resizeTimeout;
-        window.addEventListener('resize', function () {
+        window.addEventListener('resize', function() {
             clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(function () {
+            resizeTimeout = setTimeout(function() {
                 initializeSidenotes();
             }, 100);
         });
-
+        
         // Initialize sidenotes with robust ready check
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initializeSidenotes);
@@ -64,3 +64,4 @@
         }
     }
 })();
+

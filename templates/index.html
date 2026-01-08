@@ -2,23 +2,177 @@
 
 {% block title %}{{ config.title }}{% endblock title %}
 
+{% block extra_head %}
+<style>
+    body.home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    body.home .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        max-width: 600px;
+    }
+
+    .hero-name {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0 0 0.25em 0;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+    }
+
+    .hero-title {
+        font-size: var(--text-lg);
+        color: var(--text-secondary);
+        margin: 0 0 2rem 0;
+        line-height: 1.5;
+    }
+
+    .hero-title a {
+        color: var(--accent-gold);
+        font-weight: 500;
+    }
+
+    .hero-title a::after {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+        margin-bottom: 0 !important;
+        list-style: none;
+        padding: 0 !important;
+        margin-top: 0;
+    }
+
+    .nav-links li {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li::before {
+        display: none;
+    }
+
+    .nav-link {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        font-family: var(--font-display);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        color: var(--text-secondary);
+        border: 1px solid var(--border-accent);
+        background: transparent;
+        transition: all 0.25s ease;
+        text-decoration: none;
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-link:hover {
+        color: var(--accent-gold);
+        border-color: var(--accent-gold);
+        transform: translateY(-2px);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+        margin-top: 3rem;
+    }
+
+    .social-link {
+        color: var(--text-tertiary);
+        font-size: 1.25rem;
+        transition: all 0.2s ease;
+        text-decoration: none;
+    }
+
+    .social-link::after {
+        display: none;
+    }
+
+    .social-link:hover {
+        color: var(--accent-gold);
+        transform: translateY(-2px);
+    }
+
+    .social-link .svg-icon {
+        width: 1.25em;
+        height: 1.25em;
+    }
+
+    .rabbit-hole {
+        font-size: 1.25rem;
+        text-decoration: none;
+        transition: transform 0.2s ease;
+    }
+
+    .rabbit-hole::after {
+        display: none;
+    }
+
+    .rabbit-hole:hover {
+        transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 480px) {
+        .nav-links {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .nav-link {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+{% endblock extra_head %}
+
 {% block content %}
-    <h1>Mufeed VH</h1>
-    <p>CEO and Co-founder of <a href="https://winfunc.com" title="Winfunc's website" target="_blank"><strong>Winfunc (YC S24)</strong></a></p>
-    <ul class="no-bullets">
-        <li><a href="/about">&#8627; About</a></li>
-        <li><a href="/posts">&#8627; Posts</a></li>
-        <li><a href="/projects">&#8627; Projects</a></li>
-        <li><a href="/contact">&#8627; Contact</a></li>
+    <h1 class="hero-name">Mufeed VH</h1>
+    <p class="hero-title">
+        CEO & Co-founder of <a href="https://winfunc.com" target="_blank" rel="noopener">Winfunc (YC S24)</a>
+    </p>
+
+    <ul class="nav-links no-bullets">
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/posts" class="nav-link">Writing</a></li>
+        <li><a href="/projects" class="nav-link">Projects</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
     </ul>
-    <br>
-    <a href="https://github.com/mufeedvh" aria-label="Link to my GitHub profile" target="_blank" rel="noopener"><svg class="svg-icon" aria-hidden="true"><use href="#icon-github"/></svg></a>
-    &nbsp;
-    <a href="https://x.com/mufeedvh" aria-label="Link to my Twitter profile" target="_blank" rel="noopener"><svg class="svg-icon" aria-hidden="true"><use href="#icon-x-twitter"/></svg></a>
-    &nbsp;
-    <a href="https://www.linkedin.com/in/mufeed-vh/" aria-label="Link to my LinkedIn profile" target="_blank" rel="noopener"><svg class="svg-icon" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
-    &nbsp;
-    <a href="https://www.instagram.com/mufeedvh" aria-label="Link to my Instagram profile" target="_blank" rel="noopener"><svg class="svg-icon" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
-    &nbsp;
-    <a href="/rabbithole/" aria-label="Link to more useless pages on my website" class="rabbit-hole">🐇🕳️</a>
+
+    <div class="social-links">
+        <a href="https://github.com/mufeedvh" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg class="svg-icon" aria-hidden="true"><use href="#icon-github"/></svg>
+        </a>
+        <a href="https://x.com/mufeedvh" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <svg class="svg-icon" aria-hidden="true"><use href="#icon-x-twitter"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/mufeed-vh/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg class="svg-icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>
+        </a>
+        <a href="https://www.instagram.com/mufeedvh" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg class="svg-icon" aria-hidden="true"><use href="#icon-instagram"/></svg>
+        </a>
+        <a href="/rabbithole/" class="rabbit-hole" aria-label="Easter egg">🐇🕳️</a>
+    </div>
 {% endblock content %}

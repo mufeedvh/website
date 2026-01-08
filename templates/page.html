@@ -18,27 +18,74 @@
     {% endif %}
 {% endblock title %}
 
+{% block extra_head %}
+<style>
+    .page-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .page-date {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        letter-spacing: 0.02em;
+    }
+
+    .page-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
+
+    .back-link::after {
+        display: none;
+    }
+
+    .back-link:hover {
+        color: var(--accent-gold);
+    }
+</style>
+{% endblock extra_head %}
+
 {% block content %}
     {% if page %}
         {% if not page.extra.no_header %}
             <h1>{{ page.title }}</h1>
         {% endif %}
         {% if page.date %}
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1em;">
-                <span>{{ page.date | date(format="%B %d, %Y") }}</span>
+            <div class="page-meta">
+                <span class="page-date">{{ page.date | date(format="%B %d, %Y") }}</span>
                 {% if page.taxonomies.tags %}
-                    <div>
+                    <div class="page-tags">
                         {% for tag in page.taxonomies.tags %}
                             <span class="tag">
                                 <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
-                                    #{{ tag }}
+                                    {{ tag }}
                                 </a>
                             </span>
                         {% endfor %}
                     </div>
                 {% endif %}
             </div>
-            <hr>
         {% endif %}
         {{ page.content | safe }}
     {% elif section %}
@@ -47,12 +94,15 @@
             {{ section.content | safe }}
         {% endif %}
         {% if section.pages %}
-            <ul>
+            <ul class="no-bullets">
             {% for page in section.pages %}
-                <li>{{ page.date | date(format="%a %b %e, %Y") }} - <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+                <li>
+                    <span class="page-date">{{ page.date | date(format="%b %d, %Y") }}</span>
+                    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                </li>
             {% endfor %}
             </ul>
         {% endif %}
     {% endif %}
-    <a href="/">&#8592; Back to home</a>
+    <a href="/" class="back-link">← Back to home</a>
 {% endblock content %}
