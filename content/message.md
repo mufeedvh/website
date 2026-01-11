@@ -10,46 +10,97 @@ write or draw me a message **anonymously**.
 
 <style>
     textarea {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
         box-sizing: border-box;
         width: 100%;
-        padding: 5px;
-        font-size: 20px;
-        border-radius: 10px;
-        border-width: 0px;
+        padding: var(--space-3);
+        font-family: var(--font-body);
+        font-size: var(--text-base);
+        background-color: var(--bg-card);
+        color: var(--text-primary);
+        border: 1px dotted var(--border-dotted);
+        margin-bottom: var(--space-2);
+        resize: vertical;
+        outline: none;
+    }
+    
+    textarea:focus {
+        border-style: solid;
+        border-color: var(--text-secondary);
     }
 
     .paint-canvas {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
         box-sizing: border-box;
         width: 100%;
         height: 400px;
-        background: white;
-        border-width: 0px;
-        border-radius: 10px;
+        background: #ffffff;
+        border: 1px dotted var(--border-dotted);
         display: block;
-        margin-top: 10px;
+        margin-top: var(--space-2);
         touch-action: none;
+        cursor: crosshair;
+    }
+
+    .drawing-controls {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        margin-top: var(--space-2);
+        font-family: var(--font-display);
+        font-size: var(--text-xs);
+        text-transform: uppercase;
+    }
+
+    .color-picker {
+        background: var(--bg-card);
+        border: 1px dotted var(--border-dotted);
+        cursor: pointer;
+        padding: 2px;
+        width: 40px;
+        height: 30px;
+    }
+
+    .line-range {
+        flex-grow: 1;
+        cursor: pointer;
+        accent-color: var(--text-secondary);
+    }
+
+    .message-section {
+        margin: var(--space-6) 0;
+        padding: var(--space-4);
+        border: 1px dotted var(--border-dotted);
+        background-color: var(--bg-surface);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-title {
+        font-family: var(--font-display);
+        font-size: var(--text-sm);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: var(--space-2);
+        display: block;
+        text-align: center;
     }
 </style>
-<div>
-    <div class="center-content">
-        <p style="font-size: 20px;"><strong>✍️ send a message</strong></p>
-        <textarea id="message" rows="10"></textarea>
-        {{ button(text="Send Message", id="msg-button", onclick="send_message();") }}
-    </div>
-    <hr>
-    <div class="center-content">    
-        <p style="font-size: 20px;"><strong>🖌️ send a drawing</strong></p>
-        <input type="color" class="js-color-picker color-picker">
-        <input type="range" class="js-line-range" min="1" max="72" value="1">
-        &nbsp
-        <label class="js-range-value">1</label> px
-        <canvas class="js-paint paint-canvas"></canvas>
-        {{ button(text="Send Drawing", id="draw-button", onclick="send_drawing();") }}
-    </div>
+
+<div class="message-container">
+<div class="message-section">
+<span class="section-title">✍️ Send a Message</span>
+<textarea id="message" rows="8" placeholder="Type your anonymous message here..."></textarea>
+{{ button(text="Send Message", id="msg-button", onclick="send_message();", align="center") }}
+</div>
+<div class="message-section">
+<span class="section-title">🖌️ Send a Drawing</span>
+<div class="drawing-controls">
+<input type="color" class="js-color-picker color-picker" value="#000000">
+<input type="range" class="js-line-range line-range" min="1" max="50" value="2">
+<span><span class="js-range-value">2</span>px</span>
+</div>
+<canvas class="js-paint paint-canvas"></canvas>
+{{ button(text="Send Drawing", id="draw-button", onclick="send_drawing();", align="center") }}
+</div>
 </div>
 
 <script>
