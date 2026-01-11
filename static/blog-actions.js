@@ -15,6 +15,15 @@ function twitter_follow() {
     window.open('https://x.com/mufeedvh', '_blank');
 }
 
+/* Sidenote toggle for mobile */
+function toggleSidenote(id) {
+    const note = document.getElementById(id);
+    if (note) {
+        const isVisible = window.getComputedStyle(note).display !== 'none';
+        note.style.display = isVisible ? 'none' : 'block';
+    }
+}
+
 /* Rabbit Hole Discovery Logic */
 document.addEventListener('DOMContentLoaded', () => {
     const rabbitLink = document.querySelector('.rabbit-hole-link');

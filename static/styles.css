@@ -771,9 +771,24 @@ blockquote cite {
     .sidenote {
         float: none;
         width: 100%;
-        margin: 1em 0;
+        margin: 1.5em 0;
         border: 1px dotted var(--border-dotted);
         padding: 1em;
+        display: none; /* Hidden by default on mobile, toggled via marker */
+        background-color: var(--bg-surface);
+        position: relative;
+        left: 0;
+        right: 0;
+        z-index: 10;
+    }
+    
+    .sidenote-marker {
+        cursor: pointer;
+        padding: 0 0.3em;
+        background-color: var(--bg-card);
+        border: 1px dotted var(--border-dotted);
+        font-size: 0.8em;
+        vertical-align: super;
     }
 }
 
@@ -820,6 +835,9 @@ blockquote cite {
     .sidebar-bottom {
         margin-top: 0;
     }
+    .rabbit-hole-link.visible {
+        opacity: 0.6; /* More visible on mobile as there's no hover */
+    }
     .top-nav {
         position: sticky;
         top: 0; /* Now at the top since sidebar is relative */
@@ -828,6 +846,7 @@ blockquote cite {
         min-height: 50px;
         overflow-x: auto; /* Allow horizontal scroll if many links */
         -webkit-overflow-scrolling: touch;
+        justify-content: flex-start; /* Ensure scrolling works from the start */
     }
     .nav-links {
         gap: 0;
