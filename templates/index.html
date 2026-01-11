@@ -2,177 +2,39 @@
 
 {% block title %}{{ config.title }}{% endblock title %}
 
-{% block extra_head %}
-<style>
-    body.home {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    body.home .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 2rem;
-        max-width: 600px;
-    }
-
-    .hero-name {
-        font-family: var(--font-display);
-        font-size: clamp(2.5rem, 8vw, 4rem);
-        font-weight: 600;
-        color: var(--text-primary);
-        margin: 0 0 0.25em 0;
-        letter-spacing: -0.03em;
-        line-height: 1.1;
-    }
-
-    .hero-title {
-        font-size: var(--text-lg);
-        color: var(--text-secondary);
-        margin: 0 0 2rem 0;
-        line-height: 1.5;
-    }
-
-    .hero-title a {
-        color: var(--accent-gold);
-        font-weight: 500;
-    }
-
-    .hero-title a::after {
-        display: none;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        justify-content: center;
-        margin-bottom: 0 !important;
-        list-style: none;
-        padding: 0 !important;
-        margin-top: 0;
-    }
-
-    .nav-links li {
-        margin: 0;
-        padding: 0;
-    }
-
-    .nav-links li::before {
-        display: none;
-    }
-
-    .nav-link {
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        font-family: var(--font-display);
-        font-size: var(--text-sm);
-        font-weight: 500;
-        letter-spacing: 0.05em;
-        color: var(--text-secondary);
-        border: 1px solid var(--border-accent);
-        background: transparent;
-        transition: all 0.25s ease;
-        text-decoration: none;
-    }
-
-    .nav-link::after {
-        display: none;
-    }
-
-    .nav-link:hover {
-        color: var(--accent-gold);
-        border-color: var(--accent-gold);
-        transform: translateY(-2px);
-    }
-
-    .social-links {
-        display: flex;
-        gap: 1.25rem;
-        align-items: center;
-        margin-top: 3rem;
-    }
-
-    .social-link {
-        color: var(--text-tertiary);
-        font-size: 1.25rem;
-        transition: all 0.2s ease;
-        text-decoration: none;
-    }
-
-    .social-link::after {
-        display: none;
-    }
-
-    .social-link:hover {
-        color: var(--accent-gold);
-        transform: translateY(-2px);
-    }
-
-    .social-link .svg-icon {
-        width: 1.25em;
-        height: 1.25em;
-    }
-
-    .rabbit-hole {
-        font-size: 1.25rem;
-        text-decoration: none;
-        transition: transform 0.2s ease;
-    }
-
-    .rabbit-hole::after {
-        display: none;
-    }
-
-    .rabbit-hole:hover {
-        transform: scale(1.1);
-    }
-
-    @media screen and (max-width: 480px) {
-        .nav-links {
-            flex-direction: column;
-            width: 100%;
-        }
-
-        .nav-link {
-            width: 100%;
-            text-align: center;
-        }
-    }
-</style>
-{% endblock extra_head %}
-
 {% block content %}
-    <h1 class="hero-name">Mufeed VH</h1>
-    <p class="hero-title">
-        CEO & Co-founder of <a href="https://winfunc.com" target="_blank" rel="noopener">Winfunc (YC S24)</a>
-    </p>
+<div class="homepage-intro">
+    <p>This is the personal website of <strong>Mufeed VH</strong>. I am the CEO & Co-founder of <a href="https://winfunc.com" target="_blank" rel="noopener">Winfunc</a>. I write about AI, security research, software engineering, and the various rabbit holes I find myself in.</p>
+    
+    <p>For more information about me, see the <a href="/about">About</a> page; for my writings, see the <a href="/posts">Blog</a>; for projects and experiments, see <a href="/projects">Links</a>.</p>
+</div>
 
-    <ul class="nav-links no-bullets">
-        <li><a href="/about" class="nav-link">About</a></li>
-        <li><a href="/posts" class="nav-link">Writing</a></li>
-        <li><a href="/projects" class="nav-link">Projects</a></li>
-        <li><a href="/contact" class="nav-link">Contact</a></li>
-    </ul>
-
-    <div class="social-links">
-        <a href="https://github.com/mufeedvh" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
-            <svg class="svg-icon" aria-hidden="true"><use href="#icon-github"/></svg>
-        </a>
-        <a href="https://x.com/mufeedvh" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">
-            <svg class="svg-icon" aria-hidden="true"><use href="#icon-x-twitter"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/mufeed-vh/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg class="svg-icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>
-        </a>
-        <a href="https://www.instagram.com/mufeedvh" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
-            <svg class="svg-icon" aria-hidden="true"><use href="#icon-instagram"/></svg>
-        </a>
-        <a href="/rabbithole/" class="rabbit-hole" aria-label="Easter egg">🐇🕳️</a>
+<div class="directory-sections">
+    <div class="directory-section">
+        <h2>Newest</h2>
+        <ul class="directory-list">
+            {% set posts = get_section(path="posts/_index.md") %}
+            {% for page in posts.pages | slice(end=10) %}
+            <li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+            {% endfor %}
+        </ul>
     </div>
+
+    <div class="directory-section">
+        <h2>Popular</h2>
+        <ul class="directory-list">
+            {# Mocking popular posts as there's no analytics in Zola, just picking a few #}
+            <li><a href="/posts/llm-security/">Security in the age of LLMs</a></li>
+            <li><a href="/projects">Open Source Projects</a></li>
+            <li><a href="/about">About Me</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="social-links-minimal">
+    <a href="https://github.com/mufeedvh" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://x.com/mufeedvh" target="_blank" rel="noopener">X / Twitter</a>
+    <a href="https://www.linkedin.com/in/mufeed-vh/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/mufeedvh" target="_blank" rel="noopener">Instagram</a>
+</div>
 {% endblock content %}

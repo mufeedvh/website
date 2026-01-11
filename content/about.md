@@ -4,6 +4,7 @@ description = "Who is Mufeed VH? Read more about Mufeed VH on this about page."
 
 [extra]
 no_header = true
+drop_cap = true
 +++
 
 # About Mufeed
@@ -111,168 +112,111 @@ I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, K
 <style>
 /* Common toggle styles */
 .press-section {
-  margin: 2em 0;
+  margin: 3em 0;
 }
 
 .press-toggle,
-details summary {
+.bonus-section summary {
   display: flex;
   align-items: center;
-  gap: 0.6em;
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: var(--text-sm, 0.875rem);
-  font-weight: 500;
-  color: var(--accent-gold, #d4a00a);
-  background-color: transparent;
-  border: 1px solid var(--accent-gold, #d4a00a);
-  padding: 0.75rem 1.5rem;
+  gap: 0.8em;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: var(--bg-card);
+  border: 1px dotted var(--border-dotted);
+  padding: 0.8rem 1.5rem;
   cursor: pointer;
-  letter-spacing: 0.05em;
-  justify-content: flex-start;
-  text-align: left;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: fit-content;
   margin: 1em auto;
-  margin-left: auto;
-  margin-right: auto;
-  width: 350px;
-  max-width: calc(100% - 40px);
-  box-sizing: border-box;
-  transition: all 0.25s ease;
+  transition: border-color var(--transition-fast);
+  list-style: none;
 }
 
-/* Ensure press-toggle doesn't inherit button pseudo-elements */
-.press-toggle::before,
-.press-toggle::after {
-  display: none !important;
+.bonus-section summary::-webkit-details-marker {
+  display: none;
 }
 
 .press-toggle:hover,
-details summary:hover {
-  background-color: var(--accent-gold, #d4a00a);
-  color: var(--bg-deep, #080808);
-  box-shadow: 0 0 20px rgba(212, 160, 10, 0.15);
-  transform: translateY(-2px);
+.bonus-section summary:hover {
+  border-style: solid;
+  border-color: var(--text-primary);
 }
 
 .toggle-icon {
   display: inline-block;
   transition: transform 0.3s ease;
-  font-size: 0.8em;
+  font-size: 0.7em;
+  color: var(--text-tertiary);
 }
 
 .press-toggle[aria-expanded="true"] .toggle-icon,
-details[open] .toggle-icon {
+.bonus-section[open] summary .toggle-icon {
   transform: rotate(90deg);
 }
 
 .press-content {
-  margin-top: 1em;
+  margin-top: 2em;
   overflow-x: auto;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .press-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1em;
-  font-size: 0.95em;
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
 }
 
 .press-table thead {
-  background-color: var(--bg-elevated, #1a1a1a);
+  background-color: var(--bg-elevated);
 }
 
 .press-table th {
   text-align: left;
-  padding: 0.75em;
-  border-bottom: 1px solid var(--border-accent, #2a2a2a);
-  font-weight: 500;
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  padding: 0.8em;
+  border-bottom: 1px dotted var(--border-dotted);
+  font-weight: 600;
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: var(--text-xs, 0.75rem);
-  color: var(--text-primary, #f5f5f0);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
 }
 
 .press-table td {
-  padding: 0.75em;
-  border-bottom: 1px solid var(--border-subtle, #1c1c1c);
+  padding: 0.8em;
+  border-bottom: 1px dotted var(--border-dotted);
+  color: var(--text-primary);
 }
 
 .press-table tr:hover {
-  background-color: var(--bg-elevated, #1a1a1a);
+  background-color: var(--bg-card);
 }
 
 .press-table a {
-  color: var(--accent-gold, #d4a00a);
+  color: var(--text-primary);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.15s ease;
+  border-bottom: 1px dotted var(--border-dotted);
+  transition: all var(--transition-fast);
 }
 
 .press-table a:hover {
-  color: var(--accent-gold-bright, #e8b30e);
-}
-
-/* Details content styling */
-details > *:not(summary) {
-  animation: fadeIn 0.3s ease;
-  margin-top: 0.5em;
+  border-bottom-style: solid;
 }
 
 /* Responsive styles */
 @media (max-width: 600px) {
   .press-table {
-    font-size: 0.85em;
+    font-size: var(--text-xs);
   }
   
-  .press-table th,
-  .press-table td {
-    padding: 0.5em;
-  }
-  
-  .press-toggle,
-  details summary {
+  .press-toggle {
     width: 100%;
-    max-width: calc(100% - 30px);
-    padding: 12px 20px;
+    justify-content: center;
   }
-}
-
-/* Frutiger Aero theme styles */
-body.frutiger-aero .press-table thead {
-  background-color: rgba(224, 240, 255, 0.3);
-}
-
-body.frutiger-aero .press-table th {
-  border-bottom-color: rgba(173, 216, 255, 0.8);
-}
-
-body.frutiger-aero .press-table td {
-  border-bottom-color: rgba(173, 216, 255, 0.3);
-}
-
-body.frutiger-aero .press-table tr:hover {
-  background-color: rgba(224, 240, 255, 0.2);
-}
-
-body.frutiger-aero .press-table a {
-  color: #0063B1;
-  text-decoration-color: rgba(173, 216, 255, 0.8);
-}
-
-body.frutiger-aero .press-table a:hover {
-  text-decoration-color: #0063B1;
 }
 </style>
 

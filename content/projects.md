@@ -274,12 +274,10 @@ html {
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: var(--space-6);
     margin: 2em 0;
     width: 100%;
     box-sizing: border-box;
-    background-color: transparent;
-    border: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -288,107 +286,72 @@ html {
     }
 }
 
-/* Dark Theme: Minimal Design */
+/* Monochrome Minimalist Design */
 .project-card {
-    background-color: var(--bg-card, #161616);
-    border: 1px solid var(--border-subtle, #1c1c1c);
-    padding: 1.25em;
-    transition: all 0.25s ease;
+    background-color: var(--bg-card);
+    border: 1px dotted var(--border-dotted);
+    padding: var(--space-6);
+    transition: border-color var(--transition-fast);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    word-wrap: break-word;
-    box-sizing: border-box;
     width: 100%;
     position: relative;
     cursor: pointer;
 }
 
 .project-card:hover {
-    border-color: var(--accent-gold, #d4a00a);
-    box-shadow: 0 0 20px rgba(212, 160, 10, 0.1);
-    transform: translateY(-2px);
-}
-
-.project-card a {
-    pointer-events: none;
+    border-color: var(--text-primary);
+    border-style: solid;
 }
 
 .project-title {
     margin: 0 0 0.5em 0;
-    font-size: 1em;
+    font-size: 1.1em;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     width: 100%;
-    font-family: var(--font-display, 'Space Grotesk', sans-serif);
-    font-weight: 500;
-    gap: 0.5em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .project-title a {
-    color: var(--accent-gold, #d4a00a);
+    color: var(--text-primary);
     text-decoration: none;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-    transition: color 0.15s ease;
     border-bottom: none;
+    pointer-events: none; /* Handled by card click */
 }
 
-.project-title a:hover {
-    color: var(--accent-gold-bright, #e8b30e);
-}
-
-/* GitHub Stars Styling - Minimal */
+/* GitHub Stars Styling */
 .github-stars {
     display: inline-flex;
     align-items: center;
-    gap: 3px;
-    font-size: 0.7em;
-    color: var(--text-tertiary, #5a5a54);
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    gap: 4px;
+    font-size: 0.75em;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
     white-space: nowrap;
     flex-shrink: 0;
-    opacity: 0.8;
 }
 
 .github-stars::before {
     content: "★";
-    color: var(--accent-gold, #d4a00a);
-    font-size: 0.9em;
-}
-
-.github-stars.loading {
-    color: #555;
-    min-width: 30px;
-    text-align: center;
-}
-
-.github-stars.loading::after {
-    content: "...";
-}
-
-.github-stars.error {
-    color: #555;
-}
-
-.github-stars.error::after {
-    content: "—";
+    color: var(--text-tertiary);
+    font-size: 1.2em;
+    line-height: 1;
+    display: inline-block;
+    transform: translateY(-0.1em);
 }
 
 .project-description {
     flex-grow: 1;
-    margin-bottom: 0.75em;
-    line-height: 1.6;
-    color: var(--text-secondary, #9a9a90);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    font-size: 0.9em;
+    margin-bottom: 1em;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
 }
 
 .project-tags {
@@ -396,42 +359,29 @@ html {
     flex-wrap: wrap;
     gap: 0.5em;
     margin-top: auto;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .project-tag {
-    background-color: var(--bg-card, #161616);
-    color: var(--text-tertiary, #5a5a54);
-    padding: 0.15em 0.5em;
-    border-radius: 0;
-    font-size: 0.75em;
-    border: 1px solid var(--border-subtle, #1c1c1c);
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    background-color: transparent;
+    color: var(--text-tertiary);
+    padding: 0.1em 0.4em;
+    font-size: 0.7em;
+    border: 1px dotted var(--border-dotted);
+    font-family: var(--font-display);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-}
-
-.project-tag::before {
-    content: "";
 }
 
 /* CVE Section */
 .cve-section {
     margin-top: 3em;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .cve-links {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: var(--space-4);
     margin: 1.5em 0;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: transparent;
-    border: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -441,371 +391,47 @@ html {
 }
 
 .cve-item {
-    background-color: var(--bg-card, #161616);
-    padding: 1.5em;
-    border: 1px solid var(--border-subtle, #1c1c1c);
-    box-sizing: border-box;
-    overflow: hidden;
-    transition: all 0.25s ease;
+    background-color: var(--bg-card);
+    padding: var(--space-4);
+    border: 1px dotted var(--border-dotted);
+    transition: border-color var(--transition-fast);
 }
 
 .cve-item:hover {
-    border-color: var(--accent-gold, #d4a00a);
-    box-shadow: 0 0 20px rgba(212, 160, 10, 0.1);
+    border-color: var(--text-primary);
+    border-style: solid;
 }
 
 .cve-item h4 {
-    margin: 0 0 0.75em 0;
-    color: var(--text-primary, #f5f5f0);
-    font-family: var(--font-display, 'Space Grotesk', sans-serif);
-    font-size: 1em;
-    font-weight: 500;
+    margin: 0 0 0.5em 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .cve-item a {
-    word-break: break-all;
-    color: var(--accent-gold, #d4a00a);
-    transition: color 0.15s ease;
-    text-decoration: none;
-}
-
-.cve-item a:hover {
-    color: var(--accent-gold-bright, #e8b30e);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    border-bottom: 1px dotted var(--border-dotted);
 }
 
 .hall-of-fame {
     font-style: italic;
-    color: var(--text-secondary, #9a9a90);
+    color: var(--text-secondary);
     margin-top: 1.5em;
-    word-wrap: break-word;
-    padding: 1.5em;
-    background-color: var(--bg-card, #161616);
-    border: 1px solid var(--border-subtle, #1c1c1c);
+    padding: var(--space-6);
+    background-color: var(--bg-card);
+    border: 1px dotted var(--border-dotted);
     text-align: center;
+    font-size: var(--text-sm);
 }
 
-/* Frutiger Aero Theme: Vista-inspired Design */
-body.frutiger-aero .projects-grid {
-    gap: 20px;
-    background: transparent;
-    border: none;
-}
-
-body.frutiger-aero .project-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(173, 216, 255, 0.6);
-    border-radius: 8px;
-    padding: 1.25em;
-    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
-    position: relative;
-    overflow: hidden;
-}
-
-body.frutiger-aero .project-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-body.frutiger-aero .project-card:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 248, 255, 1) 100%);
-    box-shadow: 0 8px 32px rgba(0, 120, 215, 0.2);
-    border-color: rgba(173, 216, 255, 0.8);
-    transform: translateY(-2px);
-}
-
-body.frutiger-aero .project-title a {
-    color: #0078D7;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-    border-bottom-color: transparent;
-}
-
-body.frutiger-aero .project-title a:hover {
-    color: #00A2ED;
-    text-shadow: 0 0 8px rgba(0, 162, 237, 0.3);
-    border-bottom-color: #00A2ED;
-}
-
-body.frutiger-aero .project-description {
-    color: #333;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-}
-
-body.frutiger-aero .project-tag {
-    background: linear-gradient(to bottom, #e0f0ff 0%, #d0e8ff 100%);
-    border: 1px solid #80c0ff;
-    color: #0063B1;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-weight: 500;
-    position: relative;
-    overflow: hidden;
-    font-size: 0.8em;
-}
-
-body.frutiger-aero .project-tag::before {
-    content: "";
-    opacity: 1;
-}
-
-body.frutiger-aero .project-tag::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-body.frutiger-aero .project-tag:hover {
-    background: linear-gradient(to bottom, #d0e8ff 0%, #b8deff 100%);
-    box-shadow: 0 2px 8px rgba(0, 120, 215, 0.15);
-    transform: translateY(-1px);
-}
-
-body.frutiger-aero .github-stars {
-    background: linear-gradient(to bottom, #e0f0ff 0%, #d0e8ff 100%);
-    border: 1px solid #80c0ff;
-    color: #0063B1;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-    padding: 2px 6px;
-    border-radius: 10px;
-    opacity: 1;
-    position: relative;
-    overflow: hidden;
-}
-
-body.frutiger-aero .github-stars::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-body.frutiger-aero .github-stars::before {
-    color: #f39c12;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 1;
-}
-
-body.frutiger-aero .cve-links {
-    gap: 20px;
-    background: transparent;
-    border: none;
-}
-
-body.frutiger-aero .cve-item {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(173, 216, 255, 0.6);
-    border-radius: 8px;
-    padding: 1.5em;
-    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
-    position: relative;
-    overflow: hidden;
-}
-
-body.frutiger-aero .cve-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-body.frutiger-aero .cve-item:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 248, 255, 1) 100%);
-    box-shadow: 0 8px 32px rgba(0, 120, 215, 0.2);
-    border-color: rgba(173, 216, 255, 0.8);
-    transform: translateY(-2px);
-}
-
-body.frutiger-aero .cve-item h4 {
-    color: #0063B1;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-}
-
-body.frutiger-aero .cve-item a {
-    color: #0078D7;
-    border-bottom-color: transparent;
-}
-
-body.frutiger-aero .cve-item a:hover {
-    color: #00A2ED;
-    border-bottom-color: #00A2ED;
-}
-
-body.frutiger-aero .hall-of-fame {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 248, 255, 0.95) 100%);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(173, 216, 255, 0.6);
-    color: #333;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-    box-shadow: 0 4px 24px rgba(31, 38, 135, 0.12);
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-}
-
-body.frutiger-aero .hall-of-fame::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 767px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1px;
-    }
-    
-    body.frutiger-aero .projects-grid {
-        gap: 16px;
-    }
-    
-    .project-card {
-        padding: 0.85em;
-    }
-    
-    body.frutiger-aero .project-card {
-        padding: 1.1em;
-    }
-    
-    .cve-links {
-        grid-template-columns: 1fr;
-        gap: 1px;
-    }
-    
-    body.frutiger-aero .cve-links {
-        gap: 16px;
-    }
-    
-    .project-title {
-        flex-wrap: nowrap;
-        gap: 0.5em;
-        font-size: 1em;
-    }
-    
-    .project-title a {
-        flex: 1;
-        min-width: 0;
-    }
-    
-    .github-stars {
-        margin-left: auto;
-        font-size: 0.65em;
-        flex-shrink: 0;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .project-card {
-        padding: 0.75em;
-    }
-    
-    body.frutiger-aero .project-card {
-        padding: 1em;
-    }
-    
-    .project-title {
-        font-size: 0.95em;
-        margin-bottom: 0.4em;
-    }
-    
-    .project-description {
-        font-size: 0.9em;
-        line-height: 1.5;
-        margin-bottom: 0.75em;
-    }
-    
-    .project-tags {
-        gap: 0.4em;
-    }
-    
-    .project-tag {
-        font-size: 0.8em;
-    }
-    
-    body.frutiger-aero .project-tag {
-        padding: 2px 8px;
-    }
-    
-    .github-stars {
-        font-size: 0.6em;
-    }
-    
-    body.frutiger-aero .github-stars {
-        padding: 2px 6px;
-    }
-    
-    .cve-item {
-        padding: 1.25em;
-    }
-    
-    body.frutiger-aero .cve-item {
-        padding: 1.25em;
-    }
-    
-    .hall-of-fame {
-        padding: 1.25em;
-        font-size: 0.95em;
-    }
-}
-
-/* Ensure the custom styles work with the base styles */
-.content .projects-grid,
-.content .cve-section {
-    width: 100%;
-    max-width: 100%;
-}
-
-/* Global mobile fixes to prevent horizontal scroll */
+/* Global mobile fixes */
 @media screen and (max-width: 768px) {
-    body {
-        overflow-x: hidden !important;
-    }
-    
-    .content * {
-        max-width: 100%;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+    .projects-grid, .cve-links {
+        grid-template-columns: 1fr;
     }
 }
 </style>

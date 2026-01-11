@@ -81,6 +81,15 @@ body {
     padding: 0;
     display: flex;
     min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
+    width: 100%;
+}
+
+/* Ensure all elements respect box-sizing and don't overflow */
+p, li, h1, h2, h3, h4, h5, blockquote {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .svg-icon {
@@ -355,6 +364,11 @@ h1 { font-size: var(--text-2xl); margin-top: 0; text-transform: uppercase; lette
 h2 { font-size: var(--text-xl); border-bottom: 1px dotted var(--border-dotted); padding-bottom: 0.2em; }
 h3 { font-size: var(--text-lg); }
 
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
 .section-header h1 {
     font-size: var(--text-2xl);
     margin-bottom: 0.2em;
@@ -366,7 +380,55 @@ h3 { font-size: var(--text-lg); }
     font-size: var(--text-sm);
     color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0.5rem auto 0;
+    font-style: italic;
+}
+
+.post-date {
+    font-family: var(--font-display);
+    font-size: 0.8em;
+    color: var(--text-tertiary);
+    margin-left: var(--space-2);
+}
+
+.back-to-directory {
+    margin-top: var(--space-12);
+    border-top: 1px dotted var(--border-dotted);
+    padding-top: var(--space-4);
+    text-align: center;
+}
+
+.back-to-directory a {
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none !important;
+}
+
+/* Homepage Specifics */
+.directory-sections {
+    display: flex;
+    gap: var(--space-12);
+    margin-top: var(--space-12);
+}
+
+.directory-section {
+    flex: 1;
+}
+
+.social-links-minimal {
+    margin-top: var(--space-12);
+    border-top: 1px dotted var(--border-dotted);
+    padding-top: var(--space-4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 /* Images */
@@ -722,11 +784,10 @@ blockquote cite {
     .sidebar {
         width: 100%;
         height: auto;
-        position: sticky;
-        top: 0;
+        position: relative; /* Not sticky, let it scroll away */
         border-right: none;
         border-bottom: 1px dotted var(--border-dotted);
-        padding: var(--space-2) var(--space-4);
+        padding: var(--space-4) var(--space-4);
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -734,15 +795,15 @@ blockquote cite {
         z-index: 1000;
     }
     .logo-monogram {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         flex-direction: row;
-        gap: var(--space-4);
+        gap: var(--space-3);
     }
     .name-extension {
         flex-direction: row;
         max-height: none;
         opacity: 1;
-        gap: 0.2em;
+        gap: 0.15em;
     }
     .logo-monogram:hover .name-extension {
         margin-top: 0;
@@ -750,10 +811,10 @@ blockquote cite {
     .name-extension span {
         transform: none;
         opacity: 1;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .name-extension .name-space {
-        width: var(--space-2);
+        width: var(--space-1);
         height: auto;
     }
     .sidebar-bottom {
@@ -761,17 +822,109 @@ blockquote cite {
     }
     .top-nav {
         position: sticky;
-        top: 60px; /* Offset for mobile sidebar */
-        background-color: rgba(0, 0, 0, 0.9);
+        top: 0; /* Now at the top since sidebar is relative */
+        background-color: rgba(0, 0, 0, 0.95);
         padding: 0;
         min-height: 50px;
+        overflow-x: auto; /* Allow horizontal scroll if many links */
+        -webkit-overflow-scrolling: touch;
+    }
+    .nav-links {
+        gap: 0;
+        width: max-content; /* Ensure links don't wrap and can scroll */
+        padding: 0 var(--space-2);
     }
     .nav-link {
-        padding: 0 var(--space-3);
-        font-size: 0.8rem;
+        padding: 0 var(--space-4);
+        font-size: 0.75rem;
         height: 50px;
+        white-space: nowrap;
+    }
+    .nav-link::before, .nav-link::after {
+        display: none; /* Simplify on mobile */
+    }
+    .nav-link.active {
+        border-bottom: 2px solid var(--text-primary) !important;
     }
     .content {
         padding: var(--space-6) var(--space-4);
+    }
+
+    .directory-sections {
+        flex-direction: column;
+        gap: var(--space-8);
+    }
+
+    .social-links-minimal {
+        gap: var(--space-4);
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
+    }
+
+    /* Content Typography Scaling */
+    :root {
+        --text-base: 1.15rem;
+        --text-lg: 1.4rem;
+        --text-xl: 1.8rem;
+        --text-2xl: 2.2rem;
+    }
+
+    h1 { font-size: var(--text-2xl); }
+    h2 { font-size: var(--text-xl); }
+    h3 { font-size: var(--text-lg); }
+
+    .drop-cap > p:first-of-type::first-letter {
+        font-size: 4em;
+    }
+
+    .post-metadata {
+        gap: var(--space-2) var(--space-4);
+        font-size: 0.85rem;
+    }
+
+    .metadata-item {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    /* Code Blocks Mobile */
+    .code-line-numbers {
+        min-width: 2.5rem;
+        padding-right: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    pre code {
+        padding: var(--space-3) !important;
+        font-size: 0.8rem;
+    }
+
+    .code-language {
+        font-size: 0.7rem;
+    }
+
+    .code-copy-button {
+        padding: 0.15rem 0.4rem;
+        font-size: 0.7rem;
+    }
+
+    /* Sidenotes already handled above 1200px but refinement here */
+    .sidenote {
+        font-size: 0.9em;
+        margin: 1.5em 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo-monogram .m-letter {
+        font-size: 2.5rem;
+    }
+    
+    .name-extension {
+        display: none; /* Hide full name on very small screens to save space */
+    }
+    
+    .content {
+        padding: var(--space-4) var(--space-3);
     }
 }

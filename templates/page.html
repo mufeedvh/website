@@ -2,107 +2,84 @@
 
 {% block title %}
     {% if page %}
-        {% if page.extra.blog %}
-            {{ page.title }}
-        {% else %}
-            {{ page.title }} - {{ config.title }}
-        {% endif %}
+        {{ page.title }} - {{ config.title }}
     {% elif section %}
-        {% if section.extra.blog %}
-            {{ section.title }}
-        {% else %}
-            {{ section.title }} - {{ config.title }}
-        {% endif %}
+        {{ section.title }} - {{ config.title }}
     {% else %}
         {{ config.title }}
     {% endif %}
 {% endblock title %}
 
-{% block extra_head %}
-<style>
-    .page-meta {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .page-date {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-tertiary);
-        letter-spacing: 0.02em;
-    }
-
-    .page-tags {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-
-    .back-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 2rem;
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-tertiary);
-        text-decoration: none;
-        transition: color 0.15s ease;
-    }
-
-    .back-link::after {
-        display: none;
-    }
-
-    .back-link:hover {
-        color: var(--accent-gold);
-    }
-</style>
-{% endblock extra_head %}
-
 {% block content %}
     {% if page %}
         {% if not page.extra.no_header %}
-            <h1>{{ page.title }}</h1>
+            <h1 class="page-title">{{ page.title }}</h1>
         {% endif %}
-        {% if page.date %}
-            <div class="page-meta">
-                <span class="page-date">{{ page.date | date(format="%B %d, %Y") }}</span>
-                {% if page.taxonomies.tags %}
-                    <div class="page-tags">
-                        {% for tag in page.taxonomies.tags %}
-                            <span class="tag">
-                                <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">
-                                    {{ tag }}
-                                </a>
-                            </span>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-        {% endif %}
-        {{ page.content | safe }}
+
+        <div class="post-metadata">
+            {% if page.date %}
+                <div class="metadata-item">
+                    <span class="metadata-label">Created:</span> {{ page.date | date(format="%Y-%m-%d") }}
+                </div>
+            {% endif %}
+            
+            {% if page.updated %}
+                <div class="metadata-item">
+                    <span class="metadata-label">Modified:</span> {{ page.updated | date(format="%Y-%m-%d") }}
+                </div>
+            {% endif %}
+
+            {% if page.extra.status %}
+                <div class="metadata-item">
+                    <span class="metadata-label">Status:</span> {{ page.extra.status }}
+                </div>
+            {% endif %}
+
+            {% if page.extra.confidence %}
+                <div class="metadata-item">
+                    <span class="metadata-label">Certainty:</span> {{ page.extra.confidence }}
+                </div>
+            {% endif %}
+
+            {% if page.extra.importance %}
+                <div class="metadata-item">
+                    <span class="metadata-label">Importance:</span> {{ page.extra.importance }}
+                </div>
+            {% endif %}
+
+            {% if page.taxonomies.tags %}
+                <div class="metadata-item">
+                    <span class="metadata-label">Tags:</span>
+                    {% for tag in page.taxonomies.tags %}
+                        <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <article class="{% if page.extra.blog or page.extra.drop_cap %}drop-cap{% endif %}">
+            {{ page.content | safe }}
+        </article>
+
     {% elif section %}
         <h1>{{ section.title }}</h1>
         {% if section.content %}
             {{ section.content | safe }}
         {% endif %}
+        
         {% if section.pages %}
-            <ul class="no-bullets">
+            <ul class="directory-list">
             {% for page in section.pages %}
-                <li>
-                    <span class="page-date">{{ page.date | date(format="%b %d, %Y") }}</span>
-                    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-                </li>
-            {% endfor %}
-            </ul>
-        {% endif %}
+            <li>
+                <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                <span class="post-date">({{ page.date | date(format="%Y-%m-%d") }})</span>
+            </li>
+        {% endfor %}
+        </ul>
     {% endif %}
-    <a href="/" class="back-link">← Back to home</a>
+{% endif %}
+
+<div class="back-to-directory">
+    <a href="/">← Back to Directory</a>
+</div>
 {% endblock content %}

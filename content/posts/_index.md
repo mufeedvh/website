@@ -7,4 +7,4 @@ sort_by = "date"
 no_header = true
 +++
 
-# Posts I wrote
+I write about AI, security, and the various rabbit holes I find myself in.
