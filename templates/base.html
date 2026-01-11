@@ -71,11 +71,12 @@
     <div class="layout-wrapper">
         <nav class="top-nav">
             <ul class="nav-links">
-                <li><a href="/" class="nav-link {% if current_path == '/' %}active{% endif %}">Home</a></li>
-                <li><a href="/about" class="nav-link {% if current_path is starting_with('/about') %}active{% endif %}">About</a></li>
-                <li><a href="/posts" class="nav-link {% if current_path is starting_with('/posts') %}active{% endif %}">Posts</a></li>
-                <li><a href="/projects" class="nav-link {% if current_path is starting_with('/projects') %}active{% endif %}">Projects</a></li>
-                <li><a href="/contact" class="nav-link {% if current_path is starting_with('/contact') %}active{% endif %}">Contact</a></li>
+                {% set path = current_path | default(value="") %}
+                <li><a href="/" class="nav-link {% if path == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="/about" class="nav-link {% if path is starting_with('/about') %}active{% endif %}">About</a></li>
+                <li><a href="/posts" class="nav-link {% if path is starting_with('/posts') %}active{% endif %}">Posts</a></li>
+                <li><a href="/projects" class="nav-link {% if path is starting_with('/projects') %}active{% endif %}">Projects</a></li>
+                <li><a href="/contact" class="nav-link {% if path is starting_with('/contact') %}active{% endif %}">Contact</a></li>
             </ul>
         </nav>
 

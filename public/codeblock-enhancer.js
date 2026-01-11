@@ -1,17 +1,16 @@
-
-(function() {
+(function () {
     function init() {
         const codeBlocks = document.querySelectorAll('pre');
         if (codeBlocks.length === 0) return;
 
         codeBlocks.forEach((pre, index) => {
             if (pre.parentElement.classList.contains('code-block-wrapper')) return;
-            
+
             const wrapper = document.createElement('div');
             wrapper.className = 'code-block-wrapper';
             pre.parentNode.insertBefore(wrapper, pre);
             wrapper.appendChild(pre);
-            
+
             const codeElement = pre.querySelector('code');
             let language = pre.getAttribute('data-lang');
             if (!language && codeElement && codeElement.className) {
@@ -19,23 +18,23 @@
                 if (match) language = match[1];
             }
             language = language || 'text';
-            
+
             const header = document.createElement('div');
             header.className = 'code-block-header';
             header.innerHTML = `<span class="code-language">${language.toUpperCase()}</span><button class="code-copy-button">COPY</button>`;
             wrapper.insertBefore(header, pre);
-            
-            header.querySelector('.code-copy-button').onclick = function() {
+
+            header.querySelector('.code-copy-button').onclick = function () {
                 const text = codeElement ? codeElement.textContent : pre.textContent;
                 navigator.clipboard.writeText(text).then(() => {
                     this.textContent = 'COPIED!';
-                    setTimeout(() => this.textContent = 'COPY', 2000);
+                    setTimeout(() => (this.textContent = 'COPY'), 2000);
                 });
             };
-            
+
             const text = (codeElement ? codeElement.textContent : pre.textContent).trim();
             const lines = text.split('\n');
-            
+
             if (lines.length > 5 && codeElement) {
                 const lineNumbers = document.createElement('div');
                 lineNumbers.className = 'code-line-numbers';

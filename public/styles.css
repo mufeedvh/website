@@ -27,10 +27,10 @@
     --border-dotted: #555555;
 
     /* Typography */
-    --font-display: 'Space Grotesk', system-ui, sans-serif;
-    --font-body: 'Crimson Pro', 'Georgia', serif;
-    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-    --font-fancy: 'UnifrakturMaguntia', serif;
+    --font-display: "Space Grotesk", system-ui, sans-serif;
+    --font-body: "Crimson Pro", "Georgia", serif;
+    --font-mono: "JetBrains Mono", "Fira Code", monospace;
+    --font-fancy: "UnifrakturMaguntia", serif;
 
     /* Font Sizes */
     --text-xs: 0.95rem;
@@ -38,7 +38,7 @@
     --text-base: 1.35rem;
     --text-lg: 1.65rem;
     --text-xl: 2.2rem;
-    --text-2xl: 3.0rem;
+    --text-2xl: 3rem;
 
     /* Spacing */
     --space-1: 0.25rem;
@@ -57,7 +57,9 @@
 /* --------------------------------------------------------------------------
    Reset & Base Styles
    -------------------------------------------------------------------------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -69,10 +71,12 @@ html {
 body {
     background-color: var(--bg-deep);
     /* Extremely Subtle Radial Depth + Sparse Micro-Dot Grid */
-    background-image: 
+    background-image:
         radial-gradient(circle at center, rgba(30, 30, 30, 0.4) 0%, transparent 100%),
         radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 100% 100%, 60px 60px;
+    background-size:
+        100% 100%,
+        60px 60px;
     background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-body);
@@ -86,7 +90,14 @@ body {
 }
 
 /* Ensure all elements respect box-sizing and don't overflow */
-p, li, h1, h2, h3, h4, h5, blockquote {
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+blockquote {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
@@ -210,7 +221,9 @@ p, li, h1, h2, h3, h4, h5, blockquote {
     letter-spacing: 0.1em;
     line-height: 1.4;
     transform: translateY(-20px);
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
+    transition:
+        transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 0.5s ease;
     opacity: 0;
 }
 
@@ -224,14 +237,30 @@ p, li, h1, h2, h3, h4, h5, blockquote {
 }
 
 /* Staggered animation delays for the name letters */
-.name-extension span:nth-child(1) { transition-delay: 0.1s; }
-.name-extension span:nth-child(2) { transition-delay: 0.15s; }
-.name-extension span:nth-child(3) { transition-delay: 0.2s; }
-.name-extension span:nth-child(4) { transition-delay: 0.25s; }
-.name-extension span:nth-child(5) { transition-delay: 0.3s; }
-.name-extension span:nth-child(6) { transition-delay: 0.35s; } /* Space */
-.name-extension span:nth-child(7) { transition-delay: 0.4s; }
-.name-extension span:nth-child(8) { transition-delay: 0.45s; }
+.name-extension span:nth-child(1) {
+    transition-delay: 0.1s;
+}
+.name-extension span:nth-child(2) {
+    transition-delay: 0.15s;
+}
+.name-extension span:nth-child(3) {
+    transition-delay: 0.2s;
+}
+.name-extension span:nth-child(4) {
+    transition-delay: 0.25s;
+}
+.name-extension span:nth-child(5) {
+    transition-delay: 0.3s;
+}
+.name-extension span:nth-child(6) {
+    transition-delay: 0.35s;
+} /* Space */
+.name-extension span:nth-child(7) {
+    transition-delay: 0.4s;
+}
+.name-extension span:nth-child(8) {
+    transition-delay: 0.45s;
+}
 
 /* Main Layout Wrapper */
 .layout-wrapper {
@@ -281,8 +310,9 @@ p, li, h1, h2, h3, h4, h5, blockquote {
     border: none !important;
 }
 
-.nav-link::before, .nav-link::after {
-    content: '';
+.nav-link::before,
+.nav-link::after {
+    content: "";
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -322,7 +352,8 @@ p, li, h1, h2, h3, h4, h5, blockquote {
     color: var(--text-primary);
 }
 
-.nav-link.active::before, .nav-link.active::after {
+.nav-link.active::before,
+.nav-link.active::after {
     opacity: 1;
     border-color: var(--text-primary);
 }
@@ -351,7 +382,11 @@ p, li, h1, h2, h3, h4, h5, blockquote {
 }
 
 /* Typography Enhancements */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: var(--font-body);
     font-weight: 600;
     color: var(--text-primary);
@@ -360,9 +395,21 @@ h1, h2, h3, h4, h5 {
     line-height: 1.2;
 }
 
-h1 { font-size: var(--text-2xl); margin-top: 0; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
-h2 { font-size: var(--text-xl); border-bottom: 1px dotted var(--border-dotted); padding-bottom: 0.2em; }
-h3 { font-size: var(--text-lg); }
+h1 {
+    font-size: var(--text-2xl);
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+h2 {
+    font-size: var(--text-xl);
+    border-bottom: 1px dotted var(--border-dotted);
+    padding-bottom: 0.2em;
+}
+h3 {
+    font-size: var(--text-lg);
+}
 
 .section-header {
     text-align: center;
@@ -554,17 +601,60 @@ pre code {
     background: transparent !important;
 }
 
-.hljs-comment, .hljs-quote { color: #6a737d !important; font-style: italic; }
-.hljs-keyword, .hljs-selector-tag { color: #f97583 !important; }
-.hljs-number, .hljs-literal, .hljs-variable, .hljs-template-variable, .hljs-tag .hljs-attr { color: #79c0ff !important; }
-.hljs-string, .hljs-doctag, .hljs-regexp { color: #9ecbff !important; }
-.hljs-title, .hljs-section, .hljs-name, .hljs-selector-id, .hljs-selector-class { color: #b392f0 !important; }
-.hljs-attribute, .hljs-attr, .hljs-type { color: #ffab70 !important; }
-.hljs-symbol, .hljs-bullet, .hljs-subst, .hljs-meta, .hljs-link { color: #79c0ff !important; }
-.hljs-addition { background-color: #173416 !important; color: #aff5b4 !important; }
-.hljs-deletion { background-color: #440d13 !important; color: #ffdcd7 !important; }
-.hljs-emphasis { font-style: italic; }
-.hljs-strong { font-weight: bold; }
+.hljs-comment,
+.hljs-quote {
+    color: #6a737d !important;
+    font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag {
+    color: #f97583 !important;
+}
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+    color: #79c0ff !important;
+}
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+    color: #9ecbff !important;
+}
+.hljs-title,
+.hljs-section,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+    color: #b392f0 !important;
+}
+.hljs-attribute,
+.hljs-attr,
+.hljs-type {
+    color: #ffab70 !important;
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-subst,
+.hljs-meta,
+.hljs-link {
+    color: #79c0ff !important;
+}
+.hljs-addition {
+    background-color: #173416 !important;
+    color: #aff5b4 !important;
+}
+.hljs-deletion {
+    background-color: #440d13 !important;
+    color: #ffdcd7 !important;
+}
+.hljs-emphasis {
+    font-style: italic;
+}
+.hljs-strong {
+    font-weight: bold;
+}
 
 /* Buttons & Actions */
 .button-wrapper {
@@ -641,7 +731,8 @@ a:hover {
 }
 
 /* Lists */
-ul, ol {
+ul,
+ol {
     padding-left: 1.5em;
 }
 
@@ -661,7 +752,7 @@ li {
 }
 
 .directory-list li::before {
-    content: '◆';
+    content: "◆";
     position: absolute;
     left: 0;
     color: var(--text-secondary);
@@ -781,7 +872,7 @@ blockquote cite {
         right: 0;
         z-index: 10;
     }
-    
+
     .sidenote-marker {
         cursor: pointer;
         padding: 0 0.3em;
@@ -859,7 +950,8 @@ blockquote cite {
         height: 50px;
         white-space: nowrap;
     }
-    .nav-link::before, .nav-link::after {
+    .nav-link::before,
+    .nav-link::after {
         display: none; /* Simplify on mobile */
     }
     .nav-link.active {
@@ -888,9 +980,15 @@ blockquote cite {
         --text-2xl: 2.2rem;
     }
 
-    h1 { font-size: var(--text-2xl); }
-    h2 { font-size: var(--text-xl); }
-    h3 { font-size: var(--text-lg); }
+    h1 {
+        font-size: var(--text-2xl);
+    }
+    h2 {
+        font-size: var(--text-xl);
+    }
+    h3 {
+        font-size: var(--text-lg);
+    }
 
     .drop-cap > p:first-of-type::first-letter {
         font-size: 4em;
@@ -938,11 +1036,11 @@ blockquote cite {
     .logo-monogram .m-letter {
         font-size: 2.5rem;
     }
-    
+
     .name-extension {
         display: none; /* Hide full name on very small screens to save space */
     }
-    
+
     .content {
         padding: var(--space-4) var(--space-3);
     }

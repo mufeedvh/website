@@ -3,15 +3,20 @@
  * Sequence: ↑ ↑ ↓ ↓ ← → ← → B A
  */
 
-(function() {
+(function () {
     'use strict';
 
     const KONAMI_CODE = [
-        'ArrowUp', 'ArrowUp',
-        'ArrowDown', 'ArrowDown',
-        'ArrowLeft', 'ArrowRight',
-        'ArrowLeft', 'ArrowRight',
-        'KeyB', 'KeyA'
+        'ArrowUp',
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+        'ArrowLeft',
+        'ArrowRight',
+        'KeyB',
+        'KeyA',
     ];
 
     let inputSequence = [];
@@ -45,9 +50,7 @@
      * Plays the Vista startup or shutdown sound
      */
     function playVistaSound(type) {
-        const soundPath = type === 'startup'
-            ? '/assets/sounds/vista-startup.mp3'
-            : '/assets/sounds/vista-shutdown.mp3';
+        const soundPath = type === 'startup' ? '/assets/sounds/vista-startup.mp3' : '/assets/sounds/vista-shutdown.mp3';
 
         const audio = new Audio(soundPath);
         audio.volume = 0.3;
@@ -184,16 +187,19 @@
         document.addEventListener('keydown', handleKeyDown);
 
         // Also add a secret console command
-        window.activateVistaMode = function() {
+        window.activateVistaMode = function () {
             if (!frutigerAeroEnabled) {
                 activateFrutigerAero();
                 console.log('%c Vista mode activated! ', 'background: #0078D7; color: white; padding: 4px 8px;');
             } else {
-                console.log('%c Vista mode is already active. Use deactivateVistaMode() to turn it off. ', 'color: #9a9a90;');
+                console.log(
+                    '%c Vista mode is already active. Use deactivateVistaMode() to turn it off. ',
+                    'color: #9a9a90;'
+                );
             }
         };
 
-        window.deactivateVistaMode = function() {
+        window.deactivateVistaMode = function () {
             if (frutigerAeroEnabled) {
                 deactivateFrutigerAero();
                 console.log('%c Vista mode deactivated ', 'background: #a78bfa; color: #080808; padding: 4px 8px;');
