@@ -260,16 +260,6 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
 <p class="hall-of-fame">Google, Mastercard, Okta, DELL, Ford, Zilliqa, EFF, Telefonica, etc.</p>
 
 <style>
-/* Reset box-sizing for all elements to ensure consistent sizing */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-/* Ensure HTML and body don't cause overflow */
-html {
-    overflow-x: hidden;
-}
-
 /* Projects Grid Layout */
 .projects-grid {
     display: grid;

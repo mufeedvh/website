@@ -111,8 +111,10 @@ I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, K
 
 <style>
 /* Common toggle styles */
-.press-section {
+.press-section, .bonus-section {
   margin: 3em 0;
+  background-color: var(--bg-card);
+  border: 1px dotted var(--border-dotted);
 }
 
 .press-toggle,
@@ -124,26 +126,26 @@ I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, K
   font-size: var(--text-xs);
   font-weight: 600;
   color: var(--text-primary);
-  background-color: var(--bg-card);
-  border: 1px dotted var(--border-dotted);
+  background-color: var(--bg-surface);
+  border: none;
+  border-bottom: 1px dotted var(--border-dotted);
   padding: 0.8rem 1.5rem;
   cursor: pointer;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  width: fit-content;
-  margin: 1em auto;
-  transition: border-color var(--transition-fast);
+  width: 100%;
+  margin: 0;
+  transition: background-color var(--transition-fast);
   list-style: none;
-}
-
-.bonus-section summary::-webkit-details-marker {
-  display: none;
 }
 
 .press-toggle:hover,
 .bonus-section summary:hover {
-  border-style: solid;
-  border-color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.bonus-section summary::-webkit-details-marker {
+  display: none;
 }
 
 .toggle-icon {
@@ -159,8 +161,14 @@ I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, K
 }
 
 .press-content {
-  margin-top: 2em;
+  padding: var(--space-4);
   overflow-x: auto;
+}
+
+.bonus-section img {
+  margin: 0;
+  width: 100%;
+  border: none;
 }
 
 .press-table {

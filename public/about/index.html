@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="referrer" content="no-referrer" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#0d0d0d" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,19 +66,32 @@
         </svg>
 
         <aside class="sidebar">
-            <a href="/" class="logo-monogram">
-                <span class="m-letter">M</span>
-                <div class="name-extension">
-                    <span>U</span>
-                    <span>F</span>
-                    <span>E</span>
-                    <span>E</span>
-                    <span>D</span>
-                    <span class="name-space"></span>
-                    <span>V</span>
-                    <span>H</span>
-                </div>
-            </a>
+            <div class="sidebar-top">
+                <a href="/" class="logo-monogram">
+                    <span class="m-letter">M</span>
+                    <div class="name-extension">
+                        <span>U</span>
+                        <span>F</span>
+                        <span>E</span>
+                        <span>E</span>
+                        <span>D</span>
+                        <span class="name-space"></span>
+                        <span>V</span>
+                        <span>H</span>
+                    </div>
+                </a>
+
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="/" class="nav-link">Home</a></li>
+                        <li><a href="/about" class="nav-link active">About</a></li>
+                        <li><a href="/posts" class="nav-link">Posts</a></li>
+                        <li><a href="/projects" class="nav-link">Projects</a></li>
+                        <li><a href="/contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
             <div class="sidebar-bottom">
                 <a href="/rabbithole" class="rabbit-hole-link" title="Follow the rabbit hole...">
                     <svg class="svg-icon rabbit-icon"><use href="#icon-rabbit" /></svg>
@@ -87,16 +100,6 @@
         </aside>
 
         <div class="layout-wrapper">
-            <nav class="top-nav">
-                <ul class="nav-links">
-                    <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="/about" class="nav-link active">About</a></li>
-                    <li><a href="/posts" class="nav-link">Posts</a></li>
-                    <li><a href="/projects" class="nav-link">Projects</a></li>
-                    <li><a href="/contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-
             <main class="content">
                 <div class="post-metadata"></div>
 
@@ -789,8 +792,11 @@
                     </div>
                     <style>
                         /* Common toggle styles */
-                        .press-section {
+                        .press-section,
+                        .bonus-section {
                             margin: 3em 0;
+                            background-color: var(--bg-card);
+                            border: 1px dotted var(--border-dotted);
                         }
 
                         .press-toggle,
@@ -802,26 +808,26 @@
                             font-size: var(--text-xs);
                             font-weight: 600;
                             color: var(--text-primary);
-                            background-color: var(--bg-card);
-                            border: 1px dotted var(--border-dotted);
+                            background-color: var(--bg-surface);
+                            border: none;
+                            border-bottom: 1px dotted var(--border-dotted);
                             padding: 0.8rem 1.5rem;
                             cursor: pointer;
                             letter-spacing: 0.1em;
                             text-transform: uppercase;
-                            width: fit-content;
-                            margin: 1em auto;
-                            transition: border-color var(--transition-fast);
+                            width: 100%;
+                            margin: 0;
+                            transition: background-color var(--transition-fast);
                             list-style: none;
-                        }
-
-                        .bonus-section summary::-webkit-details-marker {
-                            display: none;
                         }
 
                         .press-toggle:hover,
                         .bonus-section summary:hover {
-                            border-style: solid;
-                            border-color: var(--text-primary);
+                            background-color: rgba(255, 255, 255, 0.03);
+                        }
+
+                        .bonus-section summary::-webkit-details-marker {
+                            display: none;
                         }
 
                         .toggle-icon {
@@ -837,8 +843,14 @@
                         }
 
                         .press-content {
-                            margin-top: 2em;
+                            padding: var(--space-4);
                             overflow-x: auto;
+                        }
+
+                        .bonus-section img {
+                            margin: 0;
+                            width: 100%;
+                            border: none;
                         }
 
                         .press-table {

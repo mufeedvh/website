@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="section-header">
-    <h1>{{ section.title | upper }}</h1>
+    <h1>{{ section.title }}</h1>
     {% if section.content %}
     <div class="section-description">
         {{ section.content | safe }}

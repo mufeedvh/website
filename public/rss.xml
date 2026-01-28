@@ -32,8 +32,10 @@
 
 &lt;style&gt;
 .toc-container {
-    margin: 3em 0;
+    margin: 2em 0;
     position: relative;
+    background-color: #080808;
+    border: 1px dotted var(--border-dotted);
 }
 
 .toc-toggle {
@@ -41,23 +43,22 @@
     align-items: center;
     gap: 0.8em;
     font-family: var(--font-display);
-    font-size: var(--text-xs);
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-primary);
-    background-color: var(--bg-card);
-    border: 1px dotted var(--border-dotted);
-    padding: 0.8rem 1.5rem;
+    background-color: #0d0d0d;
+    border: none;
+    border-bottom: 1px dotted var(--border-dotted);
+    padding: 0.6rem 1rem;
     cursor: pointer;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    width: fit-content;
-    margin: 1em 0;
-    transition: border-color var(--transition-fast);
+    width: 100%;
+    transition: background-color var(--transition-fast);
 }
 
 .toc-toggle:hover {
-    border-style: solid;
-    border-color: var(--text-primary);
+    background-color: #141414;
 }
 
 .toggle-icon {
@@ -73,9 +74,8 @@
 
 .toc-content {
     background-color: transparent;
-    border-top: 1px dotted var(--border-dotted);
     margin: 0 !important;
-    padding-top: 1em !important;
+    padding: var(--space-2) var(--space-3) !important;
     overflow-y: visible;
 }
 
@@ -107,7 +107,7 @@
 .toc-list a:hover,
 .toc-list a.active {
     color: var(--text-primary);
-    background-color: var(--bg-card);
+    background-color: #141414;
 }
 
 .toc-tree-svg {
