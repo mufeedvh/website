@@ -49,9 +49,9 @@
 
     <aside class="sidebar">
         <div class="sidebar-top">
-            <a href="/" class="logo-monogram">
-                <span class="m-letter">M</span>
-                <div class="name-extension">
+            <a href="/" class="logo-monogram" aria-label="Mufeed VH">
+                <span class="m-letter" aria-hidden="true">M</span>
+                <div class="name-extension" aria-hidden="true">
                     <span>U</span>
                     <span>F</span>
                     <span>E</span>
@@ -86,6 +86,7 @@
         <main class="content">
             {% block content %}{% endblock content %}
         </main>
+        {% block footer %}{% endblock footer %}
     </div>
 
     {% block scripts %}

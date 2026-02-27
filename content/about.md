@@ -11,7 +11,7 @@ drop_cap = true
 
 I am the CEO and Co-founder of [**Winfunc**](https://winfunc.com "Winfunc's website") (YC S24) where we're researching and building products that leverage the emergent properties of AI models, such as <u>reasoning</u>, to augment security audits.
 
-I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, Kerala.
+I am <span id="my_age" style="font-variant-numeric: tabular-nums"><noscript>22</noscript></span> and my home is Thrissur, Kerala.
 
 **Latest Oscillating Interests:** spreadsheets, compilers, and [xiaojie cat](https://www.instagram.com/xiaojie_cat).
 

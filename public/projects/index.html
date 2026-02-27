@@ -67,9 +67,9 @@
 
         <aside class="sidebar">
             <div class="sidebar-top">
-                <a href="/" class="logo-monogram">
-                    <span class="m-letter">M</span>
-                    <div class="name-extension">
+                <a href="/" class="logo-monogram" aria-label="Mufeed VH">
+                    <span class="m-letter" aria-hidden="true">M</span>
+                    <div class="name-extension" aria-hidden="true">
                         <span>U</span>
                         <span>F</span>
                         <span>E</span>
@@ -544,7 +544,7 @@
 
                         .github-stars::before {
                             content: "★";
-                            color: var(--text-tertiary);
+                            color: #e3b341;
                             font-size: 1.2em;
                             line-height: 1;
                             display: inline-block;
@@ -789,11 +789,13 @@
                         });
                     </script>
                 </article>
+            </main>
 
+            <footer class="site-footer">
                 <div class="back-to-directory">
                     <a href="/">← Back to Directory</a>
                 </div>
-            </main>
+            </footer>
         </div>
 
         <script src="/codeblock-enhancer.js"></script>

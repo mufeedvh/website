@@ -67,9 +67,9 @@
 
         <aside class="sidebar">
             <div class="sidebar-top">
-                <a href="/" class="logo-monogram">
-                    <span class="m-letter">M</span>
-                    <div class="name-extension">
+                <a href="/" class="logo-monogram" aria-label="Mufeed VH">
+                    <span class="m-letter" aria-hidden="true">M</span>
+                    <div class="name-extension" aria-hidden="true">
                         <span>U</span>
                         <span>F</span>
                         <span>E</span>
@@ -109,17 +109,32 @@
                     </div>
                 </div>
 
-                <ul class="directory-list">
-                    <li>
-                        <a href="https://mufeedvh.com/posts/llm-security/">Security in the age of LLMs</a>
-                        <span class="post-date">(2022-12-09)</span>
-                    </li>
-                </ul>
+                <div class="post-grid">
+                    <a href="https://mufeedvh.com/posts/llm-security/" class="post-card">
+                        <img
+                            src="https:&#x2F;&#x2F;mufeedvh.com&#x2F;posts&#x2F;llm-security&#x2F;llm-security.png"
+                            alt="Security in the age of LLMs"
+                            class="post-card-image"
+                            loading="lazy"
+                        />
 
+                        <div class="post-card-content">
+                            <h2 class="post-card-title">Security in the age of LLMs</h2>
+                            <div class="post-card-meta">
+                                <span class="post-date">2022-12-09</span>
+
+                                <span class="post-tags"> &nbsp;&bull;&nbsp; ai, security </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </main>
+
+            <footer class="site-footer">
                 <div class="back-to-directory">
                     <a href="/">← Back to Directory</a>
                 </div>
-            </main>
+            </footer>
         </div>
 
         <script src="/codeblock-enhancer.js"></script>

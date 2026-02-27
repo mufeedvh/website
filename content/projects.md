@@ -328,7 +328,7 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
 
 .github-stars::before {
     content: "★";
-    color: var(--text-tertiary);
+    color: #e3b341;
     font-size: 1.2em;
     line-height: 1;
     display: inline-block;

@@ -11740,7 +11740,7 @@ window.searchIndex = {
                 title: 'Projects',
             },
             'https://mufeedvh.com/rabbithole/': {
-                body: "\n🐇\nDown the Rabbit Hole\n\n\nYou've found a way into the subterranean passages of this digital garden. This is a space for things that don't quite fit elsewhere—unfinished thoughts, digital ephemera, and direct lines of communication that bypass the usual protocols of the surface web.\n\n\n\"But I don't want to go among mad people,\" Alice remarked. \"Oh, you can't help that,\" said the Cat: \"we're all mad here. I'm mad. You're mad.\"\nLewis Carroll, Alice in Wonderland\n\n\n\n            Leave an Anonymous Message  \n\n\nOther Paths\n\nWho is behind this?\nRead the formal logs\nReturn to the entrance\n\n",
+                body: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n🐇\nDown the Rabbit Hole\n\n\nYou've found a way into the subterranean passages of this digital garden. This is a space for things that don't quite fit elsewhere—unfinished thoughts, digital ephemera, and direct lines of communication that bypass the usual protocols of the surface web.\n\n\n\"But I don't want to go among mad people,\" Alice remarked. \"Oh, you can't help that,\" said the Cat: \"we're all mad here. I'm mad. You're mad.\"\nLewis Carroll, Alice in Wonderland\n\n\n\n            Leave an Anonymous Message  \n\n\nOther Paths\n\nWho is behind this?\nRead the formal logs\nReturn to the entrance\n\n\n",
                 id: 'https://mufeedvh.com/rabbithole/',
                 title: 'The Rabbit Hole',
             },

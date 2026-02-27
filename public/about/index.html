@@ -67,9 +67,9 @@
 
         <aside class="sidebar">
             <div class="sidebar-top">
-                <a href="/" class="logo-monogram">
-                    <span class="m-letter">M</span>
-                    <div class="name-extension">
+                <a href="/" class="logo-monogram" aria-label="Mufeed VH">
+                    <span class="m-letter" aria-hidden="true">M</span>
+                    <div class="name-extension" aria-hidden="true">
                         <span>U</span>
                         <span>F</span>
                         <span>E</span>
@@ -118,7 +118,9 @@
                         AI models, such as <u>reasoning</u>, to augment security audits.
                     </p>
                     <p>
-                        I am <span id="my_age"><noscript>22</noscript></span> and my home is Thrissur, Kerala.
+                        I am
+                        <span id="my_age" style="font-variant-numeric: tabular-nums"><noscript>22</noscript></span> and
+                        my home is Thrissur, Kerala.
                     </p>
                     <p>
                         <strong>Latest Oscillating Interests:</strong> spreadsheets, compilers, and
@@ -976,11 +978,13 @@
                         setInterval(me_when, 1);
                     </script>
                 </article>
+            </main>
 
+            <footer class="site-footer">
                 <div class="back-to-directory">
                     <a href="/">← Back to Directory</a>
                 </div>
-            </main>
+            </footer>
         </div>
 
         <script src="/codeblock-enhancer.js"></script>

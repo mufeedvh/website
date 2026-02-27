@@ -79,7 +79,12 @@
     {% endif %}
 {% endif %}
 
-<div class="back-to-directory">
-    <a href="/">← Back to Directory</a>
-</div>
 {% endblock content %}
+
+{% block footer %}
+<footer class="site-footer">
+    <div class="back-to-directory">
+        <a href="/">← Back to Directory</a>
+    </div>
+</footer>
+{% endblock footer %}
