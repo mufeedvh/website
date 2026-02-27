@@ -58,6 +58,8 @@
 html {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -503,10 +505,11 @@ pre {
     background-color: transparent !important;
     white-space: pre !important;
     word-wrap: normal !important;
-    display: flex;
-    align-items: stretch;
+    display: block;
     scrollbar-width: thin;
     scrollbar-color: var(--border-accent) transparent;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 pre::-webkit-scrollbar {
@@ -538,12 +541,17 @@ pre code {
     background-color: transparent !important;
     padding: var(--space-4) !important;
     display: block;
-    flex-grow: 1;
+    min-width: max-content;
     margin: 0;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 .with-line-numbers {
     padding: 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
 }
 
 .code-line-numbers {
@@ -564,10 +572,16 @@ pre code {
     position: sticky;
     left: 0;
     z-index: 5;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 .code-line-numbers div {
     line-height: inherit;
+}
+
+.with-line-numbers code {
+    min-width: max-content;
 }
 
 /* highlight.js refined color adjustments */
@@ -970,6 +984,18 @@ blockquote cite {
     .sidenote {
         font-size: 0.9em;
         margin: 1.5em 0;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    @media screen and (max-width: 768px) {
+        pre,
+        pre code,
+        .code-line-numbers,
+        .code-line-numbers div {
+            -webkit-text-size-adjust: none;
+            text-size-adjust: none;
+        }
     }
 }
 
