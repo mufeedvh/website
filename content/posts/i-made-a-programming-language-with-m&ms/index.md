@@ -10,9 +10,10 @@ tags = ["programming", "compilers", "silly", "slop"]
 [extra]
 blog = true
 no_header = false
-og_image = "https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster.png"
-og_image_width = 1024
-og_image_height = 512
+og_image = "https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster-og.jpg"
+og_image_type = "image/jpeg"
+og_image_width = 1200
+og_image_height = 630
 +++
 
 {{ slop_meter(percent=31) }}
@@ -21,7 +22,7 @@ og_image_height = 512
 
 I mean literally. Imagine you arrange M&M-like candies into a specific pattern, that pattern is executable code.
 
-Alright story time.
+Alright story time. Featuring *inline interactive interpreter embedded right inside this post*.
 
 It all started when I spilled a full packet of GEMS{{ sidenote(id="gems", content="GEMS is sort of an Indian version of M&Ms.") }} on the floor cus I opened (ripped?) the packet a bit too hard.
 

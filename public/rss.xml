@@ -28,7 +28,7 @@
 &lt;p&gt;What if a little pile of M&amp;amp;Ms on a table was a real program?&lt;&#x2F;p&gt;
 &lt;&#x2F;blockquote&gt;
 &lt;p&gt;I mean literally. Imagine you arrange M&amp;amp;M-like candies into a specific pattern, that pattern is executable code.&lt;&#x2F;p&gt;
-&lt;p&gt;Alright story time.&lt;&#x2F;p&gt;
+&lt;p&gt;Alright story time. Featuring &lt;em&gt;inline interactive interpreter embedded right inside this post&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;It all started when I spilled a full packet of GEMS
 &lt;span class=&quot;sidenote-container&quot;&gt;
     &lt;a href=&quot;#sidenote-gems&quot; class=&quot;sidenote-marker&quot; data-sidenote=&quot;sidenote-gems&quot; onclick=&quot;toggleSidenote(&#x27;sidenote-gems&#x27;); return false;&quot;&gt;†&lt;&#x2F;a&gt;
