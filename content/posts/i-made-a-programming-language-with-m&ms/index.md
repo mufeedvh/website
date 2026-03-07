@@ -11,6 +11,8 @@ tags = ["programming", "compilers", "silly", "slop"]
 blog = true
 no_header = false
 og_image = "https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster.png"
+og_image_width = 1024
+og_image_height = 512
 +++
 
 {{ slop_meter(percent=31) }}
