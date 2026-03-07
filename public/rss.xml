@@ -7,7 +7,936 @@
       <generator>Zola</generator>
       <language>en</language>
       <atom:link href="https://mufeedvh.com/rss.xml" rel="self" type="application/rss+xml"/>
-      <lastBuildDate>Fri, 09 Dec 2022 00:00:00 +0000</lastBuildDate>
+      <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>I made a programming language with M&amp;Ms</title>
+          <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+          <author>Mufeed VH</author>
+          <link>https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/</link>
+          <guid>https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/</guid>
+          <description xml:base="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/">&lt;div class=&quot;slop-meter&quot; onclick=&quot;this.classList.toggle(&#x27;active&#x27;)&quot;&gt;
+    &lt;div class=&quot;slop-meter-header&quot;&gt;
+        &lt;span class=&quot;slop-meter-title&quot;&gt;ai-slop meter&lt;&#x2F;span&gt;
+        &lt;span class=&quot;slop-meter-percent&quot;&gt;31%&lt;&#x2F;span&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;slop-meter-bar&quot;&gt;
+        &lt;div class=&quot;slop-meter-fill&quot; style=&quot;width: 31%&quot;&gt;&lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+    &lt;span class=&quot;slop-meter-tooltip&quot;&gt;How much of this article was AI-generated — code, prose, or structure. The rest is human-written.&lt;&#x2F;span&gt;
+&lt;&#x2F;div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What if a little pile of M&amp;amp;Ms on a table was a real program?&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;I mean literally. Imagine you arrange M&amp;amp;M-like candies into a specific pattern, that pattern is executable code.&lt;&#x2F;p&gt;
+&lt;p&gt;Alright story time.&lt;&#x2F;p&gt;
+&lt;p&gt;It all started when I spilled a full packet of GEMS
+&lt;span class=&quot;sidenote-container&quot;&gt;
+    &lt;a href=&quot;#sidenote-gems&quot; class=&quot;sidenote-marker&quot; data-sidenote=&quot;sidenote-gems&quot; onclick=&quot;toggleSidenote(&#x27;sidenote-gems&#x27;); return false;&quot;&gt;†&lt;&#x2F;a&gt;
+    &lt;span id=&quot;sidenote-gems&quot; class=&quot;sidenote&quot;&gt;
+        GEMS is sort of an Indian version of M&amp;Ms.
+    &lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;
+ on the floor cus I opened (ripped?) the packet a bit too hard.&lt;&#x2F;p&gt;
+&lt;p&gt;It fell into an interesting pattern that I could only describe as the shape of an arrow.&lt;&#x2F;p&gt;
+&lt;p&gt;Random patterns, fractals, interpreting nonsense into structure are hobbies that entice me. I am somewhat of an apophenic when it comes to these things.&lt;&#x2F;p&gt;
+&lt;p&gt;The colors, the placements, and the structure of what I saw dropped a silly idea into my minds eye. What if I could write programs with M&amp;amp;Ms. This is the story of one of my &lt;em&gt;many&lt;&#x2F;em&gt; silly little projects.&lt;&#x2F;p&gt;
+&lt;img src=&quot;mnm-lang-poster.png&quot; alt=&quot;Poster illustration for MNM Lang showing candy code on the left and a terminal-style branching tree on the right&quot; loading=&quot;lazy&quot; width=&quot;1024&quot; height=&quot;512&quot;&gt;
+&lt;div class=&quot;center-content&quot;&gt;
+&lt;p&gt;&lt;em&gt;abstract art of m&amp;ms being parsed&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;div class=&quot;toc-container&quot; id=&quot;toc-container-default&quot;&gt;
+    &lt;div class=&quot;toc-toggle&quot; onclick=&quot;toggleTOC(&#x27;default&#x27;)&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;toc-content-default&quot;&gt;
+        &lt;span class=&quot;toggle-icon&quot;&gt;▶&lt;&#x2F;span&gt; &lt;span class=&quot;toc-title&quot;&gt;Table of Contents&lt;&#x2F;span&gt;
+    &lt;&#x2F;div&gt;
+    
+    &lt;nav id=&quot;toc-content-default&quot; class=&quot;toc-content&quot; aria-label=&quot;Table of contents&quot; style=&quot;display: block;&quot;&gt;
+        &lt;ul class=&quot;toc-list&quot; id=&quot;toc-list-default&quot;&gt;
+        &lt;&#x2F;ul&gt;
+    &lt;&#x2F;nav&gt;
+&lt;&#x2F;div&gt;
+
+&lt;style&gt;
+.toc-container {
+    margin: 2em 0;
+    position: relative;
+    background-color: #080808;
+    border: 1px dotted var(--border-dotted);
+}
+
+.toc-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background-color: #0d0d0d;
+    border: none;
+    border-bottom: 1px dotted var(--border-dotted);
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    width: 100%;
+    transition: background-color var(--transition-fast);
+}
+
+.toc-toggle:hover {
+    background-color: #141414;
+}
+
+.toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 0.7em;
+    color: var(--text-tertiary);
+}
+
+.toc-toggle[aria-expanded=&quot;true&quot;] .toggle-icon {
+    transform: rotate(90deg);
+}
+
+.toc-content {
+    background-color: transparent;
+    margin: 0 !important;
+    padding: var(--space-2) var(--space-3) !important;
+    overflow-y: visible;
+}
+
+.toc-list,
+.toc-list ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.toc-list li {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    font-family: var(--font-body);
+}
+
+.toc-list a {
+    color: var(--text-secondary);
+    text-decoration: none !important;
+    display: block;
+    padding: 0.4em 0.6em;
+    transition: all 0.15s ease;
+    font-size: 0.9em;
+    line-height: 1.4;
+    border: none !important;
+}
+
+.toc-list a:hover,
+.toc-list a.active {
+    color: var(--text-primary);
+    background-color: #141414;
+}
+
+.toc-tree-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.toc-tree-svg line {
+    stroke: var(--border-dotted);
+    stroke-width: 1;
+    stroke-dasharray: 2 2;
+    fill: none;
+}
+
+.toc-list li:hover &gt; .toc-tree-svg line,
+.toc-list li.active &gt; .toc-tree-svg line {
+    stroke: var(--text-tertiary);
+}
+
+.toc-h1 { padding-left: 0.9em; }
+.toc-h2 { padding-left: 2.5em; }
+.toc-h3 { padding-left: 4.1em; }
+.toc-h4 { padding-left: 5.7em; }
+.toc-h5 { padding-left: 7.3em; }
+.toc-h6 { padding-left: 8.9em; }
+
+@media screen and (max-width: 768px) {
+    .toc-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+    .toc-h1 { padding-left: 0.5em; }
+    .toc-h2 { padding-left: 1.2em; }
+    .toc-h3 { padding-left: 1.9em; }
+    .toc-h4 { padding-left: 2.6em; }
+    .toc-h5 { padding-left: 3.3em; }
+    .toc-h6 { padding-left: 4.0em; }
+}
+
+html { scroll-behavior: smooth; }
+.toc-anchor { scroll-margin-top: 40px; }
+&lt;&#x2F;style&gt;
+
+&lt;script&gt;
+(function() {
+    const tocId = &#x27;default&#x27;;
+    const minLevel = 1;
+    const maxLevel = 6;
+    const INDENT = 24; 
+    
+    window.toggleTOC = function(id) {
+        const button = document.querySelector(`#toc-container-${id} .toc-toggle`);
+        const content = document.getElementById(`toc-content-${id}`);
+        const isExpanded = button.getAttribute(&#x27;aria-expanded&#x27;) === &#x27;true&#x27;;
+        button.setAttribute(&#x27;aria-expanded&#x27;, !isExpanded);
+        content.style.display = isExpanded ? &#x27;none&#x27; : &#x27;block&#x27;;
+    };
+    
+    function sanitizeId(id) {
+        if (&#x2F;^\d&#x2F;.test(id)) return &#x27;h-&#x27; + id;
+        return id;
+    }
+    
+    function updateActiveSection() {
+        const headings = document.querySelectorAll(&#x27;.toc-anchor&#x27;);
+        const tocLinks = document.querySelectorAll(`#toc-list-${tocId} a`);
+        
+        tocLinks.forEach(link =&gt; {
+            link.classList.remove(&#x27;active&#x27;);
+            link.parentElement.classList.remove(&#x27;active&#x27;);
+        });
+        
+        let currentSection = null;
+        const scrollPosition = window.scrollY + 100;
+        
+        for (let i = headings.length - 1; i &gt;= 0; i--) {
+            if (headings[i].offsetTop &lt;= scrollPosition) {
+                currentSection = headings[i];
+                break;
+            }
+        }
+        
+        if (currentSection) {
+            const activeLink = document.querySelector(`#toc-list-${tocId} a[href=&quot;#${currentSection.id}&quot;]`);
+            if (activeLink) {
+                activeLink.classList.add(&#x27;active&#x27;);
+                activeLink.parentElement.classList.add(&#x27;active&#x27;);
+            }
+        }
+    }
+    
+    function generateTOC() {
+        const tocList = document.getElementById(`toc-list-${tocId}`);
+        const content = document.querySelector(&#x27;.content&#x27;);
+        const headings = content.querySelectorAll(&#x27;h1, h2, h3, h4, h5, h6&#x27;);
+        
+        if (headings.length === 0) {
+            document.getElementById(`toc-container-${tocId}`).style.display = &#x27;none&#x27;;
+            return;
+        }
+        
+        let currentList = tocList;
+        let listStack = [currentList];
+        let currentLevel = minLevel;
+        let foundValidHeading = false;
+        
+        headings.forEach((heading, index) =&gt; {
+            const isButtonHeading = heading.parentElement &amp;&amp; heading.parentElement.classList.contains(&#x27;button-wrapper&#x27;);
+            const isExcludedText = heading.textContent.trim() === &#x27;Link to this article&#x27; || 
+                                  heading.textContent.trim().includes(&#x27;Follow me on&#x27;);
+            
+            if (isButtonHeading || isExcludedText) return;
+            
+            const level = parseInt(heading.tagName.substring(1));
+            if (level &lt; minLevel || level &gt; maxLevel) return;
+            
+            foundValidHeading = true;
+            
+            if (!heading.id) {
+                heading.id = `heading-${tocId}-${index}`;
+            } else {
+                heading.id = sanitizeId(heading.id);
+            }
+            
+            heading.classList.add(&#x27;toc-anchor&#x27;);
+            
+            const li = document.createElement(&#x27;li&#x27;);
+            const a = document.createElement(&#x27;a&#x27;);
+            a.href = `#${heading.id}`;
+            a.textContent = heading.textContent.trim();
+            a.className = `toc-h${level}`;
+            a.dataset.level = level;
+            
+            if (level &gt; currentLevel) {
+                const nestedUl = document.createElement(&#x27;ul&#x27;);
+                const parentLi = listStack[listStack.length - 1].lastElementChild;
+                if (parentLi) {
+                    parentLi.appendChild(nestedUl);
+                    listStack.push(nestedUl);
+                }
+            } else if (level &lt; currentLevel) {
+                const levelDiff = currentLevel - level;
+                for (let i = 0; i &lt; levelDiff &amp;&amp; listStack.length &gt; 1; i++) {
+                    listStack.pop();
+                }
+            }
+            
+            currentLevel = level;
+            currentList = listStack[listStack.length - 1];
+            
+            li.appendChild(a);
+            currentList.appendChild(li);
+            
+            a.addEventListener(&#x27;click&#x27;, function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute(&#x27;href&#x27;).substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: &#x27;smooth&#x27;, block: &#x27;start&#x27; });
+                    history.pushState(null, null, this.getAttribute(&#x27;href&#x27;));
+                    updateActiveSection();
+                }
+            });
+        });
+        
+        if (!foundValidHeading) {
+            document.getElementById(`toc-container-${tocId}`).style.display = &#x27;none&#x27;;
+        }
+        
+        setTimeout(() =&gt; {
+            addTreeLines(tocList);
+        }, 5);
+
+        setupScrollSpy();
+    }
+    
+    function addTreeLines(list, depth = 0, parentContinues = []) {
+        const items = Array.from(list.children);
+        
+        items.forEach((li, index) =&gt; {
+            const link = li.querySelector(&#x27;:scope &gt; a&#x27;);
+            if (!link) {
+                return;
+            }
+            
+            const isLast = index === items.length - 1;
+            const headingLevel = parseInt(link.dataset.level, 10) || minLevel;
+            const shouldRenderConnectors = depth &gt; 0 || minLevel &gt; 1 || headingLevel &gt; minLevel;
+            
+            if (shouldRenderConnectors) {
+                const svg = document.createElementNS(&#x27;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&#x27;, &#x27;svg&#x27;);
+                svg.classList.add(&#x27;toc-tree-svg&#x27;);
+                
+                const computedStyles = window.getComputedStyle(link);
+                const linkHeight = link.offsetHeight || link.getBoundingClientRect().height || parseFloat(computedStyles.lineHeight) || 0;
+                
+                const linkPaddingTop = parseFloat(computedStyles.paddingTop) || 0;
+                const linkPaddingBottom = parseFloat(computedStyles.paddingBottom) || 0;
+                const linkBorderTop = parseFloat(computedStyles.borderTopWidth) || 0;
+                const linkBorderBottom = parseFloat(computedStyles.borderBottomWidth) || 0;
+                
+                const liStyles = window.getComputedStyle(li);
+                const liBorderTop = parseFloat(liStyles.borderTopWidth) || 0;
+                
+                const rowHeight = linkHeight + linkPaddingTop + linkPaddingBottom + linkBorderTop + linkBorderBottom + liBorderTop;
+                const safeRowHeight = Math.max(rowHeight, 1);
+                
+                const linkPaddingLeft = parseFloat(computedStyles.paddingLeft) || 0;
+                const connectorDepth = depth + 1;
+                const connectorX = connectorDepth * INDENT;
+                const svgWidth = connectorDepth * INDENT + INDENT + linkPaddingLeft;
+                
+                svg.setAttribute(&#x27;width&#x27;, svgWidth);
+                svg.setAttribute(&#x27;height&#x27;, safeRowHeight);
+                
+                const midY = linkHeight &#x2F; 2;
+                
+                parentContinues.forEach((continues, idx) =&gt; {
+                    if (!continues) {
+                        return;
+                    }
+                    const x = (idx + 1) * INDENT;
+                    const line = document.createElementNS(&#x27;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&#x27;, &#x27;line&#x27;);
+                    line.setAttribute(&#x27;x1&#x27;, x);
+                    line.setAttribute(&#x27;y1&#x27;, 0);
+                    line.setAttribute(&#x27;x2&#x27;, x);
+                    line.setAttribute(&#x27;y2&#x27;, safeRowHeight);
+                    svg.appendChild(line);
+                });
+                
+                const vertLine = document.createElementNS(&#x27;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&#x27;, &#x27;line&#x27;);
+                vertLine.setAttribute(&#x27;x1&#x27;, connectorX);
+                vertLine.setAttribute(&#x27;y1&#x27;, 0);
+                vertLine.setAttribute(&#x27;x2&#x27;, connectorX);
+                vertLine.setAttribute(&#x27;y2&#x27;, midY);
+                svg.appendChild(vertLine);
+                
+                const horizLine = document.createElementNS(&#x27;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&#x27;, &#x27;line&#x27;);
+                horizLine.setAttribute(&#x27;x1&#x27;, connectorX);
+                horizLine.setAttribute(&#x27;y1&#x27;, midY);
+                horizLine.setAttribute(&#x27;x2&#x27;, connectorX + (INDENT * 0.7));
+                horizLine.setAttribute(&#x27;y2&#x27;, midY);
+                svg.appendChild(horizLine);
+                
+                if (!isLast) {
+                    const bottomLine = document.createElementNS(&#x27;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&#x27;, &#x27;line&#x27;);
+                    bottomLine.setAttribute(&#x27;x1&#x27;, connectorX);
+                    bottomLine.setAttribute(&#x27;y1&#x27;, midY);
+                    bottomLine.setAttribute(&#x27;x2&#x27;, connectorX);
+                    bottomLine.setAttribute(&#x27;y2&#x27;, safeRowHeight);
+                    svg.appendChild(bottomLine);
+                }
+                
+                li.insertBefore(svg, link);
+                link.style.paddingLeft = `${connectorX + (INDENT * 0.7) + 5}px`;
+            }
+            
+            const childList = li.querySelector(&#x27;:scope &gt; ul&#x27;);
+            if (childList) {
+                const newParentContinues = parentContinues.concat(!isLast);
+                addTreeLines(childList, depth + 1, newParentContinues);
+            }
+        });
+    }
+    
+    function setupScrollSpy() {
+        let isScrolling = false;
+        window.addEventListener(&#x27;scroll&#x27;, function() {
+            if (!isScrolling) {
+                window.requestAnimationFrame(function() {
+                    updateActiveSection();
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        });
+        updateActiveSection();
+    }
+    
+    function initWhenReady() {
+        if (document.readyState === &#x27;loading&#x27;) {
+            document.addEventListener(&#x27;DOMContentLoaded&#x27;, generateTOC);
+        } else if (document.readyState === &#x27;interactive&#x27; || document.readyState === &#x27;complete&#x27;) {
+            setTimeout(generateTOC, 0);
+        }
+    }
+    initWhenReady();
+    
+    document.addEventListener(&#x27;DOMContentLoaded&#x27;, function() {
+        const tocToggle = document.querySelector(`#toc-container-${tocId} .toc-toggle`);
+        if (tocToggle) {
+            tocToggle.addEventListener(&#x27;keydown&#x27;, function(e) {
+                if (e.key === &#x27;Enter&#x27; || e.key === &#x27; &#x27;) {
+                    e.preventDefault();
+                    toggleTOC(tocId);
+                }
+            });
+        }
+    });
+})();
+&lt;&#x2F;script&gt;
+&lt;p&gt;Seeing the spilled candy on the floor, a few constraints dawned on me...&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;There are only six useful colors.&lt;&#x2F;li&gt;
+&lt;li&gt;A photo is a terrible place to store exact symbolic data.&lt;&#x2F;li&gt;
+&lt;li&gt;Candy is round, glossy, messy, and inconveniently physical.&lt;&#x2F;li&gt;
+&lt;li&gt;Strings are a disaster if you try to cram them into an image.&lt;&#x2F;li&gt;
+&lt;li&gt;If this thing is going to be funny, it still has to actually work.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;So I built it.&lt;&#x2F;p&gt;
+&lt;p&gt;The result is &lt;strong&gt;MNM Lang&lt;&#x2F;strong&gt;, a tiny programming language where:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;source code is written as runs of six letters: &lt;code&gt;B G R Y O N&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;those runs compile into a PNG made from candy sprites&lt;&#x2F;li&gt;
+&lt;li&gt;the PNG decompiles back into source exactly&lt;&#x2F;li&gt;
+&lt;li&gt;and a controlled photo decoder can recover programs from mildly skewed images (I hope that works)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;There is a CLI, a browser playground, example programs, tests, and a sprite pack
+generated specifically for the project.&lt;&#x2F;p&gt;
+&lt;p&gt;And this is obviously not a practical language. It is a serious implementation of a silly idea.&lt;&#x2F;p&gt;
+&lt;script src=&quot;mnm_lang_web_demo.js&quot; defer&gt;&lt;&#x2F;script&gt;
+&lt;h2 id=&quot;the-core-problem&quot;&gt;The core problem&lt;&#x2F;h2&gt;
+&lt;p&gt;If you only have six candy colors, how do you build a language that is:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;easy to place by hand&lt;&#x2F;li&gt;
+&lt;li&gt;easy to read from a photo&lt;&#x2F;li&gt;
+&lt;li&gt;expressive enough to run real examples&lt;&#x2F;li&gt;
+&lt;li&gt;and small enough that the whole bit stays funny?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;My answer was: &lt;strong&gt;encode instructions by color family, and encode operands by count.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;That means a token like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;mnm&quot; class=&quot;language-mnm &quot;&gt;&lt;code class=&quot;language-mnm&quot; data-lang=&quot;mnm&quot;&gt;BBB
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;isn’t “three arbitrary blue things.” It means a specific opcode.&lt;&#x2F;p&gt;
+&lt;p&gt;And a token like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;mnm&quot; class=&quot;language-mnm &quot;&gt;&lt;code class=&quot;language-mnm&quot; data-lang=&quot;mnm&quot;&gt;RRRR
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;means the integer literal &lt;code&gt;3&lt;&#x2F;code&gt;, because operand values are &lt;code&gt;len(token) - 1&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;That single rule ended up doing a lot of work for me:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;it is easy to author in text&lt;&#x2F;li&gt;
+&lt;li&gt;it is easy to render into image cells&lt;&#x2F;li&gt;
+&lt;li&gt;it is easy to reconstruct from image geometry&lt;&#x2F;li&gt;
+&lt;li&gt;and it feels appropriately ridiculous&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;You can explain the language to someone in about thirty seconds:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Blue clusters are control flow, green is stack and variables, yellow is math, orange is I&#x2F;O, brown is labels and strings, red is stack shuffling and logic. If you want the number five, use six red candies.”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Whether or not that&#x27;s intuitive is not a question I can answer at this time.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;images-are-bad-at-text&quot;&gt;Images are bad at text&lt;&#x2F;h2&gt;
+&lt;p&gt;The earliest fork in the road was strings.&lt;&#x2F;p&gt;
+&lt;p&gt;I could have tried to encode text directly into candy layouts. Maybe invent a
+micro-alphabet. Maybe use rows of yellow and red as bytes. Maybe do some cursed
+base-6 trick.&lt;&#x2F;p&gt;
+&lt;p&gt;That would have been technically possible and spiritually awful.&lt;&#x2F;p&gt;
+&lt;p&gt;The fun part of the project is the visual structure, not building an OCR-resistant
+QR code out of sugar shells.&lt;&#x2F;p&gt;
+&lt;p&gt;So I pushed strings and initial variables into a sidecar JSON file.&lt;&#x2F;p&gt;
+&lt;p&gt;That means a program has two parts:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;the visual candy layout in &lt;code&gt;.mnm&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;the non-visual runtime data in &lt;code&gt;.mnm.json&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;For example, hello world is:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;mnm&quot; class=&quot;language-mnm &quot;&gt;&lt;code class=&quot;language-mnm&quot; data-lang=&quot;mnm&quot;&gt;OO Y
+OOOOOO
+BBBBBB
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And because the whole bit only works if that text turns into an actual candy
+program, here is the compiler output for it:&lt;&#x2F;p&gt;
+&lt;img src=&quot;hello-world-program.png&quot; alt=&quot;The hello_world MNM Lang program rendered as candy sprites&quot; loading=&quot;lazy&quot; width=&quot;716&quot; height=&quot;404&quot;&gt;
+&lt;div class=&quot;center-content&quot;&gt;
+&lt;p&gt;&lt;em&gt;`hello_world`, but in snack form&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;And its sidecar is:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;{
+  &amp;quot;strings&amp;quot;: [&amp;quot;Hello, world!&amp;quot;],
+  &amp;quot;variables&amp;quot;: [],
+  &amp;quot;inputs&amp;quot;: {
+    &amp;quot;int&amp;quot;: [],
+    &amp;quot;str&amp;quot;: []
+  }
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And because I apparently have no sense of restraint, this page can also run that
+exact little program inline:&lt;&#x2F;p&gt;
+&lt;div data-mnm-inline-demo data-title=&quot;Run hello_world here&quot; data-description=&quot;The browser-native MNM Lang runtime renders the candy sheet, then animates output, AST, and trace right inside the post.&quot;&gt;
+  &lt;textarea class=&quot;mnm-demo-source&quot; hidden&gt;OO Y
+OOOOOO
+BBBBBB&lt;&#x2F;textarea&gt;
+  &lt;script type=&quot;application&#x2F;json&quot; class=&quot;mnm-demo-sidecar&quot;&gt;{&quot;strings&quot;:[&quot;Hello, world!&quot;],&quot;variables&quot;:[],&quot;inputs&quot;:{&quot;int&quot;:[],&quot;str&quot;:[]}}&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;That split ended up making the whole system cleaner:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;the image only carries what images are good at: structure&lt;&#x2F;li&gt;
+&lt;li&gt;runtime input can change without moving candy&lt;&#x2F;li&gt;
+&lt;li&gt;the photo decoder does not have to pretend it can read prose from glossy candy&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Sometimes the correct answer in a whimsical project is to stop being whimsical
+for one layer of the stack.&lt;&#x2F;p&gt;
+&lt;aside class=&quot;alterego&quot;&gt;
+    &lt;div class=&quot;alterego-badge&quot;&gt;
+        &lt;svg class=&quot;alterego-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;
+            &lt;path d=&quot;M12 2a5 5 0 0 0-5 5c0 1.5.5 2.8 1.3 3.8C7.5 12 7 13.9 7 16c0 1.7.3 3 .8 4&quot;&#x2F;&gt;
+            &lt;path d=&quot;M16.2 20c.5-1 .8-2.3.8-4 0-2.1-.5-4-1.3-5.2A5 5 0 0 0 12 2&quot;&#x2F;&gt;
+            &lt;circle cx=&quot;9.5&quot; cy=&quot;8&quot; r=&quot;0.8&quot; fill=&quot;currentColor&quot; stroke=&quot;none&quot;&#x2F;&gt;
+            &lt;circle cx=&quot;14.5&quot; cy=&quot;8&quot; r=&quot;0.8&quot; fill=&quot;currentColor&quot; stroke=&quot;none&quot;&#x2F;&gt;
+            &lt;path d=&quot;M10 11.5c.6.5 1.2.7 2 .7s1.4-.2 2-.7&quot;&#x2F;&gt;
+            &lt;path d=&quot;M8 20c1 1.5 2.5 2 4 2s3-.5 4-2&quot;&#x2F;&gt;
+        &lt;&#x2F;svg&gt;
+        &lt;span class=&quot;alterego-label&quot;&gt;alter ego chiming in&lt;&#x2F;span&gt;
+    &lt;&#x2F;div&gt;
+    &lt;p class=&quot;alterego-text&quot;&gt;Says the same guy who thought of synthetically generating an MNIST-like dataset of M&amp;M programs on various different textures to train a model capable of inferring M&amp;Ms on beach sand to running programs. Anywho.&lt;&#x2F;p&gt;
+&lt;&#x2F;aside&gt;
+&lt;h2 id=&quot;a-language-made-of-six-colors&quot;&gt;A language made of six colors&lt;&#x2F;h2&gt;
+&lt;p&gt;Once strings moved out of the image, the language itself fell into place pretty quickly.&lt;&#x2F;p&gt;
+&lt;p&gt;I grouped instructions by color family:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;blue: jumps, calls, halt&lt;&#x2F;li&gt;
+&lt;li&gt;green: push&#x2F;load&#x2F;store&#x2F;dup&#x2F;pop&#x2F;inc&#x2F;dec&lt;&#x2F;li&gt;
+&lt;li&gt;yellow: arithmetic and comparisons&lt;&#x2F;li&gt;
+&lt;li&gt;orange: printing and input&lt;&#x2F;li&gt;
+&lt;li&gt;brown: labels and string operations&lt;&#x2F;li&gt;
+&lt;li&gt;red: swap, rotate, boolean logic&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;And then I made the first token on every row the opcode.&lt;&#x2F;p&gt;
+&lt;p&gt;That gives the language a very physical feel. A line is an instruction. A cluster
+of candies is a token. More candies means a different variant.&lt;&#x2F;p&gt;
+&lt;p&gt;It is almost closer to arranging game pieces than writing code.&lt;&#x2F;p&gt;
+&lt;p&gt;The full programs still look absurd, which I consider a success. This is the
+opening stretch of the factorial example:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;mnm&quot; class=&quot;language-mnm &quot;&gt;&lt;code class=&quot;language-mnm&quot; data-lang=&quot;mnm&quot;&gt;OOO O
+GGG G
+G RR
+GGG GG
+N B
+GG G
+G RR
+YYYYYYYY
+BB BB
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Fed through the renderer, that opening section looks like this:&lt;&#x2F;p&gt;
+&lt;img src=&quot;factorial-opening-program.png&quot; alt=&quot;The opening stretch of the factorial example rendered as candy sprites&quot; loading=&quot;lazy&quot; width=&quot;924&quot; height=&quot;1028&quot;&gt;
+&lt;div class=&quot;center-content&quot;&gt;
+&lt;p&gt;&lt;em&gt;this is a real program&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;If you already know the rules, you can decode that as:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;read integer queue 0&lt;&#x2F;li&gt;
+&lt;li&gt;store into variable 0&lt;&#x2F;li&gt;
+&lt;li&gt;push 1&lt;&#x2F;li&gt;
+&lt;li&gt;store into variable 1&lt;&#x2F;li&gt;
+&lt;li&gt;label 0&lt;&#x2F;li&gt;
+&lt;li&gt;load variable 0&lt;&#x2F;li&gt;
+&lt;li&gt;push 1&lt;&#x2F;li&gt;
+&lt;li&gt;compare &lt;code&gt;&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;jump-if-zero to label 1&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Which means, yes, I wrote a looping factorial program out of candy.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-only-correct-compiler-target-was-an-image&quot;&gt;The only correct compiler target was an image&lt;&#x2F;h2&gt;
+&lt;p&gt;If the whole gimmick is “this program is candy,” the compiler cannot stop at an AST.&lt;&#x2F;p&gt;
+&lt;p&gt;It has to emit an image.&lt;&#x2F;p&gt;
+&lt;p&gt;So the compiler takes normalized &lt;code&gt;.mnm&lt;&#x2F;code&gt; source and renders it on a fixed grid:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;one source character per cell&lt;&#x2F;li&gt;
+&lt;li&gt;spaces become empty cells&lt;&#x2F;li&gt;
+&lt;li&gt;cells hold transparent-background candy sprites&lt;&#x2F;li&gt;
+&lt;li&gt;the output is a PNG&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;That fixed geometry turned out to be a huge win, because it made the reverse
+direction almost trivial.&lt;&#x2F;p&gt;
+&lt;p&gt;If an image came from the compiler, the decompiler can:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;recover the exact row&#x2F;column count from the canvas size&lt;&#x2F;li&gt;
+&lt;li&gt;sample each cell&lt;&#x2F;li&gt;
+&lt;li&gt;classify it as blue&#x2F;green&#x2F;red&#x2F;yellow&#x2F;orange&#x2F;brown&#x2F;blank&lt;&#x2F;li&gt;
+&lt;li&gt;strip trailing spaces&lt;&#x2F;li&gt;
+&lt;li&gt;and re-parse the result&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;That gives an exact round-trip:&lt;&#x2F;p&gt;
+&lt;svg class=&quot;round-trip-diagram&quot; viewBox=&quot;0 0 420 64&quot; xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot;&gt;
+  &lt;style&gt;.rt-t{font-family:&#x27;JetBrains Mono&#x27;,monospace;font-size:9px;fill:#666;letter-spacing:0.05em}.rt-icon{fill:none;stroke:#555;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}&lt;&#x2F;style&gt;
+  &lt;g transform=&quot;translate(50,4)&quot;&gt;
+    &lt;rect class=&quot;rt-icon&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;24&quot; height=&quot;30&quot; rx=&quot;1.5&quot;&#x2F;&gt;
+    &lt;line class=&quot;rt-icon&quot; x1=&quot;5&quot; y1=&quot;8&quot; x2=&quot;19&quot; y2=&quot;8&quot;&#x2F;&gt;
+    &lt;line class=&quot;rt-icon&quot; x1=&quot;5&quot; y1=&quot;13&quot; x2=&quot;16&quot; y2=&quot;13&quot;&#x2F;&gt;
+    &lt;line class=&quot;rt-icon&quot; x1=&quot;5&quot; y1=&quot;18&quot; x2=&quot;19&quot; y2=&quot;18&quot;&#x2F;&gt;
+    &lt;line class=&quot;rt-icon&quot; x1=&quot;5&quot; y1=&quot;23&quot; x2=&quot;13&quot; y2=&quot;23&quot;&#x2F;&gt;
+    &lt;text x=&quot;12&quot; y=&quot;46&quot; class=&quot;rt-t&quot; text-anchor=&quot;middle&quot;&gt;source&lt;&#x2F;text&gt;
+  &lt;&#x2F;g&gt;
+  &lt;line x1=&quot;100&quot; y1=&quot;22&quot; x2=&quot;175&quot; y2=&quot;22&quot; stroke=&quot;#444&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;4 3&quot;&#x2F;&gt;
+  &lt;g transform=&quot;translate(198,4)&quot;&gt;
+    &lt;rect class=&quot;rt-icon&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;24&quot; height=&quot;30&quot; rx=&quot;1.5&quot;&#x2F;&gt;
+    &lt;polygon class=&quot;rt-icon&quot; points=&quot;5,22 10,14 14,19 17,15 19,22&quot; fill=&quot;none&quot;&#x2F;&gt;
+    &lt;circle cx=&quot;8&quot; cy=&quot;10&quot; r=&quot;2&quot; class=&quot;rt-icon&quot;&#x2F;&gt;
+    &lt;text x=&quot;12&quot; y=&quot;46&quot; class=&quot;rt-t&quot; text-anchor=&quot;middle&quot;&gt;PNG&lt;&#x2F;text&gt;
+  &lt;&#x2F;g&gt;
+  &lt;line x1=&quot;245&quot; y1=&quot;22&quot; x2=&quot;320&quot; y2=&quot;22&quot; stroke=&quot;#444&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;4 3&quot;&#x2F;&gt;
+  &lt;g transform=&quot;translate(345,4)&quot;&gt;
+    &lt;rect class=&quot;rt-icon&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;24&quot; height=&quot;30&quot; rx=&quot;1.5&quot;&#x2F;&gt;
+    &lt;line class=&quot;rt-icon&quot; x1=&quot;5&quot; y1=&quot;8&quot; x2=&quot;19&quot; y2=&quot;8&quot;&#x2F;&gt;
+    &lt;line class=&quot;rt-icon&quot; x1=&quot;5&quot; y1=&quot;13&quot; x2=&quot;16&quot; y2=&quot;13&quot;&#x2F;&gt;
+    &lt;line class=&quot;rt-icon&quot; x1=&quot;5&quot; y1=&quot;18&quot; x2=&quot;19&quot; y2=&quot;18&quot;&#x2F;&gt;
+    &lt;line class=&quot;rt-icon&quot; x1=&quot;5&quot; y1=&quot;23&quot; x2=&quot;13&quot; y2=&quot;23&quot;&#x2F;&gt;
+    &lt;text x=&quot;12&quot; y=&quot;46&quot; class=&quot;rt-t&quot; text-anchor=&quot;middle&quot;&gt;source&lt;&#x2F;text&gt;
+  &lt;&#x2F;g&gt;
+&lt;&#x2F;svg&gt;
+&lt;p&gt;with no heuristics at all.&lt;&#x2F;p&gt;
+&lt;p&gt;In other words: the “compiler” is also a tiny image format.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;i-generated-the-candy-sprites-with-an-image-model&quot;&gt;I generated the candy sprites with an image model&lt;&#x2F;h2&gt;
+&lt;p&gt;One of my favorite parts of the project is that I didn’t hand-draw the sprites.&lt;&#x2F;p&gt;
+&lt;p&gt;I used &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;openai&#x2F;skills&#x2F;blob&#x2F;main&#x2F;skills&#x2F;.curated&#x2F;imagegen&#x2F;SKILL.md&quot;&gt;AI image generation&lt;&#x2F;a&gt;
+&lt;span class=&quot;sidenote-container&quot;&gt;
+    &lt;a href=&quot;#sidenote-imagegen&quot; class=&quot;sidenote-marker&quot; data-sidenote=&quot;sidenote-imagegen&quot; onclick=&quot;toggleSidenote(&#x27;sidenote-imagegen&#x27;); return false;&quot;&gt;†&lt;&#x2F;a&gt;
+    &lt;span id=&quot;sidenote-imagegen&quot; class=&quot;sidenote&quot;&gt;
+        This is a &lt;a href=&#x27;https:&#x2F;&#x2F;github.com&#x2F;openai&#x2F;skills&#x27;&gt;Codex Skill&lt;&#x2F;a&gt; — a reusable capability you can give to Codex for specialized tasks like image generation.
+    &lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;
+ to create six M&amp;amp;M-style candy tokens:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;blue&lt;&#x2F;li&gt;
+&lt;li&gt;green&lt;&#x2F;li&gt;
+&lt;li&gt;red&lt;&#x2F;li&gt;
+&lt;li&gt;yellow&lt;&#x2F;li&gt;
+&lt;li&gt;orange&lt;&#x2F;li&gt;
+&lt;li&gt;brown&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The raw generations were decent, but not directly usable. They came with a few
+annoying traits:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;too much studio backdrop&lt;&#x2F;li&gt;
+&lt;li&gt;a bit of inconsistent shadow&lt;&#x2F;li&gt;
+&lt;li&gt;minor scale differences&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;So the final asset pipeline became:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;generate six isolated candies with transparent-background prompts&lt;&#x2F;li&gt;
+&lt;li&gt;normalize them with a small script&lt;&#x2F;li&gt;
+&lt;li&gt;crop and center them onto a canonical 128x128 canvas&lt;&#x2F;li&gt;
+&lt;li&gt;extract palette metadata for the decompiler and photo classifier&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Not conceptually. Literally. The checked-in prompt bundle for the sprite pack
+looks like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;{
+  &amp;quot;prompt&amp;quot;: &amp;quot;a single blue candy-coated chocolate lentil ... isolated on a transparent background&amp;quot;,
+  &amp;quot;composition&amp;quot;: &amp;quot;one candy only, top-down, centered, consistent scale&amp;quot;,
+  &amp;quot;constraints&amp;quot;: &amp;quot;transparent background; no logo; no text; no watermark&amp;quot;,
+  &amp;quot;out&amp;quot;: &amp;quot;blue.png&amp;quot;
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And the normalization script starts by estimating the backdrop and isolating the
+largest candy blob:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;background = np.median(border, axis=0)
+distance = np.linalg.norm(rgb - background, axis=2)
+threshold = filters.threshold_otsu(distance)
+mask = distance &amp;gt; max(18.0, float(threshold) * 0.9)
+return labeled == regions[0].label
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then it scales and centers that cutout onto the canonical sprite canvas:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;available = CANVAS_SIZE - (PADDING * 2)
+scale = min(available &amp;#x2F; cropped.width, available &amp;#x2F; cropped.height)
+canvas = Image.new(&amp;quot;RGBA&amp;quot;, (CANVAS_SIZE, CANVAS_SIZE), (0, 0, 0, 0))
+x = (CANVAS_SIZE - resized.width) &amp;#x2F;&amp;#x2F; 2
+y = (CANVAS_SIZE - resized.height) &amp;#x2F;&amp;#x2F; 2
+canvas.alpha_composite(resized, (x, y))
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And finally it writes the palette metadata that the decompiler and photo
+classifier both use later:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;rgb = array[..., :3][array[..., 3] &amp;gt; 0]
+mean_rgb = tuple(int(round(value)) for value in rgb.mean(axis=0))
+palette[color[0].upper() if color != &amp;quot;brown&amp;quot; else &amp;quot;N&amp;quot;] = mean_rgb
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That normalization step mattered a lot more than I expected. If the shadows are
+too strong, candies that are supposed to be separate blobs start merging after
+blur and perspective transforms. That sounds like a silly implementation detail,
+but it is exactly the sort of thing that determines whether “photo decoding” is
+real or fake.&lt;&#x2F;p&gt;
+&lt;p&gt;Projects like this are fun because the silly part and the engineering part keep
+interfering with each other in useful ways.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;i-almost-talked-myself-into-training-a-model&quot;&gt;I almost talked myself into training a model&lt;&#x2F;h2&gt;
+&lt;p&gt;When you say “image decoding,” your brain immediately offers to make the project
+bigger than it needs to be.&lt;&#x2F;p&gt;
+&lt;p&gt;I had the same impulse:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;maybe I should train a tiny classifier&lt;&#x2F;li&gt;
+&lt;li&gt;maybe synthesize candy crops&lt;&#x2F;li&gt;
+&lt;li&gt;maybe build the MNIST-for-M&amp;amp;Ms pipeline&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;That would be fun. It is also not necessary for v1.&lt;&#x2F;p&gt;
+&lt;p&gt;The version I shipped uses deterministic image processing for the photo decoder:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;estimate background color from the border&lt;&#x2F;li&gt;
+&lt;li&gt;segment candy-like foreground blobs&lt;&#x2F;li&gt;
+&lt;li&gt;classify each blob against the canonical six-color palette&lt;&#x2F;li&gt;
+&lt;li&gt;cluster the blobs into rows&lt;&#x2F;li&gt;
+&lt;li&gt;infer spaces from centroid gaps&lt;&#x2F;li&gt;
+&lt;li&gt;re-parse the reconstructed source&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This works surprisingly well for the target use case:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;overhead photo&lt;&#x2F;li&gt;
+&lt;li&gt;plain contrasting background&lt;&#x2F;li&gt;
+&lt;li&gt;separated candies&lt;&#x2F;li&gt;
+&lt;li&gt;mild blur&lt;&#x2F;li&gt;
+&lt;li&gt;small rotation or perspective skew&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;It absolutely does &lt;strong&gt;not&lt;&#x2F;strong&gt; solve “dumped a bag of candy on a messy kitchen table
+and took a dramatic iPhone shot.”&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;real-example-programs-are-where-the-joke-becomes-a-language&quot;&gt;Real example programs are where the joke becomes a language&lt;&#x2F;h2&gt;
+&lt;p&gt;I didn’t want this to stop at “hello world with candy colors.”&lt;&#x2F;p&gt;
+&lt;p&gt;So I added a few examples that push on different parts of the language:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;hello_world&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Pure output. Basically the proof that the whole pipeline exists.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;echo_name&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Uses a string queue and concatenation to greet the input name from the sidecar.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;factorial&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This is where it starts feeling real:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;labels&lt;&#x2F;li&gt;
+&lt;li&gt;variable mutation&lt;&#x2F;li&gt;
+&lt;li&gt;arithmetic&lt;&#x2F;li&gt;
+&lt;li&gt;conditionals&lt;&#x2F;li&gt;
+&lt;li&gt;loops&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;code&gt;fizzbuzz&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Mandatory. Also unexpectedly good at showing off the design because it uses:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;modulo&lt;&#x2F;li&gt;
+&lt;li&gt;branching&lt;&#x2F;li&gt;
+&lt;li&gt;string slots&lt;&#x2F;li&gt;
+&lt;li&gt;repeated output&lt;&#x2F;li&gt;
+&lt;li&gt;a small amount of state&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Watching &lt;code&gt;fizzbuzz&lt;&#x2F;code&gt; compile into a candy grid and then run correctly is exactly
+the kind of payoff I wanted from the project.&lt;&#x2F;p&gt;
+&lt;p&gt;At that point it stops being “a cursed novelty syntax” and starts being “okay,
+this is a legitimate little VM that happens to look like a snack.”&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-browser-playground-made-it-feel-like-a-real-toy&quot;&gt;The browser playground made it feel like a real toy&lt;&#x2F;h2&gt;
+&lt;p&gt;The CLI is the serious interface:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;compile&lt;&#x2F;li&gt;
+&lt;li&gt;decompile&lt;&#x2F;li&gt;
+&lt;li&gt;run&lt;&#x2F;li&gt;
+&lt;li&gt;serve&lt;&#x2F;li&gt;
+&lt;li&gt;list examples&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;But the browser playground is what makes the repo inviting.&lt;&#x2F;p&gt;
+&lt;p&gt;It lets you:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;load a shipped example&lt;&#x2F;li&gt;
+&lt;li&gt;edit source&lt;&#x2F;li&gt;
+&lt;li&gt;edit sidecar JSON&lt;&#x2F;li&gt;
+&lt;li&gt;render the candy-sheet preview&lt;&#x2F;li&gt;
+&lt;li&gt;run it immediately&lt;&#x2F;li&gt;
+&lt;li&gt;upload an image and decode it back into source&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I also added two views that made the whole thing feel much more like a real
+language toolchain instead of a cursed renderer demo:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;a tree-formatted AST showing what the parser believes each candy row means&lt;&#x2F;li&gt;
+&lt;li&gt;a tree-formatted execution trace showing which branches the interpreter
+actually took at runtime&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For a tiny program like &lt;code&gt;hello_world&lt;&#x2F;code&gt;, the AST stays pleasantly readable:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;text&quot; class=&quot;language-text &quot;&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Program (3 instruction(s))
+|-- labels
+|   `-- (none)
+`-- instructions
+    |-- [0] PRINT_STR @ line 1 (string[0] from Y)
+    |   `-- source: OO Y
+    |-- [1] NEWLINE @ line 2
+    |   |-- source: OOOOOO
+    |   `-- operands: (none)
+    `-- [2] HALT @ line 3
+        |-- source: BBBBBB
+        `-- operands: (none)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And the execution trace is exactly the kind of thing I wanted once the language
+had loops and branches. Here is a clipped excerpt from &lt;code&gt;factorial&lt;&#x2F;code&gt;, right around
+the point where the loop either keeps going or breaks out:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;text&quot; class=&quot;language-text &quot;&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Execution
+|-- [step 8] [ip=7] GT @ line 8
+|   `-- state: stack=[1] vars=[5, 1]
+|-- [step 9] [ip=8] JZ (label[1] from BB) @ line 9
+|   |-- branch: fallthrough -&amp;gt; instruction[9]
+|   `-- state: stack=[] vars=[5, 1]
+...
+|-- [step 52] [ip=7] GT @ line 8
+|   `-- state: stack=[0] vars=[1, 120]
+|-- [step 53] [ip=8] JZ (label[1] from BB) @ line 9
+|   |-- branch: taken -&amp;gt; label[1] @ instruction[15]
+|   `-- state: stack=[] vars=[1, 120]
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That same tree output now shows up in both the CLI and the browser UI, which is
+nice because candy code is way funnier once you can also inspect it like a real
+compiler&#x2F;runtime pipeline.&lt;&#x2F;p&gt;
+&lt;p&gt;So here is the same idea, but actually live:&lt;&#x2F;p&gt;
+&lt;div data-mnm-inline-demo data-title=&quot;Run factorial inline&quot; data-description=&quot;A richer inline demo with loops, state mutation, branch decisions, the candy-sheet render, and the full trace tree.&quot;&gt;
+  &lt;textarea class=&quot;mnm-demo-source&quot; hidden&gt;OOO O
+GGG G
+G RR
+GGG GG
+N B
+GG G
+G RR
+YYYYYYYY
+BB BB
+GG GG
+GG G
+YYY
+GGG GG
+GGGGGGG G
+B B
+N BB
+GG GG
+O
+OOOOOO
+BBBBBB&lt;&#x2F;textarea&gt;
+  &lt;script type=&quot;application&#x2F;json&quot; class=&quot;mnm-demo-sidecar&quot;&gt;{&quot;strings&quot;:[],&quot;variables&quot;:[0,0],&quot;inputs&quot;:{&quot;int&quot;:[[5]],&quot;str&quot;:[]}}&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+&lt;h2 id=&quot;we-need-tests&quot;&gt;We need tests&lt;&#x2F;h2&gt;
+&lt;p&gt;I designed the interpreter but the code is mostly written by GPT 5.4 XHigh via Codex.&lt;&#x2F;p&gt;
+&lt;aside class=&quot;alterego&quot;&gt;
+    &lt;div class=&quot;alterego-badge&quot;&gt;
+        &lt;svg class=&quot;alterego-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;
+            &lt;path d=&quot;M12 2a5 5 0 0 0-5 5c0 1.5.5 2.8 1.3 3.8C7.5 12 7 13.9 7 16c0 1.7.3 3 .8 4&quot;&#x2F;&gt;
+            &lt;path d=&quot;M16.2 20c.5-1 .8-2.3.8-4 0-2.1-.5-4-1.3-5.2A5 5 0 0 0 12 2&quot;&#x2F;&gt;
+            &lt;circle cx=&quot;9.5&quot; cy=&quot;8&quot; r=&quot;0.8&quot; fill=&quot;currentColor&quot; stroke=&quot;none&quot;&#x2F;&gt;
+            &lt;circle cx=&quot;14.5&quot; cy=&quot;8&quot; r=&quot;0.8&quot; fill=&quot;currentColor&quot; stroke=&quot;none&quot;&#x2F;&gt;
+            &lt;path d=&quot;M10 11.5c.6.5 1.2.7 2 .7s1.4-.2 2-.7&quot;&#x2F;&gt;
+            &lt;path d=&quot;M8 20c1 1.5 2.5 2 4 2s3-.5 4-2&quot;&#x2F;&gt;
+        &lt;&#x2F;svg&gt;
+        &lt;span class=&quot;alterego-label&quot;&gt;alter ego chiming in&lt;&#x2F;span&gt;
+    &lt;&#x2F;div&gt;
+    &lt;p class=&quot;alterego-text&quot;&gt;&#x27;design&#x27;... As in, he described the design in natural language, plain english.&lt;&#x2F;p&gt;
+&lt;&#x2F;aside&gt;
+&lt;p&gt;And vibe coding calls for tests cus what if it &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Reward_hacking&quot;&gt;reward hacked&lt;&#x2F;a&gt;
+&lt;span class=&quot;sidenote-container&quot;&gt;
+    &lt;a href=&quot;#sidenote-reward-hacking&quot; class=&quot;sidenote-marker&quot; data-sidenote=&quot;sidenote-reward-hacking&quot; onclick=&quot;toggleSidenote(&#x27;sidenote-reward-hacking&#x27;); return false;&quot;&gt;†&lt;&#x2F;a&gt;
+    &lt;span id=&quot;sidenote-reward-hacking&quot; class=&quot;sidenote&quot;&gt;
+        Reward Hacking is when an AI optimizes for the metric you gave it rather than the goal you meant — passing tests without actually solving the problem.
+    &lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;
+ my idea into existence?&lt;&#x2F;p&gt;
+&lt;p&gt;So I wrote tests for the actual guarantees:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;parser validation&lt;&#x2F;li&gt;
+&lt;li&gt;runtime semantics&lt;&#x2F;li&gt;
+&lt;li&gt;example golden outputs&lt;&#x2F;li&gt;
+&lt;li&gt;exact source&#x2F;PNG&#x2F;source round-trips&lt;&#x2F;li&gt;
+&lt;li&gt;synthetic photo decoding with blur, rotation, and perspective skew&lt;&#x2F;li&gt;
+&lt;li&gt;API behavior&lt;&#x2F;li&gt;
+&lt;li&gt;a playground-style smoke flow&lt;&#x2F;li&gt;
+&lt;li&gt;sprite asset sanity checks&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;One of the bugs I hit was that the photo decoder accidentally treated fully opaque
+RGB images as if their alpha channel meant foreground everywhere, which turned
+the entire canvas into a single blob. That sounds obvious once you know it, and
+it is exactly the kind of mistake I wanted to catch.&lt;&#x2F;p&gt;
+&lt;p&gt;Another was that the sprite normalization kept too much drop shadow, which caused
+nearby candies to merge after blur. Again: a ridiculous bug, but a real one.&lt;&#x2F;p&gt;
+&lt;p&gt;The tests are what separate “look, I rendered candy once” from “this is an actual
+system with constraints and failure modes.”&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-best-part-of-the-project-is-the-tradeoff-it-forces&quot;&gt;The best part of the project is the tradeoff it forces&lt;&#x2F;h2&gt;
+&lt;p&gt;Every joke project has a point where you decide whether you are going to protect
+the joke or protect the implementation.&lt;&#x2F;p&gt;
+&lt;p&gt;MNM Lang kept forcing me to do both.&lt;&#x2F;p&gt;
+&lt;p&gt;That is how you end up with rules like:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;blue cluster width decides which branch instruction you mean&lt;&#x2F;li&gt;
+&lt;li&gt;red run length encodes integer literals&lt;&#x2F;li&gt;
+&lt;li&gt;strings live in JSON because candy OCR is a terrible life choice&lt;&#x2F;li&gt;
+&lt;li&gt;compiled PNGs are exact but photos are “controlled” on purpose&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;None of that is language design orthodoxy.&lt;&#x2F;p&gt;
+&lt;p&gt;All of it is completely justified by the premise... I tell myself.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;if-you-want-to-try-it&quot;&gt;If you want to try it&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;GitHub&lt;&#x2F;strong&gt;: &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mufeedvh&#x2F;mnmlang&quot;&gt;mufeedvh&#x2F;mnmlang&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mufeedvh&#x2F;mnmlang&quot;&gt;repo&lt;&#x2F;a&gt; includes:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;the interpreter&lt;&#x2F;li&gt;
+&lt;li&gt;the photo decoder&lt;&#x2F;li&gt;
+&lt;li&gt;the candy sprites&lt;&#x2F;li&gt;
+&lt;li&gt;example programs&lt;&#x2F;li&gt;
+&lt;li&gt;the local playground&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The best first command is probably:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;uv run mnm serve
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Load &lt;code&gt;fizzbuzz&lt;&#x2F;code&gt;, render it, and look at the compiled PNG for a second.&lt;&#x2F;p&gt;
+&lt;p&gt;It really does look like a programming language you could pour out of a bag.&lt;&#x2F;p&gt;
+&lt;p&gt;So stupid.&lt;&#x2F;p&gt;
+&lt;p&gt;Oh and I have more silly projects. This is &lt;code&gt;#1&lt;&#x2F;code&gt; of the series. Tune in for how I reverse engineered my keyboard&#x27;s driver binary to play snake with the backlights while my agents run in the background.&lt;&#x2F;p&gt;
+&lt;div class=&quot;cta-row&quot;&gt;
+&lt;div class=&quot;button-wrapper&quot;&gt;&lt;h4 class=&quot;post-button cta-button&quot; id=&quot;share-button&quot; onclick=&quot;share_button();&quot;&gt;
+            Link to this article &lt;svg class=&quot;svg-icon&quot; aria-hidden=&quot;true&quot; style=&quot;width:1.2em;height:1.2em;&quot;&gt;&lt;use href=&quot;#icon-link&quot;&#x2F;&gt;&lt;&#x2F;svg&gt;&lt;&#x2F;h4&gt;&lt;&#x2F;div&gt; 
+&lt;div class=&quot;button-wrapper&quot;&gt;&lt;h4 class=&quot;post-button cta-button&quot; id=&quot;follow-button&quot; onclick=&quot;twitter_follow();&quot;&gt;
+            Follow me on 𝕏&lt;&#x2F;h4&gt;&lt;&#x2F;div&gt; &lt;&#x2F;div&gt;
+</description>
+      </item>
       <item>
           <title>Security in the age of LLMs</title>
           <pubDate>Fri, 09 Dec 2022 00:00:00 +0000</pubDate>

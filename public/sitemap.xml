@@ -19,6 +19,10 @@
         <loc>https://mufeedvh.com/posts/</loc>
     </url>
     <url>
+        <loc>https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/</loc>
+        <lastmod>2026-03-07</lastmod>
+    </url>
+    <url>
         <loc>https://mufeedvh.com/posts/llm-security/</loc>
         <lastmod>2022-12-09</lastmod>
     </url>
@@ -35,6 +39,18 @@
         <loc>https://mufeedvh.com/tags/ai/</loc>
     </url>
     <url>
+        <loc>https://mufeedvh.com/tags/compilers/</loc>
+    </url>
+    <url>
+        <loc>https://mufeedvh.com/tags/programming/</loc>
+    </url>
+    <url>
         <loc>https://mufeedvh.com/tags/security/</loc>
+    </url>
+    <url>
+        <loc>https://mufeedvh.com/tags/silly/</loc>
+    </url>
+    <url>
+        <loc>https://mufeedvh.com/tags/slop/</loc>
     </url>
 </urlset>

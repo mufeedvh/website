@@ -5,6 +5,7 @@
         if (codeBlocks.length === 0) return;
 
         codeBlocks.forEach((pre, index) => {
+            if (pre.closest('.mnm-widget')) return;
             if (pre.parentElement.classList.contains('code-block-wrapper')) return;
             
             const wrapper = document.createElement('div');
@@ -69,12 +70,19 @@
             }
         });
 
-        // Dynamic load highlight.js
+        document.querySelectorAll('pre code.language-mnm').forEach(el => {
+            el.innerHTML = el.textContent.replace(/[BGRYON]/g, ch => {
+                const cls = {B:'mnm-blue',G:'mnm-green',R:'mnm-red',Y:'mnm-yellow',O:'mnm-orange',N:'mnm-brown'}[ch];
+                return `<span class="${cls}">${ch}</span>`;
+            });
+            el.classList.add('mnm-highlighted');
+        });
+
         if (!window.hljs) {
             const script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
             script.onload = () => {
-                document.querySelectorAll('pre code').forEach(el => window.hljs.highlightElement(el));
+                document.querySelectorAll('pre code:not(.mnm-highlighted)').forEach(el => window.hljs.highlightElement(el));
             };
             document.head.appendChild(script);
         }

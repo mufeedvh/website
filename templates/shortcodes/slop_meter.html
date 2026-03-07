@@ -1,0 +1,10 @@
+<div class="slop-meter" onclick="this.classList.toggle('active')">
+    <div class="slop-meter-header">
+        <span class="slop-meter-title">ai-slop meter</span>
+        <span class="slop-meter-percent">{{ percent }}%</span>
+    </div>
+    <div class="slop-meter-bar">
+        <div class="slop-meter-fill" style="width: {{ percent }}%"></div>
+    </div>
+    <span class="slop-meter-tooltip">How much of this article was AI-generated — code, prose, or structure. The rest is human-written.</span>
+</div>
