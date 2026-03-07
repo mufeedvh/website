@@ -6,6 +6,12 @@
     <meta name="referrer" content="no-referrer">
     <meta name="theme-color" content="#0d0d0d">
 
+    {% block meta %}
+    <meta property="og:site_name" content="{{ config.title }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    {% endblock meta %}
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=UnifrakturMaguntia&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">

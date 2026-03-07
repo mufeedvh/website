@@ -10,6 +10,31 @@
     {% endif %}
 {% endblock title %}
 
+{% block meta %}
+    <meta property="og:site_name" content="{{ config.title }}">
+    {% if page %}
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="{{ page.title }}">
+        {% if page.description %}
+            <meta property="og:description" content="{{ page.description }}">
+            <meta name="description" content="{{ page.description }}">
+        {% endif %}
+        <meta property="og:url" content="{{ page.permalink | safe }}">
+        {% if page.extra.og_image %}
+            <meta property="og:image" content="{{ page.extra.og_image }}">
+            <meta name="twitter:image" content="{{ page.extra.og_image }}">
+        {% endif %}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ page.title }}">
+        {% if page.description %}
+            <meta name="twitter:description" content="{{ page.description }}">
+        {% endif %}
+    {% else %}
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+    {% endif %}
+{% endblock meta %}
+
 {% block content %}
     {% if page %}
         {% if not page.extra.no_header %}
