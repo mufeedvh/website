@@ -1,4 +1,3 @@
-
 function share_button() {
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {
@@ -6,7 +5,7 @@ function share_button() {
         if (btn) {
             const original = btn.textContent;
             btn.textContent = 'LINK COPIED!';
-            setTimeout(() => btn.textContent = original, 2000);
+            setTimeout(() => (btn.textContent = original), 2000);
         }
     });
 }

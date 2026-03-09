@@ -1,5 +1,4 @@
-
-(function() {
+(function () {
     function init() {
         const codeBlocks = document.querySelectorAll('pre');
         if (codeBlocks.length === 0) return;
@@ -26,11 +25,11 @@
             header.innerHTML = `<span class="code-language">${language.toUpperCase()}</span><button class="code-copy-button">COPY</button>`;
             wrapper.insertBefore(header, pre);
 
-            header.querySelector('.code-copy-button').onclick = function() {
+            header.querySelector('.code-copy-button').onclick = function () {
                 const text = codeElement ? codeElement.textContent : pre.textContent;
                 navigator.clipboard.writeText(text).then(() => {
                     this.textContent = 'COPIED!';
-                    setTimeout(() => this.textContent = 'COPY', 2000);
+                    setTimeout(() => (this.textContent = 'COPY'), 2000);
                 });
             };
 
@@ -72,7 +71,14 @@
 
         document.querySelectorAll('pre code.language-mnm').forEach(el => {
             el.innerHTML = el.textContent.replace(/[BGRYON]/g, ch => {
-                const cls = {B:'mnm-blue',G:'mnm-green',R:'mnm-red',Y:'mnm-yellow',O:'mnm-orange',N:'mnm-brown'}[ch];
+                const cls = {
+                    B: 'mnm-blue',
+                    G: 'mnm-green',
+                    R: 'mnm-red',
+                    Y: 'mnm-yellow',
+                    O: 'mnm-orange',
+                    N: 'mnm-brown',
+                }[ch];
                 return `<span class="${cls}">${ch}</span>`;
             });
             el.classList.add('mnm-highlighted');
@@ -82,7 +88,9 @@
             const script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
             script.onload = () => {
-                document.querySelectorAll('pre code:not(.mnm-highlighted)').forEach(el => window.hljs.highlightElement(el));
+                document
+                    .querySelectorAll('pre code:not(.mnm-highlighted)')
+                    .forEach(el => window.hljs.highlightElement(el));
             };
             document.head.appendChild(script);
         }
