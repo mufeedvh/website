@@ -25,6 +25,10 @@
         <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}">
     {% endif %}
 
+    {% if current_url is defined %}
+        <link rel="canonical" href="{{ current_url | safe }}">
+    {% endif %}
+
     {% block extra_head %}{% endblock extra_head %}
 </head>
 <body>
@@ -68,7 +72,7 @@
                     <span>H</span>
                 </div>
             </a>
-            
+
             <nav class="main-nav">
                 <ul class="nav-links">
                     {% set path = current_path | default(value="") %}

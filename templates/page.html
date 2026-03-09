@@ -11,19 +11,19 @@
 {% endblock title %}
 
 {% block meta %}
+    {% set seo_description = page.description | default(value=config.description) %}
+    {% set is_article = page.extra.blog | default(value=false) %}
     <meta property="og:site_name" content="{{ config.title }}">
     {% if page %}
-        <meta property="og:type" content="article">
+        <meta property="og:type" content="{% if is_article %}article{% else %}website{% endif %}">
         <meta property="og:title" content="{{ page.title }}">
-        {% if page.description %}
-            <meta property="og:description" content="{{ page.description }}">
-            <meta name="description" content="{{ page.description }}">
-        {% endif %}
+        <meta property="og:description" content="{{ seo_description }}">
+        <meta name="description" content="{{ seo_description }}">
         <meta property="og:url" content="{{ page.permalink | safe }}">
         {% if page.extra.og_image %}
             <meta property="og:image" content="{{ page.extra.og_image | safe }}">
             <meta property="og:image:secure_url" content="{{ page.extra.og_image | safe }}">
-            <meta property="og:image:type" content="{{ page.extra.og_image_type | default(value="image/png") }}">
+            <meta property="og:image:type" content="{{ page.extra.og_image_type | default(value="image/png") | safe }}">
             {% if page.extra.og_image_width %}
                 <meta property="og:image:width" content="{{ page.extra.og_image_width }}">
             {% endif %}
@@ -33,16 +33,61 @@
             <meta property="og:image:alt" content="{{ page.title }}">
             <meta name="twitter:image" content="{{ page.extra.og_image | safe }}">
         {% endif %}
-        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:card" content="{% if page.extra.og_image %}summary_large_image{% else %}summary{% endif %}">
         <meta name="twitter:title" content="{{ page.title }}">
-        {% if page.description %}
-            <meta name="twitter:description" content="{{ page.description }}">
+        <meta name="twitter:description" content="{{ seo_description }}">
+        {% if page.extra.robots %}
+            <meta name="robots" content="{{ page.extra.robots }}">
+        {% elif page.extra.noindex | default(value=false) %}
+            <meta name="robots" content="noindex, follow">
         {% endif %}
     {% else %}
         <meta property="og:type" content="website">
         <meta name="twitter:card" content="summary_large_image">
     {% endif %}
 {% endblock meta %}
+
+{% block extra_head %}
+    {% if page %}
+        {% set page_is_noindex = page.extra.noindex | default(value=false) %}
+        {% set page_schema_description = page.description | default(value=config.description) %}
+        {% if not page_is_noindex and page.extra.blog | default(value=false) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | json_encode | safe }},
+  "description": {{ page_schema_description | json_encode | safe }},
+  "author": {
+    "@type": "Person",
+    "name": {{ config.author | json_encode | safe }},
+    "url": {{ config.base_url | json_encode | safe }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ config.author | json_encode | safe }},
+    "url": {{ config.base_url | json_encode | safe }}
+  },
+  "mainEntityOfPage": {{ page.permalink | json_encode | safe }},
+  "url": {{ page.permalink | json_encode | safe }},
+  "datePublished": {{ page.date | date(format="%Y-%m-%d") | json_encode | safe }}{% if page.updated %},
+  "dateModified": {{ page.updated | date(format="%Y-%m-%d") | json_encode | safe }}{% endif %}{% if page.extra.og_image %},
+  "image": {{ page.extra.og_image | json_encode | safe }}{% endif %}
+}
+</script>
+        {% elif not page_is_noindex %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": {{ page.title | json_encode | safe }},
+  "description": {{ page_schema_description | json_encode | safe }},
+  "url": {{ page.permalink | json_encode | safe }}
+}
+</script>
+        {% endif %}
+    {% endif %}
+{% endblock extra_head %}
 
 {% block content %}
     {% if page %}
@@ -56,7 +101,7 @@
                     <span class="metadata-label">Created:</span> {{ page.date | date(format="%Y-%m-%d") }}
                 </div>
             {% endif %}
-            
+
             {% if page.updated %}
                 <div class="metadata-item">
                     <span class="metadata-label">Modified:</span> {{ page.updated | date(format="%Y-%m-%d") }}
@@ -100,7 +145,7 @@
         {% if section.content %}
             {{ section.content | safe }}
         {% endif %}
-        
+
         {% if section.pages %}
             <ul class="directory-list">
             {% for page in section.pages %}

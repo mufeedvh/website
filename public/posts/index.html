@@ -8,7 +8,22 @@
 
         <meta property="og:site_name" content="Mufeed VH" />
         <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:title" content="Posts - Mufeed VH" />
+        <meta
+            property="og:description"
+            content="Mufeed VH&#x27;s blog covering topics like software engineering, programming, open-source code, security research, and especially random stuff."
+        />
+        <meta property="og:url" content="https://mufeedvh.com/posts/" />
+        <meta
+            name="description"
+            content="Mufeed VH&#x27;s blog covering topics like software engineering, programming, open-source code, security research, and especially random stuff."
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Posts - Mufeed VH" />
+        <meta
+            name="twitter:description"
+            content="Mufeed VH&#x27;s blog covering topics like software engineering, programming, open-source code, security research, and especially random stuff."
+        />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,6 +38,18 @@
         <link rel="stylesheet" href="/styles.css" />
 
         <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml" />
+
+        <link rel="canonical" href="https://mufeedvh.com/posts/" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": "Posts - Mufeed VH",
+                "url": "https://mufeedvh.com/posts/",
+                "description": "Mufeed VH's blog covering topics like software engineering, programming, open-source code, security research, and especially random stuff."
+            }
+        </script>
     </head>
     <body>
         <!-- SVG Icons -->
@@ -113,7 +140,37 @@
                     </div>
                 </div>
 
-                <div class="post-grid">
+                <div class="view-toggle" role="radiogroup" aria-label="View mode">
+                    <button
+                        class="view-toggle-btn active"
+                        data-view="grid"
+                        aria-label="Grid view"
+                        aria-checked="true"
+                        role="radio"
+                    >
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.5" y="0.5" width="5" height="5" stroke="currentColor" />
+                            <rect x="8.5" y="0.5" width="5" height="5" stroke="currentColor" />
+                            <rect x="0.5" y="8.5" width="5" height="5" stroke="currentColor" />
+                            <rect x="8.5" y="8.5" width="5" height="5" stroke="currentColor" />
+                        </svg>
+                    </button>
+                    <button
+                        class="view-toggle-btn"
+                        data-view="list"
+                        aria-label="List view"
+                        aria-checked="false"
+                        role="radio"
+                    >
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="2" x2="14" y2="2" stroke="currentColor" />
+                            <line x1="0" y1="7" x2="14" y2="7" stroke="currentColor" />
+                            <line x1="0" y1="12" x2="14" y2="12" stroke="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="post-grid" id="post-container">
                     <a href="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/" class="post-card">
                         <img
                             src="https:&#x2F;&#x2F;mufeedvh.com&#x2F;posts&#x2F;i-made-a-programming-language-with-mnms&#x2F;mnm-lang-poster-og.jpg"
@@ -150,6 +207,32 @@
                         </div>
                     </a>
                 </div>
+
+                <script>
+                    (function () {
+                        var container = document.getElementById("post-container");
+                        var btns = document.querySelectorAll(".view-toggle-btn");
+                        var saved = localStorage.getItem("postView");
+
+                        function setView(mode) {
+                            container.className = mode === "list" ? "post-list" : "post-grid";
+                            btns.forEach(function (b) {
+                                var active = b.dataset.view === mode;
+                                b.classList.toggle("active", active);
+                                b.setAttribute("aria-checked", active);
+                            });
+                            localStorage.setItem("postView", mode);
+                        }
+
+                        if (saved) setView(saved);
+
+                        btns.forEach(function (b) {
+                            b.addEventListener("click", function () {
+                                setView(b.dataset.view);
+                            });
+                        });
+                    })();
+                </script>
             </main>
 
             <footer class="site-footer">

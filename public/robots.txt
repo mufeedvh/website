@@ -1,9 +1,6 @@
 User-agent: *
 Allow: /
 
-Disallow: /rabbithole
-Disallow: /aesthetics
-Disallow: /message
 Disallow: /admin
 
 Sitemap: https://mufeedvh.com/sitemap.xml

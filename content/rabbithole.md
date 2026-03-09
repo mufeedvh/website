@@ -5,6 +5,8 @@ description = "Curiosity killed the cat, but satisfaction brought it back."
 [extra]
 no_header = true
 drop_cap = true
+noindex = true
+exclude_from_sitemap = true
 +++
 
 <audio id="rabbithole-audio" src="/assets/sounds/curious-alice.mp3" autoplay loop></audio>

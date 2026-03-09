@@ -2,6 +2,38 @@
 
 {% block title %}{{ section.title }} - {{ config.title }}{% endblock title %}
 
+{% block meta %}
+{% set section_description = section.description | default(value=config.description) %}
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ section.title }} - {{ config.title }}">
+<meta property="og:description" content="{{ section_description }}">
+<meta property="og:url" content="{{ current_url | safe }}">
+<meta name="description" content="{{ section_description }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ section.title }} - {{ config.title }}">
+<meta name="twitter:description" content="{{ section_description }}">
+{% if section.extra.robots %}
+<meta name="robots" content="{{ section.extra.robots }}">
+{% elif section.extra.noindex | default(value=false) %}
+<meta name="robots" content="noindex, follow">
+{% endif %}
+{% endblock meta %}
+
+{% block extra_head %}
+{% set collection_name = section.title ~ " - " ~ config.title %}
+{% set collection_description = section.description | default(value=config.description) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ collection_name | json_encode | safe }},
+  "url": {{ current_url | json_encode | safe }},
+  "description": {{ collection_description | json_encode | safe }}
+}
+</script>
+{% endblock extra_head %}
+
 {% block content %}
 <div class="section-header">
     <h1>{{ section.title }}</h1>
@@ -12,7 +44,25 @@
     {% endif %}
 </div>
 
-<div class="post-grid">
+<div class="view-toggle" role="radiogroup" aria-label="View mode">
+    <button class="view-toggle-btn active" data-view="grid" aria-label="Grid view" aria-checked="true" role="radio">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="5" height="5" stroke="currentColor"/>
+            <rect x="8.5" y="0.5" width="5" height="5" stroke="currentColor"/>
+            <rect x="0.5" y="8.5" width="5" height="5" stroke="currentColor"/>
+            <rect x="8.5" y="8.5" width="5" height="5" stroke="currentColor"/>
+        </svg>
+    </button>
+    <button class="view-toggle-btn" data-view="list" aria-label="List view" aria-checked="false" role="radio">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="2" x2="14" y2="2" stroke="currentColor"/>
+            <line x1="0" y1="7" x2="14" y2="7" stroke="currentColor"/>
+            <line x1="0" y1="12" x2="14" y2="12" stroke="currentColor"/>
+        </svg>
+    </button>
+</div>
+
+<div class="post-grid" id="post-container">
     {% for page in section.pages %}
         <a href="{{ page.permalink | safe }}" class="post-card">
             {% if page.extra.og_image %}
@@ -33,7 +83,7 @@
             </div>
         </a>
     {% endfor %}
-    
+
     {% for subsection in section.subsections %}
         {% set subsection_data = get_section(path=subsection) %}
         {% for page in subsection_data.pages %}
@@ -58,6 +108,30 @@
         {% endfor %}
     {% endfor %}
 </div>
+
+<script>
+(function() {
+    var container = document.getElementById('post-container');
+    var btns = document.querySelectorAll('.view-toggle-btn');
+    var saved = localStorage.getItem('postView');
+
+    function setView(mode) {
+        container.className = mode === 'list' ? 'post-list' : 'post-grid';
+        btns.forEach(function(b) {
+            var active = b.dataset.view === mode;
+            b.classList.toggle('active', active);
+            b.setAttribute('aria-checked', active);
+        });
+        localStorage.setItem('postView', mode);
+    }
+
+    if (saved) setView(saved);
+
+    btns.forEach(function(b) {
+        b.addEventListener('click', function() { setView(b.dataset.view); });
+    });
+})();
+</script>
 
 {% endblock content %}
 

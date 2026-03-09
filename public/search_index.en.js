@@ -76,7 +76,7 @@ window.searchIndex = {
                         1: {
                             docs: {},
                             df: 0,
-                            9: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.7320508075688772 } }, df: 1 },
+                            9: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 } }, df: 1 },
                         },
                         2: {
                             docs: {},
@@ -100,9 +100,36 @@ window.searchIndex = {
                                 },
                             },
                             3: { docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } }, df: 1 },
+                            6: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 } }, df: 1 },
+                        },
+                    },
+                    1: {
+                        docs: {},
+                        df: 0,
+                        6: {
+                            docs: {},
+                            df: 0,
+                            3: {
+                                docs: {},
+                                df: 0,
+                                6: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                            },
                         },
                     },
                     2: { docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } }, df: 1 },
+                    3: {
+                        docs: {},
+                        df: 0,
+                        8: {
+                            docs: {},
+                            df: 0,
+                            6: {
+                                docs: {},
+                                df: 0,
+                                4: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                            },
+                        },
+                    },
                     p: { docs: {}, df: 0, x: { docs: { 'https://mufeedvh.com/message/': { tf: 1.0 } }, df: 1 } },
                 },
                 3: {
@@ -183,7 +210,7 @@ window.searchIndex = {
                         4: {
                             docs: {},
                             df: 0,
-                            9: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.7320508075688772 } }, df: 1 },
+                            9: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 } }, df: 1 },
                         },
                     },
                 },
@@ -390,6 +417,38 @@ window.searchIndex = {
                                 },
                             },
                         },
+                        k: {
+                            docs: {},
+                            df: 0,
+                            n: {
+                                docs: {},
+                                df: 0,
+                                o: {
+                                    docs: {},
+                                    df: 0,
+                                    w: {
+                                        docs: {},
+                                        df: 0,
+                                        l: {
+                                            docs: {},
+                                            df: 0,
+                                            e: {
+                                                docs: {},
+                                                df: 0,
+                                                d: {
+                                                    docs: {},
+                                                    df: 0,
+                                                    g: {
+                                                        docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } },
+                                                        df: 1,
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
                         t: {
                             docs: {},
                             df: 0,
@@ -433,6 +492,7 @@ window.searchIndex = {
                             df: 0,
                             i: { docs: {}, df: 0, n: { docs: { 'https://mufeedvh.com/admin/': { tf: 1.0 } }, df: 1 } },
                         },
+                        o: { docs: {}, df: 0, b: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 } },
                     },
                     f: {
                         docs: {},
@@ -775,6 +835,19 @@ window.searchIndex = {
                                 },
                             },
                         },
+                        p: {
+                            docs: {},
+                            df: 0,
+                            l: {
+                                docs: {},
+                                df: 0,
+                                i: {
+                                    docs: {},
+                                    df: 0,
+                                    f: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
+                        },
                     },
                     n: {
                         docs: {},
@@ -873,7 +946,10 @@ window.searchIndex = {
                                     o: {
                                         docs: {},
                                         df: 0,
-                                        p: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                        p: {
+                                            docs: { 'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 } },
+                                            df: 1,
+                                        },
                                     },
                                 },
                             },
@@ -1357,8 +1433,8 @@ window.searchIndex = {
                             docs: {},
                             df: 0,
                             h: {
-                                docs: {},
-                                df: 0,
+                                docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } },
+                                df: 1,
                                 o: {
                                     docs: {},
                                     df: 0,
@@ -1393,6 +1469,19 @@ window.searchIndex = {
                     a: {
                         docs: {},
                         df: 0,
+                        b: {
+                            docs: {},
+                            df: 0,
+                            e: {
+                                docs: {},
+                                df: 0,
+                                t: {
+                                    docs: {},
+                                    df: 0,
+                                    t: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
+                        },
                         c: {
                             docs: {},
                             df: 0,
@@ -2175,6 +2264,11 @@ window.searchIndex = {
                                     },
                                 },
                             },
+                            v: {
+                                docs: {},
+                                df: 0,
+                                e: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                            },
                         },
                         e: {
                             docs: {},
@@ -2340,9 +2434,10 @@ window.searchIndex = {
                                     s: {
                                         docs: {
                                             'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                                            'https://mufeedvh.com/projects/': { tf: 1.0 },
                                             'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
                                         },
-                                        df: 2,
+                                        df: 3,
                                     },
                                 },
                             },
@@ -2377,6 +2472,19 @@ window.searchIndex = {
                         l: {
                             docs: {},
                             df: 0,
+                            '.': {
+                                docs: {},
+                                df: 0,
+                                c: {
+                                    docs: {},
+                                    df: 0,
+                                    o: {
+                                        docs: {},
+                                        df: 0,
+                                        m: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                    },
+                                },
+                            },
                             l: {
                                 docs: {
                                     'https://mufeedvh.com/about/': { tf: 1.0 },
@@ -3151,8 +3259,11 @@ window.searchIndex = {
                                         docs: {},
                                         df: 0,
                                         i: {
-                                            docs: { 'https://mufeedvh.com/about/': { tf: 1.4142135623730951 } },
-                                            df: 1,
+                                            docs: {
+                                                'https://mufeedvh.com/about/': { tf: 1.4142135623730951 },
+                                                'https://mufeedvh.com/projects/': { tf: 1.0 },
+                                            },
+                                            df: 2,
                                         },
                                     },
                                     r: {
@@ -3343,6 +3454,19 @@ window.searchIndex = {
                                             'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
                                         },
                                         df: 2,
+                                    },
+                                },
+                            },
+                            n: {
+                                docs: {},
+                                df: 0,
+                                e: {
+                                    docs: {},
+                                    df: 0,
+                                    c: {
+                                        docs: {},
+                                        df: 0,
+                                        t: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
                                     },
                                 },
                             },
@@ -3923,7 +4047,7 @@ window.searchIndex = {
                                         'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': {
                                             tf: 3.1622776601683795,
                                         },
-                                        'https://mufeedvh.com/projects/': { tf: 1.0 },
+                                        'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 },
                                     },
                                     df: 2,
                                 },
@@ -4356,6 +4480,15 @@ window.searchIndex = {
                             c: {
                                 docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } },
                                 df: 1,
+                                l: {
+                                    docs: {},
+                                    df: 0,
+                                    o: {
+                                        docs: {},
+                                        df: 0,
+                                        s: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                    },
+                                },
                                 o: {
                                     docs: {},
                                     df: 0,
@@ -4416,8 +4549,9 @@ window.searchIndex = {
                         docs: {
                             'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
                             'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                            'https://mufeedvh.com/projects/': { tf: 1.0 },
                         },
-                        df: 2,
+                        df: 3,
                         c: {
                             docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } },
                             df: 1,
@@ -4428,6 +4562,19 @@ window.searchIndex = {
                                     docs: {},
                                     df: 0,
                                     r: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
+                        },
+                        m: {
+                            docs: {},
+                            df: 0,
+                            a: {
+                                docs: {},
+                                df: 0,
+                                i: {
+                                    docs: {},
+                                    df: 0,
+                                    n: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
                                 },
                             },
                         },
@@ -4682,11 +4829,17 @@ window.searchIndex = {
                         docs: {},
                         df: 0,
                         f: {
-                            docs: {
-                                'https://mufeedvh.com/about/': { tf: 1.0 },
-                                'https://mufeedvh.com/projects/': { tf: 1.0 },
+                            docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } },
+                            df: 1,
+                            e: {
+                                docs: {},
+                                df: 0,
+                                f: {
+                                    docs: {},
+                                    df: 0,
+                                    f: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                },
                             },
-                            df: 2,
                             i: {
                                 docs: {},
                                 df: 0,
@@ -5124,9 +5277,8 @@ window.searchIndex = {
                             docs: {
                                 'https://mufeedvh.com/about/': { tf: 1.4142135623730951 },
                                 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
-                                'https://mufeedvh.com/projects/': { tf: 1.0 },
                             },
-                            df: 3,
+                            df: 2,
                         },
                     },
                     v: {
@@ -5328,7 +5480,7 @@ window.searchIndex = {
                                         t: {
                                             docs: {
                                                 'https://mufeedvh.com/posts/llm-security/': { tf: 1.7320508075688772 },
-                                                'https://mufeedvh.com/projects/': { tf: 2.0 },
+                                                'https://mufeedvh.com/projects/': { tf: 1.7320508075688772 },
                                             },
                                             df: 2,
                                         },
@@ -6030,6 +6182,19 @@ window.searchIndex = {
                                         df: 2,
                                     },
                                 },
+                                d: {
+                                    docs: {},
+                                    df: 0,
+                                    a: {
+                                        docs: {},
+                                        df: 0,
+                                        t: {
+                                            docs: {},
+                                            df: 0,
+                                            a: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                        },
+                                    },
+                                },
                                 e: {
                                     docs: {},
                                     df: 0,
@@ -6093,69 +6258,6 @@ window.searchIndex = {
                                         'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
                                     },
                                     df: 2,
-                                    '/': {
-                                        docs: {},
-                                        df: 0,
-                                        r: {
-                                            docs: {},
-                                            df: 0,
-                                            e: {
-                                                docs: {},
-                                                df: 0,
-                                                v: {
-                                                    docs: {},
-                                                    df: 0,
-                                                    i: {
-                                                        docs: {},
-                                                        df: 0,
-                                                        e: {
-                                                            docs: {},
-                                                            df: 0,
-                                                            w: {
-                                                                docs: {},
-                                                                df: 0,
-                                                                e: {
-                                                                    docs: {},
-                                                                    df: 0,
-                                                                    d: {
-                                                                        docs: {},
-                                                                        df: 0,
-                                                                        '/': {
-                                                                            docs: {},
-                                                                            df: 0,
-                                                                            p: {
-                                                                                docs: {},
-                                                                                df: 0,
-                                                                                a: {
-                                                                                    docs: {},
-                                                                                    df: 0,
-                                                                                    t: {
-                                                                                        docs: {},
-                                                                                        df: 0,
-                                                                                        c: {
-                                                                                            docs: {},
-                                                                                            df: 0,
-                                                                                            h: {
-                                                                                                docs: {
-                                                                                                    'https://mufeedvh.com/projects/':
-                                                                                                        { tf: 1.0 },
-                                                                                                },
-                                                                                                df: 1,
-                                                                                            },
-                                                                                        },
-                                                                                    },
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                        },
-                                    },
                                     e: {
                                         docs: {},
                                         df: 0,
@@ -6540,7 +6642,7 @@ window.searchIndex = {
                                             'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': {
                                                 tf: 1.0,
                                             },
-                                            'https://mufeedvh.com/projects/': { tf: 2.6457513110645907 },
+                                            'https://mufeedvh.com/projects/': { tf: 2.0 },
                                         },
                                         df: 3,
                                     },
@@ -6885,6 +6987,23 @@ window.searchIndex = {
                             },
                         },
                         i: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 } }, df: 1 },
+                        m: {
+                            docs: {},
+                            df: 0,
+                            r: {
+                                docs: {},
+                                df: 0,
+                                o: {
+                                    docs: {},
+                                    df: 0,
+                                    a: {
+                                        docs: {},
+                                        df: 0,
+                                        d: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                    },
+                                },
+                            },
+                        },
                         y: {
                             docs: {
                                 'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
@@ -7132,7 +7251,7 @@ window.searchIndex = {
                             docs: {},
                             df: 0,
                             h: {
-                                docs: { 'https://mufeedvh.com/projects/': { tf: 2.0 } },
+                                docs: { 'https://mufeedvh.com/projects/': { tf: 2.23606797749979 } },
                                 df: 1,
                                 l: {
                                     docs: {},
@@ -7232,6 +7351,34 @@ window.searchIndex = {
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
                                 },
                                 df: 2,
+                            },
+                            p: {
+                                docs: {},
+                                df: 0,
+                                s: {
+                                    docs: {},
+                                    df: 0,
+                                    c: {
+                                        docs: {},
+                                        df: 0,
+                                        o: {
+                                            docs: {},
+                                            df: 0,
+                                            t: {
+                                                docs: {},
+                                                df: 0,
+                                                c: {
+                                                    docs: {},
+                                                    df: 0,
+                                                    h: {
+                                                        docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } },
+                                                        df: 1,
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
                             },
                         },
                         u: { docs: {}, df: 0, r: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 } },
@@ -8616,8 +8763,9 @@ window.searchIndex = {
                     docs: {
                         'https://mufeedvh.com/about/': { tf: 1.0 },
                         'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                        'https://mufeedvh.com/projects/': { tf: 1.0 },
                     },
-                    df: 2,
+                    df: 3,
                     a: {
                         docs: {},
                         df: 0,
@@ -9285,9 +9433,8 @@ window.searchIndex = {
                                     'https://mufeedvh.com/about/': { tf: 1.0 },
                                     'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 },
-                                    'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 },
                                 },
-                                df: 4,
+                                df: 3,
                                 e: {
                                     docs: {},
                                     df: 0,
@@ -9428,7 +9575,7 @@ window.searchIndex = {
                         },
                         g: {
                             docs: {
-                                'https://mufeedvh.com/projects/': { tf: 1.7320508075688772 },
+                                'https://mufeedvh.com/projects/': { tf: 1.0 },
                                 'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
                             },
                             df: 2,
@@ -9861,6 +10008,22 @@ window.searchIndex = {
                                             'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 },
                                         },
                                         df: 2,
+                                        m: {
+                                            docs: {},
+                                            df: 0,
+                                            o: {
+                                                docs: {},
+                                                df: 0,
+                                                s: {
+                                                    docs: {},
+                                                    df: 0,
+                                                    t: {
+                                                        docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } },
+                                                        df: 1,
+                                                    },
+                                                },
+                                            },
+                                        },
                                     },
                                 },
                             },
@@ -9908,7 +10071,16 @@ window.searchIndex = {
                                 df: 0,
                                 l: { docs: { 'https://mufeedvh.com/about/': { tf: 1.7320508075688772 } }, df: 1 },
                             },
-                            i: { docs: {}, df: 0, a: { docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } }, df: 1 } },
+                            i: {
+                                docs: {},
+                                df: 0,
+                                a: { docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } }, df: 1 },
+                                u: {
+                                    docs: {},
+                                    df: 0,
+                                    m: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
                         },
                         n: {
                             docs: {},
@@ -10273,7 +10445,7 @@ window.searchIndex = {
                                             tf: 1.7320508075688772,
                                         },
                                         'https://mufeedvh.com/posts/llm-security/': { tf: 2.0 },
-                                        'https://mufeedvh.com/projects/': { tf: 1.0 },
+                                        'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 },
                                     },
                                     df: 4,
                                 },
@@ -10797,6 +10969,19 @@ window.searchIndex = {
                     o: {
                         docs: {},
                         df: 0,
+                        d: {
+                            docs: {},
+                            df: 0,
+                            e: {
+                                docs: {},
+                                df: 0,
+                                '.': {
+                                    docs: {},
+                                    df: 0,
+                                    j: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
+                        },
                         n: {
                             docs: {
                                 'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
@@ -10859,7 +11044,10 @@ window.searchIndex = {
                                 b: {
                                     docs: {},
                                     df: 0,
-                                    l: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                    l: {
+                                        docs: { 'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 } },
+                                        df: 1,
+                                    },
                                 },
                             },
                         },
@@ -11741,6 +11929,19 @@ window.searchIndex = {
                                             },
                                             df: 2,
                                         },
+                                    },
+                                },
+                            },
+                            m: {
+                                docs: {},
+                                df: 0,
+                                i: {
+                                    docs: {},
+                                    df: 0,
+                                    s: {
+                                        docs: {},
+                                        df: 0,
+                                        s: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
                                     },
                                 },
                             },
@@ -12774,7 +12975,7 @@ window.searchIndex = {
                                                 'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': {
                                                     tf: 3.3166247903554,
                                                 },
-                                                'https://mufeedvh.com/projects/': { tf: 2.0 },
+                                                'https://mufeedvh.com/projects/': { tf: 2.23606797749979 },
                                             },
                                             df: 2,
                                         },
@@ -13318,6 +13519,7 @@ window.searchIndex = {
                                     docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 } },
                                     df: 1,
                                 },
+                                t: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
                             },
                             d: {
                                 docs: {
@@ -13391,6 +13593,15 @@ window.searchIndex = {
                         c: {
                             docs: {},
                             df: 0,
+                            e: {
+                                docs: {},
+                                df: 0,
+                                i: {
+                                    docs: {},
+                                    df: 0,
+                                    v: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
                             o: {
                                 docs: {},
                                 df: 0,
@@ -13592,7 +13803,13 @@ window.searchIndex = {
                                         },
                                     },
                                 },
-                                i: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
+                                i: {
+                                    docs: {
+                                        'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                                        'https://mufeedvh.com/projects/': { tf: 1.0 },
+                                    },
+                                    df: 2,
+                                },
                             },
                             o: {
                                 docs: {
@@ -13735,8 +13952,9 @@ window.searchIndex = {
                                         s: {
                                             docs: {
                                                 'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 },
+                                                'https://mufeedvh.com/projects/': { tf: 1.0 },
                                             },
-                                            df: 1,
+                                            df: 2,
                                         },
                                     },
                                 },
@@ -14084,6 +14302,7 @@ window.searchIndex = {
                         },
                         df: 1,
                     },
+                    s: { docs: {}, df: 0, c: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 } },
                     u: {
                         docs: {},
                         df: 0,
@@ -14424,7 +14643,7 @@ window.searchIndex = {
                                     h: {
                                         docs: {
                                             'https://mufeedvh.com/posts/llm-security/': { tf: 2.0 },
-                                            'https://mufeedvh.com/projects/': { tf: 2.449489742783178 },
+                                            'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 },
                                         },
                                         df: 2,
                                     },
@@ -14508,7 +14727,7 @@ window.searchIndex = {
                                         'https://mufeedvh.com/about/': { tf: 2.23606797749979 },
                                         'https://mufeedvh.com/posts/': { tf: 1.0 },
                                         'https://mufeedvh.com/posts/llm-security/': { tf: 2.6457513110645907 },
-                                        'https://mufeedvh.com/projects/': { tf: 2.6457513110645907 },
+                                        'https://mufeedvh.com/projects/': { tf: 2.8284271247461903 },
                                     },
                                     df: 4,
                                 },
@@ -14586,6 +14805,15 @@ window.searchIndex = {
                                     docs: {},
                                     df: 0,
                                     t: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
+                            t: {
+                                docs: {},
+                                df: 0,
+                                r: {
+                                    docs: {},
+                                    df: 0,
+                                    i: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
                                 },
                             },
                         },
@@ -15236,6 +15464,15 @@ window.searchIndex = {
                                     l: { docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } }, df: 1 },
                                 },
                             },
+                            k: {
+                                docs: {},
+                                df: 0,
+                                e: {
+                                    docs: {},
+                                    df: 0,
+                                    t: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
                         },
                         f: {
                             docs: {},
@@ -15663,8 +15900,8 @@ window.searchIndex = {
                                 f: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
                             },
                             r: {
-                                docs: {},
-                                df: 0,
+                                docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } },
+                                df: 1,
                                 t: {
                                     docs: {
                                         'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': {
@@ -16080,6 +16317,19 @@ window.searchIndex = {
                         p: {
                             docs: {},
                             df: 0,
+                            a: {
+                                docs: {},
+                                df: 0,
+                                b: {
+                                    docs: {},
+                                    df: 0,
+                                    a: {
+                                        docs: {},
+                                        df: 0,
+                                        s: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                    },
+                                },
+                            },
                             p: {
                                 docs: {},
                                 df: 0,
@@ -16577,12 +16827,26 @@ window.searchIndex = {
                                                 c: {
                                                     docs: {},
                                                     df: 0,
+                                                    a: { docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } }, df: 1 },
+                                                },
+                                            },
+                                        },
+                                    },
+                                    ó: {
+                                        docs: {},
+                                        df: 0,
+                                        n: {
+                                            docs: {},
+                                            df: 0,
+                                            i: {
+                                                docs: {},
+                                                df: 0,
+                                                c: {
+                                                    docs: {},
+                                                    df: 0,
                                                     a: {
-                                                        docs: {
-                                                            'https://mufeedvh.com/about/': { tf: 1.0 },
-                                                            'https://mufeedvh.com/projects/': { tf: 1.0 },
-                                                        },
-                                                        df: 2,
+                                                        docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } },
+                                                        df: 1,
                                                     },
                                                 },
                                             },
@@ -17433,6 +17697,23 @@ window.searchIndex = {
                     n: {
                         docs: {},
                         df: 0,
+                        c: {
+                            docs: {},
+                            df: 0,
+                            h: {
+                                docs: {},
+                                df: 0,
+                                e: {
+                                    docs: {},
+                                    df: 0,
+                                    c: {
+                                        docs: {},
+                                        df: 0,
+                                        k: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                    },
+                                },
+                            },
+                        },
                         d: {
                             docs: {},
                             df: 0,
@@ -17567,6 +17848,7 @@ window.searchIndex = {
                                     },
                                 },
                             },
+                            x: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
                         },
                         l: {
                             docs: {},
@@ -17864,8 +18146,9 @@ window.searchIndex = {
                             docs: {
                                 'https://mufeedvh.com/about/': { tf: 1.0 },
                                 'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
+                                'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 },
                             },
-                            df: 2,
+                            df: 3,
                         },
                         b: {
                             docs: {},
@@ -17885,8 +18168,9 @@ window.searchIndex = {
                                     'https://mufeedvh.com/about/': { tf: 1.0 },
                                     'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                                    'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 },
                                 },
-                                df: 3,
+                                df: 4,
                             },
                         },
                         r: {
@@ -18052,8 +18336,9 @@ window.searchIndex = {
                                     r: {
                                         docs: {
                                             'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 },
+                                            'https://mufeedvh.com/projects/': { tf: 1.0 },
                                         },
-                                        df: 1,
+                                        df: 2,
                                     },
                                 },
                             },
@@ -18823,13 +19108,7 @@ window.searchIndex = {
                                     q: {
                                         docs: {},
                                         df: 0,
-                                        a: {
-                                            docs: {
-                                                'https://mufeedvh.com/about/': { tf: 1.0 },
-                                                'https://mufeedvh.com/projects/': { tf: 1.0 },
-                                            },
-                                            df: 2,
-                                        },
+                                        a: { docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } }, df: 1 },
                                     },
                                 },
                             },
@@ -19099,14 +19378,14 @@ window.searchIndex = {
                 id: 'https://mufeedvh.com/about/',
                 title: 'About',
             },
-            'https://mufeedvh.com/admin/': { body: '', id: 'https://mufeedvh.com/admin/', title: 'admin' },
+            'https://mufeedvh.com/admin/': { body: '\n', id: 'https://mufeedvh.com/admin/', title: 'admin' },
             'https://mufeedvh.com/contact/': {
                 body: 'Contact me\nYou can email me at mufeed [at] winfunc [dot] com\nOr you can DM me on 𝕏 (Twitter)\n',
                 id: 'https://mufeedvh.com/contact/',
                 title: 'Contact',
             },
             'https://mufeedvh.com/message/': {
-                body: 'write or draw me a message anonymously.\n\n\n\n✍️ Send a Message\n\n\n            Send Message \n\n\n🖌️ Send a Drawing\n\n\n\n2px\n\n\n\n            Send Drawing \n\n\n',
+                body: 'write or draw me a message anonymously.\n\n\n\n✍️ Send a Message\n\n\n            Send Message \n\n\n🖌️ Send a Drawing\n\n\n\n2px\n\n\n\n            Send Drawing \n\n\n\n',
                 id: 'https://mufeedvh.com/message/',
                 title: 'message',
             },
@@ -19126,12 +19405,12 @@ window.searchIndex = {
                 title: 'Security in the age of LLMs',
             },
             'https://mufeedvh.com/projects/': {
-                body: "Projects I've worked on\nMost of my projects are on my GitHub. List of a few below.\n\n\ndevika \nDevika is an Agentic AI Software Engineer that can understand high-level human instructions, break them down into steps, research relevant information, and write code to achieve the given objective. Devika aims to be a competitive open-source alternative to Devin by Cognition AI.\n\nAI\nAgent\nPython\n\n\n\nopcode \nA powerful GUI app and Toolkit for Claude Code. Create custom agents, manage interactive Claude Code sessions, run secure background agents, and more. This project was formerly called Claudia.\n\nGUI\nAI\nTauri\n\n\n\ndeepclaude \nA high-performance LLM inference API and Chat UI that integrates DeepSeek R1's CoT reasoning traces with Anthropic Claude models.\n\nLLM\nAPI\nTypeScript\n\n\n\ncode2prompt \nA CLI tool to convert your codebase into a single LLM prompt with source tree, prompt templating, and token counting.\n\nCLI\nLLM\nRust\n\n\n\nblockoli \nBlockoli is a high-performance tool for code indexing, embedding generation and semantic search tool for use with LLMs.\n\nSearch\nLLM\nRust\n\n\n\nstackwalk \nStackWalk is universal language-agnostic AST walking and accurate call stack generation with tree-sitter.\n\nAST\nParser\nRust\n\n\n\ntitor \nA high-performance checkpointing library for Rust that enables time-travel capabilities through directory snapshots with efficient incremental backups, cryptographic verification, and content deduplication.\n\nLibrary\nCheckpoint\nRust\n\n\n\nbinserve \nA fast static web server with routing, templating, and security in a single binary you can set up with zero code.\n\nWeb\nServer\nRust\n\n\n\nmoonwalk \nCover your tracks during Linux Exploitation / Penetration Testing by leaving zero traces on system logs and filesystem timestamps.\n\nSecurity\nLinux\nRust\n\n\n\nbasecrack \nBaseCrack is a tool written in Python that can decode all alphanumeric base encoding schemes.\n\nCrypto\nTool\nPython\n\n\n\npdfrip \nA multi-threaded PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks.\n\nSecurity\nPDF\nRust\n\n\n\nregretti \nA programming language where comments are the first-class citizen and ASCII art flowcharts are the controls. Made for Lang Jam (jam0001) theme: first-class comments in 48 hours and Won voter's choice.\n\nLanguage\nCompiler\nRust\n\n\n\nDNArchery \nA free and open-source DNA Sequencing/Visualization software for bioinformatics research. (Made for FOSSHack 3.0 and Won)\n\nBio\nDNA\nPython\n\n\n\ntupperplot \nTupper's self-referential formula plotting itself on a framebuffer with Rust.\n\nMath\nGraphics\nRust\n\n\n\ngisture \nA minimal and flexible blog generator based on GitHub Gists with SEO, Templating, Syntax Highlighting, and Metadata support out-of-the-box.\n\nBlog\nSSG\nRust\n\n\n\nokjson \nA fast, simple, and pythonic JSON Schema Validation library.\n\nJSON\nValidation\nPython\n\n\n\npaydept \nShows every open-source dependency you use in your system that accept donations.\n\nCLI\nOSS\nRust\n\n\n\nseclip \nA CLI utility to secretly copy secrets to clipboard.\n\nCLI\nSecurity\nRust\n\n\n\nl33tmario \nMario the game but you rescue the princess by hacking.\n\nGame\nHacking\nJS\n\n\n\nlog4jail \nA fast firewall reverse proxy with TLS (HTTPS) and swarm support for preventing Log4J (Log4Shell aka CVE-2021-44228) attacks.\n\nSecurity\nProxy\nRust\n\n\n\nCVE-2019-8449 \nCVE-2019-8449 Exploit for Jira v2.1 - v8.3.4.\n\nCVE\nExploit\nPython\n\n\n\nCynthiaOS \nThe Cynthia Operating System. (WIP 🚧)\n\nOS\nKernel\nRust\n\n\n\nCVEs I've found/reviewed/patched\n\nAs most of these are on GitHub:\n\n\nPatches (50+ CVEs)\nGitHub Search OR GitHub Search (logged in link)\n\n\nReviews (300+ CVEs)\nGitHub Search OR GitHub Search (logged in link)\n\n\nExploits\nCVE-2019-8449\n\n\n\nNotable Security Hall of Fames\nGoogle, Mastercard, Okta, DELL, Ford, Zilliqa, EFF, Telefonica, etc.\n\n",
+                body: "Projects I've worked on\nMost of my projects are on my GitHub. List of a few below.\n\n\n★\n—\nstars across all projects\n\n\n\n\ndevika \nDevika is an Agentic AI Software Engineer that can understand high-level human instructions, break them down into steps, research relevant information, and write code to achieve the given objective. Devika aims to be a competitive open-source alternative to Devin by Cognition AI.\n\nAI\nAgent\nPython\n\n\n\nopcode \nA powerful GUI app and Toolkit for Claude Code. Create custom agents, manage interactive Claude Code sessions, run secure background agents, and more. This project was formerly called Claudia.\n\nGUI\nAI\nTauri\n\n\n\ndeepclaude \nA high-performance LLM inference API and Chat UI that integrates DeepSeek R1's CoT reasoning traces with Anthropic Claude models.\n\nLLM\nAPI\nTypeScript\n\n\n\ncode2prompt \nA CLI tool to convert your codebase into a single LLM prompt with source tree, prompt templating, and token counting.\n\nCLI\nLLM\nRust\n\n\n\nblockoli \nBlockoli is a high-performance tool for code indexing, embedding generation and semantic search tool for use with LLMs.\n\nSearch\nLLM\nRust\n\n\n\nstackwalk \nStackWalk is universal language-agnostic AST walking and accurate call stack generation with tree-sitter.\n\nAST\nParser\nRust\n\n\n\ntitor \nA high-performance checkpointing library for Rust that enables time-travel capabilities through directory snapshots with efficient incremental backups, cryptographic verification, and content deduplication.\n\nLibrary\nCheckpoint\nRust\n\n\n\nbinserve \nA fast static web server with routing, templating, and security in a single binary you can set up with zero code.\n\nWeb\nServer\nRust\n\n\n\nmoonwalk \nCover your tracks during Linux Exploitation / Penetration Testing by leaving zero traces on system logs and filesystem timestamps.\n\nSecurity\nLinux\nRust\n\n\n\nbasecrack \nBaseCrack is a tool written in Python that can decode all alphanumeric base encoding schemes.\n\nCrypto\nTool\nPython\n\n\n\npdfrip \nA multi-threaded PDF password cracking utility equipped with commonly encountered password format builders and dictionary attacks.\n\nSecurity\nPDF\nRust\n\n\n\nregretti \nA programming language where comments are the first-class citizen and ASCII art flowcharts are the controls. Made for Lang Jam (jam0001) theme: first-class comments in 48 hours and Won voter's choice.\n\nLanguage\nCompiler\nRust\n\n\n\nDNArchery \nA free and open-source DNA Sequencing/Visualization software for bioinformatics research. (Made for FOSSHack 3.0 and Won)\n\nBio\nDNA\nPython\n\n\n\ntupperplot \nTupper's self-referential formula plotting itself on a framebuffer with Rust.\n\nMath\nGraphics\nRust\n\n\n\ngisture \nA minimal and flexible blog generator based on GitHub Gists with SEO, Templating, Syntax Highlighting, and Metadata support out-of-the-box.\n\nBlog\nSSG\nRust\n\n\n\nokjson \nA fast, simple, and pythonic JSON Schema Validation library.\n\nJSON\nValidation\nPython\n\n\n\npaydept \nShows every open-source dependency you use in your system that accept donations.\n\nCLI\nOSS\nRust\n\n\n\nseclip \nA CLI utility to secretly copy secrets to clipboard.\n\nCLI\nSecurity\nRust\n\n\n\nl33tmario \nMario the game but you rescue the princess by hacking.\n\nGame\nHacking\nJS\n\n\n\nlog4jail \nA fast firewall reverse proxy with TLS (HTTPS) and swarm support for preventing Log4J (Log4Shell aka CVE-2021-44228) attacks.\n\nSecurity\nProxy\nRust\n\n\n\nCVE-2019-8449 \nCVE-2019-8449 Exploit for Jira v2.1 - v8.3.4.\n\nCVE\nExploit\nPython\n\n\n\nCynthiaOS \nThe Cynthia Operating System. (WIP 🚧)\n\nOS\nKernel\nRust\n\n\n\nCVEs\n\n\n\n\n\n\n\n\n\n50+\nPatches\nView on GitHub →\n\n\n\n\n\n\n\n\n300+\nReviews\nView on GitHub →\n\n\nNotable CVEs\n\n\n\nCVE-2026-23864\nHigh\n\nRSC reply decoder DoS via $K FormData amplification\nReact\n\n\n\nCVE-2026-21636\nMedium\n\nPermission model bypass via unchecked Unix Domain Socket connections\nNode.js\n\n\nNotable Security Hall of Fames\nCompanies I've responsibly disclosed security vulnerabilities to and received acknowledgment from.\n\nGoogle\nMastercard\nOkta\nAnthropic\nDell\nFord\nAdobe\nSupabase\nCal.com\nMattermost\nEFFEFF\nGumroad\nSentry\nBAbetter-auth\nHoppscotch\nBrave\nTelefónica\n\n\n",
                 id: 'https://mufeedvh.com/projects/',
                 title: 'Projects',
             },
             'https://mufeedvh.com/rabbithole/': {
-                body: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n🐇\nDown the Rabbit Hole\n\n\nYou've found a way into the subterranean passages of this digital garden. This is a space for things that don't quite fit elsewhere—unfinished thoughts, digital ephemera, and direct lines of communication that bypass the usual protocols of the surface web.\n\n\n\"But I don't want to go among mad people,\" Alice remarked. \"Oh, you can't help that,\" said the Cat: \"we're all mad here. I'm mad. You're mad.\"\nLewis Carroll, Alice in Wonderland\n\n\n\n            Leave an Anonymous Message  \n\n\nOther Paths\n\nWho is behind this?\nRead the formal logs\nReturn to the entrance\n\n\n",
+                body: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n🐇\nDown the Rabbit Hole\n\n\nYou've found a way into the subterranean passages of this digital garden. This is a space for things that don't quite fit elsewhere—unfinished thoughts, digital ephemera, and direct lines of communication that bypass the usual protocols of the surface web.\n\n\n\"But I don't want to go among mad people,\" Alice remarked. \"Oh, you can't help that,\" said the Cat: \"we're all mad here. I'm mad. You're mad.\"\nLewis Carroll, Alice in Wonderland\n\n\n\n            Leave an Anonymous Message  \n\n\nOther Paths\n\nWho is behind this?\nRead the formal logs\nReturn to the entrance\n\n\n\n",
                 id: 'https://mufeedvh.com/rabbithole/',
                 title: 'The Rabbit Hole',
             },
@@ -19145,7 +19424,7 @@ window.searchIndex = {
             'https://mufeedvh.com/posts/': { body: 8, title: 1 },
             'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { body: 1423, title: 4 },
             'https://mufeedvh.com/posts/llm-security/': { body: 995, title: 3 },
-            'https://mufeedvh.com/projects/': { body: 424, title: 1 },
+            'https://mufeedvh.com/projects/': { body: 455, title: 1 },
             'https://mufeedvh.com/rabbithole/': { body: 59, title: 2 },
         },
         length: 10,

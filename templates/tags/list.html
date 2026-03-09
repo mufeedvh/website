@@ -1,12 +1,33 @@
 {% extends "base.html" %}
 
-{% block htmltitle %}
-    Tags - {{ config.title }}
-{% endblock htmltitle %}
+{% block title %}Tags - {{ config.title }}{% endblock title %}
 
-{% block title %}
-    Tags
-{% endblock title %}
+{% block meta %}
+{% set tags_description = "Browse all post tags on " ~ config.title ~ "." %}
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tags - {{ config.title }}">
+<meta property="og:description" content="{{ tags_description }}">
+<meta property="og:url" content="{{ current_url | safe }}">
+<meta name="description" content="{{ tags_description }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tags - {{ config.title }}">
+<meta name="twitter:description" content="{{ tags_description }}">
+{% endblock meta %}
+
+{% block extra_head %}
+{% set tags_schema_name = "Tags - " ~ config.title %}
+{% set tags_schema_description = "Browse all post tags on " ~ config.title ~ "." %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ tags_schema_name | json_encode | safe }},
+  "url": {{ current_url | json_encode | safe }},
+  "description": {{ tags_schema_description | json_encode | safe }}
+}
+</script>
+{% endblock extra_head %}
 
 {% block content %}
 <ul>

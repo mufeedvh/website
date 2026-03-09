@@ -18,15 +18,19 @@ async function findWebFiles(dir) {
             return null;
         })
     );
-    
+
     return files.flat().filter(file => file !== null);
 }
 
 async function formatWebFile(filePath) {
     try {
+        if (path.basename(filePath) === 'sitemap.xml') {
+            return;
+        }
+
         const content = await fs.readFile(filePath, 'utf-8');
         const ext = path.extname(filePath).toLowerCase();
-        
+
         let config;
         switch (ext) {
             case '.html':
@@ -70,9 +74,9 @@ async function formatWebFile(filePath) {
                 console.log(`⚠️  Skipping unsupported file type: ${filePath}`);
                 return;
         }
-        
+
         const formatted = await prettier.format(content, config);
-        
+
         await fs.writeFile(filePath, formatted, 'utf-8');
         console.log(`✅ Formatted: ${filePath}`);
     } catch (error) {
@@ -82,30 +86,30 @@ async function formatWebFile(filePath) {
 
 async function main() {
     const publicDir = path.join(process.cwd(), 'public');
-    
+
     try {
         await fs.access(publicDir);
     } catch {
         console.error('❌ Public directory not found. Make sure to run "zola build" first.');
         process.exit(1);
     }
-    
+
     console.log('🔍 Finding web files (HTML, CSS, JS) in public directory...');
     const webFiles = await findWebFiles(publicDir);
-    
+
     if (webFiles.length === 0) {
         console.log('⚠️  No web files found in public directory.');
         return;
     }
-    
+
     console.log(`📝 Found ${webFiles.length} web files to format.`);
-    
+
     await Promise.all(webFiles.map(formatWebFile));
-    
+
     console.log('✨ Web file formatting complete!');
 }
 
 main().catch(error => {
     console.error('❌ Script failed:', error);
     process.exit(1);
-}); 
+});

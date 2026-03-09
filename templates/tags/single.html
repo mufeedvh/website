@@ -1,12 +1,33 @@
 {% extends "base.html" %}
 
-{% block htmltitle %}
-    {{ term.name }} - {{ config.title }}
-{% endblock htmltitle %}
+{% block title %}{{ term.name }} - {{ config.title }}{% endblock title %}
 
-{% block title %}
-    {{ term.name }}
-{% endblock title %}
+{% block meta %}
+{% set tag_description = "Browse posts tagged " ~ term.name ~ " on " ~ config.title ~ "." %}
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ term.name }} - {{ config.title }}">
+<meta property="og:description" content="{{ tag_description }}">
+<meta property="og:url" content="{{ current_url | safe }}">
+<meta name="description" content="{{ tag_description }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ term.name }} - {{ config.title }}">
+<meta name="twitter:description" content="{{ tag_description }}">
+{% endblock meta %}
+
+{% block extra_head %}
+{% set tag_title = term.name %}
+{% set tag_schema_name = tag_title ~ " - " ~ config.title %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ tag_schema_name | json_encode | safe }},
+  "url": {{ current_url | json_encode | safe }},
+  "description": {{ tag_description | json_encode | safe }}
+}
+</script>
+{% endblock extra_head %}
 
 {% block content %}
 <ul>

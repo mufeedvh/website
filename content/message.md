@@ -4,6 +4,8 @@ description = "anonymously write or draw me a message."
 
 [extra]
 no_header = true
+noindex = true
+exclude_from_sitemap = true
 +++
 
 write or draw me a message **anonymously**.
@@ -22,7 +24,7 @@ write or draw me a message **anonymously**.
         resize: vertical;
         outline: none;
     }
-    
+
     textarea:focus {
         border-style: solid;
         border-color: var(--text-secondary);
@@ -309,11 +311,11 @@ write or draw me a message **anonymously**.
             }
 
             isDrawing = false;
-            
+
             if (savedImageData) {
                 context.putImageData(savedImageData, 0, 0);
             }
-            
+
             drawSmoothLine(points, context);
             points = [];
             savedImageData = null;

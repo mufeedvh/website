@@ -25,6 +25,122 @@
         <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml" />
 
         <meta name="robots" content="noindex, follow" />
+        <style>
+            .void-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 70vh;
+                text-align: center;
+                padding: var(--space-8) var(--space-4);
+            }
+
+            .void-code {
+                font-family: var(--font-fancy);
+                font-size: 8rem;
+                line-height: 1;
+                color: var(--text-primary);
+                letter-spacing: 0.05em;
+                margin-bottom: var(--space-4);
+                position: relative;
+                opacity: 0;
+                animation: voidReveal 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            }
+
+            .void-code::after {
+                content: "";
+                position: absolute;
+                bottom: -0.15em;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 3em;
+                border-bottom: 1px dotted var(--border-dotted);
+            }
+
+            .void-message {
+                font-family: var(--font-body);
+                font-size: var(--text-base);
+                color: var(--text-secondary);
+                font-style: italic;
+                max-width: 420px;
+                margin: var(--space-8) auto var(--space-6);
+                line-height: 1.6;
+                opacity: 0;
+                animation: voidReveal 1s cubic-bezier(0.19, 1, 0.22, 1) 0.3s forwards;
+            }
+
+            .void-rabbit {
+                margin: var(--space-6) auto var(--space-8);
+                opacity: 0;
+                animation: voidReveal 1s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
+            }
+
+            .void-rabbit svg {
+                width: 80px;
+                height: 80px;
+                color: var(--text-tertiary);
+                opacity: 0.4;
+            }
+
+            .void-rabbit svg .rabbit-body {
+                animation: rabbitLook 6s ease-in-out infinite;
+                transform-origin: center bottom;
+            }
+
+            @keyframes rabbitLook {
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+                30% {
+                    transform: translateX(-3px) rotate(-2deg);
+                }
+                60% {
+                    transform: translateX(3px) rotate(2deg);
+                }
+            }
+
+            .void-back {
+                font-family: var(--font-display);
+                font-size: var(--text-xs);
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                color: var(--text-secondary);
+                border: 1px dotted var(--border-dotted);
+                padding: 0.7rem 1.5rem;
+                transition: all var(--transition-fast);
+                opacity: 0;
+                animation: voidReveal 1s cubic-bezier(0.19, 1, 0.22, 1) 0.7s forwards;
+            }
+
+            .void-back:hover {
+                color: var(--text-primary);
+                border-style: solid;
+                border-color: var(--text-primary);
+            }
+
+            @keyframes voidReveal {
+                from {
+                    opacity: 0;
+                    transform: translateY(16px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                .void-code {
+                    font-size: 5rem;
+                }
+
+                .void-container {
+                    min-height: 60vh;
+                }
+            }
+        </style>
     </head>
     <body>
         <!-- SVG Icons -->
@@ -107,15 +223,56 @@
 
         <div class="layout-wrapper">
             <main class="content">
-                <h1>404 - Page Not Found</h1>
-                <p>Woah, you have reached a liminal space. The page you're looking for doesn't exist.</p>
-                <br />
-                <a href="/">&#8592; Back to home</a>
+                <div class="void-container">
+                    <div class="void-code" aria-hidden="true">404</div>
+
+                    <div class="void-rabbit" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <g class="rabbit-body">
+                                <ellipse cx="50" cy="84" rx="40" ry="10" fill="currentColor" opacity="0.3" />
+                                <path
+                                    d="M30 82c0-18 10-28 20-28s20 10 20 28"
+                                    fill="var(--bg-deep)"
+                                    stroke="currentColor"
+                                    stroke-width="4"
+                                />
+                                <path
+                                    d="M38 58c-7-22-2-38 5-38s7 16 4 38"
+                                    fill="var(--bg-deep)"
+                                    stroke="currentColor"
+                                    stroke-width="4"
+                                />
+                                <path
+                                    d="M62 58c7-22 2-38-5-38s-7 16-4 38"
+                                    fill="var(--bg-deep)"
+                                    stroke="currentColor"
+                                    stroke-width="4"
+                                />
+                                <circle cx="43" cy="72" r="3" fill="currentColor" />
+                                <circle cx="57" cy="72" r="3" fill="currentColor" />
+                                <ellipse cx="50" cy="77" rx="2" ry="1.5" fill="currentColor" />
+                                <text
+                                    x="50"
+                                    y="68"
+                                    text-anchor="middle"
+                                    font-size="6"
+                                    font-family="var(--font-display)"
+                                    fill="currentColor"
+                                    opacity="0.5"
+                                >
+                                    ?
+                                </text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <p class="void-message">
+                        You've wandered into a liminal space. This page doesn't exist — or perhaps it never did.
+                    </p>
+
+                    <a href="/" class="void-back">← Back to reality</a>
+                </div>
             </main>
         </div>
-
-        <script src="/codeblock-enhancer.js"></script>
-        <script src="/blog-actions.js"></script>
-        <script src="/easter-egg.js"></script>
     </body>
 </html>

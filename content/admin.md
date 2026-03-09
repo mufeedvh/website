@@ -4,6 +4,9 @@ description = "get rekt."
 
 [extra]
 no_header = true
+noindex = true
+exclude_from_sitemap = true
+robots = "noindex, nofollow"
 +++
 
 <script>

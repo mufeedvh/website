@@ -2,10 +2,50 @@
 
 {% block title %}{{ config.title }}{% endblock title %}
 
+{% block meta %}
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ config.title }}">
+<meta property="og:description" content="{{ config.description }}">
+<meta property="og:url" content="{{ current_url | safe }}">
+<meta name="description" content="{{ config.description }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ config.title }}">
+<meta name="twitter:description" content="{{ config.description }}">
+{% endblock meta %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ config.title | json_encode | safe }},
+    "url": {{ config.base_url | json_encode | safe }},
+    "description": {{ config.description | json_encode | safe }}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ config.author | json_encode | safe }},
+    "url": {{ config.base_url | json_encode | safe }},
+    "description": {{ config.description | json_encode | safe }},
+    "sameAs": [
+      "https://github.com/mufeedvh",
+      "https://x.com/mufeedvh",
+      "https://www.linkedin.com/in/mufeed-vh/",
+      "https://www.instagram.com/mufeedvh"
+    ]
+  }
+]
+</script>
+{% endblock extra_head %}
+
 {% block content %}
+<h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">{{ config.title }}</h1>
 <div class="homepage-intro">
     <p>This is the personal website of <strong>Mufeed VH</strong>. I am the CEO & Co-founder of <a href="https://winfunc.com" target="_blank" rel="noopener">Winfunc</a>. I write about AI, security research, software engineering, and the various rabbit holes I find myself in.</p>
-    
+
     <p>For more information about me, see the <a href="/about">About</a> page; for my writings, see the <a href="/posts">Blog</a>; for projects and experiments, see <a href="/projects">Links</a>.</p>
 </div>
 

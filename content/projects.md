@@ -10,6 +10,14 @@ no_header = true
 
 Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a few below.
 
+<div class="total-stars-widget">
+<div class="total-stars-inner">
+<span class="total-stars-icon">★</span>
+<span class="total-stars-count" id="total-stars-count">&mdash;</span>
+<span class="total-stars-label">stars across all projects</span>
+</div>
+</div>
+
 <div class="projects-grid">
 <div class="project-card">
 <h3 class="project-title"><a href="https://github.com/stitionai/devika" target="_blank">devika</a> <span class="github-stars" data-repo="stitionai/devika"></span></h3>
@@ -232,32 +240,84 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
 </div>
 </div>
 
-<h2>CVEs I've found/reviewed/patched</h2>
+<h2>CVEs</h2>
 
-<div class="cve-section">
-<p>As most of these are on GitHub:</p>
+<div class="cve-cards">
 
-<div class="cve-links">
-<div class="cve-item">
-<h4>Patches (50+ CVEs)</h4>
-<a href="https://github.com/search?p=1&q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues" target="_blank">GitHub Search</a> OR <a href="https://github.com/search?q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests" target="_blank">GitHub Search (logged in link)</a>
+<a href="https://github.com/search?q=author%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests" target="_blank" class="cve-card">
+<svg class="cve-card-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 8v8h-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 16L16 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="6" y="14" width="14" height="26" rx="1" stroke="currentColor" stroke-width="1.5"/>
+<path d="M10 22h6M10 26h6M10 30h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M28 34l4 4 8-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<div class="cve-card-number">50+</div>
+<div class="cve-card-label">Patches</div>
+<span class="cve-card-link">View on GitHub →</span>
+</a>
+
+<a href="https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests" target="_blank" class="cve-card">
+<svg class="cve-card-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="22" cy="22" r="10" stroke="currentColor" stroke-width="1.5"/>
+<path d="M29 29l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+<path d="M17 22c0-2.8 2.2-5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="22" cy="22" r="3" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+<div class="cve-card-number">300+</div>
+<div class="cve-card-label">Reviews</div>
+<span class="cve-card-link">View on GitHub →</span>
+</a>
+
 </div>
 
-<div class="cve-item">
-<h4>Reviews (300+ CVEs)</h4>
-<a href="https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=Issues" target="_blank">GitHub Search</a> OR <a href="https://github.com/search?q=reviewed-by%3Amufeedvh+org%3A418sec+is%3Amerged&type=pullrequests" target="_blank">GitHub Search (logged in link)</a>
-</div>
+<h3 class="cve-notable-heading">Notable CVEs</h3>
 
-<div class="cve-item">
-<h4>Exploits</h4>
-<a href="https://github.com/mufeedvh/CVE-2019-8449" target="_blank">CVE-2019-8449</a>
+<div class="cve-notable-list">
+
+<a href="https://winfunc.com/hacktivity/CVE-2026-23864" target="_blank" class="cve-notable">
+<div class="cve-notable-left">
+<span class="cve-notable-id">CVE-2026-23864</span>
+<span class="cve-notable-severity cve-severity-high">High</span>
 </div>
+<div class="cve-notable-title">RSC reply decoder DoS via $K FormData amplification</div>
+<div class="cve-notable-target">React</div>
+</a>
+
+<a href="https://winfunc.com/hacktivity/CVE-2026-21636" target="_blank" class="cve-notable">
+<div class="cve-notable-left">
+<span class="cve-notable-id">CVE-2026-21636</span>
+<span class="cve-notable-severity cve-severity-medium">Medium</span>
 </div>
+<div class="cve-notable-title">Permission model bypass via unchecked Unix Domain Socket connections</div>
+<div class="cve-notable-target">Node.js</div>
+</a>
+
 </div>
 
 <h2>Notable Security Hall of Fames</h2>
 
-<p class="hall-of-fame">Google, Mastercard, Okta, DELL, Ford, Zilliqa, EFF, Telefonica, etc.</p>
+<p class="hof-description">Companies I've responsibly disclosed security vulnerabilities to and received acknowledgment from.</p>
+
+<div class="hof-grid">
+<div class="hof-item"><img src="https://cdn.simpleicons.org/google/666666" alt="Google" class="hof-logo"><span>Google</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/mastercard/666666" alt="Mastercard" class="hof-logo"><span>Mastercard</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/okta/666666" alt="Okta" class="hof-logo"><span>Okta</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/anthropic/666666" alt="Anthropic" class="hof-logo"><span>Anthropic</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/dell/666666" alt="Dell" class="hof-logo"><span>Dell</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/ford/666666" alt="Ford" class="hof-logo"><span>Ford</span></div>
+<div class="hof-item"><svg class="hof-logo hof-logo-wide" viewBox="0 0 66.25 16.75" xmlns="http://www.w3.org/2000/svg"><path fill="#666666" d="m9.057 5.43-2.988 7.423h3.593l1.258 3.593H.025L6.794.272h4.711l6.747 16.174h-4.794Zm49.586 3.694.021-.082c.041-.161.091-.306.146-.431.2-.445.462-.78.781-.995.321-.216.679-.326 1.063-.326.336 0 .66.086.964.253.304.168.563.431.771.782.119.203.203.446.248.722l.014.077zm7.11-1.542c-.157-.355-.342-.685-.553-.986-.211-.302-.45-.576-.713-.821-.527-.488-1.131-.864-1.796-1.116-.664-.252-1.365-.38-2.084-.38-1.055 0-2.039.252-2.926.749-.886.496-1.606 1.209-2.141 2.119-.535.909-.807 1.999-.807 3.239 0 .98.179 1.868.53 2.639.351.772.843 1.43 1.462 1.957.619.528 1.345.936 2.156 1.211.812.276 1.706.416 2.658.416.689 0 1.374-.077 2.035-.231.646-.15 1.271-.377 1.859-.674V12.54c-.603.274-1.185.492-1.733.647-.578.164-1.179.248-1.789.248-.658 0-1.243-.112-1.739-.332-.498-.222-.901-.563-1.194-1.015-.089-.137-.167-.294-.233-.467l-.034-.091h7.425c.014-.205.032-.43.054-.684.023-.26.035-.526.035-.787 0-.933-.159-1.766-.472-2.477m-16.17 4.399c-.123.206-.266.388-.428.547-.162.157-.343.29-.541.398-.397.213-.823.322-1.267.322-.258 0-.522-.034-.785-.101l-.05-.013v-5.34l.051-.012c.282-.064.584-.096.9-.096.444 0 .858.096 1.231.287.375.191.681.491.913.889.229.397.346.91.346 1.524 0 .646-.125 1.183-.37 1.595m3.819-4.329c-.329-.756-.782-1.391-1.347-1.887s-1.196-.868-1.876-1.105c-.681-.238-1.383-.358-2.086-.358-.537 0-1.041.056-1.499.165l-.082.02V.094h-4.037v15.584c.725.329 1.484.576 2.253.734.785.162 1.65.244 2.573.244.826 0 1.646-.136 2.436-.404.788-.268 1.505-.671 2.133-1.199.626-.527 1.127-1.19 1.485-1.969.359-.78.542-1.703.542-2.745 0-1.026-.167-1.931-.495-2.687M37.37 11.999c-.1.206-.215.388-.346.543-.131.154-.276.281-.436.382-.32.199-.677.301-1.061.301-.383 0-.74-.102-1.06-.301-.321-.201-.583-.511-.782-.925-.198-.41-.297-.937-.297-1.567 0-.644.099-1.175.297-1.578.199-.406.461-.713.782-.913.32-.199.677-.301 1.06-.301.384 0 .74.102 1.061.301.32.2.583.507.782.913.197.404.298.935.298 1.578 0 .629-.101 1.156-.298 1.567m3.412-4.957c-.55-.917-1.293-1.621-2.21-2.095-.46-.237-.945-.415-1.453-.535-.509-.119-1.04-.18-1.592-.18-1.101 0-2.126.241-3.044.715-.917.474-1.664 1.178-2.222 2.096-.558.916-.84 2.056-.84 3.389 0 1.333.282 2.474.84 3.39.558.917 1.306 1.626 2.222 2.108.918.482 1.942.726 3.044.726 1.087 0 2.107-.244 3.033-.726.924-.482 1.672-1.191 2.222-2.107.55-.917.829-2.058.829-3.391 0-1.333-.279-2.473-.829-3.39m-16.239 6.071-.051.013c-.284.066-.578.099-.878.099-.428 0-.838-.101-1.218-.299-.383-.199-.694-.506-.925-.911-.229-.405-.346-.929-.346-1.559 0-.645.112-1.181.334-1.593.223-.415.535-.722.927-.913.387-.191.824-.287 1.299-.287.275 0 .547.032.807.095l.051.013zm0-13.019v4.31l-.079-.015c-.38-.073-.776-.11-1.175-.11-.765 0-1.527.131-2.261.392-.734.26-1.396.659-1.97 1.186-.572.528-1.042 1.183-1.393 1.948-.352.763-.53 1.663-.53 2.674 0 1.072.193 2.01.575 2.789.382.78.89 1.427 1.508 1.924.62.497 1.325.869 2.098 1.106.775.237 1.564.358 2.345.358.953 0 1.834-.086 2.619-.255.769-.166 1.535-.417 2.276-.746V.094Z"/></svg><span>Adobe</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/supabase/666666" alt="Supabase" class="hof-logo"><span>Supabase</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/caldotcom/666666" alt="Cal.com" class="hof-logo"><span>Cal.com</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/mattermost/666666" alt="Mattermost" class="hof-logo"><span>Mattermost</span></div>
+<div class="hof-item"><div class="hof-logo hof-logo-text">EFF</div><span>EFF</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/gumroad/666666" alt="Gumroad" class="hof-logo"><span>Gumroad</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/sentry/666666" alt="Sentry" class="hof-logo"><span>Sentry</span></div>
+<div class="hof-item"><div class="hof-logo hof-logo-text">BA</div><span>better-auth</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/hoppscotch/666666" alt="Hoppscotch" class="hof-logo"><span>Hoppscotch</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/brave/666666" alt="Brave" class="hof-logo"><span>Brave</span></div>
+<div class="hof-item"><img src="https://cdn.simpleicons.org/telefonica/666666" alt="Telefónica" class="hof-logo"><span>Telefónica</span></div>
+</div>
 
 <style>
 /* Projects Grid Layout */
@@ -362,65 +422,312 @@ Most of my projects are on my [GitHub](https://github.com/mufeedvh). List of a f
     letter-spacing: 0.05em;
 }
 
-/* CVE Section */
-.cve-section {
-    margin-top: 3em;
-}
-
-.cve-links {
+/* CVE Cards */
+.cve-cards {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
     margin: 1.5em 0;
 }
 
-@media screen and (min-width: 768px) {
-    .cve-links {
-        grid-template-columns: repeat(3, 1fr);
+.cve-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-6) var(--space-4);
+    border: 1px dotted var(--border-dotted);
+    background: var(--bg-card);
+    transition: border-color var(--transition-fast), transform var(--transition-normal);
+    text-decoration: none !important;
+}
+
+.cve-card:hover {
+    border-color: var(--text-primary);
+    border-style: solid;
+    transform: translateY(-3px);
+}
+
+.cve-card-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-4);
+    transition: color var(--transition-normal);
+}
+
+.cve-card:hover .cve-card-icon {
+    color: var(--text-secondary);
+}
+
+.cve-card-number {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 0.4em;
+}
+
+.cve-card-label {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-tertiary);
+}
+
+.cve-card-link {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    margin-top: var(--space-4);
+    border-bottom: 1px dotted var(--border-dotted) !important;
+    padding-bottom: 0.15em;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.cve-card:hover .cve-card-link {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary) !important;
+    border-bottom-style: solid !important;
+}
+
+@media screen and (max-width: 768px) {
+    .cve-cards {
+        grid-template-columns: 1fr;
     }
 }
 
-.cve-item {
-    background-color: var(--bg-card);
-    padding: var(--space-4);
-    border: 1px dotted var(--border-dotted);
-    transition: border-color var(--transition-fast);
-}
-
-.cve-item:hover {
-    border-color: var(--text-primary);
-    border-style: solid;
-}
-
-.cve-item h4 {
-    margin: 0 0 0.5em 0;
-    color: var(--text-primary);
+/* Notable CVEs */
+.cve-notable-heading {
     font-family: var(--font-display);
-    font-size: 0.9em;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-tertiary);
+    margin: 2em 0 0.8em;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
-.cve-item a {
+.cve-notable-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.cve-notable {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px dotted var(--border-dotted);
+    text-decoration: none !important;
+    transition: background-color var(--transition-fast);
+}
+
+.cve-notable:first-child {
+    border-top: 1px dotted var(--border-dotted);
+}
+
+.cve-notable:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.cve-notable-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-shrink: 0;
+}
+
+.cve-notable-id {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.cve-notable-severity {
+    font-family: var(--font-display);
+    font-size: 0.55rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.15em 0.5em;
+    border: 1px solid;
+}
+
+.cve-severity-high {
+    color: #e5534b;
+    border-color: #e5534b44;
+}
+
+.cve-severity-medium {
+    color: #e3b341;
+    border-color: #e3b34144;
+}
+
+.cve-notable-title {
+    font-family: var(--font-body);
     font-size: var(--text-xs);
     color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+.cve-notable:hover .cve-notable-title {
+    color: var(--text-primary);
+}
+
+.cve-notable-target {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .cve-notable {
+        grid-template-columns: 1fr auto;
+        gap: var(--space-2);
+    }
+
+    .cve-notable-left {
+        grid-column: 1 / -1;
+    }
+
+    .cve-notable-title {
+        white-space: normal;
+        overflow: visible;
+    }
+}
+
+.hof-description {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 0.5em;
+}
+
+.hof-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-8);
+    padding: var(--space-6) var(--space-4);
+    margin: 1em 0;
+    border: 1px dotted var(--border-dotted);
+    background: var(--bg-card);
+}
+
+.hof-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    transition: opacity var(--transition-normal);
+    opacity: 0.5;
+}
+
+.hof-item:hover {
+    opacity: 1;
+}
+
+.hof-logo {
+    width: 28px;
+    height: 28px;
+    border: none !important;
+    margin: 0 !important;
+    object-fit: contain;
+}
+
+.hof-logo-wide {
+    width: auto !important;
+    height: 28px !important;
+    max-width: 60px;
+}
+
+.hof-logo-text {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hof-item span {
+    font-family: var(--font-display);
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+}
+
+@media screen and (max-width: 768px) {
+    .hof-grid {
+        gap: var(--space-6);
+    }
+
+    .hof-logo {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Total Stars Widget */
+.total-stars-widget {
+    margin: 1.5em 0 0;
+}
+
+.total-stars-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    padding: var(--space-3) 0;
+    border-top: 1px dotted var(--border-dotted);
     border-bottom: 1px dotted var(--border-dotted);
 }
 
-.hall-of-fame {
-    font-style: italic;
+.total-stars-icon {
+    font-size: 0.75rem;
+    color: #e3b341;
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.total-stars-count {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     color: var(--text-secondary);
-    margin-top: 1.5em;
-    padding: var(--space-6);
-    background-color: var(--bg-card);
-    border: 1px dotted var(--border-dotted);
-    text-align: center;
-    font-size: var(--text-sm);
+    line-height: 1;
+    letter-spacing: 0.03em;
+}
+
+.total-stars-label {
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    white-space: nowrap;
 }
 
 /* Global mobile fixes */
 @media screen and (max-width: 768px) {
-    .projects-grid, .cve-links {
+    .projects-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -448,18 +755,18 @@ async function fetchUserRepos(username) {
                 'Accept': 'application/vnd.github.v3+json'
             }
         });
-        
+
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const repos = await response.json();
         const starMap = {};
-        
+
         repos.forEach(repo => {
             starMap[repo.name.toLowerCase()] = repo.stargazers_count;
         });
-        
+
         return starMap;
     } catch (error) {
         console.error(`Failed to fetch repos for ${username}:`, error);
@@ -475,11 +782,11 @@ async function fetchGitHubStars(repo) {
                 'Accept': 'application/vnd.github.v3+json'
             }
         });
-        
+
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
         return data.stargazers_count;
     } catch (error) {
@@ -491,68 +798,90 @@ async function fetchGitHubStars(repo) {
 // Function to update all star counts on the page
 async function updateAllStarCounts() {
     const starElements = document.querySelectorAll('.github-stars');
-    
+
     // Add loading state
     starElements.forEach(el => {
         el.classList.add('loading');
     });
-    
+
     // First, fetch all repos for mufeedvh and winfunc
     const [mufeedvhRepos, winfuncRepos] = await Promise.all([
         fetchUserRepos('mufeedvh'),
         fetchUserRepos('winfunc')
     ]);
-    
+
     // Combine the star maps
     const bulkStarData = {
         'mufeedvh': mufeedvhRepos,
         'winfunc': winfuncRepos
     };
-    
+
     // Process each star element
     const promises = Array.from(starElements).map(async (el) => {
         const repo = el.getAttribute('data-repo');
         if (!repo) return null;
-        
+
         const [owner, repoName] = repo.split('/');
         const ownerLower = owner.toLowerCase();
         const repoNameLower = repoName.toLowerCase();
-        
+
         // Check if we have the data in bulk fetch
         if (bulkStarData[ownerLower] && bulkStarData[ownerLower][repoNameLower] !== undefined) {
             return { element: el, stars: bulkStarData[ownerLower][repoNameLower] };
         }
-        
+
         // Otherwise, fetch individually (for repos like stitionai/devika, DNArchery/DNArchery, etc.)
         const stars = await fetchGitHubStars(repo);
         return { element: el, stars };
     });
-    
+
     // Wait for all processing to complete
     const results = await Promise.all(promises);
-    
-    // Update the DOM with results
+
+    // Update the DOM with results and sum total
+    let totalStars = 0;
     results.forEach(result => {
         if (result && result.element) {
             result.element.classList.remove('loading');
-            
+
             if (result.stars !== null) {
                 result.element.textContent = formatStarCount(result.stars);
+                totalStars += result.stars;
             } else {
                 result.element.classList.add('error');
             }
         }
     });
+
+    animateTotalStars(totalStars);
+}
+
+function animateTotalStars(target) {
+    const el = document.getElementById('total-stars-count');
+    if (!el || target === 0) return;
+
+    const duration = 1200;
+    const start = performance.now();
+
+    function tick(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        const current = Math.round(ease * target);
+        el.textContent = current.toLocaleString();
+        if (t < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
 }
 
 // Run when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     // Small delay to ensure smooth page load
     setTimeout(updateAllStarCounts, 100);
-    
+
     // Log optimization info
     console.log('GitHub API optimization enabled: Bulk fetching repos for mufeedvh and winfunc');
-    
+
     // Make project cards clickable
     document.querySelectorAll('.project-card').forEach(card => {
         const link = card.querySelector('.project-title a');
