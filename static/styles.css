@@ -306,6 +306,18 @@ p, li, h1, h2, h3, h4, h5, blockquote {
 .name-extension span:nth-child(7) { transition-delay: 0.4s; }
 .name-extension span:nth-child(8) { transition-delay: 0.45s; }
 
+/* Procedural Pattern Border */
+.pattern-border {
+    width: 100%;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.pattern-border canvas {
+    display: block;
+    width: 100%;
+}
+
 /* Main Layout Wrapper */
 .layout-wrapper {
     flex-grow: 1;

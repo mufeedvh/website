@@ -338,6 +338,18 @@ blockquote {
     transition-delay: 0.45s;
 }
 
+/* Procedural Pattern Border */
+.pattern-border {
+    width: 100%;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.pattern-border canvas {
+    display: block;
+    width: 100%;
+}
+
 /* Main Layout Wrapper */
 .layout-wrapper {
     flex-grow: 1;

@@ -93,6 +93,7 @@
     </aside>
 
     <div class="layout-wrapper">
+        <div id="pattern-border" class="pattern-border" aria-hidden="true"></div>
         <main class="content">
             {% block content %}{% endblock content %}
         </main>
@@ -100,6 +101,7 @@
     </div>
 
     {% block scripts %}
+    <script src="/pattern-generator.js"></script>
     <script src="/codeblock-enhancer.js"></script>
     <script src="/blog-actions.js"></script>
     <script src="/easter-egg.js"></script>
