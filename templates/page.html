@@ -141,21 +141,15 @@
         </article>
 
     {% elif section %}
-        <h1>{{ section.title }}</h1>
-        {% if section.content %}
-            {{ section.content | safe }}
+        {% if not section.extra.no_header | default(value=false) %}
+            <h1 class="page-title">{{ section.title }}</h1>
         {% endif %}
 
-        {% if section.pages %}
-            <ul class="directory-list">
-            {% for page in section.pages %}
-            <li>
-                <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-                <span class="post-date">({{ page.date | date(format="%Y-%m-%d") }})</span>
-            </li>
-        {% endfor %}
-        </ul>
-    {% endif %}
+        <article class="{% if section.extra.drop_cap | default(value=false) %}drop-cap{% endif %}">
+            {% if section.content %}
+                {{ section.content | safe }}
+            {% endif %}
+        </article>
 {% endif %}
 
 {% endblock content %}

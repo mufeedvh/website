@@ -59,7 +59,25 @@ window.searchIndex = {
                             },
                         },
                     },
+                    3: {
+                        docs: {},
+                        df: 0,
+                        7: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                    },
                     5: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
+                    6: {
+                        docs: {},
+                        df: 0,
+                        p: {
+                            docs: {},
+                            df: 0,
+                            x: {
+                                docs: {},
+                                df: 0,
+                                l: { docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } }, df: 1 },
+                            },
+                        },
+                    },
                 },
                 2: {
                     docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } },
@@ -379,7 +397,13 @@ window.searchIndex = {
                                     n: {
                                         docs: {},
                                         df: 0,
-                                        t: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
+                                        t: {
+                                            docs: {
+                                                'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                                                'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
+                                            },
+                                            df: 2,
+                                        },
                                     },
                                 },
                             },
@@ -493,6 +517,27 @@ window.searchIndex = {
                             i: { docs: {}, df: 0, n: { docs: { 'https://mufeedvh.com/admin/': { tf: 1.0 } }, df: 1 } },
                         },
                         o: { docs: {}, df: 0, b: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 } },
+                    },
+                    e: {
+                        docs: {},
+                        df: 0,
+                        s: {
+                            docs: {},
+                            df: 0,
+                            t: {
+                                docs: {},
+                                df: 0,
+                                h: {
+                                    docs: {},
+                                    df: 0,
+                                    e: {
+                                        docs: {},
+                                        df: 0,
+                                        t: { docs: { 'https://mufeedvh.com/rabbithole/': { tf: 1.0 } }, df: 1 },
+                                    },
+                                },
+                            },
+                        },
                     },
                     f: {
                         docs: {},
@@ -836,8 +881,8 @@ window.searchIndex = {
                             },
                         },
                         p: {
-                            docs: {},
-                            df: 0,
+                            docs: { 'https://mufeedvh.com/rabbithole/': { tf: 1.0 } },
+                            df: 1,
                             l: {
                                 docs: {},
                                 df: 0,
@@ -987,6 +1032,30 @@ window.searchIndex = {
                                                             },
                                                         },
                                                     },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                            i: {
+                                docs: {},
+                                df: 0,
+                                m: {
+                                    docs: {},
+                                    df: 0,
+                                    e: {
+                                        docs: {},
+                                        df: 0,
+                                        m: {
+                                            docs: {},
+                                            df: 0,
+                                            e: {
+                                                docs: {},
+                                                df: 0,
+                                                t: {
+                                                    docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } },
+                                                    df: 1,
                                                 },
                                             },
                                         },
@@ -1303,8 +1372,19 @@ window.searchIndex = {
                                 'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
                                 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
                                 'https://mufeedvh.com/projects/': { tf: 1.0 },
+                                'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
+                                'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
                             },
-                            df: 3,
+                            df: 5,
+                            h: {
+                                docs: {},
+                                df: 0,
+                                u: {
+                                    docs: {},
+                                    df: 0,
+                                    r: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
                             i: {
                                 docs: {},
                                 df: 0,
@@ -1324,6 +1404,38 @@ window.searchIndex = {
                                         docs: {},
                                         df: 0,
                                         l: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
+                                    },
+                                },
+                                n: {
+                                    docs: {},
+                                    df: 0,
+                                    d: {
+                                        docs: {},
+                                        df: 0,
+                                        e: {
+                                            docs: {},
+                                            df: 0,
+                                            t: {
+                                                docs: {},
+                                                df: 0,
+                                                a: {
+                                                    docs: {},
+                                                    df: 0,
+                                                    i: {
+                                                        docs: {},
+                                                        df: 0,
+                                                        l: {
+                                                            docs: {
+                                                                'https://mufeedvh.com/rabbithole/vibe-report/': {
+                                                                    tf: 1.0,
+                                                                },
+                                                            },
+                                                            df: 1,
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
                                     },
                                 },
                             },
@@ -1411,6 +1523,11 @@ window.searchIndex = {
                     t: {
                         docs: {},
                         df: 0,
+                        l: {
+                            docs: {},
+                            df: 0,
+                            a: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                        },
                         t: {
                             docs: {},
                             df: 0,
@@ -1502,6 +1619,11 @@ window.searchIndex = {
                             },
                         },
                     },
+                    y: {
+                        docs: {},
+                        df: 0,
+                        n: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                    },
                 },
                 b: {
                     docs: { 'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 2.0 } },
@@ -1531,8 +1653,9 @@ window.searchIndex = {
                                         tf: 1.4142135623730951,
                                     },
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/links/': { tf: 1.0 },
                                 },
-                                df: 2,
+                                df: 3,
                                 d: {
                                     docs: {},
                                     df: 0,
@@ -2193,7 +2316,39 @@ window.searchIndex = {
                         o: {
                             docs: {},
                             df: 0,
-                            k: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
+                            k: {
+                                docs: {
+                                    'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 },
+                                },
+                                df: 3,
+                                s: {
+                                    docs: {},
+                                    df: 0,
+                                    h: {
+                                        docs: {},
+                                        df: 0,
+                                        e: {
+                                            docs: {},
+                                            df: 0,
+                                            l: {
+                                                docs: {},
+                                                df: 0,
+                                                f: {
+                                                    docs: {
+                                                        'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
+                                                        'https://mufeedvh.com/rabbithole/bookshelf/': {
+                                                            tf: 1.4142135623730951,
+                                                        },
+                                                    },
+                                                    df: 2,
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
                             l: {
                                 docs: {},
                                 df: 0,
@@ -2851,6 +3006,7 @@ window.searchIndex = {
                                     },
                                 },
                             },
+                            o: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
                             r: {
                                 docs: {},
                                 df: 0,
@@ -3286,8 +3442,9 @@ window.searchIndex = {
                                 docs: {
                                     'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 },
+                                    'https://mufeedvh.com/rabbithole/links/': { tf: 1.0 },
                                 },
-                                df: 2,
+                                df: 3,
                             },
                             m: {
                                 docs: {},
@@ -3750,6 +3907,21 @@ window.searchIndex = {
                                 },
                                 df: 2,
                             },
+                            n: {
+                                docs: {},
+                                df: 0,
+                                e: {
+                                    docs: {},
+                                    df: 0,
+                                    r: {
+                                        docs: {
+                                            'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
+                                            'https://mufeedvh.com/rabbithole/links/': { tf: 1.0 },
+                                        },
+                                        df: 2,
+                                    },
+                                },
+                            },
                             r: {
                                 docs: {},
                                 df: 0,
@@ -3888,6 +4060,15 @@ window.searchIndex = {
                                     df: 4,
                                 },
                             },
+                            d: {
+                                docs: {},
+                                df: 0,
+                                i: {
+                                    docs: {},
+                                    df: 0,
+                                    t: { docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
                         },
                         o: {
                             docs: {},
@@ -3956,6 +4137,26 @@ window.searchIndex = {
                                     },
                                 },
                                 df: 1,
+                            },
+                            z: {
+                                docs: {},
+                                df: 0,
+                                t: {
+                                    docs: {},
+                                    df: 0,
+                                    h: {
+                                        docs: {},
+                                        df: 0,
+                                        e: {
+                                            docs: {},
+                                            df: 0,
+                                            t: {
+                                                docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } },
+                                                df: 1,
+                                            },
+                                        },
+                                    },
+                                },
                             },
                         },
                         s: {
@@ -4454,6 +4655,11 @@ window.searchIndex = {
                             n: {
                                 docs: {},
                                 df: 0,
+                                "'": {
+                                    docs: {},
+                                    df: 0,
+                                    t: { docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } }, df: 1 },
+                                },
                                 '’': {
                                     docs: {},
                                     df: 0,
@@ -4601,6 +4807,11 @@ window.searchIndex = {
                         v: {
                             docs: {},
                             df: 0,
+                            i: {
+                                docs: {},
+                                df: 0,
+                                s: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                            },
                             u: {
                                 docs: {},
                                 df: 0,
@@ -5220,6 +5431,36 @@ window.searchIndex = {
                                 },
                             },
                         },
+                        n: {
+                            docs: {},
+                            df: 0,
+                            n: {
+                                docs: {},
+                                df: 0,
+                                t: {
+                                    docs: {},
+                                    df: 0,
+                                    r: {
+                                        docs: {},
+                                        df: 0,
+                                        o: {
+                                            docs: {},
+                                            df: 0,
+                                            p: {
+                                                docs: {},
+                                                df: 0,
+                                                i: {
+                                                    docs: {
+                                                        'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
+                                                    },
+                                                    df: 1,
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
                         o: {
                             docs: {},
                             df: 0,
@@ -5374,8 +5615,9 @@ window.searchIndex = {
                             docs: {
                                 'https://mufeedvh.com/about/': { tf: 1.4142135623730951 },
                                 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                                'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
                             },
-                            df: 2,
+                            df: 3,
                         },
                     },
                     v: {
@@ -5787,6 +6029,22 @@ window.searchIndex = {
                                                 },
                                             },
                                             df: 1,
+                                        },
+                                    },
+                                },
+                                u: {
+                                    docs: {},
+                                    df: 0,
+                                    r: {
+                                        docs: {},
+                                        df: 0,
+                                        i: {
+                                            docs: {},
+                                            df: 0,
+                                            t: {
+                                                docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } },
+                                                df: 1,
+                                            },
                                         },
                                     },
                                 },
@@ -6558,6 +6816,26 @@ window.searchIndex = {
                             df: 0,
                             n: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
                         },
+                        l: {
+                            docs: {},
+                            df: 0,
+                            l: {
+                                docs: {},
+                                df: 0,
+                                e: {
+                                    docs: {},
+                                    df: 0,
+                                    r: {
+                                        docs: {},
+                                        df: 0,
+                                        i: {
+                                            docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } },
+                                            df: 1,
+                                        },
+                                    },
+                                },
+                            },
+                        },
                         m: {
                             docs: {},
                             df: 0,
@@ -6780,6 +7058,19 @@ window.searchIndex = {
                     l: {
                         docs: {},
                         df: 0,
+                        e: {
+                            docs: {},
+                            df: 0,
+                            i: {
+                                docs: {},
+                                df: 0,
+                                c: {
+                                    docs: {},
+                                    df: 0,
+                                    k: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
+                        },
                         i: {
                             docs: {},
                             df: 0,
@@ -6864,8 +7155,9 @@ window.searchIndex = {
                                         tf: 1.4142135623730951,
                                     },
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 1.7320508075688772 },
+                                    'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
                                 },
-                                df: 2,
+                                df: 3,
                                 s: {
                                     docs: {},
                                     df: 0,
@@ -6883,8 +7175,9 @@ window.searchIndex = {
                                     docs: {
                                         'https://mufeedvh.com/about/': { tf: 1.0 },
                                         'https://mufeedvh.com/posts/llm-security/': { tf: 1.7320508075688772 },
+                                        'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
                                     },
-                                    df: 2,
+                                    df: 3,
                                     e: {
                                         docs: {},
                                         df: 0,
@@ -7995,6 +8288,26 @@ window.searchIndex = {
                             o: {
                                 docs: {},
                                 df: 0,
+                                m: {
+                                    docs: {},
+                                    df: 0,
+                                    p: {
+                                        docs: {},
+                                        df: 0,
+                                        l: {
+                                            docs: {},
+                                            df: 0,
+                                            e: {
+                                                docs: {},
+                                                df: 0,
+                                                t: {
+                                                    docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } },
+                                                    df: 1,
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
                                 n: {
                                     docs: {},
                                     df: 0,
@@ -8503,6 +8816,18 @@ window.searchIndex = {
                                             },
                                         },
                                     },
+                                    i: {
+                                        docs: {},
+                                        df: 0,
+                                        o: {
+                                            docs: {},
+                                            df: 0,
+                                            r: {
+                                                docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } },
+                                                df: 1,
+                                            },
+                                        },
+                                    },
                                     n: {
                                         docs: {},
                                         df: 0,
@@ -8510,8 +8835,12 @@ window.searchIndex = {
                                             docs: {},
                                             df: 0,
                                             t: {
-                                                docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } },
-                                                df: 1,
+                                                docs: {
+                                                    'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
+                                                    'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
+                                                    'https://mufeedvh.com/rabbithole/links/': { tf: 1.0 },
+                                                },
+                                                df: 3,
                                             },
                                         },
                                     },
@@ -8832,6 +9161,7 @@ window.searchIndex = {
                                     },
                                 },
                             },
+                            e: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
                         },
                     },
                     e: {
@@ -8941,6 +9271,11 @@ window.searchIndex = {
                                 df: 1,
                             },
                         },
+                        n: {
+                            docs: {},
+                            df: 0,
+                            g: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                        },
                         s: {
                             docs: {},
                             df: 0,
@@ -9042,8 +9377,10 @@ window.searchIndex = {
                                     'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': {
                                         tf: 1.4142135623730951,
                                     },
+                                    'https://mufeedvh.com/rabbithole/links/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
                                 },
-                                df: 1,
+                                df: 3,
                             },
                         },
                         p: {
@@ -9457,6 +9794,7 @@ window.searchIndex = {
                                 df: 2,
                             },
                         },
+                        f: { docs: {}, df: 0, t: { docs: { 'https://mufeedvh.com/rabbithole/': { tf: 1.0 } }, df: 1 } },
                         g: {
                             docs: {},
                             df: 0,
@@ -9641,8 +9979,10 @@ window.searchIndex = {
                                     'https://mufeedvh.com/about/': { tf: 1.0 },
                                     'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 },
+                                    'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/links/': { tf: 1.4142135623730951 },
                                 },
-                                df: 3,
+                                df: 5,
                                 e: {
                                     docs: {},
                                     df: 0,
@@ -9677,8 +10017,9 @@ window.searchIndex = {
                                     'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
                                     'https://mufeedvh.com/projects/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 },
                                 },
-                                df: 3,
+                                df: 4,
                             },
                         },
                         t: {
@@ -10017,8 +10358,9 @@ window.searchIndex = {
                                         tf: 1.7320508075688772,
                                     },
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 2.449489742783178 },
+                                    'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 },
                                 },
-                                df: 2,
+                                df: 3,
                             },
                         },
                         l: {
@@ -10098,6 +10440,7 @@ window.searchIndex = {
                                 df: 0,
                                 o: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
                             },
+                            k: { docs: { 'https://mufeedvh.com/rabbithole/': { tf: 1.0 } }, df: 1 },
                         },
                         s: {
                             docs: {},
@@ -10609,6 +10952,15 @@ window.searchIndex = {
                                     },
                                 },
                             },
+                            l: {
+                                docs: {},
+                                df: 0,
+                                e: {
+                                    docs: {},
+                                    df: 0,
+                                    r: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
                         },
                         n: {
                             docs: {},
@@ -11007,8 +11359,9 @@ window.searchIndex = {
                             e: {
                                 docs: {
                                     'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
                                 },
-                                df: 1,
+                                df: 2,
                             },
                         },
                         t: {
@@ -11181,8 +11534,11 @@ window.searchIndex = {
                             },
                         },
                         w: {
-                            docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } },
-                            df: 1,
+                            docs: {
+                                'https://mufeedvh.com/about/': { tf: 1.0 },
+                                'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 },
+                            },
+                            df: 2,
                             s: {
                                 docs: {},
                                 df: 0,
@@ -11419,6 +11775,19 @@ window.searchIndex = {
                                     docs: {},
                                     df: 0,
                                     t: { docs: { 'https://mufeedvh.com/projects/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
+                        },
+                        s: {
+                            docs: {},
+                            df: 0,
+                            e: {
+                                docs: {},
+                                df: 0,
+                                s: {
+                                    docs: {},
+                                    df: 0,
+                                    s: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
                                 },
                             },
                         },
@@ -11981,7 +12350,36 @@ window.searchIndex = {
                                     },
                                 },
                             },
-                            m: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
+                            m: {
+                                docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } },
+                                df: 1,
+                                r: {
+                                    docs: {},
+                                    df: 0,
+                                    e: {
+                                        docs: {},
+                                        df: 0,
+                                        p: {
+                                            docs: {},
+                                            df: 0,
+                                            o: {
+                                                docs: {},
+                                                df: 0,
+                                                r: {
+                                                    docs: {},
+                                                    df: 0,
+                                                    t: {
+                                                        docs: {
+                                                            'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
+                                                        },
+                                                        df: 1,
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
                         },
                         p: {
                             docs: {},
@@ -12107,6 +12505,15 @@ window.searchIndex = {
                                         },
                                     },
                                 },
+                            },
+                        },
+                        u: {
+                            docs: {},
+                            df: 0,
+                            l: {
+                                docs: {},
+                                df: 0,
+                                i: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
                             },
                         },
                         y: {
@@ -12305,6 +12712,49 @@ window.searchIndex = {
                                         },
                                     },
                                     df: 1,
+                                    g: {
+                                        docs: {},
+                                        df: 0,
+                                        r: {
+                                            docs: {},
+                                            df: 0,
+                                            a: {
+                                                docs: {},
+                                                df: 0,
+                                                p: {
+                                                    docs: {},
+                                                    df: 0,
+                                                    h: {
+                                                        docs: {},
+                                                        df: 0,
+                                                        s: {
+                                                            docs: {},
+                                                            df: 0,
+                                                            '/': {
+                                                                docs: {},
+                                                                df: 0,
+                                                                a: {
+                                                                    docs: {},
+                                                                    df: 0,
+                                                                    r: {
+                                                                        docs: {},
+                                                                        df: 0,
+                                                                        t: {
+                                                                            docs: {
+                                                                                'https://mufeedvh.com/rabbithole/vibe-report/':
+                                                                                    { tf: 1.0 },
+                                                                            },
+                                                                            df: 1,
+                                                                        },
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
                                 },
                             },
                         },
@@ -12334,8 +12784,8 @@ window.searchIndex = {
                         docs: {},
                         df: 0,
                         c: {
-                            docs: {},
-                            df: 0,
+                            docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } },
+                            df: 1,
                             '.': {
                                 docs: {},
                                 df: 0,
@@ -12718,6 +13168,36 @@ window.searchIndex = {
                                     'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
                                 },
                                 df: 1,
+                            },
+                        },
+                        n: {
+                            docs: {},
+                            df: 0,
+                            t: {
+                                docs: {},
+                                df: 0,
+                                e: {
+                                    docs: {},
+                                    df: 0,
+                                    r: {
+                                        docs: {},
+                                        df: 0,
+                                        e: {
+                                            docs: {},
+                                            df: 0,
+                                            s: {
+                                                docs: {},
+                                                df: 0,
+                                                t: {
+                                                    docs: {
+                                                        'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
+                                                    },
+                                                    df: 1,
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
                             },
                         },
                         p: {
@@ -13462,6 +13942,22 @@ window.searchIndex = {
                                     },
                                 },
                             },
+                            s: {
+                                docs: {},
+                                df: 0,
+                                u: {
+                                    docs: {},
+                                    df: 0,
+                                    i: {
+                                        docs: {},
+                                        df: 0,
+                                        t: {
+                                            docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } },
+                                            df: 1,
+                                        },
+                                    },
+                                },
+                            },
                         },
                         s: {
                             docs: {},
@@ -13628,6 +14124,15 @@ window.searchIndex = {
                 q: {
                     docs: {},
                     df: 0,
+                    n: {
+                        docs: {},
+                        df: 0,
+                        t: {
+                            docs: {},
+                            df: 0,
+                            m: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                        },
+                    },
                     r: {
                         docs: { 'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 } },
                         df: 1,
@@ -13780,8 +14285,8 @@ window.searchIndex = {
                             docs: { 'https://mufeedvh.com/about/': { tf: 1.0 } },
                             df: 1,
                             d: {
-                                docs: {},
-                                df: 0,
+                                docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } },
+                                df: 1,
                                 o: {
                                     docs: {},
                                     df: 0,
@@ -13790,8 +14295,9 @@ window.searchIndex = {
                                             'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': {
                                                 tf: 1.0,
                                             },
+                                            'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
                                         },
-                                        df: 1,
+                                        df: 2,
                                     },
                                 },
                             },
@@ -13829,8 +14335,9 @@ window.searchIndex = {
                                     },
                                     'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 },
                                     'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.4142135623730951 },
                                 },
-                                df: 3,
+                                df: 4,
                                 a: {
                                     docs: {},
                                     df: 0,
@@ -13936,6 +14443,11 @@ window.searchIndex = {
                                             },
                                         },
                                     },
+                                },
+                                r: {
+                                    docs: {},
+                                    df: 0,
+                                    d: { docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } }, df: 1 },
                                 },
                                 v: {
                                     docs: {
@@ -14119,6 +14631,17 @@ window.searchIndex = {
                                     },
                                 },
                                 df: 1,
+                                r: {
+                                    docs: {},
+                                    df: 0,
+                                    t: {
+                                        docs: {
+                                            'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
+                                            'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.4142135623730951 },
+                                        },
+                                        df: 2,
+                                    },
+                                },
                             },
                             r: {
                                 docs: {},
@@ -14642,6 +15165,40 @@ window.searchIndex = {
                                 },
                             },
                         },
+                        r: {
+                            docs: {},
+                            df: 0,
+                            a: {
+                                docs: {},
+                                df: 0,
+                                l: {
+                                    docs: {},
+                                    df: 0,
+                                    i: {
+                                        docs: {},
+                                        df: 0,
+                                        n: {
+                                            docs: {},
+                                            df: 0,
+                                            d: {
+                                                docs: {},
+                                                df: 0,
+                                                e: {
+                                                    docs: {},
+                                                    df: 0,
+                                                    x: {
+                                                        docs: {
+                                                            'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
+                                                        },
+                                                        df: 1,
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
                         s: { docs: {}, df: 0, t: { docs: { 'https://mufeedvh.com/projects/': { tf: 4.0 } }, df: 1 } },
                     },
                 },
@@ -14866,6 +15423,31 @@ window.searchIndex = {
                                 },
                             },
                         },
+                        i: {
+                            docs: {},
+                            df: 0,
+                            e: {
+                                docs: {},
+                                df: 0,
+                                n: {
+                                    docs: {},
+                                    df: 0,
+                                    c: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
+                                    t: {
+                                        docs: {},
+                                        df: 0,
+                                        i: {
+                                            docs: {},
+                                            df: 0,
+                                            f: {
+                                                docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } },
+                                                df: 1,
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
                         o: {
                             docs: {},
                             df: 0,
@@ -14942,8 +15524,9 @@ window.searchIndex = {
                                         docs: {
                                             'https://mufeedvh.com/posts/llm-security/': { tf: 2.0 },
                                             'https://mufeedvh.com/projects/': { tf: 1.4142135623730951 },
+                                            'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
                                         },
-                                        df: 2,
+                                        df: 3,
                                     },
                                 },
                             },
@@ -15375,8 +15958,11 @@ window.searchIndex = {
                                 docs: {},
                                 df: 0,
                                 e: {
-                                    docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 } },
-                                    df: 1,
+                                    docs: {
+                                        'https://mufeedvh.com/posts/llm-security/': { tf: 1.4142135623730951 },
+                                        'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
+                                    },
+                                    df: 2,
                                 },
                             },
                         },
@@ -15441,6 +16027,15 @@ window.searchIndex = {
                                     'https://mufeedvh.com/projects/': { tf: 1.0 },
                                 },
                                 df: 2,
+                            },
+                        },
+                        r: {
+                            docs: {},
+                            df: 0,
+                            u: {
+                                docs: {},
+                                df: 0,
+                                g: { docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } }, df: 1 },
                             },
                         },
                         u: {
@@ -15535,7 +16130,32 @@ window.searchIndex = {
                             o: {
                                 docs: {},
                                 df: 0,
-                                n: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
+                                n: {
+                                    docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } },
+                                    df: 1,
+                                    s: {
+                                        docs: {},
+                                        df: 0,
+                                        a: {
+                                            docs: {},
+                                            df: 0,
+                                            r: {
+                                                docs: {},
+                                                df: 0,
+                                                r: {
+                                                    docs: {},
+                                                    df: 0,
+                                                    i: {
+                                                        docs: {
+                                                            'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
+                                                        },
+                                                        df: 1,
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
                             },
                             p: {
                                 docs: {},
@@ -15866,6 +16486,7 @@ window.searchIndex = {
                                 t: {
                                     docs: {},
                                     df: 0,
+                                    h: { docs: { 'https://mufeedvh.com/rabbithole/': { tf: 1.0 } }, df: 1 },
                                     i: {
                                         docs: {},
                                         df: 0,
@@ -15947,8 +16568,9 @@ window.searchIndex = {
                                         },
                                         'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 },
                                         'https://mufeedvh.com/projects/': { tf: 2.0 },
+                                        'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 },
                                     },
-                                    df: 4,
+                                    df: 5,
                                     e: {
                                         docs: {},
                                         df: 0,
@@ -16018,6 +16640,49 @@ window.searchIndex = {
                                         'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
                                     },
                                     df: 3,
+                                    l: {
+                                        docs: {},
+                                        df: 0,
+                                        i: {
+                                            docs: {},
+                                            df: 0,
+                                            m: {
+                                                docs: {},
+                                                df: 0,
+                                                i: {
+                                                    docs: {},
+                                                    df: 0,
+                                                    n: {
+                                                        docs: {},
+                                                        df: 0,
+                                                        a: {
+                                                            docs: {},
+                                                            df: 0,
+                                                            l: {
+                                                                docs: {},
+                                                                df: 0,
+                                                                b: {
+                                                                    docs: {},
+                                                                    df: 0,
+                                                                    o: {
+                                                                        docs: {},
+                                                                        df: 0,
+                                                                        t: {
+                                                                            docs: {
+                                                                                'https://mufeedvh.com/rabbithole/vibe-report/':
+                                                                                    { tf: 1.0 },
+                                                                            },
+                                                                            df: 1,
+                                                                        },
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    },
                                 },
                             },
                         },
@@ -16332,6 +16997,22 @@ window.searchIndex = {
                             a: {
                                 docs: {},
                                 df: 0,
+                                i: {
+                                    docs: {},
+                                    df: 0,
+                                    g: {
+                                        docs: {},
+                                        df: 0,
+                                        h: {
+                                            docs: {},
+                                            df: 0,
+                                            t: {
+                                                docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } },
+                                                df: 1,
+                                            },
+                                        },
+                                    },
+                                },
                                 n: {
                                     docs: {},
                                     df: 0,
@@ -18042,8 +18723,11 @@ window.searchIndex = {
                                             docs: {
                                                 'https://mufeedvh.com/contact/': { tf: 1.0 },
                                                 'https://mufeedvh.com/posts/llm-security/': { tf: 1.7320508075688772 },
+                                                'https://mufeedvh.com/rabbithole/vibe-report/': {
+                                                    tf: 1.7320508075688772,
+                                                },
                                             },
-                                            df: 2,
+                                            df: 3,
                                         },
                                     },
                                 },
@@ -18568,8 +19252,10 @@ window.searchIndex = {
                             e: {
                                 docs: {
                                     'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/': { tf: 1.0 },
+                                    'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.4142135623730951 },
                                 },
-                                df: 1,
+                                df: 3,
                             },
                         },
                         e: {
@@ -19547,6 +20233,42 @@ window.searchIndex = {
                     },
                     g: { docs: { 'https://mufeedvh.com/posts/llm-security/': { tf: 1.0 } }, df: 1 },
                 },
+                b: {
+                    docs: {},
+                    df: 0,
+                    o: {
+                        docs: {},
+                        df: 0,
+                        o: {
+                            docs: {},
+                            df: 0,
+                            k: {
+                                docs: {},
+                                df: 0,
+                                s: {
+                                    docs: {},
+                                    df: 0,
+                                    h: {
+                                        docs: {},
+                                        df: 0,
+                                        e: {
+                                            docs: {},
+                                            df: 0,
+                                            l: {
+                                                docs: {},
+                                                df: 0,
+                                                f: {
+                                                    docs: { 'https://mufeedvh.com/rabbithole/bookshelf/': { tf: 1.0 } },
+                                                    df: 1,
+                                                },
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
                 c: {
                     docs: {},
                     df: 0,
@@ -19610,6 +20332,15 @@ window.searchIndex = {
                                     },
                                 },
                             },
+                        },
+                    },
+                    i: {
+                        docs: {},
+                        df: 0,
+                        n: {
+                            docs: {},
+                            df: 0,
+                            k: { docs: { 'https://mufeedvh.com/rabbithole/links/': { tf: 1.0 } }, df: 1 },
                         },
                     },
                     l: {
@@ -19738,6 +20469,23 @@ window.searchIndex = {
                             },
                         },
                     },
+                    e: {
+                        docs: {},
+                        df: 0,
+                        p: {
+                            docs: {},
+                            df: 0,
+                            o: {
+                                docs: {},
+                                df: 0,
+                                r: {
+                                    docs: {},
+                                    df: 0,
+                                    t: { docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } }, df: 1 },
+                                },
+                            },
+                        },
+                    },
                 },
                 s: {
                     docs: {},
@@ -19760,6 +20508,15 @@ window.searchIndex = {
                     docs: {},
                     df: 0,
                     h: { docs: {}, df: 0, "'": { docs: { 'https://mufeedvh.com/': { tf: 1.0 } }, df: 1 } },
+                    i: {
+                        docs: {},
+                        df: 0,
+                        b: {
+                            docs: {},
+                            df: 0,
+                            e: { docs: { 'https://mufeedvh.com/rabbithole/vibe-report/': { tf: 1.0 } }, df: 1 },
+                        },
+                    },
                 },
                 w: {
                     docs: {},
@@ -19822,9 +20579,24 @@ window.searchIndex = {
                 title: 'Projects',
             },
             'https://mufeedvh.com/rabbithole/': {
-                body: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n🐇\nDown the Rabbit Hole\n\n\nYou've found a way into the subterranean passages of this digital garden. This is a space for things that don't quite fit elsewhere—unfinished thoughts, digital ephemera, and direct lines of communication that bypass the usual protocols of the surface web.\n\n\n\"But I don't want to go among mad people,\" Alice remarked. \"Oh, you can't help that,\" said the Cat: \"we're all mad here. I'm mad. You're mad.\"\nLewis Carroll, Alice in Wonderland\n\n\n\n            Leave an Anonymous Message  \n\n\nOther Paths\n\nWho is behind this?\nRead the formal logs\nReturn to the entrance\n\n\n\n",
+                body: "\n🐇\nDown the Rabbit Hole\n\n\nYou've found a way into the subterranean passages of this digital garden. This is a space for things that don't quite fit elsewhere—unfinished thoughts, digital ephemera, and direct lines of communication that bypass the usual protocols of the surface web.\n\n\n\"But I don't want to go among mad people,\" Alice remarked. \"Oh, you can't help that,\" said the Cat: \"we're all mad here. I'm mad. You're mad.\"\nLewis Carroll, Alice in Wonderland\n\n\n\n    \n    Leave an Anonymous Message\n    say something. no names.\n\n\n    ✦\n    Vibe Report\n    art &amp; aesthetics\n\n\n    📖\n    Bookshelf\n    books that left a mark\n\n\n    ◆\n    Links\n    corners of the internet\n\n\n\nOther Paths\n\nWho is behind this?\nRead the formal logs\nReturn to the entrance\n\n\n",
                 id: 'https://mufeedvh.com/rabbithole/',
                 title: 'The Rabbit Hole',
+            },
+            'https://mufeedvh.com/rabbithole/bookshelf/': {
+                body: '\nBookshelf\nIncomplete list of books I am reading or have read.\n\n\n\n\n    \n        \n            \n            \n        \n    \n    \n        There Is No Antimemetics Division\n        qntm\n    \n\n\n    \n        \n            \n            \n        \n    \n    \n        Chaos: Making a New Science\n        James Gleick\n    \n\n\n    \n        \n            \n            \n        \n    \n    \n        137: Jung, Pauli, and the Pursuit of a Scientific Obsession\n        Arthur I. Miller\n    \n\n\n    \n        \n            \n            \n        \n    \n    \n        Atlas Shrugged\n        Ayn Rand\n    \n\n\n\n',
+                id: 'https://mufeedvh.com/rabbithole/bookshelf/',
+                title: 'Bookshelf',
+            },
+            'https://mufeedvh.com/rabbithole/links/': {
+                body: '\nLinks\ncorners of the internet i keep coming back to.\n\n\n\n',
+                id: 'https://mufeedvh.com/rabbithole/links/',
+                title: 'Links',
+            },
+            'https://mufeedvh.com/rabbithole/vibe-report/': {
+                body: "\nVibe Report\nart, interiors, and pics that i like. straight from my gallery and twitter.\n\n\n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n\n\n\ncredits: these are sourced from twitter, pinterest, random google search, etc. i didn't keep any record.\nsome of my favourite twitter accounts sharing some good photographs/art:\n\n@simonsarris\n@palmreport\n@ennntropy\n@ruralindexing\n@curzthetics\n@16pxl\n@spaceliminalbot\n@artindetails\n\n",
+                id: 'https://mufeedvh.com/rabbithole/vibe-report/',
+                title: 'Vibe Report',
             },
         },
         docInfo: {
@@ -19837,9 +20609,12 @@ window.searchIndex = {
             'https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/': { body: 1423, title: 4 },
             'https://mufeedvh.com/posts/llm-security/': { body: 995, title: 3 },
             'https://mufeedvh.com/projects/': { body: 457, title: 1 },
-            'https://mufeedvh.com/rabbithole/': { body: 59, title: 2 },
+            'https://mufeedvh.com/rabbithole/': { body: 73, title: 2 },
+            'https://mufeedvh.com/rabbithole/bookshelf/': { body: 27, title: 1 },
+            'https://mufeedvh.com/rabbithole/links/': { body: 6, title: 1 },
+            'https://mufeedvh.com/rabbithole/vibe-report/': { body: 33, title: 2 },
         },
-        length: 10,
+        length: 13,
     },
     lang: 'English',
 };

@@ -1,0 +1,12 @@
+<div class="book">
+    <a href="{{ link | default(value='#') }}" target="_blank" class="book-link">
+        <div class="book-cover">
+            <img src="{{ cover }}" alt="{{ title }}" loading="lazy" />
+            <div class="book-spine"></div>
+        </div>
+    </a>
+    <div class="book-info">
+        <span class="book-title">{{ title }}</span>
+        <span class="book-author">{{ author }}</span>
+    </div>
+</div>

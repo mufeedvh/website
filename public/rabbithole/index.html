@@ -9,16 +9,7 @@
         <meta property="og:site_name" content="Mufeed VH" />
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="The Rabbit Hole" />
-        <meta property="og:description" content="Curiosity killed the cat, but satisfaction brought it back." />
-        <meta name="description" content="Curiosity killed the cat, but satisfaction brought it back." />
-        <meta property="og:url" content="https://mufeedvh.com/rabbithole/" />
-
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="The Rabbit Hole" />
-        <meta name="twitter:description" content="Curiosity killed the cat, but satisfaction brought it back." />
-
-        <meta name="robots" content="noindex, follow" />
+        <meta name="twitter:card" content="summary_large_image" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -118,48 +109,7 @@
         <div class="layout-wrapper">
             <div id="pattern-border" class="pattern-border" aria-hidden="true"></div>
             <main class="content">
-                <div class="post-metadata"></div>
-
                 <article class="drop-cap">
-                    <p>
-                        <audio id="rabbithole-audio" src="/assets/sounds/curious-alice.mp3" autoplay loop></audio>
-                        <button
-                            id="rabbithole-mute"
-                            class="rabbithole-mute-btn"
-                            aria-label="Mute audio"
-                            title="Mute audio"
-                        >
-                            <svg
-                                id="mute-icon-on"
-                                class="mute-icon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-                                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-                            </svg>
-                            <svg
-                                id="mute-icon-off"
-                                class="mute-icon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                style="display: none"
-                            >
-                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                                <line x1="23" y1="9" x2="17" y2="15" />
-                                <line x1="17" y1="9" x2="23" y2="15" />
-                            </svg>
-                        </button>
-                    </p>
                     <div class="center-content" style="margin-bottom: var(--space-12)">
                         <h1 style="font-family: var(--font-fancy); font-size: 5rem; margin-bottom: 0">🐇</h1>
                         <p
@@ -185,16 +135,29 @@
                         Cat: "we're all mad here. I'm mad. You're mad."
                         <cite>Lewis Carroll, Alice in Wonderland</cite>
                     </blockquote>
-                    <div class="cta-row">
-                        <div class="button-wrapper">
-                            <a href="&#x2F;message"
-                                ><h4 class="post-button">
-                                    Leave an Anonymous Message
-                                    <svg class="svg-icon" aria-hidden="true" style="width: 1.2em; height: 1.2em">
-                                        <use href="#icon-message" />
-                                    </svg></h4
-                            ></a>
-                        </div>
+                    <div class="bento-grid">
+                        <a href="/message" class="bento-tile bento-wide">
+                            <svg class="bento-icon" viewBox="0 0 512 512" fill="currentColor">
+                                <use href="#icon-message" />
+                            </svg>
+                            <span class="bento-label">Leave an Anonymous Message</span>
+                            <span class="bento-hint">say something. no names.</span>
+                        </a>
+                        <a href="/rabbithole/vibe-report/" class="bento-tile bento-tall">
+                            <span class="bento-emoji">✦</span>
+                            <span class="bento-label">Vibe Report</span>
+                            <span class="bento-hint">art & aesthetics</span>
+                        </a>
+                        <a href="/rabbithole/bookshelf/" class="bento-tile">
+                            <span class="bento-emoji">📖</span>
+                            <span class="bento-label">Bookshelf</span>
+                            <span class="bento-hint">books that left a mark</span>
+                        </a>
+                        <a href="/rabbithole/links/" class="bento-tile bento-wide">
+                            <span class="bento-emoji">◆</span>
+                            <span class="bento-label">Links</span>
+                            <span class="bento-hint">corners of the internet</span>
+                        </a>
                     </div>
                     <div class="directory-section" style="margin-top: var(--space-12)">
                         <h2>Other Paths</h2>
@@ -204,44 +167,6 @@
                             <li><a href="/">Return to the entrance</a></li>
                         </ul>
                     </div>
-                    <script>
-                        (function () {
-                            var audio = document.getElementById("rabbithole-audio");
-                            var btn = document.getElementById("rabbithole-mute");
-                            var iconOn = document.getElementById("mute-icon-on");
-                            var iconOff = document.getElementById("mute-icon-off");
-                            var muted = false;
-
-                            function syncUI() {
-                                iconOn.style.display = muted ? "none" : "block";
-                                iconOff.style.display = muted ? "block" : "none";
-                                btn.setAttribute("aria-label", muted ? "Unmute audio" : "Mute audio");
-                                btn.setAttribute("title", muted ? "Unmute audio" : "Mute audio");
-                            }
-
-                            audio.volume = 0.4;
-
-                            var playPromise = audio.play();
-                            if (playPromise !== undefined) {
-                                playPromise.catch(function () {
-                                    function resumeAudio() {
-                                        audio.play();
-                                        document.removeEventListener("click", resumeAudio);
-                                        document.removeEventListener("keydown", resumeAudio);
-                                    }
-                                    document.addEventListener("click", resumeAudio);
-                                    document.addEventListener("keydown", resumeAudio);
-                                });
-                            }
-
-                            btn.addEventListener("click", function (e) {
-                                e.stopPropagation();
-                                muted = !muted;
-                                audio.muted = muted;
-                                syncUI();
-                            });
-                        })();
-                    </script>
                 </article>
             </main>
 
@@ -256,5 +181,6 @@
         <script src="/codeblock-enhancer.js"></script>
         <script src="/blog-actions.js"></script>
         <script src="/easter-egg.js"></script>
+        <script src="/rabbithole-audio.js"></script>
     </body>
 </html>
