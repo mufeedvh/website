@@ -1,1257 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="referrer" content="no-referrer" />
-        <meta name="theme-color" content="#0d0d0d" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#121110">
+    <meta name="color-scheme" content="dark">
 
-        <meta property="og:site_name" content="Mufeed VH" />
 
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="I made a programming language with M&amp;Ms" />
-        <meta
-            property="og:description"
-            content="I built a tiny programming language where programs are candy grids, complete with a renderer, photo decoder, AST tree, and execution trace."
-        />
-        <meta
-            name="description"
-            content="I built a tiny programming language where programs are candy grids, complete with a renderer, photo decoder, AST tree, and execution trace."
-        />
-        <meta property="og:url" content="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/" />
 
-        <meta
-            property="og:image"
-            content="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster-og.jpg"
-        />
-        <meta
-            property="og:image:secure_url"
-            content="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster-og.jpg"
-        />
-        <meta property="og:image:type" content="image/jpeg" />
 
-        <meta property="og:image:width" content="1200" />
+    <meta property="og:site_name" content="Mufeed VH">
 
-        <meta property="og:image:height" content="630" />
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="I made a programming language with M&amp;Ms">
+        <meta property="og:description" content="I built a tiny programming language where programs are candy grids, complete with a renderer, photo decoder, AST tree, and execution trace.">
+        <meta name="description" content="I built a tiny programming language where programs are candy grids, complete with a renderer, photo decoder, AST tree, and execution trace.">
+        <meta property="og:url" content="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/">
 
-        <meta property="og:image:alt" content="I made a programming language with M&amp;Ms" />
-        <meta
-            name="twitter:image"
-            content="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster-og.jpg"
-        />
+            <meta property="og:image" content="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster-og.jpg">
+            <meta property="og:image:secure_url" content="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster-og.jpg">
+            <meta property="og:image:type" content="image/jpeg">
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="I made a programming language with M&amp;Ms" />
-        <meta
-            name="twitter:description"
-            content="I built a tiny programming language where programs are candy grids, complete with a renderer, photo decoder, AST tree, and execution trace."
-        />
+                <meta property="og:image:width" content="1200">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=UnifrakturMaguntia&family=JetBrains+Mono:wght@400;500&display=swap"
-            rel="stylesheet"
-        />
 
-        <title>I made a programming language with M&amp;Ms - Mufeed VH</title>
+                <meta property="og:image:height" content="630">
 
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="/styles.css" />
+            <meta property="og:image:alt" content="I made a programming language with M&amp;Ms">
+            <meta name="twitter:image" content="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster-og.jpg">
 
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml" />
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="I made a programming language with M&amp;Ms">
+        <meta name="twitter:description" content="I built a tiny programming language where programs are candy grids, complete with a renderer, photo decoder, AST tree, and execution trace.">
 
-        <link rel="canonical" href="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/" />
 
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "BlogPosting",
-                "headline": "I made a programming language with M&Ms",
-                "description": "I built a tiny programming language where programs are candy grids, complete with a renderer, photo decoder, AST tree, and execution trace.",
-                "author": {
-                    "@type": "Person",
-                    "name": "Mufeed VH",
-                    "url": "https://mufeedvh.com"
-                },
-                "publisher": {
-                    "@type": "Person",
-                    "name": "Mufeed VH",
-                    "url": "https://mufeedvh.com"
-                },
-                "mainEntityOfPage": "https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/",
-                "url": "https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/",
-                "datePublished": "2026-03-07",
-                "image": "https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster-og.jpg"
-            }
-        </script>
-    </head>
-    <body>
-        <!-- SVG Icons -->
-        <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
-            <symbol id="icon-link" viewBox="0 0 640 512">
-                <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"
-                />
-            </symbol>
-            <symbol id="icon-message" viewBox="0 0 512 512">
-                <path
-                    d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"
-                />
-            </symbol>
-            <symbol id="icon-rabbit" viewBox="0 0 100 100">
-                <!-- Hole -->
-                <ellipse cx="50" cy="80" rx="45" ry="12" fill="currentColor" />
-                <!-- Rabbit Head peeking -->
-                <path
-                    d="M28 80c0-20 12-32 22-32s22 12 22 32"
-                    fill="var(--bg-deep)"
-                    stroke="currentColor"
-                    stroke-width="5"
-                />
-                <!-- Left Ear -->
-                <path
-                    d="M38 52c-8-25-2-42 5-42s8 17 5 42"
-                    fill="var(--bg-deep)"
-                    stroke="currentColor"
-                    stroke-width="5"
-                />
-                <!-- Right Ear -->
-                <path
-                    d="M62 52c8-25 2-42-5-42s-8 17-5 42"
-                    fill="var(--bg-deep)"
-                    stroke="currentColor"
-                    stroke-width="5"
-                />
-                <!-- Eyes -->
-                <circle cx="43" cy="70" r="4" fill="currentColor" />
-                <circle cx="57" cy="70" r="4" fill="currentColor" />
-                <!-- Nose -->
-                <circle cx="50" cy="77" r="2.5" fill="currentColor" />
-            </symbol>
+
+
+    <title>I made a programming language with M&amp;Ms - Mufeed VH</title>
+
+    <link rel="preload" href="/assets/fonts/newsreader-normal-200-800.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/plexmono-normal-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml">
+
+
+
+    <link rel="canonical" href="https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/">
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "I made a programming language with M&Ms",
+  "description": "I built a tiny programming language where programs are candy grids, complete with a renderer, photo decoder, AST tree, and execution trace.",
+  "author": {
+    "@type": "Person",
+    "name": "Mufeed VH",
+    "url": "https://mufeedvh.com"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Mufeed VH",
+    "url": "https://mufeedvh.com"
+  },
+  "mainEntityOfPage": "https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/",
+  "url": "https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/",
+  "datePublished": "2026-03-07",
+  "image": "https://mufeedvh.com/posts/i-made-a-programming-language-with-mnms/mnm-lang-poster-og.jpg"
+}
+</script>
+
+
+
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+        <symbol id="icon-link" viewBox="0 0 640 512">
+            <path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/>
+        </symbol>
+        <symbol id="icon-message" viewBox="0 0 512 512">
+            <path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/>
+        </symbol>
+        <symbol id="icon-rabbit" viewBox="0 0 100 100">
+            <ellipse cx="50" cy="80" rx="45" ry="12" fill="currentColor" />
+            <path d="M28 80c0-20 12-32 22-32s22 12 22 32" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+            <path d="M38 52c-8-25-2-42 5-42s8 17 5 42" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+            <path d="M62 52c8-25 2-42-5-42s-8 17-5 42" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+            <circle cx="43" cy="70" r="4" fill="currentColor" />
+            <circle cx="57" cy="70" r="4" fill="currentColor" />
+            <circle cx="50" cy="77" r="2.5" fill="currentColor" />
+        </symbol>
+    </svg>
+
+
+    <header class="site-header frame">
+        <a href="/" class="monogram" aria-label="Mufeed VH, home">M</a>
+        <nav class="site-nav" aria-label="Primary">
+            <a href="/about">About</a>
+            <a href="/posts" aria-current="page">Posts</a>
+            <a href="/projects">Projects</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="site-main frame">
+
+
+
+    <article class="post">
+
+        <header class="page-header">
+
+            <p class="meta">
+                <time datetime="2026-03-07">2026-03-07</time><span class="sep" aria-hidden="true">&middot;</span>15 min read<span class="sep" aria-hidden="true">&middot;</span><a href="https://mufeedvh.com/tags/programming/">programming</a>, <a href="https://mufeedvh.com/tags/compilers/">compilers</a>, <a href="https://mufeedvh.com/tags/silly/">silly</a>, <a href="https://mufeedvh.com/tags/slop/">slop</a>
+            </p>
+
+            <h1 class="page-title">I made a programming language with M&amp;Ms</h1>
+
+            <p class="page-deck">I built a tiny programming language where programs are candy grids, complete with a renderer, photo decoder, AST tree, and execution trace.</p>
+
+        </header>
+
+
+        <div class="prose drop-cap">
+            <div class="slop-meter" onclick="this.classList.toggle('active')">
+    <div class="slop-meter-header">
+        <span class="slop-meter-title">ai-slop meter</span>
+        <span class="slop-meter-percent">31%</span>
+    </div>
+    <div class="slop-meter-bar">
+        <div class="slop-meter-fill" style="width: 31%"></div>
+    </div>
+    <span class="slop-meter-tooltip">How much of this article was AI-generated — code, prose, or structure. The rest is human-written.</span>
+</div>
+<blockquote>
+<p>What if a little pile of M&amp;Ms on a table was a real program?</p>
+</blockquote>
+<p>I mean literally. Imagine you arrange M&amp;M-like candies into a specific pattern, that pattern is executable code.</p>
+<p>Alright story time. Featuring <em>inline interactive interpreter embedded right inside this post</em>.</p>
+<p>It all started when I spilled a full packet of GEMS<span class="sidenote-container"><a href="#sidenote-gems" class="sidenote-marker" data-sidenote="sidenote-gems" aria-label="Sidenote gems" aria-controls="sidenote-gems">†</a><span id="sidenote-gems" class="sidenote" role="note">GEMS is sort of an Indian version of M&Ms.</span></span>
+ on the floor cus I opened (ripped?) the packet a bit too hard.</p>
+<p>It fell into an interesting pattern that I could only describe as the shape of an arrow.</p>
+<p>Random patterns, fractals, interpreting nonsense into structure are hobbies that entice me. I am somewhat of an apophenic when it comes to these things.</p>
+<p>The colors, the placements, and the structure of what I saw dropped a silly idea into my minds eye. What if I could write programs with M&amp;Ms. This is the story of one of my <em>many</em> silly little projects.</p>
+<img src="mnm-lang-poster.png" alt="Poster illustration for MNM Lang showing candy code on the left and a terminal-style branching tree on the right" loading="lazy" width="1024" height="512">
+<div class="center-content">
+<p><em>abstract art of m&ms being parsed</em></p>
+</div>
+
+<details class="toc" id="toc-default" data-min="2" data-max="4" open>
+    <summary>Contents</summary>
+    <ol class="toc-list"></ol>
+</details>
+<p>Seeing the spilled candy on the floor, a few constraints dawned on me...</p>
+<ul>
+<li>There are only six useful colors.</li>
+<li>A photo is a terrible place to store exact symbolic data.</li>
+<li>Candy is round, glossy, messy, and inconveniently physical.</li>
+<li>Strings are a disaster if you try to cram them into an image.</li>
+<li>If this thing is going to be funny, it still has to actually work.</li>
+</ul>
+<p>So I built it.</p>
+<p>The result is <strong>MNM Lang</strong>, a tiny programming language where:</p>
+<ul>
+<li>source code is written as runs of six letters: <code>B G R Y O N</code></li>
+<li>those runs compile into a PNG made from candy sprites</li>
+<li>the PNG decompiles back into source exactly</li>
+<li>and a controlled photo decoder can recover programs from mildly skewed images (I hope that works)</li>
+</ul>
+<p>There is a CLI, a browser playground, example programs, tests, and a sprite pack
+generated specifically for the project.</p>
+<p>And this is obviously not a practical language. It is a serious implementation of a silly idea.</p>
+<script src="mnm_lang_web_demo.js" defer></script>
+<h2 id="the-core-problem">The core problem</h2>
+<p>If you only have six candy colors, how do you build a language that is:</p>
+<ul>
+<li>easy to place by hand</li>
+<li>easy to read from a photo</li>
+<li>expressive enough to run real examples</li>
+<li>and small enough that the whole bit stays funny?</li>
+</ul>
+<p>My answer was: <strong>encode instructions by color family, and encode operands by count.</strong></p>
+<p>That means a token like this:</p>
+<pre data-lang="mnm" class="language-mnm z-code"><code class="language-mnm" data-lang="mnm"><span class="z-text z-plain">BBB
+</span></code></pre>
+<p>isn’t “three arbitrary blue things.” It means a specific opcode.</p>
+<p>And a token like this:</p>
+<pre data-lang="mnm" class="language-mnm z-code"><code class="language-mnm" data-lang="mnm"><span class="z-text z-plain">RRRR
+</span></code></pre>
+<p>means the integer literal <code>3</code>, because operand values are <code>len(token) - 1</code>.</p>
+<p>That single rule ended up doing a lot of work for me:</p>
+<ul>
+<li>it is easy to author in text</li>
+<li>it is easy to render into image cells</li>
+<li>it is easy to reconstruct from image geometry</li>
+<li>and it feels appropriately ridiculous</li>
+</ul>
+<p>You can explain the language to someone in about thirty seconds:</p>
+<blockquote>
+<p>“Blue clusters are control flow, green is stack and variables, yellow is math, orange is I/O, brown is labels and strings, red is stack shuffling and logic. If you want the number five, use six red candies.”</p>
+</blockquote>
+<p>Whether or not that's intuitive is not a question I can answer at this time.</p>
+<h2 id="images-are-bad-at-text">Images are bad at text</h2>
+<p>The earliest fork in the road was strings.</p>
+<p>I could have tried to encode text directly into candy layouts. Maybe invent a
+micro-alphabet. Maybe use rows of yellow and red as bytes. Maybe do some cursed
+base-6 trick.</p>
+<p>That would have been technically possible and spiritually awful.</p>
+<p>The fun part of the project is the visual structure, not building an OCR-resistant
+QR code out of sugar shells.</p>
+<p>So I pushed strings and initial variables into a sidecar JSON file.</p>
+<p>That means a program has two parts:</p>
+<ol>
+<li>the visual candy layout in <code>.mnm</code></li>
+<li>the non-visual runtime data in <code>.mnm.json</code></li>
+</ol>
+<p>For example, hello world is:</p>
+<pre data-lang="mnm" class="language-mnm z-code"><code class="language-mnm" data-lang="mnm"><span class="z-text z-plain">OO Y
+</span><span class="z-text z-plain">OOOOOO
+</span><span class="z-text z-plain">BBBBBB
+</span></code></pre>
+<p>And because the whole bit only works if that text turns into an actual candy
+program, here is the compiler output for it:</p>
+<img src="hello-world-program.png" alt="The hello_world MNM Lang program rendered as candy sprites" loading="lazy" width="716" height="404">
+<div class="center-content">
+<p><em>`hello_world`, but in snack form</em></p>
+</div>
+<p>And its sidecar is:</p>
+<pre data-lang="json" class="language-json z-code"><code class="language-json" data-lang="json"><span class="z-source z-json"><span class="z-meta z-mapping z-json"><span class="z-punctuation z-section z-mapping z-begin z-json">{</span>
+</span></span><span class="z-source z-json"><span class="z-meta z-mapping z-json">  </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>strings<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-meta z-sequence z-json"><span class="z-punctuation z-section z-sequence z-begin z-json">[</span><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>Hello, world!<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-section z-sequence z-end z-json">]</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json">  </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>variables<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-meta z-sequence z-json"><span class="z-punctuation z-section z-sequence z-begin z-json">[</span><span class="z-punctuation z-section z-sequence z-end z-json">]</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json">  </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>inputs<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-meta z-mapping z-json"><span class="z-punctuation z-section z-mapping z-begin z-json">{</span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json"><span class="z-meta z-mapping z-json">    </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>int<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-meta z-sequence z-json"><span class="z-punctuation z-section z-sequence z-begin z-json">[</span><span class="z-punctuation z-section z-sequence z-end z-json">]</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json"><span class="z-meta z-mapping z-value z-json">    </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>str<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-meta z-sequence z-json"><span class="z-punctuation z-section z-sequence z-begin z-json">[</span><span class="z-punctuation z-section z-sequence z-end z-json">]</span></span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json"><span class="z-meta z-mapping z-value z-json">  <span class="z-punctuation z-section z-mapping z-end z-json">}</span></span>
+</span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-section z-mapping z-end z-json">}</span></span>
+</span></code></pre>
+<p>And because I apparently have no sense of restraint, this page can also run that
+exact little program inline:</p>
+<div data-mnm-inline-demo data-title="Run hello_world here" data-description="The browser-native MNM Lang runtime renders the candy sheet, then animates output, AST, and trace right inside the post.">
+  <textarea class="mnm-demo-source" hidden>OO Y
+OOOOOO
+BBBBBB</textarea>
+  <script type="application/json" class="mnm-demo-sidecar">{"strings":["Hello, world!"],"variables":[],"inputs":{"int":[],"str":[]}}</script>
+</div>
+<p>That split ended up making the whole system cleaner:</p>
+<ul>
+<li>the image only carries what images are good at: structure</li>
+<li>runtime input can change without moving candy</li>
+<li>the photo decoder does not have to pretend it can read prose from glossy candy</li>
+</ul>
+<p>Sometimes the correct answer in a whimsical project is to stop being whimsical
+for one layer of the stack.</p>
+<aside class="alterego">
+    <div class="alterego-badge">
+        <svg class="alterego-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a5 5 0 0 0-5 5c0 1.5.5 2.8 1.3 3.8C7.5 12 7 13.9 7 16c0 1.7.3 3 .8 4"/>
+            <path d="M16.2 20c.5-1 .8-2.3.8-4 0-2.1-.5-4-1.3-5.2A5 5 0 0 0 12 2"/>
+            <circle cx="9.5" cy="8" r="0.8" fill="currentColor" stroke="none"/>
+            <circle cx="14.5" cy="8" r="0.8" fill="currentColor" stroke="none"/>
+            <path d="M10 11.5c.6.5 1.2.7 2 .7s1.4-.2 2-.7"/>
+            <path d="M8 20c1 1.5 2.5 2 4 2s3-.5 4-2"/>
         </svg>
-
-        <aside class="sidebar">
-            <div class="sidebar-top">
-                <a href="/" class="logo-monogram" aria-label="Mufeed VH">
-                    <span class="m-letter" aria-hidden="true">M</span>
-                    <div class="name-extension" aria-hidden="true">
-                        <span>U</span>
-                        <span>F</span>
-                        <span>E</span>
-                        <span>E</span>
-                        <span>D</span>
-                        <span class="name-space"></span>
-                        <span>V</span>
-                        <span>H</span>
-                    </div>
-                </a>
-
-                <nav class="main-nav">
-                    <ul class="nav-links">
-                        <li><a href="/" class="nav-link">Home</a></li>
-                        <li><a href="/about" class="nav-link">About</a></li>
-                        <li><a href="/posts" class="nav-link active">Posts</a></li>
-                        <li><a href="/projects" class="nav-link">Projects</a></li>
-                        <li><a href="/contact" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="sidebar-bottom">
-                <a href="/rabbithole" class="rabbit-hole-link" title="Follow the rabbit hole...">
-                    <svg class="svg-icon rabbit-icon"><use href="#icon-rabbit" /></svg>
-                </a>
-            </div>
-        </aside>
-
-        <div class="layout-wrapper">
-            <div id="pattern-border" class="pattern-border" aria-hidden="true"></div>
-            <main class="content">
-                <h1 class="page-title">I made a programming language with M&amp;Ms</h1>
-
-                <div class="post-metadata">
-                    <div class="metadata-item"><span class="metadata-label">Created:</span> 2026-03-07</div>
-
-                    <div class="metadata-item">
-                        <span class="metadata-label">Tags:</span>
-
-                        <a href="https://mufeedvh.com/tags/programming/">programming</a>,
-
-                        <a href="https://mufeedvh.com/tags/compilers/">compilers</a>,
-
-                        <a href="https://mufeedvh.com/tags/silly/">silly</a>,
-
-                        <a href="https://mufeedvh.com/tags/slop/">slop</a>
-                    </div>
-                </div>
-
-                <article class="drop-cap">
-                    <div class="slop-meter" onclick="this.classList.toggle('active')">
-                        <div class="slop-meter-header">
-                            <span class="slop-meter-title">ai-slop meter</span>
-                            <span class="slop-meter-percent">31%</span>
-                        </div>
-                        <div class="slop-meter-bar">
-                            <div class="slop-meter-fill" style="width: 31%"></div>
-                        </div>
-                        <span class="slop-meter-tooltip"
-                            >How much of this article was AI-generated — code, prose, or structure. The rest is
-                            human-written.</span
-                        >
-                    </div>
-                    <blockquote>
-                        <p>What if a little pile of M&amp;Ms on a table was a real program?</p>
-                    </blockquote>
-                    <p>
-                        I mean literally. Imagine you arrange M&amp;M-like candies into a specific pattern, that pattern
-                        is executable code.
-                    </p>
-                    <p>
-                        Alright story time. Featuring
-                        <em>inline interactive interpreter embedded right inside this post</em>.
-                    </p>
-                    <p>
-                        It all started when I spilled a full packet of GEMS
-                        <span class="sidenote-container">
-                            <a
-                                href="#sidenote-gems"
-                                class="sidenote-marker"
-                                data-sidenote="sidenote-gems"
-                                onclick="
-                                    toggleSidenote('sidenote-gems');
-                                    return false;
-                                "
-                                >†</a
-                            >
-                            <span id="sidenote-gems" class="sidenote">
-                                GEMS is sort of an Indian version of M&Ms.
-                            </span>
-                        </span>
-                        on the floor cus I opened (ripped?) the packet a bit too hard.
-                    </p>
-                    <p>It fell into an interesting pattern that I could only describe as the shape of an arrow.</p>
-                    <p>
-                        Random patterns, fractals, interpreting nonsense into structure are hobbies that entice me. I am
-                        somewhat of an apophenic when it comes to these things.
-                    </p>
-                    <p>
-                        The colors, the placements, and the structure of what I saw dropped a silly idea into my minds
-                        eye. What if I could write programs with M&amp;Ms. This is the story of one of my
-                        <em>many</em> silly little projects.
-                    </p>
-                    <img
-                        src="mnm-lang-poster.png"
-                        alt="Poster illustration for MNM Lang showing candy code on the left and a terminal-style branching tree on the right"
-                        loading="lazy"
-                        width="1024"
-                        height="512"
-                    />
-                    <div class="center-content">
-                        <p><em>abstract art of m&ms being parsed</em></p>
-                    </div>
-                    <div class="toc-container" id="toc-container-default">
-                        <div
-                            class="toc-toggle"
-                            onclick="toggleTOC('default')"
-                            role="button"
-                            tabindex="0"
-                            aria-expanded="true"
-                            aria-controls="toc-content-default"
-                        >
-                            <span class="toggle-icon">▶</span> <span class="toc-title">Table of Contents</span>
-                        </div>
-
-                        <nav
-                            id="toc-content-default"
-                            class="toc-content"
-                            aria-label="Table of contents"
-                            style="display: block"
-                        >
-                            <ul class="toc-list" id="toc-list-default"></ul>
-                        </nav>
-                    </div>
-
-                    <style>
-                        .toc-container {
-                            margin: 2em 0;
-                            position: relative;
-                            background-color: #080808;
-                            border: 1px dotted var(--border-dotted);
-                        }
-
-                        .toc-toggle {
-                            display: flex;
-                            align-items: center;
-                            gap: 0.8em;
-                            font-family: var(--font-display);
-                            font-size: 0.85rem;
-                            font-weight: 600;
-                            color: var(--text-primary);
-                            background-color: #0d0d0d;
-                            border: none;
-                            border-bottom: 1px dotted var(--border-dotted);
-                            padding: 0.6rem 1rem;
-                            cursor: pointer;
-                            letter-spacing: 0.1em;
-                            text-transform: uppercase;
-                            width: 100%;
-                            transition: background-color var(--transition-fast);
-                        }
-
-                        .toc-toggle:hover {
-                            background-color: #141414;
-                        }
-
-                        .toggle-icon {
-                            display: inline-block;
-                            transition: transform 0.3s ease;
-                            font-size: 0.7em;
-                            color: var(--text-tertiary);
-                        }
-
-                        .toc-toggle[aria-expanded="true"] .toggle-icon {
-                            transform: rotate(90deg);
-                        }
-
-                        .toc-content {
-                            background-color: transparent;
-                            margin: 0 !important;
-                            padding: var(--space-2) var(--space-3) !important;
-                            overflow-y: visible;
-                        }
-
-                        .toc-list,
-                        .toc-list ul {
-                            list-style: none !important;
-                            margin: 0 !important;
-                            padding: 0 !important;
-                        }
-
-                        .toc-list li {
-                            margin: 0 !important;
-                            padding: 0 !important;
-                            position: relative;
-                            font-family: var(--font-body);
-                        }
-
-                        .toc-list a {
-                            color: var(--text-secondary);
-                            text-decoration: none !important;
-                            display: block;
-                            padding: 0.4em 0.6em;
-                            transition: all 0.15s ease;
-                            font-size: 0.9em;
-                            line-height: 1.4;
-                            border: none !important;
-                        }
-
-                        .toc-list a:hover,
-                        .toc-list a.active {
-                            color: var(--text-primary);
-                            background-color: #141414;
-                        }
-
-                        .toc-tree-svg {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            pointer-events: none;
-                            z-index: 3;
-                        }
-
-                        .toc-tree-svg line {
-                            stroke: var(--border-dotted);
-                            stroke-width: 1;
-                            stroke-dasharray: 2 2;
-                            fill: none;
-                        }
-
-                        .toc-list li:hover > .toc-tree-svg line,
-                        .toc-list li.active > .toc-tree-svg line {
-                            stroke: var(--text-tertiary);
-                        }
-
-                        .toc-h1 {
-                            padding-left: 0.9em;
-                        }
-                        .toc-h2 {
-                            padding-left: 2.5em;
-                        }
-                        .toc-h3 {
-                            padding-left: 4.1em;
-                        }
-                        .toc-h4 {
-                            padding-left: 5.7em;
-                        }
-                        .toc-h5 {
-                            padding-left: 7.3em;
-                        }
-                        .toc-h6 {
-                            padding-left: 8.9em;
-                        }
-
-                        @media screen and (max-width: 768px) {
-                            .toc-toggle {
-                                width: 100%;
-                                justify-content: center;
-                            }
-                            .toc-h1 {
-                                padding-left: 0.5em;
-                            }
-                            .toc-h2 {
-                                padding-left: 1.2em;
-                            }
-                            .toc-h3 {
-                                padding-left: 1.9em;
-                            }
-                            .toc-h4 {
-                                padding-left: 2.6em;
-                            }
-                            .toc-h5 {
-                                padding-left: 3.3em;
-                            }
-                            .toc-h6 {
-                                padding-left: 4em;
-                            }
-                        }
-
-                        html {
-                            scroll-behavior: smooth;
-                        }
-                        .toc-anchor {
-                            scroll-margin-top: 40px;
-                        }
-                    </style>
-
-                    <script>
-                        (function () {
-                            const tocId = "default";
-                            const minLevel = 1;
-                            const maxLevel = 6;
-                            const INDENT = 24;
-
-                            window.toggleTOC = function (id) {
-                                const button = document.querySelector(`#toc-container-${id} .toc-toggle`);
-                                const content = document.getElementById(`toc-content-${id}`);
-                                const isExpanded = button.getAttribute("aria-expanded") === "true";
-                                button.setAttribute("aria-expanded", !isExpanded);
-                                content.style.display = isExpanded ? "none" : "block";
-                            };
-
-                            function sanitizeId(id) {
-                                if (/^\d/.test(id)) return "h-" + id;
-                                return id;
-                            }
-
-                            function updateActiveSection() {
-                                const headings = document.querySelectorAll(".toc-anchor");
-                                const tocLinks = document.querySelectorAll(`#toc-list-${tocId} a`);
-
-                                tocLinks.forEach((link) => {
-                                    link.classList.remove("active");
-                                    link.parentElement.classList.remove("active");
-                                });
-
-                                let currentSection = null;
-                                const scrollPosition = window.scrollY + 100;
-
-                                for (let i = headings.length - 1; i >= 0; i--) {
-                                    if (headings[i].offsetTop <= scrollPosition) {
-                                        currentSection = headings[i];
-                                        break;
-                                    }
-                                }
-
-                                if (currentSection) {
-                                    const activeLink = document.querySelector(
-                                        `#toc-list-${tocId} a[href="#${currentSection.id}"]`,
-                                    );
-                                    if (activeLink) {
-                                        activeLink.classList.add("active");
-                                        activeLink.parentElement.classList.add("active");
-                                    }
-                                }
-                            }
-
-                            function generateTOC() {
-                                const tocList = document.getElementById(`toc-list-${tocId}`);
-                                const content = document.querySelector(".content");
-                                const headings = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
-
-                                if (headings.length === 0) {
-                                    document.getElementById(`toc-container-${tocId}`).style.display = "none";
-                                    return;
-                                }
-
-                                let currentList = tocList;
-                                let listStack = [currentList];
-                                let currentLevel = minLevel;
-                                let foundValidHeading = false;
-
-                                headings.forEach((heading, index) => {
-                                    const isButtonHeading =
-                                        heading.parentElement &&
-                                        heading.parentElement.classList.contains("button-wrapper");
-                                    const isExcludedText =
-                                        heading.textContent.trim() === "Link to this article" ||
-                                        heading.textContent.trim().includes("Follow me on");
-
-                                    if (isButtonHeading || isExcludedText) return;
-
-                                    const level = parseInt(heading.tagName.substring(1));
-                                    if (level < minLevel || level > maxLevel) return;
-
-                                    foundValidHeading = true;
-
-                                    if (!heading.id) {
-                                        heading.id = `heading-${tocId}-${index}`;
-                                    } else {
-                                        heading.id = sanitizeId(heading.id);
-                                    }
-
-                                    heading.classList.add("toc-anchor");
-
-                                    const li = document.createElement("li");
-                                    const a = document.createElement("a");
-                                    a.href = `#${heading.id}`;
-                                    a.textContent = heading.textContent.trim();
-                                    a.className = `toc-h${level}`;
-                                    a.dataset.level = level;
-
-                                    if (level > currentLevel) {
-                                        const nestedUl = document.createElement("ul");
-                                        const parentLi = listStack[listStack.length - 1].lastElementChild;
-                                        if (parentLi) {
-                                            parentLi.appendChild(nestedUl);
-                                            listStack.push(nestedUl);
-                                        }
-                                    } else if (level < currentLevel) {
-                                        const levelDiff = currentLevel - level;
-                                        for (let i = 0; i < levelDiff && listStack.length > 1; i++) {
-                                            listStack.pop();
-                                        }
-                                    }
-
-                                    currentLevel = level;
-                                    currentList = listStack[listStack.length - 1];
-
-                                    li.appendChild(a);
-                                    currentList.appendChild(li);
-
-                                    a.addEventListener("click", function (e) {
-                                        e.preventDefault();
-                                        const targetId = this.getAttribute("href").substring(1);
-                                        const target = document.getElementById(targetId);
-                                        if (target) {
-                                            target.scrollIntoView({ behavior: "smooth", block: "start" });
-                                            history.pushState(null, null, this.getAttribute("href"));
-                                            updateActiveSection();
-                                        }
-                                    });
-                                });
-
-                                if (!foundValidHeading) {
-                                    document.getElementById(`toc-container-${tocId}`).style.display = "none";
-                                }
-
-                                setTimeout(() => {
-                                    addTreeLines(tocList);
-                                }, 5);
-
-                                setupScrollSpy();
-                            }
-
-                            function addTreeLines(list, depth = 0, parentContinues = []) {
-                                const items = Array.from(list.children);
-
-                                items.forEach((li, index) => {
-                                    const link = li.querySelector(":scope > a");
-                                    if (!link) {
-                                        return;
-                                    }
-
-                                    const isLast = index === items.length - 1;
-                                    const headingLevel = parseInt(link.dataset.level, 10) || minLevel;
-                                    const shouldRenderConnectors = depth > 0 || minLevel > 1 || headingLevel > minLevel;
-
-                                    if (shouldRenderConnectors) {
-                                        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                                        svg.classList.add("toc-tree-svg");
-
-                                        const computedStyles = window.getComputedStyle(link);
-                                        const linkHeight =
-                                            link.offsetHeight ||
-                                            link.getBoundingClientRect().height ||
-                                            parseFloat(computedStyles.lineHeight) ||
-                                            0;
-
-                                        const linkPaddingTop = parseFloat(computedStyles.paddingTop) || 0;
-                                        const linkPaddingBottom = parseFloat(computedStyles.paddingBottom) || 0;
-                                        const linkBorderTop = parseFloat(computedStyles.borderTopWidth) || 0;
-                                        const linkBorderBottom = parseFloat(computedStyles.borderBottomWidth) || 0;
-
-                                        const liStyles = window.getComputedStyle(li);
-                                        const liBorderTop = parseFloat(liStyles.borderTopWidth) || 0;
-
-                                        const rowHeight =
-                                            linkHeight +
-                                            linkPaddingTop +
-                                            linkPaddingBottom +
-                                            linkBorderTop +
-                                            linkBorderBottom +
-                                            liBorderTop;
-                                        const safeRowHeight = Math.max(rowHeight, 1);
-
-                                        const linkPaddingLeft = parseFloat(computedStyles.paddingLeft) || 0;
-                                        const connectorDepth = depth + 1;
-                                        const connectorX = connectorDepth * INDENT;
-                                        const svgWidth = connectorDepth * INDENT + INDENT + linkPaddingLeft;
-
-                                        svg.setAttribute("width", svgWidth);
-                                        svg.setAttribute("height", safeRowHeight);
-
-                                        const midY = linkHeight / 2;
-
-                                        parentContinues.forEach((continues, idx) => {
-                                            if (!continues) {
-                                                return;
-                                            }
-                                            const x = (idx + 1) * INDENT;
-                                            const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                                            line.setAttribute("x1", x);
-                                            line.setAttribute("y1", 0);
-                                            line.setAttribute("x2", x);
-                                            line.setAttribute("y2", safeRowHeight);
-                                            svg.appendChild(line);
-                                        });
-
-                                        const vertLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                                        vertLine.setAttribute("x1", connectorX);
-                                        vertLine.setAttribute("y1", 0);
-                                        vertLine.setAttribute("x2", connectorX);
-                                        vertLine.setAttribute("y2", midY);
-                                        svg.appendChild(vertLine);
-
-                                        const horizLine = document.createElementNS(
-                                            "http://www.w3.org/2000/svg",
-                                            "line",
-                                        );
-                                        horizLine.setAttribute("x1", connectorX);
-                                        horizLine.setAttribute("y1", midY);
-                                        horizLine.setAttribute("x2", connectorX + INDENT * 0.7);
-                                        horizLine.setAttribute("y2", midY);
-                                        svg.appendChild(horizLine);
-
-                                        if (!isLast) {
-                                            const bottomLine = document.createElementNS(
-                                                "http://www.w3.org/2000/svg",
-                                                "line",
-                                            );
-                                            bottomLine.setAttribute("x1", connectorX);
-                                            bottomLine.setAttribute("y1", midY);
-                                            bottomLine.setAttribute("x2", connectorX);
-                                            bottomLine.setAttribute("y2", safeRowHeight);
-                                            svg.appendChild(bottomLine);
-                                        }
-
-                                        li.insertBefore(svg, link);
-                                        link.style.paddingLeft = `${connectorX + INDENT * 0.7 + 5}px`;
-                                    }
-
-                                    const childList = li.querySelector(":scope > ul");
-                                    if (childList) {
-                                        const newParentContinues = parentContinues.concat(!isLast);
-                                        addTreeLines(childList, depth + 1, newParentContinues);
-                                    }
-                                });
-                            }
-
-                            function setupScrollSpy() {
-                                let isScrolling = false;
-                                window.addEventListener("scroll", function () {
-                                    if (!isScrolling) {
-                                        window.requestAnimationFrame(function () {
-                                            updateActiveSection();
-                                            isScrolling = false;
-                                        });
-                                        isScrolling = true;
-                                    }
-                                });
-                                updateActiveSection();
-                            }
-
-                            function initWhenReady() {
-                                if (document.readyState === "loading") {
-                                    document.addEventListener("DOMContentLoaded", generateTOC);
-                                } else if (
-                                    document.readyState === "interactive" ||
-                                    document.readyState === "complete"
-                                ) {
-                                    setTimeout(generateTOC, 0);
-                                }
-                            }
-                            initWhenReady();
-
-                            document.addEventListener("DOMContentLoaded", function () {
-                                const tocToggle = document.querySelector(`#toc-container-${tocId} .toc-toggle`);
-                                if (tocToggle) {
-                                    tocToggle.addEventListener("keydown", function (e) {
-                                        if (e.key === "Enter" || e.key === " ") {
-                                            e.preventDefault();
-                                            toggleTOC(tocId);
-                                        }
-                                    });
-                                }
-                            });
-                        })();
-                    </script>
-                    <p>Seeing the spilled candy on the floor, a few constraints dawned on me...</p>
-                    <ul>
-                        <li>There are only six useful colors.</li>
-                        <li>A photo is a terrible place to store exact symbolic data.</li>
-                        <li>Candy is round, glossy, messy, and inconveniently physical.</li>
-                        <li>Strings are a disaster if you try to cram them into an image.</li>
-                        <li>If this thing is going to be funny, it still has to actually work.</li>
-                    </ul>
-                    <p>So I built it.</p>
-                    <p>The result is <strong>MNM Lang</strong>, a tiny programming language where:</p>
-                    <ul>
-                        <li>source code is written as runs of six letters: <code>B G R Y O N</code></li>
-                        <li>those runs compile into a PNG made from candy sprites</li>
-                        <li>the PNG decompiles back into source exactly</li>
-                        <li>
-                            and a controlled photo decoder can recover programs from mildly skewed images (I hope that
-                            works)
-                        </li>
-                    </ul>
-                    <p>
-                        There is a CLI, a browser playground, example programs, tests, and a sprite pack generated
-                        specifically for the project.
-                    </p>
-                    <p>
-                        And this is obviously not a practical language. It is a serious implementation of a silly idea.
-                    </p>
-                    <script src="mnm_lang_web_demo.js" defer></script>
-                    <h2 id="the-core-problem">The core problem</h2>
-                    <p>If you only have six candy colors, how do you build a language that is:</p>
-                    <ul>
-                        <li>easy to place by hand</li>
-                        <li>easy to read from a photo</li>
-                        <li>expressive enough to run real examples</li>
-                        <li>and small enough that the whole bit stays funny?</li>
-                    </ul>
-                    <p>
-                        My answer was:
-                        <strong>encode instructions by color family, and encode operands by count.</strong>
-                    </p>
-                    <p>That means a token like this:</p>
-                    <pre data-lang="mnm" class="language-mnm"><code class="language-mnm" data-lang="mnm">BBB
-</code></pre>
-                    <p>isn’t “three arbitrary blue things.” It means a specific opcode.</p>
-                    <p>And a token like this:</p>
-                    <pre data-lang="mnm" class="language-mnm"><code class="language-mnm" data-lang="mnm">RRRR
-</code></pre>
-                    <p>
-                        means the integer literal <code>3</code>, because operand values are
-                        <code>len(token) - 1</code>.
-                    </p>
-                    <p>That single rule ended up doing a lot of work for me:</p>
-                    <ul>
-                        <li>it is easy to author in text</li>
-                        <li>it is easy to render into image cells</li>
-                        <li>it is easy to reconstruct from image geometry</li>
-                        <li>and it feels appropriately ridiculous</li>
-                    </ul>
-                    <p>You can explain the language to someone in about thirty seconds:</p>
-                    <blockquote>
-                        <p>
-                            “Blue clusters are control flow, green is stack and variables, yellow is math, orange is
-                            I/O, brown is labels and strings, red is stack shuffling and logic. If you want the number
-                            five, use six red candies.”
-                        </p>
-                    </blockquote>
-                    <p>Whether or not that's intuitive is not a question I can answer at this time.</p>
-                    <h2 id="images-are-bad-at-text">Images are bad at text</h2>
-                    <p>The earliest fork in the road was strings.</p>
-                    <p>
-                        I could have tried to encode text directly into candy layouts. Maybe invent a micro-alphabet.
-                        Maybe use rows of yellow and red as bytes. Maybe do some cursed base-6 trick.
-                    </p>
-                    <p>That would have been technically possible and spiritually awful.</p>
-                    <p>
-                        The fun part of the project is the visual structure, not building an OCR-resistant QR code out
-                        of sugar shells.
-                    </p>
-                    <p>So I pushed strings and initial variables into a sidecar JSON file.</p>
-                    <p>That means a program has two parts:</p>
-                    <ol>
-                        <li>the visual candy layout in <code>.mnm</code></li>
-                        <li>the non-visual runtime data in <code>.mnm.json</code></li>
-                    </ol>
-                    <p>For example, hello world is:</p>
-                    <pre data-lang="mnm" class="language-mnm"><code class="language-mnm" data-lang="mnm">OO Y
-OOOOOO
-BBBBBB
-</code></pre>
-                    <p>
-                        And because the whole bit only works if that text turns into an actual candy program, here is
-                        the compiler output for it:
-                    </p>
-                    <img
-                        src="hello-world-program.png"
-                        alt="The hello_world MNM Lang program rendered as candy sprites"
-                        loading="lazy"
-                        width="716"
-                        height="404"
-                    />
-                    <div class="center-content">
-                        <p><em>`hello_world`, but in snack form</em></p>
-                    </div>
-                    <p>And its sidecar is:</p>
-                    <pre data-lang="json" class="language-json"><code class="language-json" data-lang="json">{
-  &quot;strings&quot;: [&quot;Hello, world!&quot;],
-  &quot;variables&quot;: [],
-  &quot;inputs&quot;: {
-    &quot;int&quot;: [],
-    &quot;str&quot;: []
-  }
-}
-</code></pre>
-                    <p>
-                        And because I apparently have no sense of restraint, this page can also run that exact little
-                        program inline:
-                    </p>
-                    <div
-                        data-mnm-inline-demo
-                        data-title="Run hello_world here"
-                        data-description="The browser-native MNM Lang runtime renders the candy sheet, then animates output, AST, and trace right inside the post."
-                    >
-                        <textarea class="mnm-demo-source" hidden>
-OO Y
-OOOOOO
-BBBBBB</textarea
-                        >
-                        <script type="application/json" class="mnm-demo-sidecar">
-                            { "strings": ["Hello, world!"], "variables": [], "inputs": { "int": [], "str": [] } }
-                        </script>
-                    </div>
-                    <p>That split ended up making the whole system cleaner:</p>
-                    <ul>
-                        <li>the image only carries what images are good at: structure</li>
-                        <li>runtime input can change without moving candy</li>
-                        <li>the photo decoder does not have to pretend it can read prose from glossy candy</li>
-                    </ul>
-                    <p>
-                        Sometimes the correct answer in a whimsical project is to stop being whimsical for one layer of
-                        the stack.
-                    </p>
-                    <aside class="alterego">
-                        <div class="alterego-badge">
-                            <svg
-                                class="alterego-icon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path d="M12 2a5 5 0 0 0-5 5c0 1.5.5 2.8 1.3 3.8C7.5 12 7 13.9 7 16c0 1.7.3 3 .8 4" />
-                                <path d="M16.2 20c.5-1 .8-2.3.8-4 0-2.1-.5-4-1.3-5.2A5 5 0 0 0 12 2" />
-                                <circle cx="9.5" cy="8" r="0.8" fill="currentColor" stroke="none" />
-                                <circle cx="14.5" cy="8" r="0.8" fill="currentColor" stroke="none" />
-                                <path d="M10 11.5c.6.5 1.2.7 2 .7s1.4-.2 2-.7" />
-                                <path d="M8 20c1 1.5 2.5 2 4 2s3-.5 4-2" />
-                            </svg>
-                            <span class="alterego-label">alter ego chiming in</span>
-                        </div>
-                        <p class="alterego-text">
-                            Says the same guy who thought of synthetically generating an MNIST-like dataset of M&M
-                            programs on various different textures to train a model capable of inferring M&Ms on beach
-                            sand to running programs. Anywho.
-                        </p>
-                    </aside>
-                    <h2 id="a-language-made-of-six-colors">A language made of six colors</h2>
-                    <p>Once strings moved out of the image, the language itself fell into place pretty quickly.</p>
-                    <p>I grouped instructions by color family:</p>
-                    <ul>
-                        <li>blue: jumps, calls, halt</li>
-                        <li>green: push/load/store/dup/pop/inc/dec</li>
-                        <li>yellow: arithmetic and comparisons</li>
-                        <li>orange: printing and input</li>
-                        <li>brown: labels and string operations</li>
-                        <li>red: swap, rotate, boolean logic</li>
-                    </ul>
-                    <p>And then I made the first token on every row the opcode.</p>
-                    <p>
-                        That gives the language a very physical feel. A line is an instruction. A cluster of candies is
-                        a token. More candies means a different variant.
-                    </p>
-                    <p>It is almost closer to arranging game pieces than writing code.</p>
-                    <p>
-                        The full programs still look absurd, which I consider a success. This is the opening stretch of
-                        the factorial example:
-                    </p>
-                    <pre data-lang="mnm" class="language-mnm"><code class="language-mnm" data-lang="mnm">OOO O
-GGG G
-G RR
-GGG GG
-N B
-GG G
-G RR
-YYYYYYYY
-BB BB
-</code></pre>
-                    <p>Fed through the renderer, that opening section looks like this:</p>
-                    <img
-                        src="factorial-opening-program.png"
-                        alt="The opening stretch of the factorial example rendered as candy sprites"
-                        loading="lazy"
-                        width="924"
-                        height="1028"
-                    />
-                    <div class="center-content">
-                        <p><em>this is a real program</em></p>
-                    </div>
-                    <p>If you already know the rules, you can decode that as:</p>
-                    <ul>
-                        <li>read integer queue 0</li>
-                        <li>store into variable 0</li>
-                        <li>push 1</li>
-                        <li>store into variable 1</li>
-                        <li>label 0</li>
-                        <li>load variable 0</li>
-                        <li>push 1</li>
-                        <li>compare <code>&gt;</code></li>
-                        <li>jump-if-zero to label 1</li>
-                    </ul>
-                    <p>Which means, yes, I wrote a looping factorial program out of candy.</p>
-                    <h2 id="the-only-correct-compiler-target-was-an-image">
-                        The only correct compiler target was an image
-                    </h2>
-                    <p>If the whole gimmick is “this program is candy,” the compiler cannot stop at an AST.</p>
-                    <p>It has to emit an image.</p>
-                    <p>So the compiler takes normalized <code>.mnm</code> source and renders it on a fixed grid:</p>
-                    <ul>
-                        <li>one source character per cell</li>
-                        <li>spaces become empty cells</li>
-                        <li>cells hold transparent-background candy sprites</li>
-                        <li>the output is a PNG</li>
-                    </ul>
-                    <p>
-                        That fixed geometry turned out to be a huge win, because it made the reverse direction almost
-                        trivial.
-                    </p>
-                    <p>If an image came from the compiler, the decompiler can:</p>
-                    <ul>
-                        <li>recover the exact row/column count from the canvas size</li>
-                        <li>sample each cell</li>
-                        <li>classify it as blue/green/red/yellow/orange/brown/blank</li>
-                        <li>strip trailing spaces</li>
-                        <li>and re-parse the result</li>
-                    </ul>
-                    <p>That gives an exact round-trip:</p>
-                    <svg class="round-trip-diagram" viewBox="0 0 420 64" xmlns="http://www.w3.org/2000/svg">
-                        <style>
-                            .rt-t {
-                                font-family: "JetBrains Mono", monospace;
-                                font-size: 9px;
-                                fill: #666;
-                                letter-spacing: 0.05em;
-                            }
-                            .rt-icon {
-                                fill: none;
-                                stroke: #555;
-                                stroke-width: 1.2;
-                                stroke-linecap: round;
-                                stroke-linejoin: round;
-                            }
-                        </style>
-                        <g transform="translate(50,4)">
-                            <rect class="rt-icon" x="0" y="0" width="24" height="30" rx="1.5" />
-                            <line class="rt-icon" x1="5" y1="8" x2="19" y2="8" />
-                            <line class="rt-icon" x1="5" y1="13" x2="16" y2="13" />
-                            <line class="rt-icon" x1="5" y1="18" x2="19" y2="18" />
-                            <line class="rt-icon" x1="5" y1="23" x2="13" y2="23" />
-                            <text x="12" y="46" class="rt-t" text-anchor="middle">source</text>
-                        </g>
-                        <line x1="100" y1="22" x2="175" y2="22" stroke="#444" stroke-width="1" stroke-dasharray="4 3" />
-                        <g transform="translate(198,4)">
-                            <rect class="rt-icon" x="0" y="0" width="24" height="30" rx="1.5" />
-                            <polygon class="rt-icon" points="5,22 10,14 14,19 17,15 19,22" fill="none" />
-                            <circle cx="8" cy="10" r="2" class="rt-icon" />
-                            <text x="12" y="46" class="rt-t" text-anchor="middle">PNG</text>
-                        </g>
-                        <line x1="245" y1="22" x2="320" y2="22" stroke="#444" stroke-width="1" stroke-dasharray="4 3" />
-                        <g transform="translate(345,4)">
-                            <rect class="rt-icon" x="0" y="0" width="24" height="30" rx="1.5" />
-                            <line class="rt-icon" x1="5" y1="8" x2="19" y2="8" />
-                            <line class="rt-icon" x1="5" y1="13" x2="16" y2="13" />
-                            <line class="rt-icon" x1="5" y1="18" x2="19" y2="18" />
-                            <line class="rt-icon" x1="5" y1="23" x2="13" y2="23" />
-                            <text x="12" y="46" class="rt-t" text-anchor="middle">source</text>
-                        </g>
-                    </svg>
-                    <p>with no heuristics at all.</p>
-                    <p>In other words: the “compiler” is also a tiny image format.</p>
-                    <h2 id="i-generated-the-candy-sprites-with-an-image-model">
-                        I generated the candy sprites with an image model
-                    </h2>
-                    <p>One of my favorite parts of the project is that I didn’t hand-draw the sprites.</p>
-                    <p>
-                        I used
-                        <a
-                            rel="noopener nofollow noreferrer"
-                            target="_blank"
-                            href="https://github.com/openai/skills/blob/main/skills/.curated/imagegen/SKILL.md"
-                            >AI image generation</a
-                        >
-                        <span class="sidenote-container">
-                            <a
-                                href="#sidenote-imagegen"
-                                class="sidenote-marker"
-                                data-sidenote="sidenote-imagegen"
-                                onclick="
-                                    toggleSidenote('sidenote-imagegen');
-                                    return false;
-                                "
-                                >†</a
-                            >
-                            <span id="sidenote-imagegen" class="sidenote">
-                                This is a <a href="https://github.com/openai/skills">Codex Skill</a> — a reusable
-                                capability you can give to Codex for specialized tasks like image generation.
-                            </span>
-                        </span>
-                        to create six M&amp;M-style candy tokens:
-                    </p>
-                    <ul>
-                        <li>blue</li>
-                        <li>green</li>
-                        <li>red</li>
-                        <li>yellow</li>
-                        <li>orange</li>
-                        <li>brown</li>
-                    </ul>
-                    <p>
-                        The raw generations were decent, but not directly usable. They came with a few annoying traits:
-                    </p>
-                    <ul>
-                        <li>too much studio backdrop</li>
-                        <li>a bit of inconsistent shadow</li>
-                        <li>minor scale differences</li>
-                    </ul>
-                    <p>So the final asset pipeline became:</p>
-                    <ol>
-                        <li>generate six isolated candies with transparent-background prompts</li>
-                        <li>normalize them with a small script</li>
-                        <li>crop and center them onto a canonical 128x128 canvas</li>
-                        <li>extract palette metadata for the decompiler and photo classifier</li>
-                    </ol>
-                    <p>
-                        Not conceptually. Literally. The checked-in prompt bundle for the sprite pack looks like this:
-                    </p>
-                    <pre data-lang="json" class="language-json"><code class="language-json" data-lang="json">{
-  &quot;prompt&quot;: &quot;a single blue candy-coated chocolate lentil ... isolated on a transparent background&quot;,
-  &quot;composition&quot;: &quot;one candy only, top-down, centered, consistent scale&quot;,
-  &quot;constraints&quot;: &quot;transparent background; no logo; no text; no watermark&quot;,
-  &quot;out&quot;: &quot;blue.png&quot;
-}
-</code></pre>
-                    <p>
-                        And the normalization script starts by estimating the backdrop and isolating the largest candy
-                        blob:
-                    </p>
-                    <pre
-                        data-lang="python"
-                        class="language-python"
-                    ><code class="language-python" data-lang="python">background = np.median(border, axis=0)
-distance = np.linalg.norm(rgb - background, axis=2)
-threshold = filters.threshold_otsu(distance)
-mask = distance &gt; max(18.0, float(threshold) * 0.9)
-return labeled == regions[0].label
-</code></pre>
-                    <p>Then it scales and centers that cutout onto the canonical sprite canvas:</p>
-                    <pre
-                        data-lang="python"
-                        class="language-python"
-                    ><code class="language-python" data-lang="python">available = CANVAS_SIZE - (PADDING * 2)
-scale = min(available &#x2F; cropped.width, available &#x2F; cropped.height)
-canvas = Image.new(&quot;RGBA&quot;, (CANVAS_SIZE, CANVAS_SIZE), (0, 0, 0, 0))
-x = (CANVAS_SIZE - resized.width) &#x2F;&#x2F; 2
-y = (CANVAS_SIZE - resized.height) &#x2F;&#x2F; 2
-canvas.alpha_composite(resized, (x, y))
-</code></pre>
-                    <p>
-                        And finally it writes the palette metadata that the decompiler and photo classifier both use
-                        later:
-                    </p>
-                    <pre
-                        data-lang="python"
-                        class="language-python"
-                    ><code class="language-python" data-lang="python">rgb = array[..., :3][array[..., 3] &gt; 0]
-mean_rgb = tuple(int(round(value)) for value in rgb.mean(axis=0))
-palette[color[0].upper() if color != &quot;brown&quot; else &quot;N&quot;] = mean_rgb
-</code></pre>
-                    <p>
-                        That normalization step mattered a lot more than I expected. If the shadows are too strong,
-                        candies that are supposed to be separate blobs start merging after blur and perspective
-                        transforms. That sounds like a silly implementation detail, but it is exactly the sort of thing
-                        that determines whether “photo decoding” is real or fake.
-                    </p>
-                    <p>
-                        Projects like this are fun because the silly part and the engineering part keep interfering with
-                        each other in useful ways.
-                    </p>
-                    <h2 id="i-almost-talked-myself-into-training-a-model">
-                        I almost talked myself into training a model
-                    </h2>
-                    <p>
-                        When you say “image decoding,” your brain immediately offers to make the project bigger than it
-                        needs to be.
-                    </p>
-                    <p>I had the same impulse:</p>
-                    <ul>
-                        <li>maybe I should train a tiny classifier</li>
-                        <li>maybe synthesize candy crops</li>
-                        <li>maybe build the MNIST-for-M&amp;Ms pipeline</li>
-                    </ul>
-                    <p>That would be fun. It is also not necessary for v1.</p>
-                    <p>The version I shipped uses deterministic image processing for the photo decoder:</p>
-                    <ul>
-                        <li>estimate background color from the border</li>
-                        <li>segment candy-like foreground blobs</li>
-                        <li>classify each blob against the canonical six-color palette</li>
-                        <li>cluster the blobs into rows</li>
-                        <li>infer spaces from centroid gaps</li>
-                        <li>re-parse the reconstructed source</li>
-                    </ul>
-                    <p>This works surprisingly well for the target use case:</p>
-                    <ul>
-                        <li>overhead photo</li>
-                        <li>plain contrasting background</li>
-                        <li>separated candies</li>
-                        <li>mild blur</li>
-                        <li>small rotation or perspective skew</li>
-                    </ul>
-                    <p>
-                        It absolutely does <strong>not</strong> solve “dumped a bag of candy on a messy kitchen table
-                        and took a dramatic iPhone shot.”
-                    </p>
-                    <h2 id="real-example-programs-are-where-the-joke-becomes-a-language">
-                        Real example programs are where the joke becomes a language
-                    </h2>
-                    <p>I didn’t want this to stop at “hello world with candy colors.”</p>
-                    <p>So I added a few examples that push on different parts of the language:</p>
-                    <p><code>hello_world</code></p>
-                    <p>Pure output. Basically the proof that the whole pipeline exists.</p>
-                    <p><code>echo_name</code></p>
-                    <p>Uses a string queue and concatenation to greet the input name from the sidecar.</p>
-                    <p><code>factorial</code></p>
-                    <p>This is where it starts feeling real:</p>
-                    <ul>
-                        <li>labels</li>
-                        <li>variable mutation</li>
-                        <li>arithmetic</li>
-                        <li>conditionals</li>
-                        <li>loops</li>
-                    </ul>
-                    <p><code>fizzbuzz</code></p>
-                    <p>Mandatory. Also unexpectedly good at showing off the design because it uses:</p>
-                    <ul>
-                        <li>modulo</li>
-                        <li>branching</li>
-                        <li>string slots</li>
-                        <li>repeated output</li>
-                        <li>a small amount of state</li>
-                    </ul>
-                    <p>
-                        Watching <code>fizzbuzz</code> compile into a candy grid and then run correctly is exactly the
-                        kind of payoff I wanted from the project.
-                    </p>
-                    <p>
-                        At that point it stops being “a cursed novelty syntax” and starts being “okay, this is a
-                        legitimate little VM that happens to look like a snack.”
-                    </p>
-                    <h2 id="the-browser-playground-made-it-feel-like-a-real-toy">
-                        The browser playground made it feel like a real toy
-                    </h2>
-                    <p>The CLI is the serious interface:</p>
-                    <ul>
-                        <li>compile</li>
-                        <li>decompile</li>
-                        <li>run</li>
-                        <li>serve</li>
-                        <li>list examples</li>
-                    </ul>
-                    <p>But the browser playground is what makes the repo inviting.</p>
-                    <p>It lets you:</p>
-                    <ul>
-                        <li>load a shipped example</li>
-                        <li>edit source</li>
-                        <li>edit sidecar JSON</li>
-                        <li>render the candy-sheet preview</li>
-                        <li>run it immediately</li>
-                        <li>upload an image and decode it back into source</li>
-                    </ul>
-                    <p>
-                        I also added two views that made the whole thing feel much more like a real language toolchain
-                        instead of a cursed renderer demo:
-                    </p>
-                    <ul>
-                        <li>a tree-formatted AST showing what the parser believes each candy row means</li>
-                        <li>
-                            a tree-formatted execution trace showing which branches the interpreter actually took at
-                            runtime
-                        </li>
-                    </ul>
-                    <p>For a tiny program like <code>hello_world</code>, the AST stays pleasantly readable:</p>
-                    <pre
-                        data-lang="text"
-                        class="language-text"
-                    ><code class="language-text" data-lang="text">Program (3 instruction(s))
-|-- labels
-|   `-- (none)
-`-- instructions
-    |-- [0] PRINT_STR @ line 1 (string[0] from Y)
-    |   `-- source: OO Y
-    |-- [1] NEWLINE @ line 2
-    |   |-- source: OOOOOO
-    |   `-- operands: (none)
-    `-- [2] HALT @ line 3
-        |-- source: BBBBBB
-        `-- operands: (none)
-</code></pre>
-                    <p>
-                        And the execution trace is exactly the kind of thing I wanted once the language had loops and
-                        branches. Here is a clipped excerpt from <code>factorial</code>, right around the point where
-                        the loop either keeps going or breaks out:
-                    </p>
-                    <pre data-lang="text" class="language-text"><code class="language-text" data-lang="text">Execution
-|-- [step 8] [ip=7] GT @ line 8
-|   `-- state: stack=[1] vars=[5, 1]
-|-- [step 9] [ip=8] JZ (label[1] from BB) @ line 9
-|   |-- branch: fallthrough -&gt; instruction[9]
-|   `-- state: stack=[] vars=[5, 1]
-...
-|-- [step 52] [ip=7] GT @ line 8
-|   `-- state: stack=[0] vars=[1, 120]
-|-- [step 53] [ip=8] JZ (label[1] from BB) @ line 9
-|   |-- branch: taken -&gt; label[1] @ instruction[15]
-|   `-- state: stack=[] vars=[1, 120]
-</code></pre>
-                    <p>
-                        That same tree output now shows up in both the CLI and the browser UI, which is nice because
-                        candy code is way funnier once you can also inspect it like a real compiler/runtime pipeline.
-                    </p>
-                    <p>So here is the same idea, but actually live:</p>
-                    <div
-                        data-mnm-inline-demo
-                        data-title="Run factorial inline"
-                        data-description="A richer inline demo with loops, state mutation, branch decisions, the candy-sheet render, and the full trace tree."
-                    >
-                        <textarea class="mnm-demo-source" hidden>
-OOO O
+        <span class="alterego-label">alter ego chiming in</span>
+    </div>
+    <p class="alterego-text">Says the same guy who thought of synthetically generating an MNIST-like dataset of M&M programs on various different textures to train a model capable of inferring M&Ms on beach sand to running programs. Anywho.</p>
+</aside>
+<h2 id="a-language-made-of-six-colors">A language made of six colors</h2>
+<p>Once strings moved out of the image, the language itself fell into place pretty quickly.</p>
+<p>I grouped instructions by color family:</p>
+<ul>
+<li>blue: jumps, calls, halt</li>
+<li>green: push/load/store/dup/pop/inc/dec</li>
+<li>yellow: arithmetic and comparisons</li>
+<li>orange: printing and input</li>
+<li>brown: labels and string operations</li>
+<li>red: swap, rotate, boolean logic</li>
+</ul>
+<p>And then I made the first token on every row the opcode.</p>
+<p>That gives the language a very physical feel. A line is an instruction. A cluster
+of candies is a token. More candies means a different variant.</p>
+<p>It is almost closer to arranging game pieces than writing code.</p>
+<p>The full programs still look absurd, which I consider a success. This is the
+opening stretch of the factorial example:</p>
+<pre data-lang="mnm" class="language-mnm z-code"><code class="language-mnm" data-lang="mnm"><span class="z-text z-plain">OOO O
+</span><span class="z-text z-plain">GGG G
+</span><span class="z-text z-plain">G RR
+</span><span class="z-text z-plain">GGG GG
+</span><span class="z-text z-plain">N B
+</span><span class="z-text z-plain">GG G
+</span><span class="z-text z-plain">G RR
+</span><span class="z-text z-plain">YYYYYYYY
+</span><span class="z-text z-plain">BB BB
+</span></code></pre>
+<p>Fed through the renderer, that opening section looks like this:</p>
+<img src="factorial-opening-program.png" alt="The opening stretch of the factorial example rendered as candy sprites" loading="lazy" width="924" height="1028">
+<div class="center-content">
+<p><em>this is a real program</em></p>
+</div>
+<p>If you already know the rules, you can decode that as:</p>
+<ul>
+<li>read integer queue 0</li>
+<li>store into variable 0</li>
+<li>push 1</li>
+<li>store into variable 1</li>
+<li>label 0</li>
+<li>load variable 0</li>
+<li>push 1</li>
+<li>compare <code>&gt;</code></li>
+<li>jump-if-zero to label 1</li>
+</ul>
+<p>Which means, yes, I wrote a looping factorial program out of candy.</p>
+<h2 id="the-only-correct-compiler-target-was-an-image">The only correct compiler target was an image</h2>
+<p>If the whole gimmick is “this program is candy,” the compiler cannot stop at an AST.</p>
+<p>It has to emit an image.</p>
+<p>So the compiler takes normalized <code>.mnm</code> source and renders it on a fixed grid:</p>
+<ul>
+<li>one source character per cell</li>
+<li>spaces become empty cells</li>
+<li>cells hold transparent-background candy sprites</li>
+<li>the output is a PNG</li>
+</ul>
+<p>That fixed geometry turned out to be a huge win, because it made the reverse
+direction almost trivial.</p>
+<p>If an image came from the compiler, the decompiler can:</p>
+<ul>
+<li>recover the exact row/column count from the canvas size</li>
+<li>sample each cell</li>
+<li>classify it as blue/green/red/yellow/orange/brown/blank</li>
+<li>strip trailing spaces</li>
+<li>and re-parse the result</li>
+</ul>
+<p>That gives an exact round-trip:</p>
+<svg class="round-trip-diagram" viewBox="0 0 420 64" xmlns="http://www.w3.org/2000/svg">
+  <style>.rt-t{font-family:var(--font-mono),monospace;font-size:9px;fill:var(--ink-3);letter-spacing:0.05em}.rt-icon{fill:none;stroke:var(--ink-3);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}</style>
+  <g transform="translate(50,4)">
+    <rect class="rt-icon" x="0" y="0" width="24" height="30" rx="1.5"/>
+    <line class="rt-icon" x1="5" y1="8" x2="19" y2="8"/>
+    <line class="rt-icon" x1="5" y1="13" x2="16" y2="13"/>
+    <line class="rt-icon" x1="5" y1="18" x2="19" y2="18"/>
+    <line class="rt-icon" x1="5" y1="23" x2="13" y2="23"/>
+    <text x="12" y="46" class="rt-t" text-anchor="middle">source</text>
+  </g>
+  <line x1="100" y1="22" x2="175" y2="22" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="4 3"/>
+  <g transform="translate(198,4)">
+    <rect class="rt-icon" x="0" y="0" width="24" height="30" rx="1.5"/>
+    <polygon class="rt-icon" points="5,22 10,14 14,19 17,15 19,22" fill="none"/>
+    <circle cx="8" cy="10" r="2" class="rt-icon"/>
+    <text x="12" y="46" class="rt-t" text-anchor="middle">PNG</text>
+  </g>
+  <line x1="245" y1="22" x2="320" y2="22" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="4 3"/>
+  <g transform="translate(345,4)">
+    <rect class="rt-icon" x="0" y="0" width="24" height="30" rx="1.5"/>
+    <line class="rt-icon" x1="5" y1="8" x2="19" y2="8"/>
+    <line class="rt-icon" x1="5" y1="13" x2="16" y2="13"/>
+    <line class="rt-icon" x1="5" y1="18" x2="19" y2="18"/>
+    <line class="rt-icon" x1="5" y1="23" x2="13" y2="23"/>
+    <text x="12" y="46" class="rt-t" text-anchor="middle">source</text>
+  </g>
+</svg>
+<p>with no heuristics at all.</p>
+<p>In other words: the “compiler” is also a tiny image format.</p>
+<h2 id="i-generated-the-candy-sprites-with-an-image-model">I generated the candy sprites with an image model</h2>
+<p>One of my favorite parts of the project is that I didn’t hand-draw the sprites.</p>
+<p>I used <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/openai/skills/blob/main/skills/.curated/imagegen/SKILL.md">AI image generation</a><span class="sidenote-container"><a href="#sidenote-imagegen" class="sidenote-marker" data-sidenote="sidenote-imagegen" aria-label="Sidenote imagegen" aria-controls="sidenote-imagegen">†</a><span id="sidenote-imagegen" class="sidenote" role="note">This is a <a href='https://github.com/openai/skills'>Codex Skill</a> — a reusable capability you can give to Codex for specialized tasks like image generation.</span></span>
+ to create six M&amp;M-style candy tokens:</p>
+<ul>
+<li>blue</li>
+<li>green</li>
+<li>red</li>
+<li>yellow</li>
+<li>orange</li>
+<li>brown</li>
+</ul>
+<p>The raw generations were decent, but not directly usable. They came with a few
+annoying traits:</p>
+<ul>
+<li>too much studio backdrop</li>
+<li>a bit of inconsistent shadow</li>
+<li>minor scale differences</li>
+</ul>
+<p>So the final asset pipeline became:</p>
+<ol>
+<li>generate six isolated candies with transparent-background prompts</li>
+<li>normalize them with a small script</li>
+<li>crop and center them onto a canonical 128x128 canvas</li>
+<li>extract palette metadata for the decompiler and photo classifier</li>
+</ol>
+<p>Not conceptually. Literally. The checked-in prompt bundle for the sprite pack
+looks like this:</p>
+<pre data-lang="json" class="language-json z-code"><code class="language-json" data-lang="json"><span class="z-source z-json"><span class="z-meta z-mapping z-json"><span class="z-punctuation z-section z-mapping z-begin z-json">{</span>
+</span></span><span class="z-source z-json"><span class="z-meta z-mapping z-json">  </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>prompt<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>a single blue candy-coated chocolate lentil ... isolated on a transparent background<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json">  </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>composition<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>one candy only, top-down, centered, consistent scale<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json">  </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>constraints<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>transparent background; no logo; no text; no watermark<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json">  </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>out<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>blue.png<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span>
+</span></span><span class="z-source z-json"><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-section z-mapping z-end z-json">}</span></span>
+</span></code></pre>
+<p>And the normalization script starts by estimating the backdrop and isolating the
+largest candy blob:</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">background</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">np</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">median</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">border</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">axis</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">distance</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">np</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">linalg</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">norm</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">rgb</span></span> <span class="z-keyword z-operator z-arithmetic z-python">-</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">background</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">axis</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-constant z-numeric z-integer z-decimal z-python">2</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">threshold</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">filters</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">threshold_otsu</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">distance</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">mask</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">distance</span></span> <span class="z-keyword z-operator z-comparison z-python">&gt;</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">max</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-constant z-numeric z-float z-decimal z-python">18<span class="z-punctuation z-separator z-decimal z-python">.</span>0</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-type z-python">float</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">threshold</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-constant z-numeric z-float z-decimal z-python">0<span class="z-punctuation z-separator z-decimal z-python">.</span>9</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">labeled</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">regions</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-constant z-numeric z-integer z-decimal z-python">0</span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">label</span>
+</span></code></pre>
+<p>Then it scales and centers that cutout onto the canonical sprite canvas:</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">available</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-qualified-name z-python"><span class="z-variable z-other z-constant z-python">CANVAS_SIZE</span></span> <span class="z-keyword z-operator z-arithmetic z-python">-</span> <span class="z-meta z-group z-python"><span class="z-punctuation z-section z-group z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-other z-constant z-python">PADDING</span></span> <span class="z-keyword z-operator z-arithmetic z-python">*</span> <span class="z-constant z-numeric z-integer z-decimal z-python">2</span><span class="z-punctuation z-section z-group z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">scale</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">min</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">available</span></span> <span class="z-keyword z-operator z-arithmetic z-python">/</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cropped</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">width</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">available</span></span> <span class="z-keyword z-operator z-arithmetic z-python">/</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cropped</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">height</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">canvas</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">Image</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">new</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">RGBA<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-sequence z-tuple z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-other z-constant z-python">CANVAS_SIZE</span></span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-variable z-other z-constant z-python">CANVAS_SIZE</span></span><span class="z-punctuation z-section z-sequence z-end z-python">)</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-sequence z-tuple z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-sequence z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">x</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-group z-python"><span class="z-punctuation z-section z-group z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-other z-constant z-python">CANVAS_SIZE</span></span> <span class="z-keyword z-operator z-arithmetic z-python">-</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">resized</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">width</span></span><span class="z-punctuation z-section z-group z-end z-python">)</span></span> <span class="z-keyword z-operator z-arithmetic z-python">/</span><span class="z-keyword z-operator z-arithmetic z-python">/</span> <span class="z-constant z-numeric z-integer z-decimal z-python">2</span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">y</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-group z-python"><span class="z-punctuation z-section z-group z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-other z-constant z-python">CANVAS_SIZE</span></span> <span class="z-keyword z-operator z-arithmetic z-python">-</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">resized</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">height</span></span><span class="z-punctuation z-section z-group z-end z-python">)</span></span> <span class="z-keyword z-operator z-arithmetic z-python">/</span><span class="z-keyword z-operator z-arithmetic z-python">/</span> <span class="z-constant z-numeric z-integer z-decimal z-python">2</span>
+</span><span class="z-source z-python"><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">canvas</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">alpha_composite</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">resized</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-sequence z-tuple z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-section z-sequence z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span></code></pre>
+<p>And finally it writes the palette metadata that the decompiler and photo
+classifier both use later:</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">rgb</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">array</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-constant z-language z-python">...</span>, <span class="z-punctuation z-separator z-slice z-python">:</span><span class="z-constant z-numeric z-integer z-decimal z-python">3</span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">array</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-constant z-language z-python">...</span>, <span class="z-constant z-numeric z-integer z-decimal z-python">3</span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span> <span class="z-keyword z-operator z-comparison z-python">&gt;</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">mean_rgb</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-type z-python">tuple</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-type z-python">int</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">round</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">value</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-meta z-expression z-generator z-python"><span class="z-keyword z-control z-loop z-for z-generator z-python">for</span> <span class="z-meta z-generic-name z-python">value</span> <span class="z-keyword z-control z-loop z-for z-in z-python">in</span></span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">rgb</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">mean</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-variable z-parameter z-python">axis</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">palette</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">color</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-constant z-numeric z-integer z-decimal z-python">0</span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">upper</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">color</span></span> <span class="z-keyword z-operator z-comparison z-python">!=</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">brown<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span> <span class="z-keyword z-control z-conditional z-else z-python">else</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">N<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">mean_rgb</span></span>
+</span></code></pre>
+<p>That normalization step mattered a lot more than I expected. If the shadows are
+too strong, candies that are supposed to be separate blobs start merging after
+blur and perspective transforms. That sounds like a silly implementation detail,
+but it is exactly the sort of thing that determines whether “photo decoding” is
+real or fake.</p>
+<p>Projects like this are fun because the silly part and the engineering part keep
+interfering with each other in useful ways.</p>
+<h2 id="i-almost-talked-myself-into-training-a-model">I almost talked myself into training a model</h2>
+<p>When you say “image decoding,” your brain immediately offers to make the project
+bigger than it needs to be.</p>
+<p>I had the same impulse:</p>
+<ul>
+<li>maybe I should train a tiny classifier</li>
+<li>maybe synthesize candy crops</li>
+<li>maybe build the MNIST-for-M&amp;Ms pipeline</li>
+</ul>
+<p>That would be fun. It is also not necessary for v1.</p>
+<p>The version I shipped uses deterministic image processing for the photo decoder:</p>
+<ul>
+<li>estimate background color from the border</li>
+<li>segment candy-like foreground blobs</li>
+<li>classify each blob against the canonical six-color palette</li>
+<li>cluster the blobs into rows</li>
+<li>infer spaces from centroid gaps</li>
+<li>re-parse the reconstructed source</li>
+</ul>
+<p>This works surprisingly well for the target use case:</p>
+<ul>
+<li>overhead photo</li>
+<li>plain contrasting background</li>
+<li>separated candies</li>
+<li>mild blur</li>
+<li>small rotation or perspective skew</li>
+</ul>
+<p>It absolutely does <strong>not</strong> solve “dumped a bag of candy on a messy kitchen table
+and took a dramatic iPhone shot.”</p>
+<h2 id="real-example-programs-are-where-the-joke-becomes-a-language">Real example programs are where the joke becomes a language</h2>
+<p>I didn’t want this to stop at “hello world with candy colors.”</p>
+<p>So I added a few examples that push on different parts of the language:</p>
+<p><code>hello_world</code></p>
+<p>Pure output. Basically the proof that the whole pipeline exists.</p>
+<p><code>echo_name</code></p>
+<p>Uses a string queue and concatenation to greet the input name from the sidecar.</p>
+<p><code>factorial</code></p>
+<p>This is where it starts feeling real:</p>
+<ul>
+<li>labels</li>
+<li>variable mutation</li>
+<li>arithmetic</li>
+<li>conditionals</li>
+<li>loops</li>
+</ul>
+<p><code>fizzbuzz</code></p>
+<p>Mandatory. Also unexpectedly good at showing off the design because it uses:</p>
+<ul>
+<li>modulo</li>
+<li>branching</li>
+<li>string slots</li>
+<li>repeated output</li>
+<li>a small amount of state</li>
+</ul>
+<p>Watching <code>fizzbuzz</code> compile into a candy grid and then run correctly is exactly
+the kind of payoff I wanted from the project.</p>
+<p>At that point it stops being “a cursed novelty syntax” and starts being “okay,
+this is a legitimate little VM that happens to look like a snack.”</p>
+<h2 id="the-browser-playground-made-it-feel-like-a-real-toy">The browser playground made it feel like a real toy</h2>
+<p>The CLI is the serious interface:</p>
+<ul>
+<li>compile</li>
+<li>decompile</li>
+<li>run</li>
+<li>serve</li>
+<li>list examples</li>
+</ul>
+<p>But the browser playground is what makes the repo inviting.</p>
+<p>It lets you:</p>
+<ul>
+<li>load a shipped example</li>
+<li>edit source</li>
+<li>edit sidecar JSON</li>
+<li>render the candy-sheet preview</li>
+<li>run it immediately</li>
+<li>upload an image and decode it back into source</li>
+</ul>
+<p>I also added two views that made the whole thing feel much more like a real
+language toolchain instead of a cursed renderer demo:</p>
+<ul>
+<li>a tree-formatted AST showing what the parser believes each candy row means</li>
+<li>a tree-formatted execution trace showing which branches the interpreter
+actually took at runtime</li>
+</ul>
+<p>For a tiny program like <code>hello_world</code>, the AST stays pleasantly readable:</p>
+<pre data-lang="text" class="language-text z-code"><code class="language-text" data-lang="text"><span class="z-text z-plain">Program (3 instruction(s))
+</span><span class="z-text z-plain">|-- labels
+</span><span class="z-text z-plain">|   `-- (none)
+</span><span class="z-text z-plain">`-- instructions
+</span><span class="z-text z-plain">    |-- [0] PRINT_STR @ line 1 (string[0] from Y)
+</span><span class="z-text z-plain">    |   `-- source: OO Y
+</span><span class="z-text z-plain">    |-- [1] NEWLINE @ line 2
+</span><span class="z-text z-plain">    |   |-- source: OOOOOO
+</span><span class="z-text z-plain">    |   `-- operands: (none)
+</span><span class="z-text z-plain">    `-- [2] HALT @ line 3
+</span><span class="z-text z-plain">        |-- source: BBBBBB
+</span><span class="z-text z-plain">        `-- operands: (none)
+</span></code></pre>
+<p>And the execution trace is exactly the kind of thing I wanted once the language
+had loops and branches. Here is a clipped excerpt from <code>factorial</code>, right around
+the point where the loop either keeps going or breaks out:</p>
+<pre data-lang="text" class="language-text z-code"><code class="language-text" data-lang="text"><span class="z-text z-plain">Execution
+</span><span class="z-text z-plain">|-- [step 8] [ip=7] GT @ line 8
+</span><span class="z-text z-plain">|   `-- state: stack=[1] vars=[5, 1]
+</span><span class="z-text z-plain">|-- [step 9] [ip=8] JZ (label[1] from BB) @ line 9
+</span><span class="z-text z-plain">|   |-- branch: fallthrough -&gt; instruction[9]
+</span><span class="z-text z-plain">|   `-- state: stack=[] vars=[5, 1]
+</span><span class="z-text z-plain">...
+</span><span class="z-text z-plain">|-- [step 52] [ip=7] GT @ line 8
+</span><span class="z-text z-plain">|   `-- state: stack=[0] vars=[1, 120]
+</span><span class="z-text z-plain">|-- [step 53] [ip=8] JZ (label[1] from BB) @ line 9
+</span><span class="z-text z-plain">|   |-- branch: taken -&gt; label[1] @ instruction[15]
+</span><span class="z-text z-plain">|   `-- state: stack=[] vars=[1, 120]
+</span></code></pre>
+<p>That same tree output now shows up in both the CLI and the browser UI, which is
+nice because candy code is way funnier once you can also inspect it like a real
+compiler/runtime pipeline.</p>
+<p>So here is the same idea, but actually live:</p>
+<div data-mnm-inline-demo data-title="Run factorial inline" data-description="A richer inline demo with loops, state mutation, branch decisions, the candy-sheet render, and the full trace tree.">
+  <textarea class="mnm-demo-source" hidden>OOO O
 GGG G
 G RR
 GGG GG
@@ -1270,170 +573,127 @@ N BB
 GG GG
 O
 OOOOOO
-BBBBBB</textarea
-                        >
-                        <script type="application/json" class="mnm-demo-sidecar">
-                            { "strings": [], "variables": [0, 0], "inputs": { "int": [[5]], "str": [] } }
-                        </script>
-                    </div>
-                    <h2 id="we-need-tests">We need tests</h2>
-                    <p>I designed the interpreter but the code is mostly written by GPT 5.4 XHigh via Codex.</p>
-                    <aside class="alterego">
-                        <div class="alterego-badge">
-                            <svg
-                                class="alterego-icon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path d="M12 2a5 5 0 0 0-5 5c0 1.5.5 2.8 1.3 3.8C7.5 12 7 13.9 7 16c0 1.7.3 3 .8 4" />
-                                <path d="M16.2 20c.5-1 .8-2.3.8-4 0-2.1-.5-4-1.3-5.2A5 5 0 0 0 12 2" />
-                                <circle cx="9.5" cy="8" r="0.8" fill="currentColor" stroke="none" />
-                                <circle cx="14.5" cy="8" r="0.8" fill="currentColor" stroke="none" />
-                                <path d="M10 11.5c.6.5 1.2.7 2 .7s1.4-.2 2-.7" />
-                                <path d="M8 20c1 1.5 2.5 2 4 2s3-.5 4-2" />
-                            </svg>
-                            <span class="alterego-label">alter ego chiming in</span>
-                        </div>
-                        <p class="alterego-text">
-                            'design'... As in, he described the design in natural language, plain english.
-                        </p>
-                    </aside>
-                    <p>
-                        And vibe coding calls for tests cus what if it
-                        <a
-                            rel="noopener nofollow noreferrer"
-                            target="_blank"
-                            href="https://en.wikipedia.org/wiki/Reward_hacking"
-                            >reward hacked</a
-                        >
-                        <span class="sidenote-container">
-                            <a
-                                href="#sidenote-reward-hacking"
-                                class="sidenote-marker"
-                                data-sidenote="sidenote-reward-hacking"
-                                onclick="
-                                    toggleSidenote('sidenote-reward-hacking');
-                                    return false;
-                                "
-                                >†</a
-                            >
-                            <span id="sidenote-reward-hacking" class="sidenote">
-                                Reward Hacking is when an AI optimizes for the metric you gave it rather than the goal
-                                you meant — passing tests without actually solving the problem.
-                            </span>
-                        </span>
-                        my idea into existence?
-                    </p>
-                    <p>So I wrote tests for the actual guarantees:</p>
-                    <ul>
-                        <li>parser validation</li>
-                        <li>runtime semantics</li>
-                        <li>example golden outputs</li>
-                        <li>exact source/PNG/source round-trips</li>
-                        <li>synthetic photo decoding with blur, rotation, and perspective skew</li>
-                        <li>API behavior</li>
-                        <li>a playground-style smoke flow</li>
-                        <li>sprite asset sanity checks</li>
-                    </ul>
-                    <p>
-                        One of the bugs I hit was that the photo decoder accidentally treated fully opaque RGB images as
-                        if their alpha channel meant foreground everywhere, which turned the entire canvas into a single
-                        blob. That sounds obvious once you know it, and it is exactly the kind of mistake I wanted to
-                        catch.
-                    </p>
-                    <p>
-                        Another was that the sprite normalization kept too much drop shadow, which caused nearby candies
-                        to merge after blur. Again: a ridiculous bug, but a real one.
-                    </p>
-                    <p>
-                        The tests are what separate “look, I rendered candy once” from “this is an actual system with
-                        constraints and failure modes.”
-                    </p>
-                    <h2 id="the-best-part-of-the-project-is-the-tradeoff-it-forces">
-                        The best part of the project is the tradeoff it forces
-                    </h2>
-                    <p>
-                        Every joke project has a point where you decide whether you are going to protect the joke or
-                        protect the implementation.
-                    </p>
-                    <p>MNM Lang kept forcing me to do both.</p>
-                    <p>That is how you end up with rules like:</p>
-                    <ul>
-                        <li>blue cluster width decides which branch instruction you mean</li>
-                        <li>red run length encodes integer literals</li>
-                        <li>strings live in JSON because candy OCR is a terrible life choice</li>
-                        <li>compiled PNGs are exact but photos are “controlled” on purpose</li>
-                    </ul>
-                    <p>None of that is language design orthodoxy.</p>
-                    <p>All of it is completely justified by the premise... I tell myself.</p>
-                    <h2 id="if-you-want-to-try-it">If you want to try it</h2>
-                    <p>
-                        <strong>GitHub</strong>:
-                        <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/mufeedvh/mnmlang"
-                            >mufeedvh/mnmlang</a
-                        >
-                    </p>
-                    <p>
-                        The
-                        <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/mufeedvh/mnmlang"
-                            >repo</a
-                        >
-                        includes:
-                    </p>
-                    <ul>
-                        <li>the interpreter</li>
-                        <li>the photo decoder</li>
-                        <li>the candy sprites</li>
-                        <li>example programs</li>
-                        <li>the local playground</li>
-                    </ul>
-                    <p>The best first command is probably:</p>
-                    <pre
-                        data-lang="bash"
-                        class="language-bash"
-                    ><code class="language-bash" data-lang="bash">uv run mnm serve
-</code></pre>
-                    <p>Load <code>fizzbuzz</code>, render it, and look at the compiled PNG for a second.</p>
-                    <p>It really does look like a programming language you could pour out of a bag.</p>
-                    <p>So stupid.</p>
-                    <p>
-                        Oh and I have more silly projects. This is <code>#1</code> of the series. Tune in for how I
-                        reverse engineered my keyboard's driver binary to play snake with the backlights while my agents
-                        run in the background.
-                    </p>
-                    <div class="cta-row">
-                        <div class="button-wrapper">
-                            <h4 class="post-button cta-button" id="share-button" onclick="share_button()">
-                                Link to this article
-                                <svg class="svg-icon" aria-hidden="true" style="width: 1.2em; height: 1.2em">
-                                    <use href="#icon-link" />
-                                </svg>
-                            </h4>
-                        </div>
-                        <div class="button-wrapper">
-                            <h4 class="post-button cta-button" id="follow-button" onclick="twitter_follow()">
-                                Follow me on 𝕏
-                            </h4>
-                        </div>
-                    </div>
-                </article>
-            </main>
+BBBBBB</textarea>
+  <script type="application/json" class="mnm-demo-sidecar">{"strings":[],"variables":[0,0],"inputs":{"int":[[5]],"str":[]}}</script>
+</div>
+<h2 id="we-need-tests">We need tests</h2>
+<p>I designed the interpreter but the code is mostly written by GPT 5.4 XHigh via Codex.</p>
+<aside class="alterego">
+    <div class="alterego-badge">
+        <svg class="alterego-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a5 5 0 0 0-5 5c0 1.5.5 2.8 1.3 3.8C7.5 12 7 13.9 7 16c0 1.7.3 3 .8 4"/>
+            <path d="M16.2 20c.5-1 .8-2.3.8-4 0-2.1-.5-4-1.3-5.2A5 5 0 0 0 12 2"/>
+            <circle cx="9.5" cy="8" r="0.8" fill="currentColor" stroke="none"/>
+            <circle cx="14.5" cy="8" r="0.8" fill="currentColor" stroke="none"/>
+            <path d="M10 11.5c.6.5 1.2.7 2 .7s1.4-.2 2-.7"/>
+            <path d="M8 20c1 1.5 2.5 2 4 2s3-.5 4-2"/>
+        </svg>
+        <span class="alterego-label">alter ego chiming in</span>
+    </div>
+    <p class="alterego-text">'design'... As in, he described the design in natural language, plain english.</p>
+</aside>
+<p>And vibe coding calls for tests cus what if it <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Reward_hacking">reward hacked</a><span class="sidenote-container"><a href="#sidenote-reward-hacking" class="sidenote-marker" data-sidenote="sidenote-reward-hacking" aria-label="Sidenote reward-hacking" aria-controls="sidenote-reward-hacking">†</a><span id="sidenote-reward-hacking" class="sidenote" role="note">Reward Hacking is when an AI optimizes for the metric you gave it rather than the goal you meant — passing tests without actually solving the problem.</span></span>
+ my idea into existence?</p>
+<p>So I wrote tests for the actual guarantees:</p>
+<ul>
+<li>parser validation</li>
+<li>runtime semantics</li>
+<li>example golden outputs</li>
+<li>exact source/PNG/source round-trips</li>
+<li>synthetic photo decoding with blur, rotation, and perspective skew</li>
+<li>API behavior</li>
+<li>a playground-style smoke flow</li>
+<li>sprite asset sanity checks</li>
+</ul>
+<p>One of the bugs I hit was that the photo decoder accidentally treated fully opaque
+RGB images as if their alpha channel meant foreground everywhere, which turned
+the entire canvas into a single blob. That sounds obvious once you know it, and
+it is exactly the kind of mistake I wanted to catch.</p>
+<p>Another was that the sprite normalization kept too much drop shadow, which caused
+nearby candies to merge after blur. Again: a ridiculous bug, but a real one.</p>
+<p>The tests are what separate “look, I rendered candy once” from “this is an actual
+system with constraints and failure modes.”</p>
+<h2 id="the-best-part-of-the-project-is-the-tradeoff-it-forces">The best part of the project is the tradeoff it forces</h2>
+<p>Every joke project has a point where you decide whether you are going to protect
+the joke or protect the implementation.</p>
+<p>MNM Lang kept forcing me to do both.</p>
+<p>That is how you end up with rules like:</p>
+<ul>
+<li>blue cluster width decides which branch instruction you mean</li>
+<li>red run length encodes integer literals</li>
+<li>strings live in JSON because candy OCR is a terrible life choice</li>
+<li>compiled PNGs are exact but photos are “controlled” on purpose</li>
+</ul>
+<p>None of that is language design orthodoxy.</p>
+<p>All of it is completely justified by the premise... I tell myself.</p>
+<h2 id="if-you-want-to-try-it">If you want to try it</h2>
+<p><strong>GitHub</strong>: <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/mufeedvh/mnmlang">mufeedvh/mnmlang</a></p>
+<p>The <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/mufeedvh/mnmlang">repo</a> includes:</p>
+<ul>
+<li>the interpreter</li>
+<li>the photo decoder</li>
+<li>the candy sprites</li>
+<li>example programs</li>
+<li>the local playground</li>
+</ul>
+<p>The best first command is probably:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">uv</span></span><span class="z-meta z-function-call z-arguments z-shell"> run mnm serve</span>
+</span></code></pre>
+<p>Load <code>fizzbuzz</code>, render it, and look at the compiled PNG for a second.</p>
+<p>It really does look like a programming language you could pour out of a bag.</p>
+<p>So stupid.</p>
+<p>Oh and I have more silly projects. This is <code>#1</code> of the series. Tune in for how I reverse engineered my keyboard's driver binary to play snake with the backlights while my agents run in the background.</p>
+<div class="cta-row">
+<div class="button-wrapper"><button type="button" class="btn cta-button" id="share-button" onclick="share_button();"><span class="btn-text">Link to this article</span> <svg class="svg-icon" aria-hidden="true"><use href="#icon-link"/></svg></button></div>
 
-            <footer class="site-footer">
-                <div class="back-to-directory">
-                    <a href="/">← Back to Directory</a>
-                </div>
-            </footer>
+<div class="button-wrapper"><button type="button" class="btn cta-button" id="follow-button" onclick="twitter_follow();"><span class="btn-text">Follow me on</span> <span aria-hidden="true">𝕏</span></button></div>
+</div>
+
         </div>
+    </article>
 
-        <script src="/pattern-generator.js"></script>
-        <script src="/codeblock-enhancer.js"></script>
-        <script src="/blog-actions.js"></script>
-        <script src="/easter-egg.js"></script>
-        <script src="/rabbithole-audio.js"></script>
-    </body>
+
+
+    </main>
+
+    <footer class="site-footer frame">
+        <div id="pattern-border" class="pattern-border" aria-hidden="true"></div>
+        <div class="footer-row">
+            <p class="colophon">Mufeed VH<span aria-hidden="true"> &middot; </span><a href="https://mufeedvh.com/rss.xml">RSS</a></p>
+            <div class="footer-right">
+                <ul class="social">
+                    <li><a href="https://github.com/mufeedvh" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a></li>
+                    <li><a href="https://x.com/mufeedvh" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
+                    <li><a href="https://www.linkedin.com/in/mufeed-vh/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+                    <li><a href="https://www.instagram.com/mufeedvh" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg></a></li>
+                </ul>
+                <a href="/rabbithole" class="burrow" aria-label="Follow the rabbit hole" title="follow the rabbit hole">
+                    <svg viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <clipPath id="burrow-clip"><rect x="0" y="0" width="100" height="80" /></clipPath>
+                        </defs>
+                        <ellipse class="hole" cx="50" cy="80" rx="45" ry="12" />
+                        <g clip-path="url(#burrow-clip)">
+                            <g class="rabbit-character">
+                                <path d="M28 80c0-20 12-32 22-32s22 12 22 32" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+                                <path d="M38 52c-8-25-2-42 5-42s8 17 5 42" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+                                <path d="M62 52c8-25 2-42-5-42s-8 17-5 42" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+                                <circle cx="43" cy="70" r="4" fill="currentColor" />
+                                <circle cx="57" cy="70" r="4" fill="currentColor" />
+                                <circle cx="50" cy="77" r="2.5" fill="currentColor" />
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="/pattern-generator.js" defer></script>
+    <script src="/codeblock-enhancer.js" defer></script>
+    <script src="/blog-actions.js" defer></script>
+    <script src="/rabbithole-audio.js" defer></script>
+
+</body>
 </html>

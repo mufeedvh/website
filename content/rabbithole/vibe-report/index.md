@@ -1,16 +1,10 @@
 +++
 title = "Vibe Report"
-description = "a page for vibe report; art, interiors, and pics that i like straight from my gallery and twitter."
+description = "Art, interiors, and pictures I like, straight from my gallery and Twitter."
 
 [extra]
-no_header = true
 noindex = true
 +++
-
-<div class="center-content" style="margin-bottom: var(--space-8);">
-<h1 style="font-family: var(--font-fancy); font-size: 3.5rem; margin-bottom: 0;">Vibe Report</h1>
-<p style="font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-secondary); font-size: var(--text-xs);">art, interiors, and pics that i like. straight from my gallery and twitter.</p>
-</div>
 
 <div class="gallery" id="polaroid-gallery">
     {{ gallery() }}

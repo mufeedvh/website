@@ -1,624 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="referrer" content="no-referrer" />
-        <meta name="theme-color" content="#0d0d0d" />
-
-        <meta property="og:site_name" content="Mufeed VH" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="message" />
-        <meta property="og:description" content="anonymously write or draw me a message." />
-        <meta name="description" content="anonymously write or draw me a message." />
-        <meta property="og:url" content="https://mufeedvh.com/message/" />
-
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="message" />
-        <meta name="twitter:description" content="anonymously write or draw me a message." />
-
-        <meta name="robots" content="noindex, follow" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=UnifrakturMaguntia&family=JetBrains+Mono:wght@400;500&display=swap"
-            rel="stylesheet"
-        />
-
-        <title>message - Mufeed VH</title>
-
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="/styles.css" />
-
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml" />
-
-        <link rel="canonical" href="https://mufeedvh.com/message/" />
-    </head>
-    <body>
-        <!-- SVG Icons -->
-        <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
-            <symbol id="icon-link" viewBox="0 0 640 512">
-                <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"
-                />
-            </symbol>
-            <symbol id="icon-message" viewBox="0 0 512 512">
-                <path
-                    d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"
-                />
-            </symbol>
-            <symbol id="icon-rabbit" viewBox="0 0 100 100">
-                <!-- Hole -->
-                <ellipse cx="50" cy="80" rx="45" ry="12" fill="currentColor" />
-                <!-- Rabbit Head peeking -->
-                <path
-                    d="M28 80c0-20 12-32 22-32s22 12 22 32"
-                    fill="var(--bg-deep)"
-                    stroke="currentColor"
-                    stroke-width="5"
-                />
-                <!-- Left Ear -->
-                <path
-                    d="M38 52c-8-25-2-42 5-42s8 17 5 42"
-                    fill="var(--bg-deep)"
-                    stroke="currentColor"
-                    stroke-width="5"
-                />
-                <!-- Right Ear -->
-                <path
-                    d="M62 52c8-25 2-42-5-42s-8 17-5 42"
-                    fill="var(--bg-deep)"
-                    stroke="currentColor"
-                    stroke-width="5"
-                />
-                <!-- Eyes -->
-                <circle cx="43" cy="70" r="4" fill="currentColor" />
-                <circle cx="57" cy="70" r="4" fill="currentColor" />
-                <!-- Nose -->
-                <circle cx="50" cy="77" r="2.5" fill="currentColor" />
-            </symbol>
-        </svg>
-
-        <aside class="sidebar">
-            <div class="sidebar-top">
-                <a href="/" class="logo-monogram" aria-label="Mufeed VH">
-                    <span class="m-letter" aria-hidden="true">M</span>
-                    <div class="name-extension" aria-hidden="true">
-                        <span>U</span>
-                        <span>F</span>
-                        <span>E</span>
-                        <span>E</span>
-                        <span>D</span>
-                        <span class="name-space"></span>
-                        <span>V</span>
-                        <span>H</span>
-                    </div>
-                </a>
-
-                <nav class="main-nav">
-                    <ul class="nav-links">
-                        <li><a href="/" class="nav-link">Home</a></li>
-                        <li><a href="/about" class="nav-link">About</a></li>
-                        <li><a href="/posts" class="nav-link">Posts</a></li>
-                        <li><a href="/projects" class="nav-link">Projects</a></li>
-                        <li><a href="/contact" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="sidebar-bottom">
-                <a href="/rabbithole" class="rabbit-hole-link" title="Follow the rabbit hole...">
-                    <svg class="svg-icon rabbit-icon"><use href="#icon-rabbit" /></svg>
-                </a>
-            </div>
-        </aside>
-
-        <div class="layout-wrapper">
-            <div id="pattern-border" class="pattern-border" aria-hidden="true"></div>
-            <main class="content">
-                <div class="post-metadata"></div>
-
-                <article class="">
-                    <p>write or draw me a message <strong>anonymously</strong>.</p>
-                    <style>
-                        textarea {
-                            box-sizing: border-box;
-                            width: 100%;
-                            padding: var(--space-3);
-                            font-family: var(--font-body);
-                            font-size: var(--text-base);
-                            background-color: var(--bg-card);
-                            color: var(--text-primary);
-                            border: 1px dotted var(--border-dotted);
-                            margin-bottom: var(--space-2);
-                            resize: vertical;
-                            outline: none;
-                        }
-
-                        textarea:focus {
-                            border-style: solid;
-                            border-color: var(--text-secondary);
-                        }
-
-                        .paint-canvas {
-                            box-sizing: border-box;
-                            width: 100%;
-                            height: 400px;
-                            background: #ffffff;
-                            border: 1px dotted var(--border-dotted);
-                            display: block;
-                            margin-top: var(--space-2);
-                            touch-action: none;
-                            cursor: crosshair;
-                        }
-
-                        .drawing-controls {
-                            display: flex;
-                            align-items: center;
-                            gap: var(--space-4);
-                            margin-top: var(--space-2);
-                            font-family: var(--font-display);
-                            font-size: var(--text-xs);
-                            text-transform: uppercase;
-                        }
-
-                        .color-picker {
-                            background: var(--bg-card);
-                            border: 1px dotted var(--border-dotted);
-                            cursor: pointer;
-                            padding: 2px;
-                            width: 40px;
-                            height: 30px;
-                        }
-
-                        .line-range {
-                            flex-grow: 1;
-                            cursor: pointer;
-                            accent-color: var(--text-secondary);
-                        }
-
-                        .message-section {
-                            margin: var(--space-6) 0;
-                            padding: var(--space-4);
-                            border: 1px dotted var(--border-dotted);
-                            background-color: var(--bg-surface);
-                            display: flex;
-                            flex-direction: column;
-                        }
-
-                        .section-title {
-                            font-family: var(--font-display);
-                            font-size: var(--text-sm);
-                            text-transform: uppercase;
-                            letter-spacing: 0.1em;
-                            margin-bottom: var(--space-2);
-                            display: block;
-                            text-align: center;
-                        }
-                    </style>
-                    <div class="message-container">
-                        <div class="message-section">
-                            <span class="section-title">✍️ Send a Message</span>
-                            <textarea
-                                id="message"
-                                rows="8"
-                                placeholder="Type your anonymous message here..."
-                            ></textarea>
-                            <div class="button-wrapper align-center">
-                                <h4 class="post-button" id="msg-button" onclick="send_message()">Send Message</h4>
-                            </div>
-                        </div>
-                        <div class="message-section">
-                            <span class="section-title">🖌️ Send a Drawing</span>
-                            <div class="drawing-controls">
-                                <input type="color" class="js-color-picker color-picker" value="#000000" />
-                                <input type="range" class="js-line-range line-range" min="1" max="50" value="2" />
-                                <span><span class="js-range-value">2</span>px</span>
-                            </div>
-                            <canvas class="js-paint paint-canvas"></canvas>
-                            <div class="button-wrapper align-center">
-                                <h4 class="post-button" id="draw-button" onclick="send_drawing()">Send Drawing</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        (function initializeDrawingModule() {
-                            const paintCanvas = document.querySelector(".js-paint");
-
-                            if (!paintCanvas) {
-                                console.error("[paint-canvas] Canvas element not found; drawing has been disabled.");
-                                return;
-                            }
-
-                            const context = paintCanvas.getContext("2d");
-                            const tempCanvas = document.createElement("canvas");
-                            const tempContext = tempCanvas.getContext("2d");
-                            const colorPicker = document.querySelector(".js-color-picker");
-                            const lineWidthRange = document.querySelector(".js-line-range");
-                            const lineWidthLabel = document.querySelector(".js-range-value");
-
-                            /**
-                             * Drawing module orchestrates a temporary off-screen canvas and the main canvas to create smooth
-                             * strokes, while ensuring the rendering space matches the device pixel ratio.
-                             *
-                             * Security considerations: logs emit only sizing metadata and configuration changes, never PII.
-                             */
-                            if (!context || !tempContext) {
-                                console.error(
-                                    "[paint-canvas] Failed to obtain a 2D rendering context; drawing has been disabled.",
-                                );
-                                return;
-                            }
-
-                            let currentStrokeStyle = colorPicker ? colorPicker.value : "#000000";
-                            let currentLineWidth = lineWidthRange ? parseInt(lineWidthRange.value, 10) || 1 : 1;
-
-                            const logPaintEvent = (message, data = {}) => {
-                                console.info("[paint-canvas]", message, data);
-                            };
-
-                            const applyStrokeSettings = () => {
-                                context.lineCap = "round";
-                                context.lineJoin = "round";
-                                context.lineWidth = currentLineWidth;
-                                context.strokeStyle = currentStrokeStyle;
-
-                                tempContext.lineCap = "round";
-                                tempContext.lineJoin = "round";
-                                tempContext.lineWidth = currentLineWidth;
-                                tempContext.strokeStyle = currentStrokeStyle;
-                            };
-
-                            const detectMob = () => window.innerWidth <= 800;
-
-                            /**
-                             * Resize both canvases to follow layout changes and honour the device pixel ratio. Resetting the
-                             * transform on each call prevents cumulative scaling that previously displaced strokes below the
-                             * user's cursor.
-                             */
-                            const resizeCanvas = () => {
-                                const rect = paintCanvas.getBoundingClientRect();
-
-                                if (!rect.width || !rect.height) {
-                                    console.warn(
-                                        "[paint-canvas] Skipping resize due to zero-sized bounding rectangle.",
-                                        {
-                                            width: rect.width,
-                                            height: rect.height,
-                                        },
-                                    );
-                                    return;
-                                }
-
-                                const dpr = window.devicePixelRatio || 1;
-
-                                paintCanvas.width = rect.width * dpr;
-                                paintCanvas.height = rect.height * dpr;
-                                tempCanvas.width = rect.width * dpr;
-                                tempCanvas.height = rect.height * dpr;
-
-                                paintCanvas.style.width = `${rect.width}px`;
-                                paintCanvas.style.height = `${rect.height}px`;
-                                tempCanvas.style.width = `${rect.width}px`;
-                                tempCanvas.style.height = `${rect.height}px`;
-
-                                context.setTransform(1, 0, 0, 1, 0, 0);
-                                tempContext.setTransform(1, 0, 0, 1, 0, 0);
-
-                                context.scale(dpr, dpr);
-                                tempContext.scale(dpr, dpr);
-
-                                applyStrokeSettings();
-
-                                logPaintEvent("Canvas resized", {
-                                    width: rect.width,
-                                    height: rect.height,
-                                    dpr,
-                                });
-                            };
-
-                            if (detectMob()) {
-                                paintCanvas.style.height = "320px";
-                            }
-
-                            if (colorPicker) {
-                                colorPicker.addEventListener("change", (event) => {
-                                    currentStrokeStyle = event.target.value;
-                                    applyStrokeSettings();
-                                    logPaintEvent("Stroke colour changed", { stroke: currentStrokeStyle });
-                                });
-                            }
-
-                            if (lineWidthRange && lineWidthLabel) {
-                                lineWidthLabel.innerHTML = currentLineWidth;
-                                lineWidthRange.addEventListener("input", (event) => {
-                                    const width = parseInt(event.target.value, 10) || 1;
-                                    currentLineWidth = width;
-                                    lineWidthLabel.innerHTML = width;
-                                    applyStrokeSettings();
-                                    logPaintEvent("Line width changed", { width: currentLineWidth });
-                                });
-                            }
-
-                            applyStrokeSettings();
-
-                            if (document.readyState === "loading") {
-                                document.addEventListener("DOMContentLoaded", () => {
-                                    resizeCanvas();
-                                    setTimeout(resizeCanvas, 100);
-                                });
-                            } else {
-                                resizeCanvas();
-                                setTimeout(resizeCanvas, 100);
-                            }
-
-                            window.addEventListener("resize", resizeCanvas);
-
-                            let isDrawing = false;
-                            let points = [];
-                            let savedImageData = null;
-
-                            /**
-                             * Convert a pointer event into canvas-relative coordinates using CSS pixels so the drawing logic can
-                             * stay agnostic of the backing store resolution.
-                             */
-                            const getPointerPosition = (canvas, evt) => {
-                                const rect = canvas.getBoundingClientRect();
-                                if ("touches" in evt && evt.touches.length) {
-                                    const touch = evt.touches[0];
-                                    return {
-                                        x: touch.clientX - rect.left,
-                                        y: touch.clientY - rect.top,
-                                    };
-                                }
-
-                                return {
-                                    x: evt.clientX - rect.left,
-                                    y: evt.clientY - rect.top,
-                                };
-                            };
-
-                            /**
-                             * Render a smoothed stroke following the historical pointer trail, using quadratic curves for a
-                             * natural brush appearance.
-                             */
-                            const drawSmoothLine = (inputPoints, ctx) => {
-                                if (inputPoints.length === 0) {
-                                    return;
-                                }
-
-                                ctx.beginPath();
-                                ctx.moveTo(inputPoints[0].x, inputPoints[0].y);
-
-                                for (let i = 1; i < inputPoints.length - 2; i++) {
-                                    const xc = (inputPoints[i].x + inputPoints[i + 1].x) / 2;
-                                    const yc = (inputPoints[i].y + inputPoints[i + 1].y) / 2;
-                                    ctx.quadraticCurveTo(inputPoints[i].x, inputPoints[i].y, xc, yc);
-                                }
-
-                                if (inputPoints.length > 2) {
-                                    const last = inputPoints.length - 1;
-                                    ctx.quadraticCurveTo(
-                                        inputPoints[last - 1].x,
-                                        inputPoints[last - 1].y,
-                                        inputPoints[last].x,
-                                        inputPoints[last].y,
-                                    );
-                                }
-
-                                ctx.stroke();
-                            };
-
-                            const startDrawing = (event) => {
-                                isDrawing = true;
-                                points = [];
-                                points.push(getPointerPosition(paintCanvas, event));
-                                savedImageData = context.getImageData(0, 0, paintCanvas.width, paintCanvas.height);
-                            };
-
-                            const draw = (event) => {
-                                if (!isDrawing) {
-                                    return;
-                                }
-
-                                event.preventDefault();
-                                points.push(getPointerPosition(paintCanvas, event));
-
-                                if (savedImageData) {
-                                    context.putImageData(savedImageData, 0, 0);
-                                }
-
-                                drawSmoothLine(points, context);
-                            };
-
-                            const stopDrawing = () => {
-                                if (!isDrawing) {
-                                    return;
-                                }
-
-                                isDrawing = false;
-
-                                if (savedImageData) {
-                                    context.putImageData(savedImageData, 0, 0);
-                                }
-
-                                drawSmoothLine(points, context);
-                                points = [];
-                                savedImageData = null;
-                            };
-
-                            paintCanvas.addEventListener("mousedown", startDrawing);
-                            paintCanvas.addEventListener("mousemove", draw);
-                            paintCanvas.addEventListener("mouseup", stopDrawing);
-                            paintCanvas.addEventListener("mouseout", stopDrawing);
-
-                            paintCanvas.addEventListener("touchstart", startDrawing);
-                            paintCanvas.addEventListener("touchmove", draw);
-                            paintCanvas.addEventListener("touchend", stopDrawing);
-
-                            const API_URL = "https://api.mufeedvh.com";
-
-                            let lastSentMessage = null;
-                            let lastSentDrawing = null;
-                            let isSendingMessage = false;
-                            let isSendingDrawing = false;
-
-                            const send_message = () => {
-                                if (isSendingMessage) {
-                                    return;
-                                }
-
-                                const message = document.getElementById("message").value;
-                                const button = document.getElementById("msg-button");
-
-                                if (lastSentMessage !== null && message === lastSentMessage) {
-                                    button.style.backgroundColor = "#ffa500";
-                                    button.style.color = "white";
-                                    button.innerHTML = "Message already sent";
-                                    return;
-                                }
-
-                                isSendingMessage = true;
-                                button.disabled = true;
-                                button.style.backgroundColor = "#808080";
-                                button.innerHTML = "Sending...";
-
-                                const xhttp = new XMLHttpRequest();
-
-                                xhttp.onreadystatechange = function () {
-                                    if (this.readyState === 4 && this.status === 200) {
-                                        const token = JSON.parse(this.responseText).token;
-                                        console.log("acquired token: " + token);
-
-                                        const innerXhttp = new XMLHttpRequest();
-                                        const url = API_URL + "/message";
-
-                                        innerXhttp.onreadystatechange = function () {
-                                            if (this.readyState === 4 && this.status === 200) {
-                                                lastSentMessage = message;
-                                                button.style.backgroundColor = "lightgreen";
-                                                button.style.color = "black";
-                                                button.innerHTML = JSON.parse(innerXhttp.responseText).message;
-                                                button.disabled = false;
-                                                isSendingMessage = false;
-                                            } else if (this.readyState === 4 && this.status !== 200) {
-                                                button.style.color = "white";
-                                                button.style.backgroundColor = "red";
-                                                button.innerHTML = "Failed to send message";
-                                                button.disabled = false;
-                                                isSendingMessage = false;
-                                            }
-                                        };
-
-                                        innerXhttp.open("POST", url);
-                                        innerXhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-                                        innerXhttp.send(
-                                            JSON.stringify({
-                                                token: token,
-                                                message: message,
-                                            }),
-                                        );
-                                    } else if (this.readyState === 4 && this.status !== 200) {
-                                        button.style.color = "white";
-                                        button.style.backgroundColor = "red";
-                                        button.innerHTML = "Failed to get token";
-                                        button.disabled = false;
-                                        isSendingMessage = false;
-                                    }
-                                };
-
-                                xhttp.open("GET", API_URL + "/get_token", true);
-                                xhttp.send();
-                            };
-
-                            const send_drawing = () => {
-                                if (isSendingDrawing) {
-                                    return;
-                                }
-
-                                const drawingData = paintCanvas.toDataURL();
-                                const button = document.getElementById("draw-button");
-
-                                if (lastSentDrawing !== null && drawingData === lastSentDrawing) {
-                                    button.style.backgroundColor = "#ffa500";
-                                    button.style.color = "white";
-                                    button.innerHTML = "Drawing already sent";
-                                    return;
-                                }
-
-                                isSendingDrawing = true;
-                                button.disabled = true;
-                                button.style.backgroundColor = "#808080";
-                                button.innerHTML = "Sending...";
-
-                                const xhttp = new XMLHttpRequest();
-
-                                xhttp.onreadystatechange = function () {
-                                    if (this.readyState === 4 && this.status === 200) {
-                                        const token = JSON.parse(this.responseText).token;
-                                        console.log("acquired token: " + token);
-
-                                        const innerXhttp = new XMLHttpRequest();
-                                        const url = API_URL + "/drawing";
-
-                                        innerXhttp.onreadystatechange = function () {
-                                            if (this.readyState === 4 && this.status === 200) {
-                                                lastSentDrawing = drawingData;
-                                                button.style.backgroundColor = "lightgreen";
-                                                button.style.color = "black";
-                                                button.innerHTML = JSON.parse(innerXhttp.responseText).message;
-                                                button.disabled = false;
-                                                isSendingDrawing = false;
-                                            } else if (this.readyState === 4 && this.status !== 200) {
-                                                button.style.color = "white";
-                                                button.style.backgroundColor = "red";
-                                                button.innerHTML = "Failed to send drawing";
-                                                button.disabled = false;
-                                                isSendingDrawing = false;
-                                            }
-                                        };
-
-                                        innerXhttp.open("POST", url);
-                                        innerXhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-                                        innerXhttp.send(
-                                            JSON.stringify({
-                                                token: token,
-                                                message: drawingData,
-                                            }),
-                                        );
-                                    } else if (this.readyState === 4 && this.status !== 200) {
-                                        button.style.color = "white";
-                                        button.style.backgroundColor = "red";
-                                        button.innerHTML = "Failed to get token";
-                                        button.disabled = false;
-                                        isSendingDrawing = false;
-                                    }
-                                };
-
-                                xhttp.open("GET", API_URL + "/get_token", true);
-                                xhttp.send();
-                            };
-
-                            window.send_message = send_message;
-                            window.send_drawing = send_drawing;
-                        })();
-                    </script>
-                </article>
-            </main>
-
-            <footer class="site-footer">
-                <div class="back-to-directory">
-                    <a href="/">← Back to Directory</a>
-                </div>
-            </footer>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#121110">
+    <meta name="color-scheme" content="dark">
+
+
+
+
+    <meta property="og:site_name" content="Mufeed VH">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="message">
+        <meta property="og:description" content="anonymously write or draw me a message.">
+        <meta name="description" content="anonymously write or draw me a message.">
+        <meta property="og:url" content="https://mufeedvh.com/message/">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="message">
+        <meta name="twitter:description" content="anonymously write or draw me a message.">
+
+            <meta name="robots" content="noindex, follow">
+
+
+
+
+    <title>message - Mufeed VH</title>
+
+    <link rel="preload" href="/assets/fonts/newsreader-normal-200-800.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/plexmono-normal-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://mufeedvh.com/rss.xml">
+
+
+
+    <link rel="canonical" href="https://mufeedvh.com/message/">
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+        <symbol id="icon-link" viewBox="0 0 640 512">
+            <path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/>
+        </symbol>
+        <symbol id="icon-message" viewBox="0 0 512 512">
+            <path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/>
+        </symbol>
+        <symbol id="icon-rabbit" viewBox="0 0 100 100">
+            <ellipse cx="50" cy="80" rx="45" ry="12" fill="currentColor" />
+            <path d="M28 80c0-20 12-32 22-32s22 12 22 32" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+            <path d="M38 52c-8-25-2-42 5-42s8 17 5 42" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+            <path d="M62 52c8-25 2-42-5-42s-8 17-5 42" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+            <circle cx="43" cy="70" r="4" fill="currentColor" />
+            <circle cx="57" cy="70" r="4" fill="currentColor" />
+            <circle cx="50" cy="77" r="2.5" fill="currentColor" />
+        </symbol>
+    </svg>
+
+
+    <header class="site-header frame">
+        <a href="/" class="monogram" aria-label="Mufeed VH, home">M</a>
+        <nav class="site-nav" aria-label="Primary">
+            <a href="/about">About</a>
+            <a href="/posts">Posts</a>
+            <a href="/projects">Projects</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="site-main frame">
+
+
+
+    <article class="post">
+
+
+        <div class="prose">
+            <p>write or draw me a message <strong>anonymously</strong>.</p>
+<div class="message-container">
+<div class="message-section">
+<span class="section-title">Write</span>
+<textarea id="message" rows="8" placeholder="Type your anonymous message here..."></textarea>
+<div class="button-wrapper align-center"><button type="button" class="btn" id="msg-button" onclick="send_message();"><span class="btn-text">Send Message</span></button></div>
+
+</div>
+<div class="message-section">
+<span class="section-title">Draw</span>
+<div class="drawing-controls">
+<input type="color" class="js-color-picker color-picker" value="#000000">
+<input type="range" class="js-line-range line-range" min="1" max="50" value="2">
+<span><span class="js-range-value">2</span>px</span>
+</div>
+<canvas class="js-paint paint-canvas"></canvas>
+<div class="button-wrapper align-center"><button type="button" class="btn" id="draw-button" onclick="send_drawing();"><span class="btn-text">Send Drawing</span></button></div>
+
+</div>
+</div>
+<script>
+    (function initializeDrawingModule() {
+        const paintCanvas = document.querySelector('.js-paint');
+
+        if (!paintCanvas) {
+            console.error('[paint-canvas] Canvas element not found; drawing has been disabled.');
+            return;
+        }
+
+        const context = paintCanvas.getContext('2d');
+        const tempCanvas = document.createElement('canvas');
+        const tempContext = tempCanvas.getContext('2d');
+        const colorPicker = document.querySelector('.js-color-picker');
+        const lineWidthRange = document.querySelector('.js-line-range');
+        const lineWidthLabel = document.querySelector('.js-range-value');
+
+        /**
+         * Drawing module orchestrates a temporary off-screen canvas and the main canvas to create smooth
+         * strokes, while ensuring the rendering space matches the device pixel ratio.
+         *
+         * Security considerations: logs emit only sizing metadata and configuration changes, never PII.
+         */
+        if (!context || !tempContext) {
+            console.error('[paint-canvas] Failed to obtain a 2D rendering context; drawing has been disabled.');
+            return;
+        }
+
+        let currentStrokeStyle = colorPicker ? colorPicker.value : '#000000';
+        let currentLineWidth = lineWidthRange ? parseInt(lineWidthRange.value, 10) || 1 : 1;
+
+        const logPaintEvent = (message, data = {}) => {
+            console.info('[paint-canvas]', message, data);
+        };
+
+        const applyStrokeSettings = () => {
+            context.lineCap = 'round';
+            context.lineJoin = 'round';
+            context.lineWidth = currentLineWidth;
+            context.strokeStyle = currentStrokeStyle;
+
+            tempContext.lineCap = 'round';
+            tempContext.lineJoin = 'round';
+            tempContext.lineWidth = currentLineWidth;
+            tempContext.strokeStyle = currentStrokeStyle;
+        };
+
+        const detectMob = () => window.innerWidth <= 800;
+
+        /**
+         * Resize both canvases to follow layout changes and honour the device pixel ratio. Resetting the
+         * transform on each call prevents cumulative scaling that previously displaced strokes below the
+         * user's cursor.
+         */
+        const resizeCanvas = () => {
+            const rect = paintCanvas.getBoundingClientRect();
+
+            if (!rect.width || !rect.height) {
+                console.warn('[paint-canvas] Skipping resize due to zero-sized bounding rectangle.', {
+                    width: rect.width,
+                    height: rect.height
+                });
+                return;
+            }
+
+            const dpr = window.devicePixelRatio || 1;
+
+            paintCanvas.width = rect.width * dpr;
+            paintCanvas.height = rect.height * dpr;
+            tempCanvas.width = rect.width * dpr;
+            tempCanvas.height = rect.height * dpr;
+
+            paintCanvas.style.width = `${rect.width}px`;
+            paintCanvas.style.height = `${rect.height}px`;
+            tempCanvas.style.width = `${rect.width}px`;
+            tempCanvas.style.height = `${rect.height}px`;
+
+            context.setTransform(1, 0, 0, 1, 0, 0);
+            tempContext.setTransform(1, 0, 0, 1, 0, 0);
+
+            context.scale(dpr, dpr);
+            tempContext.scale(dpr, dpr);
+
+            applyStrokeSettings();
+
+            logPaintEvent('Canvas resized', {
+                width: rect.width,
+                height: rect.height,
+                dpr
+            });
+        };
+
+        if (detectMob()) {
+            paintCanvas.style.height = '320px';
+        }
+
+        if (colorPicker) {
+            colorPicker.addEventListener('change', event => {
+                currentStrokeStyle = event.target.value;
+                applyStrokeSettings();
+                logPaintEvent('Stroke colour changed', { stroke: currentStrokeStyle });
+            });
+        }
+
+        if (lineWidthRange && lineWidthLabel) {
+            lineWidthLabel.innerHTML = currentLineWidth;
+            lineWidthRange.addEventListener('input', event => {
+                const width = parseInt(event.target.value, 10) || 1;
+                currentLineWidth = width;
+                lineWidthLabel.innerHTML = width;
+                applyStrokeSettings();
+                logPaintEvent('Line width changed', { width: currentLineWidth });
+            });
+        }
+
+        applyStrokeSettings();
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                resizeCanvas();
+                setTimeout(resizeCanvas, 100);
+            });
+        } else {
+            resizeCanvas();
+            setTimeout(resizeCanvas, 100);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        let isDrawing = false;
+        let points = [];
+        let savedImageData = null;
+
+        /**
+         * Convert a pointer event into canvas-relative coordinates using CSS pixels so the drawing logic can
+         * stay agnostic of the backing store resolution.
+         */
+        const getPointerPosition = (canvas, evt) => {
+            const rect = canvas.getBoundingClientRect();
+            if ('touches' in evt && evt.touches.length) {
+                const touch = evt.touches[0];
+                return {
+                    x: touch.clientX - rect.left,
+                    y: touch.clientY - rect.top
+                };
+            }
+
+            return {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        };
+
+        /**
+         * Render a smoothed stroke following the historical pointer trail, using quadratic curves for a
+         * natural brush appearance.
+         */
+        const drawSmoothLine = (inputPoints, ctx) => {
+            if (inputPoints.length === 0) {
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(inputPoints[0].x, inputPoints[0].y);
+
+            for (let i = 1; i < inputPoints.length - 2; i++) {
+                const xc = (inputPoints[i].x + inputPoints[i + 1].x) / 2;
+                const yc = (inputPoints[i].y + inputPoints[i + 1].y) / 2;
+                ctx.quadraticCurveTo(inputPoints[i].x, inputPoints[i].y, xc, yc);
+            }
+
+            if (inputPoints.length > 2) {
+                const last = inputPoints.length - 1;
+                ctx.quadraticCurveTo(inputPoints[last - 1].x, inputPoints[last - 1].y, inputPoints[last].x, inputPoints[last].y);
+            }
+
+            ctx.stroke();
+        };
+
+        const startDrawing = event => {
+            isDrawing = true;
+            points = [];
+            points.push(getPointerPosition(paintCanvas, event));
+            savedImageData = context.getImageData(0, 0, paintCanvas.width, paintCanvas.height);
+        };
+
+        const draw = event => {
+            if (!isDrawing) {
+                return;
+            }
+
+            event.preventDefault();
+            points.push(getPointerPosition(paintCanvas, event));
+
+            if (savedImageData) {
+                context.putImageData(savedImageData, 0, 0);
+            }
+
+            drawSmoothLine(points, context);
+        };
+
+        const stopDrawing = () => {
+            if (!isDrawing) {
+                return;
+            }
+
+            isDrawing = false;
+
+            if (savedImageData) {
+                context.putImageData(savedImageData, 0, 0);
+            }
+
+            drawSmoothLine(points, context);
+            points = [];
+            savedImageData = null;
+        };
+
+        paintCanvas.addEventListener('mousedown', startDrawing);
+        paintCanvas.addEventListener('mousemove', draw);
+        paintCanvas.addEventListener('mouseup', stopDrawing);
+        paintCanvas.addEventListener('mouseout', stopDrawing);
+
+        paintCanvas.addEventListener('touchstart', startDrawing);
+        paintCanvas.addEventListener('touchmove', draw);
+        paintCanvas.addEventListener('touchend', stopDrawing);
+
+        const API_URL = 'https://api.mufeedvh.com';
+        const ENDPOINTS = { message: '/message', drawing: '/drawing' };
+        const lastSent = { message: null, drawing: null };
+        const inFlight = { message: false, drawing: false };
+
+        /**
+         * Button state is expressed through classes (styled in styles.css) rather
+         * than inline colours, so the page keeps its palette in every state.
+         */
+        const setButtonState = (button, state, label) => {
+            if (!button) return;
+            button.classList.remove('is-sending', 'is-success', 'is-error', 'is-warn');
+            if (state) button.classList.add(state);
+            button.disabled = state === 'is-sending';
+            const text = button.querySelector('.btn-text') || button;
+            text.textContent = label;
+        };
+
+        /**
+         * Fetch a one-time token, then post the payload. Failures are reported on
+         * the button; nothing about the payload is logged.
+         */
+        const deliver = async (kind, payload, button) => {
+            if (inFlight[kind]) return;
+
+            if (kind === 'message' && !payload.trim()) {
+                setButtonState(button, 'is-warn', 'Nothing to send');
+                return;
+            }
+
+            if (lastSent[kind] !== null && lastSent[kind] === payload) {
+                setButtonState(button, 'is-warn', kind === 'message' ? 'Message already sent' : 'Drawing already sent');
+                return;
+            }
+
+            inFlight[kind] = true;
+            setButtonState(button, 'is-sending', 'Sending');
+
+            try {
+                const tokenResponse = await fetch(API_URL + '/get_token');
+                if (!tokenResponse.ok) throw new Error('token');
+                const { token } = await tokenResponse.json();
+
+                const response = await fetch(API_URL + ENDPOINTS[kind], {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+                    body: JSON.stringify({ token, message: payload })
+                });
+                if (!response.ok) throw new Error('send');
+
+                const data = await response.json();
+                lastSent[kind] = payload;
+                setButtonState(button, 'is-success', data.message || 'Sent');
+            } catch (error) {
+                console.warn('[message] delivery failed', { kind, stage: error && error.message });
+                setButtonState(button, 'is-error', error && error.message === 'token' ? 'Failed to get token' : 'Failed to send');
+            } finally {
+                inFlight[kind] = false;
+            }
+        };
+
+        const send_message = () => deliver('message', document.getElementById('message').value, document.getElementById('msg-button'));
+        const send_drawing = () => deliver('drawing', paintCanvas.toDataURL(), document.getElementById('draw-button'));
+
+        window.send_message = send_message;
+        window.send_drawing = send_drawing;
+    })();
+</script>
+
         </div>
+    </article>
 
-        <script src="/pattern-generator.js"></script>
-        <script src="/codeblock-enhancer.js"></script>
-        <script src="/blog-actions.js"></script>
-        <script src="/easter-egg.js"></script>
-        <script src="/rabbithole-audio.js"></script>
-    </body>
+
+
+    </main>
+
+    <footer class="site-footer frame">
+        <div id="pattern-border" class="pattern-border" aria-hidden="true"></div>
+        <div class="footer-row">
+            <p class="colophon">Mufeed VH<span aria-hidden="true"> &middot; </span><a href="https://mufeedvh.com/rss.xml">RSS</a></p>
+            <div class="footer-right">
+                <ul class="social">
+                    <li><a href="https://github.com/mufeedvh" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a></li>
+                    <li><a href="https://x.com/mufeedvh" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
+                    <li><a href="https://www.linkedin.com/in/mufeed-vh/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+                    <li><a href="https://www.instagram.com/mufeedvh" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg></a></li>
+                </ul>
+                <a href="/rabbithole" class="burrow" aria-label="Follow the rabbit hole" title="follow the rabbit hole">
+                    <svg viewBox="0 0 100 100" aria-hidden="true">
+                        <defs>
+                            <clipPath id="burrow-clip"><rect x="0" y="0" width="100" height="80" /></clipPath>
+                        </defs>
+                        <ellipse class="hole" cx="50" cy="80" rx="45" ry="12" />
+                        <g clip-path="url(#burrow-clip)">
+                            <g class="rabbit-character">
+                                <path d="M28 80c0-20 12-32 22-32s22 12 22 32" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+                                <path d="M38 52c-8-25-2-42 5-42s8 17 5 42" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+                                <path d="M62 52c8-25 2-42-5-42s-8 17-5 42" fill="var(--bg)" stroke="currentColor" stroke-width="5" />
+                                <circle cx="43" cy="70" r="4" fill="currentColor" />
+                                <circle cx="57" cy="70" r="4" fill="currentColor" />
+                                <circle cx="50" cy="77" r="2.5" fill="currentColor" />
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="/pattern-generator.js" defer></script>
+    <script src="/codeblock-enhancer.js" defer></script>
+    <script src="/blog-actions.js" defer></script>
+    <script src="/rabbithole-audio.js" defer></script>
+
+</body>
 </html>

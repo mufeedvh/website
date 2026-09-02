@@ -20,7 +20,7 @@ I am <span id="my_age" style="font-variant-numeric: tabular-nums"><noscript>22</
 - Co-founded [**Winfunc**](https://winfunc.com "Winfunc's website") and got into Y Combinator's S24 batch.
 - Created [Devika](https://github.com/stitionai/devika), the open-source alternative to Devin.
 - Represented India at the WorldSkills Olympiad in Cyber Security.
-- Represtented India and won the Bronze Medal at the BRICS Skills Olympiad in Cyber Security.
+- Represented India and won the Bronze Medal at the BRICS Skills Olympiad in Cyber Security.
 - Won the Gold Medal at the IndiaSkills Nationals in Cyber Security.
 - Ran a research consultancy company called [Lyminal](https://lyminal.space/) where I solved hard software problems for companies for fun and profit.
 - Patched and reviewed 300+ CVEs in open-source software.
@@ -30,241 +30,78 @@ I am <span id="my_age" style="font-variant-numeric: tabular-nums"><noscript>22</
 
 ### In the press
 
-<div class="press-section">
-  <div class="press-toggle" onclick="togglePress()" role="button" tabindex="0" aria-expanded="false" aria-controls="press-content">
-    <span class="toggle-icon">▶</span> View media mentions
-  </div>
-  
-  <div id="press-content" class="press-content" style="display: none;">
-    <table class="press-table">
-      <thead>
-        <tr>
-          <th>Publication</th>
-          <th>Link</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>TEDx Talk</td><td><a href="https://www.youtube.com/watch?v=N5MSMmt0e3o" target="_blank">View</a></td></tr>
-        <tr><td>NDTV</td><td><a href="https://www.ndtv.com/feature/artificial-intelligence-indian-ai-engineer-devika-emerges-to-challenge-devin-the-worlds-first-ai-coder-5355983" target="_blank">View</a></td></tr>
-        <tr><td>NDTV National TV Interview</td><td><a href="https://www.youtube.com/watch?v=7pLlRsk0bKs&t=1s" target="_blank">View</a></td></tr>
-        <tr><td>Economic Times</td><td><a href="https://economictimes.indiatimes.com/tech/technology/meet-devika-indias-first-ai-engineer-who-can-do-it-all/articleshow/109043053.cms?from=mdr" target="_blank">View</a></td></tr>
-        <tr><td>Hindustan Times</td><td><a href="https://www.hindustantimes.com/trending/who-is-devika-indias-ai-coder-an-alternative-to-devin-101712054136352.html" target="_blank">View</a></td></tr>
-        <tr><td>Financial Express</td><td><a href="https://www.financialexpress.com/life/technology-meet-devika-indias-own-ai-software-engineer-answer-to-us-devinnbsp-3445145/" target="_blank">View</a></td></tr>
-        <tr><td>IndiaTimes</td><td><a href="https://www.indiatimes.com/news/india/meet-devika-an-indian-open-source-alternative-to-ai-engineer-devin-631360.html" target="_blank">View</a></td></tr>
-        <tr><td>Firstpost</td><td><a href="https://www.firstpost.com/tech/devin-meets-devika-21-yo-creates-indias-own-ai-software-engineer-can-develop-software-from-scratch-13756394.html" target="_blank">View</a></td></tr>
-        <tr><td>News18</td><td><a href="https://www.news18.com/news/education-career/andhra-pradesh-student-to-represent-india-in-cybersecurity-at-worldskills-competition-in-korea-6119209.html" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-news-updates/yc-startup-unveils-open-source-graphical-interface-for-claude-code/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/meet-the-21-year-old-creator-of-devika-the-indian-open-source-devin-alternative/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/indiaskills-nsdc-youth-web-technologies-cloud-computing-mobile-robotics/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-news-updates/meet-devika-an-open-source-alternative-to-devin/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-news-updates/yann-lecun-advices-students-getting-into-ai-space-to-not-work-on-llms/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/why-india-needs-more-ai4bharats/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/a-bunch-of-20-year-old-programmers-are-driving-indias-open-source-ai/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/top-ai-tools/top-6-devin-alternatives-to-automate-your-coding-tasks/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/industry-insights/ai-startups/12-indian-genai-startups-building-insane-products-you-should-know-about/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-insights-analysis/india-is-likely-to-develop-its-foundational-model-this-year/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/indian-ai-researchers-should-move-beyond-phds/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/github-is-madly-in-love-with-indias-burgeoning-developer-community/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-news-updates/devika-creator-launches-asterisk-yc-backed-ai-agent-startup/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/taking-your-ai-passion-projects-seriously-may-not-be-a-bad-idea-after-all/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/indian-researchers-need-to-stop-making-useless-llms/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/its-too-early-to-write-off-llms/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-trends-future/why-is-yc-bullish-on-indian-ai-startups/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/cracking-yc-a-guide-for-ai-startups/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/ai-origins-evolution/the-secret-to-creating-the-next-billion-dollar-ai-startup/" target="_blank">View</a></td></tr>
-        <tr><td>Analytics India Magazine</td><td><a href="https://analyticsindiamag.com/videos/meet-indian-ai-developers-and-engineers-in-tech-talk/" target="_blank">View</a></td></tr>
-        <tr><td>MSN</td><td><a href="https://www.msn.com/en-in/money/news/kerala-man-creates-india-s-first-open-source-ai-engineer-devika-born-from-joke-on-x/ar-BB1laFXY?ocid=finance-verthp-feeds" target="_blank">View</a></td></tr>
-        <tr><td>MSN</td><td><a href="https://www.msn.com/en-in/money/news/meet-devika-india-s-own-ai-software-engineer-answer-to-us-devin/ar-BB1l09ao" target="_blank">View</a></td></tr>
-        <tr><td>Kerala Kaumudi</td><td><a href="https://keralakaumudi.com/en/news/news.php?id=1282584&u=ai-engineer-devika-to-develop-apps" target="_blank">View</a></td></tr>
-        <tr><td>Asianet News</td><td><a href="https://newsable.asianetnews.com/science/kerala-man-creates-india-s-first-open-source-ai-engineer-devika-born-from-joke-on-x-vkp-sbipng" target="_blank">View</a></td></tr>
-        <tr><td>Mathrubhumi</td><td><a href="https://www.mathrubhumi.com/technology/news/devika-indian-open-source-devin-alternative-mufeed-vh-1.9453997" target="_blank">View</a></td></tr>
-        <tr><td>The Drop Times</td><td><a href="https://www.thedroptimes.com/38641/21-year-old-innovator-launches-devika-open-source-alternative-devin" target="_blank">View</a></td></tr>
-        <tr><td>Business Prizm</td><td><a href="https://businessprizm.com/the-innovative-mind-behind-devika-ai/" target="_blank">View</a></td></tr>
-        <tr><td>Inshorts</td><td><a href="https://inshorts.com/en/news/meet-devika-indian-opensource-alternative-to-ai-engineer-devin-1712049838586" target="_blank">View</a></td></tr>
-        <tr><td>Consultants Review</td><td><a href="https://www.consultantsreview.com/news/introducing-devika-an-indian-substitute-for-ai-engineer-devin-nwid-4494.html" target="_blank">View</a></td></tr>
-        <tr><td>Consultants Review</td><td><a href="https://www.consultantsreview.com/news/devika-the-first-ai-engineer-from-india-with-the-prowess-of-all-nwid-4531.html" target="_blank">View</a></td></tr>
-        <tr><td>Industry Wired</td><td><a href="https://industrywired.com/web-stories/indian-ai-engineer-devika-rises-to-compete-with-devin/" target="_blank">View</a></td></tr>
-        <tr><td>TechJockey</td><td><a href="https://www.techjockey.com/news/indian-ai-engineer-devika-steps-up-to-challenge-devin-ai-coding-pioneer" target="_blank">View</a></td></tr>
-        <tr><td>India AI by the Government</td><td><a href="https://indiaai.gov.in/article/indian-ai-engineer-devika-challenges-the-world-s-first-ai-coder-devin" target="_blank">View</a></td></tr>
-        <tr><td>Digit</td><td><a href="https://www.digit.in/news/general/what-is-devika-an-indian-ai-software-engineer-capable-of-find-out.html" target="_blank">View</a></td></tr>
-        <tr><td>The Samur.ai</td><td><a href="https://www.thesamur.ai/news/devika-vs-devin-a-new-chapter-in-the-global-ai-race" target="_blank">View</a></td></tr>
-        <tr><td>World Skills India</td><td><a href="https://worldskillsindia.co.in/life-after-worldskill.php" target="_blank">View</a></td></tr>
-        <tr><td>New India Abroad</td><td><a href="https://www.newindiaabroad.com/news/you-devin-me-devika-indian-startup-challenges-worlds-first-ai-software-engineer" target="_blank">View</a></td></tr>
-        <tr><td>IT Voice</td><td><a href="https://www.itvoice.in/introducing-devika-indias-open-source-answer-to-ai-engineer-devin" target="_blank">View</a></td></tr>
-        <tr><td>Echo Craft AI</td><td><a href="https://echocraftai.com/devika-pioneering-an-ideal-ai-software-for-2024/" target="_blank">View</a></td></tr>
-        <tr><td>PC-Tablet</td><td><a href="https://pc-tablet.co.in/indias-ai-innovator-mufeed-vh-launches-devika-an-open-source-ai-engineer/15030/" target="_blank">View</a></td></tr>
-        <tr><td>Chronicle India</td><td><a href="https://www.chronicleindia.in/current-affairs/11145-india-devika" target="_blank">View</a></td></tr>
-        <tr><td>Velocity Tech</td><td><a href="https://blog.velocitytech.in/who-is-devika-ai/" target="_blank">View</a></td></tr>
-        <tr><td>NewsX</td><td><a href="https://www.newsx.com/science-and-technology/who-is-devika-indias-1st-ai-engineer-challenging-devin-worlds-1st-ai-coder/" target="_blank">View</a></td></tr>
-        <tr><td>MiEthereum</td><td><a href="https://miethereum.com/ai/indias-ai-innovation-devika-challenges-devin-in-the-ai-coder-arena/" target="_blank">View</a></td></tr>
-        <tr><td>Consultants Review</td><td><a href="https://www.consultantsreview.com/news/devika-the-first-ai-engineer-from-india-with-the-prowess-of-all-nwid-4531.html" target="_blank">View</a></td></tr>
-        <tr><td>MENA FN</td><td><a href="https://menafn.com/1108066161/Kerala-Man-Creates-Indias-First-Open-Source-AI-Engineer-Devika-Born-From-Joke-On-X" target="_blank">View</a></td></tr>
-        <tr><td>Anweshanam</td><td><a href="https://anweshanam.com/737707/a-i-devika-and-devin/" target="_blank">View</a></td></tr>
-        <tr><td>Kerala Technology</td><td><a href="https://keralatechnology.com/blog/devika-still-a-work-in-progress-says-creator" target="_blank">View</a></td></tr>
-        <tr><td>The Drop Times</td><td><a href="https://www.thedroptimes.com/38641/21-year-old-innovator-launches-devika-open-source-alternative-devin" target="_blank">View</a></td></tr>
-        <tr><td>World Skills 2022</td><td><a href="https://worldskills2022se.com/skills/cyber-security/index.html" target="_blank">View</a></td></tr>
-        <tr><td>IT'S FOSS NEWS</td><td><a href="https://news.itsfoss.com/claudia/" target="_blank">View</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<style>
-/* Common toggle styles */
-.press-section, .bonus-section {
-  margin: 3em 0;
-  background-color: var(--bg-card);
-  border: 1px dotted var(--border-dotted);
-}
-
-.press-toggle,
-.bonus-section summary {
-  display: flex;
-  align-items: center;
-  gap: 0.8em;
-  font-family: var(--font-display);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  color: var(--text-primary);
-  background-color: var(--bg-surface);
-  border: none;
-  border-bottom: 1px dotted var(--border-dotted);
-  padding: 0.8rem 1.5rem;
-  cursor: pointer;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  width: 100%;
-  margin: 0;
-  transition: background-color var(--transition-fast);
-  list-style: none;
-}
-
-.press-toggle:hover,
-.bonus-section summary:hover {
-  background-color: rgba(255, 255, 255, 0.03);
-}
-
-.bonus-section summary::-webkit-details-marker {
-  display: none;
-}
-
-.toggle-icon {
-  display: inline-block;
-  transition: transform 0.3s ease;
-  font-size: 0.7em;
-  color: var(--text-tertiary);
-}
-
-.press-toggle[aria-expanded="true"] .toggle-icon,
-.bonus-section[open] summary .toggle-icon {
-  transform: rotate(90deg);
-}
-
-.press-content {
-  padding: var(--space-4);
-  overflow-x: auto;
-}
-
-.bonus-section img {
-  margin: 0;
-  width: 100%;
-  border: none;
-}
-
-.press-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--text-sm);
-  font-family: var(--font-body);
-}
-
-.press-table thead {
-  background-color: var(--bg-elevated);
-}
-
-.press-table th {
-  text-align: left;
-  padding: 0.8em;
-  border-bottom: 1px dotted var(--border-dotted);
-  font-weight: 600;
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: var(--text-xs);
-  color: var(--text-secondary);
-}
-
-.press-table td {
-  padding: 0.8em;
-  border-bottom: 1px dotted var(--border-dotted);
-  color: var(--text-primary);
-}
-
-.press-table tr:hover {
-  background-color: var(--bg-card);
-}
-
-.press-table a {
-  color: var(--text-primary);
-  text-decoration: none;
-  border-bottom: 1px dotted var(--border-dotted);
-  transition: all var(--transition-fast);
-}
-
-.press-table a:hover {
-  border-bottom-style: solid;
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-  .press-table {
-    font-size: var(--text-xs);
-  }
-  
-  .press-toggle {
-    width: 100%;
-    justify-content: center;
-  }
-}
-</style>
-
-<script>
-function togglePress() {
-  const button = document.querySelector('.press-toggle');
-  const content = document.getElementById('press-content');
-  const isExpanded = button.getAttribute('aria-expanded') === 'true';
-  
-  button.setAttribute('aria-expanded', !isExpanded);
-  content.style.display = isExpanded ? 'none' : 'block';
-  
-  // Update button text
-  const buttonText = isExpanded ? 'View media mentions' : 'Hide media mentions';
-  button.innerHTML = `<span class="toggle-icon">▶</span> ${buttonText}`;
-}
-
-// Add keyboard support for the press toggle
-document.addEventListener('DOMContentLoaded', function() {
-  const pressToggle = document.querySelector('.press-toggle');
-  if (pressToggle) {
-    pressToggle.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        togglePress();
-      }
-    });
-  }
-});
-</script>
+<details class="fold">
+<summary>Media mentions <span class="count">58</span></summary>
+<ul class="press-list">
+<li><a href="https://www.youtube.com/watch?v=N5MSMmt0e3o" target="_blank" rel="noopener">TEDx Talk</a></li>
+<li><a href="https://www.ndtv.com/feature/artificial-intelligence-indian-ai-engineer-devika-emerges-to-challenge-devin-the-worlds-first-ai-coder-5355983" target="_blank" rel="noopener">NDTV</a></li>
+<li><a href="https://www.youtube.com/watch?v=7pLlRsk0bKs&t=1s" target="_blank" rel="noopener">NDTV National TV Interview</a></li>
+<li><a href="https://economictimes.indiatimes.com/tech/technology/meet-devika-indias-first-ai-engineer-who-can-do-it-all/articleshow/109043053.cms?from=mdr" target="_blank" rel="noopener">Economic Times</a></li>
+<li><a href="https://www.hindustantimes.com/trending/who-is-devika-indias-ai-coder-an-alternative-to-devin-101712054136352.html" target="_blank" rel="noopener">Hindustan Times</a></li>
+<li><a href="https://www.financialexpress.com/life/technology-meet-devika-indias-own-ai-software-engineer-answer-to-us-devinnbsp-3445145/" target="_blank" rel="noopener">Financial Express</a></li>
+<li><a href="https://www.indiatimes.com/news/india/meet-devika-an-indian-open-source-alternative-to-ai-engineer-devin-631360.html" target="_blank" rel="noopener">IndiaTimes</a></li>
+<li><a href="https://www.firstpost.com/tech/devin-meets-devika-21-yo-creates-indias-own-ai-software-engineer-can-develop-software-from-scratch-13756394.html" target="_blank" rel="noopener">Firstpost</a></li>
+<li><a href="https://www.news18.com/news/education-career/andhra-pradesh-student-to-represent-india-in-cybersecurity-at-worldskills-competition-in-korea-6119209.html" target="_blank" rel="noopener">News18</a></li>
+<li><a href="https://analyticsindiamag.com/ai-news-updates/yc-startup-unveils-open-source-graphical-interface-for-claude-code/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/meet-the-21-year-old-creator-of-devika-the-indian-open-source-devin-alternative/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/indiaskills-nsdc-youth-web-technologies-cloud-computing-mobile-robotics/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-news-updates/meet-devika-an-open-source-alternative-to-devin/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-news-updates/yann-lecun-advices-students-getting-into-ai-space-to-not-work-on-llms/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-origins-evolution/why-india-needs-more-ai4bharats/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-origins-evolution/a-bunch-of-20-year-old-programmers-are-driving-indias-open-source-ai/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/top-ai-tools/top-6-devin-alternatives-to-automate-your-coding-tasks/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/industry-insights/ai-startups/12-indian-genai-startups-building-insane-products-you-should-know-about/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-insights-analysis/india-is-likely-to-develop-its-foundational-model-this-year/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-origins-evolution/indian-ai-researchers-should-move-beyond-phds/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-origins-evolution/github-is-madly-in-love-with-indias-burgeoning-developer-community/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-news-updates/devika-creator-launches-asterisk-yc-backed-ai-agent-startup/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-origins-evolution/taking-your-ai-passion-projects-seriously-may-not-be-a-bad-idea-after-all/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-origins-evolution/indian-researchers-need-to-stop-making-useless-llms/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-origins-evolution/its-too-early-to-write-off-llms/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-trends-future/why-is-yc-bullish-on-indian-ai-startups/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-origins-evolution/cracking-yc-a-guide-for-ai-startups/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/ai-origins-evolution/the-secret-to-creating-the-next-billion-dollar-ai-startup/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://analyticsindiamag.com/videos/meet-indian-ai-developers-and-engineers-in-tech-talk/" target="_blank" rel="noopener">Analytics India Magazine</a></li>
+<li><a href="https://www.msn.com/en-in/money/news/kerala-man-creates-india-s-first-open-source-ai-engineer-devika-born-from-joke-on-x/ar-BB1laFXY?ocid=finance-verthp-feeds" target="_blank" rel="noopener">MSN</a></li>
+<li><a href="https://www.msn.com/en-in/money/news/meet-devika-india-s-own-ai-software-engineer-answer-to-us-devin/ar-BB1l09ao" target="_blank" rel="noopener">MSN</a></li>
+<li><a href="https://keralakaumudi.com/en/news/news.php?id=1282584&u=ai-engineer-devika-to-develop-apps" target="_blank" rel="noopener">Kerala Kaumudi</a></li>
+<li><a href="https://newsable.asianetnews.com/science/kerala-man-creates-india-s-first-open-source-ai-engineer-devika-born-from-joke-on-x-vkp-sbipng" target="_blank" rel="noopener">Asianet News</a></li>
+<li><a href="https://www.mathrubhumi.com/technology/news/devika-indian-open-source-devin-alternative-mufeed-vh-1.9453997" target="_blank" rel="noopener">Mathrubhumi</a></li>
+<li><a href="https://www.thedroptimes.com/38641/21-year-old-innovator-launches-devika-open-source-alternative-devin" target="_blank" rel="noopener">The Drop Times</a></li>
+<li><a href="https://businessprizm.com/the-innovative-mind-behind-devika-ai/" target="_blank" rel="noopener">Business Prizm</a></li>
+<li><a href="https://inshorts.com/en/news/meet-devika-indian-opensource-alternative-to-ai-engineer-devin-1712049838586" target="_blank" rel="noopener">Inshorts</a></li>
+<li><a href="https://www.consultantsreview.com/news/introducing-devika-an-indian-substitute-for-ai-engineer-devin-nwid-4494.html" target="_blank" rel="noopener">Consultants Review</a></li>
+<li><a href="https://www.consultantsreview.com/news/devika-the-first-ai-engineer-from-india-with-the-prowess-of-all-nwid-4531.html" target="_blank" rel="noopener">Consultants Review</a></li>
+<li><a href="https://industrywired.com/web-stories/indian-ai-engineer-devika-rises-to-compete-with-devin/" target="_blank" rel="noopener">Industry Wired</a></li>
+<li><a href="https://www.techjockey.com/news/indian-ai-engineer-devika-steps-up-to-challenge-devin-ai-coding-pioneer" target="_blank" rel="noopener">TechJockey</a></li>
+<li><a href="https://indiaai.gov.in/article/indian-ai-engineer-devika-challenges-the-world-s-first-ai-coder-devin" target="_blank" rel="noopener">India AI by the Government</a></li>
+<li><a href="https://www.digit.in/news/general/what-is-devika-an-indian-ai-software-engineer-capable-of-find-out.html" target="_blank" rel="noopener">Digit</a></li>
+<li><a href="https://www.thesamur.ai/news/devika-vs-devin-a-new-chapter-in-the-global-ai-race" target="_blank" rel="noopener">The Samur.ai</a></li>
+<li><a href="https://worldskillsindia.co.in/life-after-worldskill.php" target="_blank" rel="noopener">World Skills India</a></li>
+<li><a href="https://www.newindiaabroad.com/news/you-devin-me-devika-indian-startup-challenges-worlds-first-ai-software-engineer" target="_blank" rel="noopener">New India Abroad</a></li>
+<li><a href="https://www.itvoice.in/introducing-devika-indias-open-source-answer-to-ai-engineer-devin" target="_blank" rel="noopener">IT Voice</a></li>
+<li><a href="https://echocraftai.com/devika-pioneering-an-ideal-ai-software-for-2024/" target="_blank" rel="noopener">Echo Craft AI</a></li>
+<li><a href="https://pc-tablet.co.in/indias-ai-innovator-mufeed-vh-launches-devika-an-open-source-ai-engineer/15030/" target="_blank" rel="noopener">PC-Tablet</a></li>
+<li><a href="https://www.chronicleindia.in/current-affairs/11145-india-devika" target="_blank" rel="noopener">Chronicle India</a></li>
+<li><a href="https://blog.velocitytech.in/who-is-devika-ai/" target="_blank" rel="noopener">Velocity Tech</a></li>
+<li><a href="https://www.newsx.com/science-and-technology/who-is-devika-indias-1st-ai-engineer-challenging-devin-worlds-1st-ai-coder/" target="_blank" rel="noopener">NewsX</a></li>
+<li><a href="https://miethereum.com/ai/indias-ai-innovation-devika-challenges-devin-in-the-ai-coder-arena/" target="_blank" rel="noopener">MiEthereum</a></li>
+<li><a href="https://menafn.com/1108066161/Kerala-Man-Creates-Indias-First-Open-Source-AI-Engineer-Devika-Born-From-Joke-On-X" target="_blank" rel="noopener">MENA FN</a></li>
+<li><a href="https://anweshanam.com/737707/a-i-devika-and-devin/" target="_blank" rel="noopener">Anweshanam</a></li>
+<li><a href="https://keralatechnology.com/blog/devika-still-a-work-in-progress-says-creator" target="_blank" rel="noopener">Kerala Technology</a></li>
+<li><a href="https://worldskills2022se.com/skills/cyber-security/index.html" target="_blank" rel="noopener">World Skills 2022</a></li>
+<li><a href="https://news.itsfoss.com/claudia/" target="_blank" rel="noopener">IT'S FOSS NEWS</a></li>
+</ul>
+</details>
 
 ### Socials
 
 @mufeedvh on [GitHub](https://github.com/mufeedvh), [X](https://x.com/mufeedvh), [LinkedIn](https://www.linkedin.com/in/mufeed-vh/) and [Instagram](https://instagram.com/mufeedvh).
 
-<details class="bonus-section">
-  <summary><span class="toggle-icon">▶</span> Bonus</summary>
-  <img src="/assets/images/cats.jpg" alt="Two adorable cats posing together" loading="lazy" width="800" height="600">
+<details class="fold">
+<summary>Bonus</summary>
+<img src="/assets/images/cats.jpg" alt="Two adorable cats posing together" loading="lazy" width="800" height="600">
 </details>
-<br>
 
 <script>
 function me_when() {

@@ -10,91 +10,15 @@ exclude_from_sitemap = true
 
 write or draw me a message **anonymously**.
 
-<style>
-    textarea {
-        box-sizing: border-box;
-        width: 100%;
-        padding: var(--space-3);
-        font-family: var(--font-body);
-        font-size: var(--text-base);
-        background-color: var(--bg-card);
-        color: var(--text-primary);
-        border: 1px dotted var(--border-dotted);
-        margin-bottom: var(--space-2);
-        resize: vertical;
-        outline: none;
-    }
-
-    textarea:focus {
-        border-style: solid;
-        border-color: var(--text-secondary);
-    }
-
-    .paint-canvas {
-        box-sizing: border-box;
-        width: 100%;
-        height: 400px;
-        background: #ffffff;
-        border: 1px dotted var(--border-dotted);
-        display: block;
-        margin-top: var(--space-2);
-        touch-action: none;
-        cursor: crosshair;
-    }
-
-    .drawing-controls {
-        display: flex;
-        align-items: center;
-        gap: var(--space-4);
-        margin-top: var(--space-2);
-        font-family: var(--font-display);
-        font-size: var(--text-xs);
-        text-transform: uppercase;
-    }
-
-    .color-picker {
-        background: var(--bg-card);
-        border: 1px dotted var(--border-dotted);
-        cursor: pointer;
-        padding: 2px;
-        width: 40px;
-        height: 30px;
-    }
-
-    .line-range {
-        flex-grow: 1;
-        cursor: pointer;
-        accent-color: var(--text-secondary);
-    }
-
-    .message-section {
-        margin: var(--space-6) 0;
-        padding: var(--space-4);
-        border: 1px dotted var(--border-dotted);
-        background-color: var(--bg-surface);
-        display: flex;
-        flex-direction: column;
-    }
-
-    .section-title {
-        font-family: var(--font-display);
-        font-size: var(--text-sm);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: var(--space-2);
-        display: block;
-        text-align: center;
-    }
-</style>
 
 <div class="message-container">
 <div class="message-section">
-<span class="section-title">✍️ Send a Message</span>
+<span class="section-title">Write</span>
 <textarea id="message" rows="8" placeholder="Type your anonymous message here..."></textarea>
 {{ button(text="Send Message", id="msg-button", onclick="send_message();", align="center") }}
 </div>
 <div class="message-section">
-<span class="section-title">🖌️ Send a Drawing</span>
+<span class="section-title">Draw</span>
 <div class="drawing-controls">
 <input type="color" class="js-color-picker color-picker" value="#000000">
 <input type="range" class="js-line-range line-range" min="1" max="50" value="2">
@@ -331,143 +255,68 @@ write or draw me a message **anonymously**.
         paintCanvas.addEventListener('touchend', stopDrawing);
 
         const API_URL = 'https://api.mufeedvh.com';
+        const ENDPOINTS = { message: '/message', drawing: '/drawing' };
+        const lastSent = { message: null, drawing: null };
+        const inFlight = { message: false, drawing: false };
 
-        let lastSentMessage = null;
-        let lastSentDrawing = null;
-        let isSendingMessage = false;
-        let isSendingDrawing = false;
-
-        const send_message = () => {
-            if (isSendingMessage) {
-                return;
-            }
-
-            const message = document.getElementById('message').value;
-            const button = document.getElementById('msg-button');
-
-            if (lastSentMessage !== null && message === lastSentMessage) {
-                button.style.backgroundColor = '#ffa500';
-                button.style.color = 'white';
-                button.innerHTML = 'Message already sent';
-                return;
-            }
-
-            isSendingMessage = true;
-            button.disabled = true;
-            button.style.backgroundColor = '#808080';
-            button.innerHTML = 'Sending...';
-
-            const xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                    const token = JSON.parse(this.responseText).token;
-                    console.log('acquired token: ' + token);
-
-                    const innerXhttp = new XMLHttpRequest();
-                    const url = API_URL + '/message';
-
-                    innerXhttp.onreadystatechange = function() {
-                        if (this.readyState === 4 && this.status === 200) {
-                            lastSentMessage = message;
-                            button.style.backgroundColor = 'lightgreen';
-                            button.style.color = 'black';
-                            button.innerHTML = JSON.parse(innerXhttp.responseText).message;
-                            button.disabled = false;
-                            isSendingMessage = false;
-                        } else if (this.readyState === 4 && this.status !== 200) {
-                            button.style.color = 'white';
-                            button.style.backgroundColor = 'red';
-                            button.innerHTML = 'Failed to send message';
-                            button.disabled = false;
-                            isSendingMessage = false;
-                        }
-                    };
-
-                    innerXhttp.open('POST', url);
-                    innerXhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-                    innerXhttp.send(JSON.stringify({
-                        'token': token,
-                        'message': message
-                    }));
-                } else if (this.readyState === 4 && this.status !== 200) {
-                    button.style.color = 'white';
-                    button.style.backgroundColor = 'red';
-                    button.innerHTML = 'Failed to get token';
-                    button.disabled = false;
-                    isSendingMessage = false;
-                }
-            };
-
-            xhttp.open('GET', API_URL + '/get_token', true);
-            xhttp.send();
+        /**
+         * Button state is expressed through classes (styled in styles.css) rather
+         * than inline colours, so the page keeps its palette in every state.
+         */
+        const setButtonState = (button, state, label) => {
+            if (!button) return;
+            button.classList.remove('is-sending', 'is-success', 'is-error', 'is-warn');
+            if (state) button.classList.add(state);
+            button.disabled = state === 'is-sending';
+            const text = button.querySelector('.btn-text') || button;
+            text.textContent = label;
         };
 
-        const send_drawing = () => {
-            if (isSendingDrawing) {
+        /**
+         * Fetch a one-time token, then post the payload. Failures are reported on
+         * the button; nothing about the payload is logged.
+         */
+        const deliver = async (kind, payload, button) => {
+            if (inFlight[kind]) return;
+
+            if (kind === 'message' && !payload.trim()) {
+                setButtonState(button, 'is-warn', 'Nothing to send');
                 return;
             }
 
-            const drawingData = paintCanvas.toDataURL();
-            const button = document.getElementById('draw-button');
-
-            if (lastSentDrawing !== null && drawingData === lastSentDrawing) {
-                button.style.backgroundColor = '#ffa500';
-                button.style.color = 'white';
-                button.innerHTML = 'Drawing already sent';
+            if (lastSent[kind] !== null && lastSent[kind] === payload) {
+                setButtonState(button, 'is-warn', kind === 'message' ? 'Message already sent' : 'Drawing already sent');
                 return;
             }
 
-            isSendingDrawing = true;
-            button.disabled = true;
-            button.style.backgroundColor = '#808080';
-            button.innerHTML = 'Sending...';
+            inFlight[kind] = true;
+            setButtonState(button, 'is-sending', 'Sending');
 
-            const xhttp = new XMLHttpRequest();
+            try {
+                const tokenResponse = await fetch(API_URL + '/get_token');
+                if (!tokenResponse.ok) throw new Error('token');
+                const { token } = await tokenResponse.json();
 
-            xhttp.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                    const token = JSON.parse(this.responseText).token;
-                    console.log('acquired token: ' + token);
+                const response = await fetch(API_URL + ENDPOINTS[kind], {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+                    body: JSON.stringify({ token, message: payload })
+                });
+                if (!response.ok) throw new Error('send');
 
-                    const innerXhttp = new XMLHttpRequest();
-                    const url = API_URL + '/drawing';
-
-                    innerXhttp.onreadystatechange = function() {
-                        if (this.readyState === 4 && this.status === 200) {
-                            lastSentDrawing = drawingData;
-                            button.style.backgroundColor = 'lightgreen';
-                            button.style.color = 'black';
-                            button.innerHTML = JSON.parse(innerXhttp.responseText).message;
-                            button.disabled = false;
-                            isSendingDrawing = false;
-                        } else if (this.readyState === 4 && this.status !== 200) {
-                            button.style.color = 'white';
-                            button.style.backgroundColor = 'red';
-                            button.innerHTML = 'Failed to send drawing';
-                            button.disabled = false;
-                            isSendingDrawing = false;
-                        }
-                    };
-
-                    innerXhttp.open('POST', url);
-                    innerXhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-                    innerXhttp.send(JSON.stringify({
-                        'token': token,
-                        'message': drawingData
-                    }));
-                } else if (this.readyState === 4 && this.status !== 200) {
-                    button.style.color = 'white';
-                    button.style.backgroundColor = 'red';
-                    button.innerHTML = 'Failed to get token';
-                    button.disabled = false;
-                    isSendingDrawing = false;
-                }
-            };
-
-            xhttp.open('GET', API_URL + '/get_token', true);
-            xhttp.send();
+                const data = await response.json();
+                lastSent[kind] = payload;
+                setButtonState(button, 'is-success', data.message || 'Sent');
+            } catch (error) {
+                console.warn('[message] delivery failed', { kind, stage: error && error.message });
+                setButtonState(button, 'is-error', error && error.message === 'token' ? 'Failed to get token' : 'Failed to send');
+            } finally {
+                inFlight[kind] = false;
+            }
         };
+
+        const send_message = () => deliver('message', document.getElementById('message').value, document.getElementById('msg-button'));
+        const send_drawing = () => deliver('drawing', paintCanvas.toDataURL(), document.getElementById('draw-button'));
 
         window.send_message = send_message;
         window.send_drawing = send_drawing;

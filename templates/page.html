@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block title %}
-    {% if page %}
+    {%- if page -%}
         {{ page.title }} - {{ config.title }}
-    {% elif section %}
+    {%- elif section -%}
         {{ section.title }} - {{ config.title }}
-    {% else %}
+    {%- else -%}
         {{ config.title }}
-    {% endif %}
+    {%- endif -%}
 {% endblock title %}
 
 {% block meta %}
@@ -44,6 +44,9 @@
     {% else %}
         <meta property="og:type" content="website">
         <meta name="twitter:card" content="summary_large_image">
+        {% if section and section.extra.noindex | default(value=false) %}
+            <meta name="robots" content="noindex, follow">
+        {% endif %}
     {% endif %}
 {% endblock meta %}
 
@@ -90,74 +93,49 @@
 {% endblock extra_head %}
 
 {% block content %}
-    {% if page %}
-        {% if not page.extra.no_header %}
-            <h1 class="page-title">{{ page.title }}</h1>
-        {% endif %}
-
-        <div class="post-metadata">
+{% if page %}
+    {% set is_blog = page.extra.blog | default(value=false) %}
+    <article class="post">
+        {% if not page.extra.no_header | default(value=false) %}
+        <header class="page-header">
             {% if page.date %}
-                <div class="metadata-item">
-                    <span class="metadata-label">Created:</span> {{ page.date | date(format="%Y-%m-%d") }}
-                </div>
+            <p class="meta">
+                <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+                {%- if page.updated %}<span class="sep" aria-hidden="true">&middot;</span>updated <time datetime="{{ page.updated | date(format="%Y-%m-%d") }}">{{ page.updated | date(format="%Y-%m-%d") }}</time>{% endif -%}
+                {%- if is_blog and page.reading_time %}<span class="sep" aria-hidden="true">&middot;</span>{{ page.reading_time }} min read{% endif -%}
+                {%- if page.taxonomies.tags %}<span class="sep" aria-hidden="true">&middot;</span>
+                {%- for tag in page.taxonomies.tags -%}
+                    <a href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+                {%- endfor -%}
+                {%- endif %}
+            </p>
             {% endif %}
-
-            {% if page.updated %}
-                <div class="metadata-item">
-                    <span class="metadata-label">Modified:</span> {{ page.updated | date(format="%Y-%m-%d") }}
-                </div>
+            <h1 class="page-title">{{ page.title }}</h1>
+            {% if page.description and not page.extra.hide_deck | default(value=false) %}
+            <p class="page-deck">{{ page.description }}</p>
             {% endif %}
-
-            {% if page.extra.status %}
-                <div class="metadata-item">
-                    <span class="metadata-label">Status:</span> {{ page.extra.status }}
-                </div>
-            {% endif %}
-
-            {% if page.extra.confidence %}
-                <div class="metadata-item">
-                    <span class="metadata-label">Certainty:</span> {{ page.extra.confidence }}
-                </div>
-            {% endif %}
-
-            {% if page.extra.importance %}
-                <div class="metadata-item">
-                    <span class="metadata-label">Importance:</span> {{ page.extra.importance }}
-                </div>
-            {% endif %}
-
-            {% if page.taxonomies.tags %}
-                <div class="metadata-item">
-                    <span class="metadata-label">Tags:</span>
-                    {% for tag in page.taxonomies.tags %}
-                        <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
-
-        <article class="{% if page.extra.blog or page.extra.drop_cap %}drop-cap{% endif %}">
-            {{ page.content | safe }}
-        </article>
-
-    {% elif section %}
-        {% if not section.extra.no_header | default(value=false) %}
-            <h1 class="page-title">{{ section.title }}</h1>
+        </header>
         {% endif %}
 
-        <article class="{% if section.extra.drop_cap | default(value=false) %}drop-cap{% endif %}">
-            {% if section.content %}
-                {{ section.content | safe }}
+        <div class="prose{% if is_blog or page.extra.drop_cap | default(value=false) %} drop-cap{% endif %}">
+            {{ page.content | safe }}
+        </div>
+    </article>
+
+{% elif section %}
+    <article class="post">
+        {% if not section.extra.no_header | default(value=false) %}
+        <header class="page-header">
+            <h1 class="page-title">{{ section.title }}</h1>
+            {% if section.description %}
+            <p class="page-deck">{{ section.description }}</p>
             {% endif %}
-        </article>
+        </header>
+        {% endif %}
+
+        <div class="prose{% if section.extra.drop_cap | default(value=false) %} drop-cap{% endif %}">
+            {{ section.content | safe }}
+        </div>
+    </article>
 {% endif %}
-
 {% endblock content %}
-
-{% block footer %}
-<footer class="site-footer">
-    <div class="back-to-directory">
-        <a href="/">← Back to Directory</a>
-    </div>
-</footer>
-{% endblock footer %}

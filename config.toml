@@ -19,7 +19,8 @@ internal_level = "error"
 external_level = "error"
 
 [markdown]
-highlight_code = false
+highlight_code = true
+highlight_theme = "css"
 external_links_target_blank = true
 external_links_no_follow = true
 external_links_no_referrer = true

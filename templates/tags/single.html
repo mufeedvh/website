@@ -30,10 +30,24 @@
 {% endblock extra_head %}
 
 {% block content %}
-<ul>
-    <h1>Posts tagged with <code>{{ term.name }}</code></h1>
+<header class="page-header">
+    <p class="meta"><a href="{{ get_url(path='tags') | safe }}">Tags</a></p>
+    <h1 class="page-title">{{ term.name }}</h1>
+    <p class="page-deck">{{ term.pages | length }} post{% if term.pages | length != 1 %}s{% endif %} filed under <em>{{ term.name }}</em>.</p>
+</header>
+
+<ol class="index index--posts" reversed>
     {% for page in term.pages %}
-        <li>{{ page.date | date(format="%a %b %e, %Y") }} - <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    <li>
+        <a class="row" href="{{ page.permalink | safe }}">
+            <span class="title">{{ page.title }}</span>
+            <span class="leader" aria-hidden="true"></span>
+            <span class="when">{{ page.date | date(format="%b %Y") }}</span>
+        </a>
+        {% if page.description %}
+        <p class="deck">{{ page.description }}</p>
+        {% endif %}
+    </li>
     {% endfor %}
-</ul>
+</ol>
 {% endblock content %}

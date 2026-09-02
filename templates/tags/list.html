@@ -30,10 +30,14 @@
 {% endblock extra_head %}
 
 {% block content %}
-<ul>
-    <h1>Browse posts by tag</h1>
+<header class="page-header">
+    <h1 class="page-title">Tags</h1>
+    <p class="page-deck">Posts, filed by subject.</p>
+</header>
+
+<ul class="tag-cloud">
     {% for tag in terms %}
-        <li><a href="{{ tag.permalink }}">{{ tag.name }}</a></li>
+    <li><a href="{{ tag.permalink | safe }}">{{ tag.name }}</a><span class="count">{{ tag.pages | length }}</span></li>
     {% endfor %}
 </ul>
 {% endblock content %}

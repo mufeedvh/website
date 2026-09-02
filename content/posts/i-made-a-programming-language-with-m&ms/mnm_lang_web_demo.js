@@ -169,24 +169,24 @@
 
   const INJECTED_STYLES = `
     :root {
-      --mnm-bg: #0d0d0d;
-      --mnm-surface: #141414;
-      --mnm-card: #1a1a1a;
-      --mnm-hover: #222222;
-      --mnm-text: #e0e0e0;
-      --mnm-secondary: #aaaaaa;
-      --mnm-tertiary: #666666;
-      --mnm-border-soft: #222222;
-      --mnm-border-strong: #333333;
-      --mnm-border-dotted: #444444;
-      --mnm-white: #ffffff;
+      --mnm-bg: var(--bg, #121110);
+      --mnm-surface: var(--bg-raised, #1a1917);
+      --mnm-card: var(--bg, #121110);
+      --mnm-hover: var(--bg-hover, #211f1c);
+      --mnm-text: var(--ink, #e8e3da);
+      --mnm-secondary: var(--ink-2, #aaa49b);
+      --mnm-tertiary: var(--ink-3, #847d75);
+      --mnm-border-soft: var(--line, rgba(232, 227, 218, 0.1));
+      --mnm-border-strong: var(--line-2, rgba(232, 227, 218, 0.2));
+      --mnm-border-dotted: var(--line-2, rgba(232, 227, 218, 0.2));
+      --mnm-white: var(--ink, #e8e3da);
     }
     .mnm-widget {
       position: relative;
       display: grid;
       gap: clamp(14px, 2vw, 22px);
       padding: clamp(16px, 2vw, 24px);
-      border: 1px dotted var(--mnm-border-dotted);
+      border: 1px solid var(--mnm-border-dotted);
       background: var(--mnm-surface);
       container-type: inline-size;
       color: var(--mnm-text);
@@ -204,11 +204,11 @@
       display: grid;
       gap: 8px;
       padding-bottom: 14px;
-      border-bottom: 1px dotted var(--mnm-border-dotted);
+      border-bottom: 1px solid var(--mnm-border-dotted);
     }
     .mnm-kicker {
       margin: 0;
-      font-family: "Space Grotesk", sans-serif;
+      font-family: var(--font-mono, monospace);
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.14em;
@@ -217,7 +217,7 @@
     }
     .mnm-title {
       margin: 0;
-      font-family: "Crimson Pro", serif;
+      font-family: var(--font-serif, serif);
       font-size: clamp(1.55rem, 2.35vw, 2.15rem);
       line-height: 1.08;
       font-weight: 500;
@@ -228,7 +228,7 @@
       color: var(--mnm-secondary);
       line-height: 1.6;
       font-size: 1.02rem;
-      font-family: "Crimson Pro", serif;
+      font-family: var(--font-serif, serif);
     }
     .mnm-workbench {
       display: grid;
@@ -251,7 +251,7 @@
       gap: 12px;
       padding: clamp(14px, 1.8vw, 18px);
       background: var(--mnm-card);
-      border: 1px dotted var(--mnm-border-dotted);
+      border: 1px solid var(--mnm-border-dotted);
       min-width: 0;
     }
     .mnm-surface-heading {
@@ -262,7 +262,7 @@
     }
     .mnm-surface-heading h3 {
       margin: 0;
-      font-family: "Space Grotesk", sans-serif;
+      font-family: var(--font-mono, monospace);
       font-size: 0.76rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -272,12 +272,12 @@
     .mnm-output,
     .mnm-tree {
       width: 100%;
-      border: 1px dotted var(--mnm-border-dotted);
+      border: 1px solid var(--mnm-border-dotted);
       border-radius: 0;
       padding: 16px;
       background: var(--mnm-card);
       color: var(--mnm-text);
-      font: 500 0.95rem/1.7 "JetBrains Mono", monospace;
+      font: 500 0.95rem/1.7 var(--font-mono, monospace);
       resize: vertical;
       min-height: 170px;
       caret-color: var(--mnm-white);
@@ -324,7 +324,7 @@
     }
     .mnm-editor-shell {
       position: relative;
-      border: 1px dotted var(--mnm-border-dotted);
+      border: 1px solid var(--mnm-border-dotted);
       background: var(--mnm-bg);
       overflow-x: auto;
     }
@@ -342,7 +342,7 @@
       inset: 0;
       pointer-events: none;
       color: var(--mnm-text);
-      font: 500 0.95rem/1.7 "JetBrains Mono", monospace;
+      font: 500 0.95rem/1.7 var(--font-mono, monospace);
       overflow: hidden;
     }
     .mnm-json-punc,
@@ -360,7 +360,7 @@
       transition: color 0.1s ease;
     }
     .mnm-json-punc { color: var(--mnm-secondary); }
-    .mnm-json-key { color: #e0e0e0; }
+    .mnm-json-key { color: var(--mnm-text); }
     .mnm-json-string { color: #9ecbff; }
     .mnm-json-number { color: #79c0ff; }
     .mnm-json-boolean { color: #e0a4ff; }
@@ -401,13 +401,13 @@
     .mnm-button,
     .mnm-chip {
       appearance: none;
-      border: 1px dotted var(--mnm-border-dotted);
+      border: 1px solid var(--mnm-border-dotted);
       cursor: pointer;
       border-radius: 0;
       padding: 11px 14px;
       background: transparent;
       color: var(--mnm-secondary);
-      font: 500 0.72rem/1 "Space Grotesk", sans-serif;
+      font: 500 0.72rem/1 var(--font-mono, monospace);
       text-transform: uppercase;
       letter-spacing: 0.14em;
       transition: border-color 0.1s ease, color 0.1s ease, background-color 0.1s ease;
@@ -472,7 +472,7 @@
       border-top: none;
       padding: 8px;
       background: var(--mnm-card);
-      border: 1px dotted var(--mnm-border-dotted);
+      border: 1px solid var(--mnm-border-dotted);
     }
     .mnm-tri-pane details.mnm-detail summary {
       font-size: 0.62rem;
@@ -486,7 +486,7 @@
         grid-template-columns: 1fr;
       }
       .mnm-tri-pane details.mnm-detail {
-        border-top: 1px dotted var(--mnm-border-dotted);
+        border-top: 1px solid var(--mnm-border-dotted);
         padding-top: 10px;
       }
     }
@@ -496,7 +496,7 @@
       justify-content: center;
       padding: 12px;
       background: var(--mnm-bg);
-      border: 1px dotted var(--mnm-border-dotted);
+      border: 1px solid var(--mnm-border-dotted);
     }
     .mnm-render-canvas {
       width: auto;
@@ -512,19 +512,19 @@
       min-height: 1.4em;
       color: var(--mnm-secondary);
       font-size: 0.76rem;
-      font-family: "Space Grotesk", sans-serif;
+      font-family: var(--font-mono, monospace);
       text-transform: uppercase;
       letter-spacing: 0.12em;
     }
     details.mnm-detail {
-      border-top: 1px dotted var(--mnm-border-dotted);
+      border-top: 1px solid var(--mnm-border-dotted);
       padding-top: 10px;
     }
     details.mnm-detail summary {
       cursor: pointer;
       font-size: 0.72rem;
       color: var(--mnm-secondary);
-      font-family: "Space Grotesk", sans-serif;
+      font-family: var(--font-mono, monospace);
       text-transform: uppercase;
       letter-spacing: 0.14em;
       list-style: none;
@@ -629,6 +629,8 @@
       .mnm-editor-backdrop,
       .mnm-field {
         padding: 12px 14px;
+        font-size: 0.82rem;
+        line-height: 1.55;
       }
       .mnm-controls {
         display: grid;

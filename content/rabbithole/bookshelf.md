@@ -1,16 +1,10 @@
 +++
 title = "Bookshelf"
-description = "Incomplete list of books I am reading or have read."
+description = "An incomplete list of books I am reading or have read."
 
 [extra]
-no_header = true
 noindex = true
 +++
-
-<div class="center-content" style="margin-bottom: var(--space-8);">
-<h1 style="font-family: var(--font-fancy); font-size: 3.5rem; margin-bottom: 0;">Bookshelf</h1>
-<p style="font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-secondary); font-size: var(--text-xs);">Incomplete list of books I am reading or have read.</p>
-</div>
 
 <div class="bookshelf">
 <div class="shelf-row">

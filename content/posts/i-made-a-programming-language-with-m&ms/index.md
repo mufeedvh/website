@@ -258,7 +258,7 @@ If an image came from the compiler, the decompiler can:
 That gives an exact round-trip:
 
 <svg class="round-trip-diagram" viewBox="0 0 420 64" xmlns="http://www.w3.org/2000/svg">
-  <style>.rt-t{font-family:'JetBrains Mono',monospace;font-size:9px;fill:#666;letter-spacing:0.05em}.rt-icon{fill:none;stroke:#555;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}</style>
+  <style>.rt-t{font-family:var(--font-mono),monospace;font-size:9px;fill:var(--ink-3);letter-spacing:0.05em}.rt-icon{fill:none;stroke:var(--ink-3);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}</style>
   <g transform="translate(50,4)">
     <rect class="rt-icon" x="0" y="0" width="24" height="30" rx="1.5"/>
     <line class="rt-icon" x1="5" y1="8" x2="19" y2="8"/>
@@ -267,14 +267,14 @@ That gives an exact round-trip:
     <line class="rt-icon" x1="5" y1="23" x2="13" y2="23"/>
     <text x="12" y="46" class="rt-t" text-anchor="middle">source</text>
   </g>
-  <line x1="100" y1="22" x2="175" y2="22" stroke="#444" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="100" y1="22" x2="175" y2="22" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="4 3"/>
   <g transform="translate(198,4)">
     <rect class="rt-icon" x="0" y="0" width="24" height="30" rx="1.5"/>
     <polygon class="rt-icon" points="5,22 10,14 14,19 17,15 19,22" fill="none"/>
     <circle cx="8" cy="10" r="2" class="rt-icon"/>
     <text x="12" y="46" class="rt-t" text-anchor="middle">PNG</text>
   </g>
-  <line x1="245" y1="22" x2="320" y2="22" stroke="#444" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="245" y1="22" x2="320" y2="22" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="4 3"/>
   <g transform="translate(345,4)">
     <rect class="rt-icon" x="0" y="0" width="24" height="30" rx="1.5"/>
     <line class="rt-icon" x1="5" y1="8" x2="19" y2="8"/>
