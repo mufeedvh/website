@@ -653,7 +653,8 @@ the joke or protect the implementation.&lt;&#x2F;p&gt;
 &lt;div class=&quot;button-wrapper&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn cta-button&quot; id=&quot;share-button&quot; onclick=&quot;share_button();&quot;&gt;&lt;span class=&quot;btn-text&quot;&gt;Link to this article&lt;&#x2F;span&gt; &lt;svg class=&quot;svg-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;use href=&quot;#icon-link&quot;&#x2F;&gt;&lt;&#x2F;svg&gt;&lt;&#x2F;button&gt;&lt;&#x2F;div&gt;
 
 &lt;div class=&quot;button-wrapper&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn cta-button&quot; id=&quot;follow-button&quot; onclick=&quot;twitter_follow();&quot;&gt;&lt;span class=&quot;btn-text&quot;&gt;Follow me on&lt;&#x2F;span&gt; &lt;span aria-hidden=&quot;true&quot;&gt;𝕏&lt;&#x2F;span&gt;&lt;&#x2F;button&gt;&lt;&#x2F;div&gt;
-&lt;&#x2F;div&gt;</description>
+&lt;&#x2F;div&gt;
+</description>
       </item>
     </channel>
 </rss>

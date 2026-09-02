@@ -1,8 +1,29 @@
+{#
+  A thick, six-faced 3D book that turns toward the cursor.
+
+  Usage: {{ book(title="…", author="…", cover="https://…", link="https://…", spine="Short title") }}
+
+  `spine` is optional: a shorter title to print down the spine. The same cover
+  image is reused (blurred and darkened) for the spine and back so the book's
+  colour matches its jacket without any colour sampling. Motion lives in
+  static/bookshelf.js; the rest pose is pure CSS.
+#}
 <div class="book">
-    <a href="{{ link | default(value='#') }}" target="_blank" class="book-link">
-        <div class="book-cover">
-            <img src="{{ cover }}" alt="{{ title }}" loading="lazy" />
-            <div class="book-spine"></div>
+    <a href="{{ link | default(value='#') }}" target="_blank" rel="noopener" class="book-stage" aria-label="{{ title }} by {{ author }}">
+        <span class="book-shadow" aria-hidden="true"></span>
+        <div class="book-3d">
+            <div class="book-face book-front">
+                <img src="{{ cover }}" alt="Cover of {{ title }}" loading="lazy" decoding="async">
+                <span class="book-sheen" aria-hidden="true"></span>
+            </div>
+            <div class="book-face book-back" aria-hidden="true"><img src="{{ cover }}" alt="" loading="lazy" decoding="async"></div>
+            <div class="book-face book-spine" aria-hidden="true">
+                <img src="{{ cover }}" alt="" loading="lazy" decoding="async">
+                <span class="book-spine-text"><span class="book-spine-title">{{ spine | default(value=title) }}</span><span class="book-spine-author">{{ author }}</span></span>
+            </div>
+            <div class="book-face book-edge book-edge-fore" aria-hidden="true"></div>
+            <div class="book-face book-edge book-edge-top" aria-hidden="true"></div>
+            <div class="book-face book-edge book-edge-bottom" aria-hidden="true"></div>
         </div>
     </a>
     <div class="book-info">
